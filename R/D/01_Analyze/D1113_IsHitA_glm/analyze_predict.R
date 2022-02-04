@@ -111,7 +111,7 @@ sqlCompute <- RxInSqlServer(connectionString = sqlConnString, wait = sqlWait, co
 rxSetComputeContext("local")
 rxGetComputeContext()
 
-sqlQuery <- paste0("SELECT * FROM ViewAnalyze", analyzeVersion, analyzeCategory, "01", analyzeType, "Type", analyzeTrackTypeCd, analyzeJyokenCd)
+sqlQuery <- paste0("SELECT * FROM ViewAnalyze", analyzeVersion, analyzeCategory, "01", analyzeType, "Type", analyzeTrackTypeCd, analyzeJyokenCd, " WHERE [Race.IsPredictedRace] = 1")
 print(paste0("sqlQuery=", sqlQuery))
 rowsPerRead <- 100000000
 inDataSource <- RxSqlServerData(sqlQuery = sqlQuery, connectionString = sqlConnString, stringsAsFactors = TRUE, rowsPerRead = rowsPerRead)
@@ -149,7 +149,6 @@ print(paste0(Sys.time(), " --- subset Finish ---"))
 print(paste0(Sys.time(), " --- transform Start ---"))
 nrow.InputDataSet.transform.before <- nrow(InputDataSet)
 # source(paste0("source_transform_predict.", analyzeType, ".R"))
-print(paste0(Sys.time(), " --- Transform Finished ---"))
 nrow.InputDataSet.transform.after <- nrow(InputDataSet)
 nrow.InputDataSet.transform.diff <- nrow.InputDataSet.transform.before - nrow.InputDataSet.transform.after
 print(paste0("nrow(InputDataSet) transaform before=", nrow.InputDataSet.transform.before))
