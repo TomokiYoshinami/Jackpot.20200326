@@ -1,0 +1,279 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<!-- Lastupdate 2019/03/18 11:46 -->
+<head>
+<meta content="text/html; charset=euc-jp" http-equiv="Content-Type">
+<TITLE>JRA　ネット投票</TITLE>
+<META HTTP-EQUIV="Content-Script-Type" CONTENT="text/javascript">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="tmpl/000_170929.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="tmpl/020_190329.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+<!--
+document.open();
+WriteCSS();
+document.close();
+
+var msg1 = "データが異常です。DATA=";
+var msg3 = "第";
+var msg4 = "回";
+var msg5 = "日";
+var msg6 = "天候：";
+var msg7 = "芝：";
+var msg8 = "ダート：";
+var msg9 = "レース";
+var msg10 = "締切時刻";
+var msg11 = "出走頭数";
+var msg12 = "発売状況";
+var msg13 = "取消馬番";
+var msg23 = "ご利用されているブラウザがInternet Explorer 5.5以下の場合\nオッズ投票をご利用することができません。";
+var msg24 = "ご利用されているブラウザがInternet Explorer 5.5以下の場合\nWin5投票をご利用することができません。";
+
+var hmsg1 = '※照会を行う場合は、「このまま進む」を押してください。';
+
+var OddsFlag = 1;
+
+var URL1 = "https://un.sp.jra.go.jp/jraaccount2033/menu";
+var URL2 = "https://un.sp.jra.go.jp/jraaccount2033/menu";
+var URL3 = "https://un.sp.jra.go.jp/jraaccount2033/info";
+var URL4 = "https://un.sp.jra.go.jp/jraaccount2033/info";
+var URL5 = "https://n.ipat.jra.go.jp/pw_020_i.cgi";
+
+var SokuFlag1 = 1;
+var SokuFlag2 = 0;
+var g020_nIntlSniFlag = 0;
+var g020_nSniFlag = 0;
+var g020_cFrameURL = "https://"+location.hostname+"/2017/pw_890_i.cgi";
+
+J_M=new Array ("","札幌競馬","函館競馬","福島競馬","新潟競馬","東京競馬","中山競馬","中京競馬","京都競馬","阪神競馬","小倉競馬");
+W_M=new Array ("","（日）","（月）","（火）","（水）","（木）","（金）","（土）");
+T_M=new Array ("","晴","曇","雨","小雨","雪","小雪");
+C_M=new Array ("","良","稍重","重","不良");
+D_M=new Array ("","良","稍重","重","不良");
+J_J=new Array ("発売","締切","中止","&nbsp;","","","","","","");
+
+Mg = new Array("A370201211","B970401322","C270201123","D310202000","E910402000");
+
+marraycnt=Mg.length;
+Jg = new Array(marraycnt);
+for(h1=0;h1<marraycnt;h1++){
+Jg[h1] = new Array();}
+Jg[0][0] = "1009140FFFFFF0FFFFFFFFFF00";
+Jg[0][1] = "1044140FFFFFF0FFFFFFFFFF00";
+Jg[0][2] = "1114150FFFFFF3FFFFFFFFFFC0";
+Jg[0][3] = "1144140FFFFFF0FFFFFFFFFF00";
+Jg[0][4] = "1234100FFFFFF000FFFFFF0000";
+Jg[0][5] = "1304160FFFFFFFFFFFFFFFFFF0";
+Jg[0][6] = "1334160FFFFFFFFFFFFFFFFFF0";
+Jg[0][7] = "1404160FFFFFFFFFFFFFFFFFF0";
+Jg[0][8] = "1434120FFFFFF00FFFFFFFF000";
+Jg[0][9] = "1509130FFFFFF03FFFFFFFFC00";
+Jg[0][10] = "1544150FFFFFF3FFFFFFFFFFC0";
+Jg[0][11] = "1629160FFFFFFFFFFFFFFFFFF0";
+Jg[1][0] = "0959120FFFFFF00FFFFFFFF000";
+Jg[1][1] = "1034160FFFFFFFFFFFFFFFFFF0";
+Jg[1][2] = "1104160FFFFFFFFFFFFFFFFFF0";
+Jg[1][3] = "1134170FFFFFFFFFFFFFFFFFFC";
+Jg[1][4] = "1224160FFFFFFFFFFFFFFFFFF0";
+Jg[1][5] = "1254090FFFFFF0003FFFFC0000";
+Jg[1][6] = "1324120FFFFFF00FFFFFFFF000";
+Jg[1][7] = "1354140FFFFFF0FFFFFFFFFF00";
+Jg[1][8] = "1424100FFFFFF000FFFFFF0000";
+Jg[1][9] = "1459100FFFFFF000FFFFFF0000";
+Jg[1][10] = "1534160FFFFFFFFFFFFFFFFFF0";
+Jg[1][11] = "1614120FFFFFF00FFFFFFFF000";
+Jg[2][0] = "0949070DF00000000FFFC00000";
+Jg[2][1] = "1024110FFFFFF003FFFFFFC000";
+Jg[2][2] = "1054160FFFFFFFFFFFFFFFFFF0";
+Jg[2][3] = "1124140FFFFFF0FFFFFFFFFF00";
+Jg[2][4] = "1214100FFFFFF000FFFFFF0000";
+Jg[2][5] = "1244130FFFFFF03FFFFFFFFC00";
+Jg[2][6] = "1314070DF00000000FFFC00000";
+Jg[2][7] = "1344120FFFFFF00FFFFFFFF000";
+Jg[2][8] = "1414100FFFFFF000FFFFFF0000";
+Jg[2][9] = "1449080DF00000000FFFF00000";
+Jg[2][10] = "1524160FFFFFFFFFFFFFFFFFF0";
+Jg[2][11] = "1604110FFFFFF003FFFFFFC000";
+Jg[3][0] = "00000000000000000000000000";
+Jg[3][1] = "00000000000000000000000000";
+Jg[3][2] = "00000000000000000000000000";
+Jg[3][3] = "00000000000000000000000000";
+Jg[3][4] = "00000000000000000000000000";
+Jg[3][5] = "00000000000000000000000000";
+Jg[3][6] = "00000000000000000000000000";
+Jg[3][7] = "00000000000000000000000000";
+Jg[3][8] = "00000000000000000000000000";
+Jg[3][9] = "00000000000000000000000000";
+Jg[3][10] = "1730123FFFFFF00FFFFFFFF000";
+Jg[4][0] = "00000000000000000000000000";
+Jg[4][1] = "00000000000000000000000000";
+Jg[4][2] = "00000000000000000000000000";
+Jg[4][3] = "00000000000000000000000000";
+Jg[4][4] = "00000000000000000000000000";
+Jg[4][5] = "00000000000000000000000000";
+Jg[4][6] = "00000000000000000000000000";
+Jg[4][7] = "00000000000000000000000000";
+Jg[4][8] = "00000000000000000000000000";
+Jg[4][9] = "00000000000000000000000000";
+Jg[4][10] = "1730163FFFFFFFFFFFFFFFFFF0";
+
+Cg = new Array("0000000000000000000000000000000000000","0000000000000000000000000000000000000");
+Gg = new Array("","");
+var g020_cCarrySelect="０円";
+var g020_cCarryQuick="０円";
+var g020_cPickKbn="1";
+var g020_nWarningWidth=650;
+// -->
+</SCRIPT>
+</head>
+<body onLoad="Init();" id="top">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.open();
+WriteHeader();
+document.close();
+// -->
+</SCRIPT>
+	<h1>
+	<IMG ALT="ネット投票" SRC="tmpl/images/logo.png" WIDTH="141" HEIGHT="31">投票メニュー<IMG CLASS="jralogoHeader" ALT="JRA" SRC="tmpl/images/jralogo_header.png" WIDTH="52" HEIGHT="31"></h1>
+	<p class="headMenu"><a class="headMenuR" href="#" onClick="document.FORM6.submit();return false;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;終了&nbsp;&nbsp;&nbsp;&nbsp;</a></p>
+</div>
+<DIV ID="noscript" STYLE=COLOR:red>
+	JRA ネット投票ではJavaScriptを使用しています。<BR>JavaScriptに対応したブラウザをご利用いただくか、JavaScriptを使用するように設定してからご利用願います。
+</DIV>
+<SCRIPT TYPE="text/javascript">
+	document.getElementById('noscript').style.display="none";
+</SCRIPT>
+
+
+<!-- insert 20200225 START-->
+<div style="text-align:center;border-style:solid;border-color:#f00;border-width:0.2em;padding:0.4em;color:#f00;background-color:#fff;width:700px;margin-left:auto;margin-right:auto">
+<strong style="font-size:large">
+当該サイトは、１１月１５日（日曜）をもって完全閉鎖いたします<br><br>
+※　本件に関するご質問等は、<a href="http://www.jra.go.jp/faq/id/#pat_service_center" target="_blank">PATサービスセンター</a>までお問い合わせください。
+<br>
+</strong>
+</div><br style="clear:both;">
+
+<div style="text-align:center;border-style:solid;border-color:#f00;border-width:0.2em;padding:0.4em;color:#f00;background-color:#fff;width:700px;margin-left:auto;margin-right:auto">
+<strong style="font-size:large">
+「自動投票」「連携アプリ・ソフト」等をご利用のお客様は、ご注意ください<br><br>
+<a href="http://www.jra.go.jp/dento/info/2019/122001.html" target="_blank">(連携アプリ等を利用した投票成否は一切保障いたしておりません)</a>
+<br>
+</strong>
+</div>
+<br style="clear:both;">
+
+<div style="text-align:center;border-style:solid;border-color:#f00;border-width:0.2em;padding:0.4em;color:#f00;background-color:#fff;width:700px;margin-left:auto;margin-right:auto">
+<strong style="font-size:large">
+閉鎖準備に伴い、下記期間は当該サイトへアクセス(投票)することができません<br>
+７月２８日（火曜）　～　　８月３０日（日曜）<br>
+９月２９日（火曜）　～　１１月　１日（日曜）<br>
+
+</strong>
+</div><br style="clear:both;">
+<!-- insert 20200225 END -->
+
+
+<div class="bg-block" STYLE="z-index:0">
+
+	<div class="bg-block2 s-020">
+		<FORM NAME="FORM0" ACTION="pw_050_i.cgi" METHOD="post">
+			<INPUT TYPE=HIDDEN NAME=uh VALUE="0dUlnc"><INPUT TYPE=HIDDEN NAME=inetid VALUE="8XG6UPKD"><INPUT TYPE=HIDDEN NAME=g VALUE="020"><INPUT TYPE=HIDDEN NAME=u VALUE="1hmtBH0Mscwg"><INPUT TYPE=HIDDEN NAME=nm VALUE="112033"><INPUT TYPE=HIDDEN NAME=zj VALUE="027000000000300">
+		</FORM>
+		<FORM NAME="FORM1" ACTION="http://jra.jp/JRADB/accessP.html" METHOD="post" TARGET="_blank">
+			<INPUT TYPE="HIDDEN" NAME="cname" VALUE="pw01pde01999999999999999999/C6">
+		</FORM>
+		<FORM NAME="FORM3" ACTION="pw_510_i.cgi" METHOD="post">
+			<INPUT TYPE=HIDDEN NAME=uh VALUE="0dUlnc"><INPUT TYPE=HIDDEN NAME=inetid VALUE="8XG6UPKD"><INPUT TYPE=HIDDEN NAME=g VALUE="020"><INPUT TYPE=HIDDEN NAME=u VALUE="1hmtBH0Mscwg"><INPUT TYPE=HIDDEN NAME=nm VALUE="112033"><INPUT TYPE=HIDDEN NAME=zj VALUE="027000000000300">
+		</FORM>
+		<FORM NAME="FORM5" ACTION="" METHOD="post">
+			<INPUT TYPE=HIDDEN NAME=nbc VALUE="bae5e718c680f9ecd25d36fba01e0c6c"><INPUT TYPE=HIDDEN NAME=i VALUE="60140117"><INPUT TYPE=HIDDEN NAME=nbf VALUE="1"><INPUT TYPE=HIDDEN NAME=mpnf VALUE="1">
+			<input type="hidden" name="inetid" value=""><input type="hidden" name="uh" value=""><input type="hidden" name="u" value="">
+		</FORM>
+		<FORM NAME="FORM6" ACTION="tmpl/pw_end_190913.html" METHOD="get">
+		</FORM>
+		<FORM NAME="SyoEnt" ACTION="pw_090_i.cgi" METHOD="post">
+			<INPUT TYPE=HIDDEN NAME=uh VALUE="0dUlnc"><INPUT TYPE=HIDDEN NAME=inetid VALUE="8XG6UPKD"><INPUT TYPE=HIDDEN NAME=g VALUE="020"><INPUT TYPE=HIDDEN NAME=u VALUE="1hmtBH0Mscwg"><INPUT TYPE=HIDDEN NAME=nm VALUE="112033"><INPUT TYPE=HIDDEN NAME=zj VALUE="027000000000300">
+		</FORM>
+		<FORM NAME="FormFlash" METHOD="post" TARGET="IPAT_sub" action="">
+			<INPUT TYPE=HIDDEN NAME=uh VALUE="0dUlnc"><INPUT TYPE=HIDDEN NAME=inetid VALUE="8XG6UPKD"><INPUT TYPE=HIDDEN NAME=g VALUE="020"><INPUT TYPE=HIDDEN NAME=u VALUE="1hmtBH0Mscwg"><INPUT TYPE=HIDDEN NAME=nm VALUE="112033"><INPUT TYPE=HIDDEN NAME=zj VALUE="027000000000300">
+		</FORM>
+		<FORM ACTION="pw_020_i.cgi" METHOD="post" NAME="reload_form">
+			<INPUT TYPE=HIDDEN NAME=uh VALUE="0dUlnc"><INPUT TYPE=HIDDEN NAME=inetid VALUE="8XG6UPKD"><INPUT TYPE=HIDDEN NAME=g VALUE="020"><INPUT TYPE=HIDDEN NAME=u VALUE="1hmtBH0Mscwg"><INPUT TYPE=HIDDEN NAME=nm VALUE="112033"><INPUT TYPE=HIDDEN NAME=zj VALUE="027000000000300">
+		</FORM>
+		<FORM method="post" name="form_soku" TARGET="Jwin" action="">
+			<INPUT TYPE=HIDDEN NAME=nbc VALUE="bae5e718c680f9ecd25d36fba01e0c6c"><INPUT TYPE=HIDDEN NAME=i VALUE="60140117"><INPUT TYPE=HIDDEN NAME=nbf VALUE="1"><INPUT TYPE=HIDDEN NAME=mpnf VALUE="1">
+			<input type="hidden" name="inetid" value=""><input type="hidden" name="uh" value=""><input type="hidden" name="u" value="">
+		</FORM>
+		<FORM method="post" name="form_mpn"  TARGET="Mwin" action="">
+			<INPUT TYPE=HIDDEN NAME=nbc VALUE="bae5e718c680f9ecd25d36fba01e0c6c"><INPUT TYPE=HIDDEN NAME=i VALUE="60140117"><INPUT TYPE=HIDDEN NAME=nbf VALUE="1"><INPUT TYPE=HIDDEN NAME=mpnf VALUE="1">
+			<input type="hidden" name="inetid" value=""><input type="hidden" name="uh" value=""><input type="hidden" name="u" value="">
+		</FORM>
+		<FORM NAME="FORMWin5Html" ACTION="pw_300_i.cgi" METHOD="post">
+			<INPUT TYPE=HIDDEN NAME=uh VALUE="0dUlnc"><INPUT TYPE=HIDDEN NAME=inetid VALUE="8XG6UPKD"><INPUT TYPE=HIDDEN NAME=g VALUE="020"><INPUT TYPE=HIDDEN NAME=u VALUE="1hmtBH0Mscwg"><INPUT TYPE=HIDDEN NAME=nm VALUE="112033"><INPUT TYPE=HIDDEN NAME=zj VALUE="027000000000300">
+		</FORM>
+		<FORM NAME="FormWin5Flash" METHOD="post" TARGET="IPAT_sub2" action="">
+			<INPUT TYPE=HIDDEN NAME=uh VALUE="0dUlnc"><INPUT TYPE=HIDDEN NAME=inetid VALUE="8XG6UPKD"><INPUT TYPE=HIDDEN NAME=g VALUE="020"><INPUT TYPE=HIDDEN NAME=u VALUE="1hmtBH0Mscwg"><INPUT TYPE=HIDDEN NAME=nm VALUE="112033"><INPUT TYPE=HIDDEN NAME=zj VALUE="027000000000300">
+		</FORM>
+		<FORM NAME="FORMNarMain" METHOD="post" ACTION="">
+			<INPUT TYPE=HIDDEN NAME=uh VALUE="0dUlnc"><INPUT TYPE=HIDDEN NAME=inetid VALUE="8XG6UPKD"><INPUT TYPE=HIDDEN NAME=g VALUE="029"><INPUT TYPE=HIDDEN NAME=u VALUE="1hmtBH0Mscwg"><INPUT TYPE=HIDDEN NAME=nm VALUE="112033"><INPUT TYPE=HIDDEN NAME=zj VALUE="027000000000300">
+		</FORM>
+		<FORM NAME="FORMIntlMain" METHOD="post" ACTION="int/pw_650_i.cgi">
+			<INPUT TYPE=HIDDEN NAME=uh VALUE="0dUlnc"><INPUT TYPE=HIDDEN NAME=inetid VALUE="8XG6UPKD"><INPUT TYPE=HIDDEN NAME=g VALUE="020"><INPUT TYPE=HIDDEN NAME=u VALUE="1hmtBH0Mscwg"><INPUT TYPE=HIDDEN NAME=nm VALUE="112033"><INPUT TYPE=HIDDEN NAME=zj VALUE="027000000000300">
+		</FORM>
+		<FORM NAME="FORMModernMain" METHOD="post" ACTION="">
+			<INPUT TYPE="hidden" NAME="reqid" VALUE="">
+			<INPUT TYPE="hidden" NAME="inetid" VALUE="">
+			<INPUT TYPE="hidden" NAME="uh" VALUE="">
+			<INPUT TYPE="hidden" NAME="u" VALUE="">
+			<INPUT TYPE="hidden" NAME="nm" VALUE="">
+			<INPUT TYPE="hidden" NAME="mzj" VALUE="">
+			<INPUT TYPE="hidden" NAME="fidf" VALUE="">
+		</FORM>
+
+		<div id="b_area"></div>
+		<p class="actionBorder">&nbsp;</p>
+
+		<div class="wallet">
+			<h2>購入限度額 / 購入可能件数</h2>
+			<p class="time">20時 39分&nbsp;&nbsp;現在</p>
+			<p id="LimitMoney" class="maxPrice">購入限度額&nbsp;&nbsp;30,000円</p>
+			<p class="maxNumber">購入可能件数&nbsp;&nbsp;2,700件</p>
+			<p class="update"><input type="button" value="情報の更新" onClick="document.reload_form.submit();"></p>
+		</div>
+		<div class="news">
+			<center></center>
+		</div>
+
+		<div class="kaisaitab">
+			<h2>開催要項</h2>
+			<ul class="kaisaitabs">
+				<li id="tt" class="active"><a class="kaisaitabs" href="#" onClick="ChangeYT(0);return false;">当日発売</a></li>
+				<li id="zt"><a class="kaisaitabs" href="#" onClick="ChangeYT(1);return false;">前日発売</a></li>
+			</ul>
+			<div id="y_area"></div>
+		</div>
+	</div>
+</div>
+<p class="fWp">Copyright (C) Japan Racing Association.</p>
+<DIV ID="WarningArea" CLASS="Warning">
+	<DIV CLASS="WarningTitle">ご注意！</DIV>
+	<DIV CLASS="WarningMessage">投票の前に「投票メニュー」へ戻り、「入出金メニュー」から「入金指示」を行ってください。<BR>
+※「入金指示」とは、即PAT口座の預金残高を投票用資金に振り替える手続きです。<BR>
+	</DIV>
+	<DIV ID="sm_area" CLASS="SMessage"></DIV>
+	<BR><BR>
+	<DIV>
+		<CENTER>
+		<FORM ACTION="">
+			<INPUT TYPE="BUTTON" CLASS="BackBtn" VALUE=" 戻　る " onClick="ToBack();">
+			<INPUT TYPE="BUTTON"  CLASS="VoteBtn" VALUE="このまま進む" onClick="ToVote();">
+		</FORM>
+		</CENTER>
+	</DIV>
+</DIV>
+<DIV ID="CoverArea" CLASS="CoverStyle">
+</DIV>
+</body>
+</html>

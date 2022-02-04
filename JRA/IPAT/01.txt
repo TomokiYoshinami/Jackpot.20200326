@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML lang="ja">
+<!-- Lastupdate 2017/11/07 14:15 -->
+<HEAD>
+<meta http-equiv="X-UA-Compatible" content="IE=7">
+<TITLE>JRA　ネット投票</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<META HTTP-EQUIV="Content-Script-Type" CONTENT="text/javascript">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<LINK REL="apple-touch-icon-precomposed" HREF="/tmpl/images/ipat_icon.png" />
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="tmpl/000_170929.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="tmpl/010_170929.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+<!--
+var msg1 = "推奨ブラウザ以外でJRA ネット投票を利用した場合、正しく操作できない場合がありますのでご注意下さい。";
+var msg2 = "INET-ID が未入力です";
+var msg_12="&nbsp;&nbsp;<a class='blank' href='https://www.clubjranet.jra.go.jp/' target='_blank'>Club JRA-Net</a><DIV>&nbsp;&nbsp;電話・インターネット投票会員限定キャンペーンへの参加や</DIV><DIV>&nbsp;&nbsp;過去６０日間の投票内容の確認は「Club JRA-Net」から！</li>";
+var msg_13="&nbsp;&nbsp;<a class='blank' href='https://sp.gch.jp/gchW/webContents/html/top.html' target='_blank'>GREEN CHANNEL Web</a><DIV>&nbsp;&nbsp;白熱のレースをＬＩＶＥで！&nbsp;グリーンチャンネルをインターネットで楽しもう！！</DIV><DIV>&nbsp;&nbsp;当サイトは、会員制（有料）サービスです。</DIV></li>";
+var msg_14="&nbsp;&nbsp;<a class='blank' href='http://jra-van.jp/' target='_blank'>JRA-VAN</a><DIV>&nbsp;&nbsp;競馬予想に役立つ情報を提供するサービスです。</DIV><DIV>&nbsp;&nbsp;ＪＲＡ－ＶＡＮを使って、最適な競馬情報を見つけよう！</DIV><DIV>&nbsp;&nbsp;当サイトは、会員制（有料）サービスです。</DIV></li>";
+var msg_15="&nbsp;&nbsp;<a class='blank' href='http://world.jra-van.jp/' target='_blank'>JRA-VAN 海外競馬</a><DIV>&nbsp;&nbsp;ＪＲＡ－ＶＡＮが海外競馬情報を配信！</DIV><DIV>&nbsp;&nbsp;海外馬券予想に役立つ情報が盛り沢山！</DIV><DIV>&nbsp;&nbsp;</DIV></li>";
+var URL = "https://"+location.hostname+"/pw_080_i.cgi";
+var g010_nExpDate = 365;
+var g010_cExpDate_min = "Wed, 1-Jan-1902 00:00:00 GMT";
+var g010_cInetId = "";
+
+if(document.cookie){
+	g010_cInetId = GetCookie("inetid");
+	if(g010_cInetId !=""){
+		g010_cInetId = DProc(g010_cInetId);
+	}
+}
+
+//C;
+
+document.open();
+WriteCSS();
+document.close();
+// -->
+</SCRIPT>
+</HEAD>
+<BODY onLoad="javascript:setfocus()" ID="top" CLASS="header_modern" >
+<DIV ID="ipat-navbar">
+  <DIV CLASS="container relative">
+    <DIV CLASS="brand pull-left">
+      <IMG ALT="JRAネット投票" SRC="tmpl/images/logo_modern.gif" WIDTH="123" HEIGHT="33">
+    </DIV>
+  </DIV>
+</DIV>
+<DIV ID="noscript" STYLE=COLOR:red>
+	JRA ネット投票ではJavaScriptを使用しています。<BR>JavaScriptに対応したブラウザをご利用いただくか、JavaScriptを使用するように設定してからご利用願います。
+</DIV>
+<SCRIPT TYPE="text/javascript">
+	document.getElementById('noscript').style.display="none";
+</SCRIPT>
+
+<div class="bg-block bg-block_modern">
+<div class="bg-block2 s-010">
+<h2>INET-ID 入力</h2>
+<table class="s-010" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<div class="marks"><img ALT="JRAネット投票" src="tmpl/images/Turfy.jpg" width="158" height="135"></div>
+</td>
+<td>
+
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+<!--
+if(DP){
+	with(document){
+		write('<div class="input">');
+		write('<div class="form">');
+		write('<br><br><br><br><br><DIV class="red">３連単の発売開始に伴い、DreamcastではJRA ネット投票を利用することができなくなりました。<BR>');
+		write('ARS方式またはPAT方式を利用するか、携帯電話、パソコン等からJRA ネット投票をご利用願います。</DIV>');
+		write('<br><br><br><br><br><br></div>');
+	}
+}else{
+	with(document){
+		write('<div class="input">');
+		write('<div class="form"><FORM method="post" name="FORM1" onSubmit="javascript:return fSend()" action="">');
+		write('<h3>INET-ID を入力してログインしてください。</h3>');
+		write('<ul class="ref"><li><a class="blank" href="http://jra.jp/faq/pop04/1_15.html" target="_blank" tabindex="1">INET-ID とは</a></li>');
+		write('</ul>');
+		write('<table class="input" cellpadding="0" cellspacing="0">');
+		write('<tr>');
+		write('<td><span class="title">INET-ID</span></td>');
+		write('<td><span class="type"><input type="text" name="inetid" size="30" maxlength="12" autocomplete="off" tabindex="2"><br>半角英数字（8桁）</span></td>');
+		write('<td><p class="button"><a href="#" OnClick="javascript:send();return false;" title="ログイン" tabindex="4">&nbsp;</a></p></td>');
+		write('<INPUT TYPE=HIDDEN NAME=uh VALUE="0rO2fT"><INPUT TYPE=HIDDEN NAME=g VALUE="010">');
+		write('</tr></table>');
+		write('<table cellpadding="0" cellspacing="0"><tr><td class="s-010chktd1">&nbsp;</td>');
+		if(g010_cInetId == ""){
+			write('<td class="s-010chktd2"><input type="checkbox" name="saveCookie" class="s-010chk" tabindex="3">&nbsp;INET-IDを保存する</td><td>');
+		}else{
+			write('<td class="s-010chktd2"><input type="checkbox" name="saveCookie" class="s-010chk" tabindex="3" checked>&nbsp;INET-IDを保存する</td><td>');
+			document.FORM1.inetid.value=g010_cInetId;
+		}
+		write('<a href="http://jra.jp/dento/ipat/index.html" target="_blank">ログインできない場合</a></td>');
+		write('</tr></table>');
+		write('<table width="350" height="45" border="2" bordercolor="#ff8000" cellpadding="0" cellspacing="0" bgcolor="#ffc040">');
+		write('<tr>');
+		write('<td><font size="3.5em"><br><center><a href="https://'+location.hostname+'/sp/">スマートフォン版投票サイトはこちら</a></center><br></font></td>');
+		write('</tr>');
+		write('</table><br>');
+		write('<ul class="caution">');
+		write('<li>「INET-ID」はアルファベットの I(アイ) と O(オー) は使用しておりません。</li>');
+		write('</ul>');
+		if(SF||g000_bGC){
+			write('<p style="width:570px;height:1px;overflow:hidden;margin:2px 0 2px;border-top:1px solid #ccc;">&nbsp;</p>');
+		}else{
+			write('<p style="width:530px;height:1px;overflow:hidden;margin:2px 0 2px;border-top:1px solid #ccc;">&nbsp;</p>');
+		}
+		write('<ul class="caution">');
+		write('<li>通信エラーなどが発生した場合は、正常に投票されているか必ずご確認ください。</li>');
+		write('</ul>');
+		write('<ul class="caution">');
+		write('<li>一旦成立した投票内容は、一切、取消、変更できません。</li>');
+		write('</ul>');
+		if(SF||g000_bGC){
+			write('<p style="width:570px;height:1px;overflow:hidden;margin:2px 0 2px;border-top:1px solid #ccc;">&nbsp;</p>');
+		}else{
+			write('<p style="width:530px;height:1px;overflow:hidden;margin:2px 0 2px;border-top:1px solid #ccc;">&nbsp;</p>');
+		}
+		write('<ul class="caution">');
+		write('<li>インターネット投票会員にこれからお申込みされる方（新規登録）は<a href="http://jra.jp/dento/welcome/index.html" target="_blank">こちら</a></li>');
+		write('</ul>');
+		if(SF||g000_bGC){
+			write('<p style="width:570px;height:1px;overflow:hidden;margin:2px 0 2px;border-top:1px solid #ccc;">&nbsp;</p>');
+		}else{
+			write('<p style="width:530px;height:1px;overflow:hidden;margin:2px 0 2px;border-top:1px solid #ccc;">&nbsp;</p>');
+		}
+		write('<ul class="caution">');
+		write('<li><a href="http://www.jra.go.jp/news/other/miseinen.html" target="_blank">馬券は20歳になってから</a>　<a href="http://www.jra.go.jp/news/other/tekidoni.html" target="_blank">ほどよく楽しむ大人の遊び</a></li>');
+		write('</ul>');
+		write('<ul class="caution">');
+		write('<li>勝馬投票券の購入にのめり込む等の不安のある方の相談先は<a href="http://www.jra.go.jp/faq/contact.html#3" target="_blank">こちら</a></li>');
+		write('</ul>');
+		write('</form></div>');
+	}
+}
+// -->
+</SCRIPT>
+
+<h3>動作確認環境</h3>
+<ul class="ref">
+	<li><a class="blank" href="http://jra.jp/dento/member/dousa/index.html" target="_blank">JRAホームページ</a>をご確認ください。</li>
+</ul>
+<h3>関連リンク</h3>
+<ul class="ref">
+	<li ID="img2" class="bnr"><a class="blank" href="https://www.clubjranet.jra.go.jp/" target="_blank">
+	<img src="tmpl/images/btn_club-a_170929.gif" alt="Club JRA-Net" title="Club JRA-Net" onError="banner_Load_error( 'img2' , msg_12);" class="bnr bnrimg"></a>
+	 <DIV>&nbsp;&nbsp;電話・インターネット投票会員限定キャンペーンへの参加や</br>&nbsp;&nbsp;過去６０日間の投票内容の確認は「Club JRA-Net」から！</DIV>
+	 <DIV style="clear:left"></DIV>
+	</li>
+	<li ID="img3" class="bnr"><a class="blank" href="https://sp.gch.jp/gchW/webContents/html/top.html" target="_blank">
+	  <img src="tmpl/images/logo_gchweb.png" alt="GREEN CHANNEL Web" title="GREEN CHANNEL Web" onError="banner_Load_error( 'img3' , msg_13);" class="bnr bnrimg"></a>
+	 <DIV>&nbsp;&nbsp;白熱のレースをＬＩＶＥで！</br>&nbsp;&nbsp;グリーンチャンネルをインターネットで楽しもう！！</DIV>
+	 <DIV>&nbsp;&nbsp;当サイトは、会員制（有料）サービスです。</DIV>
+	 <DIV style="clear:left"></DIV>
+	</li>
+	<li ID="img4" class="bnr"><a class="blank" href="http://jra-van.jp/" target="_blank">
+	 <img src="tmpl/images/jravan_banner.gif" alt="JRA-VAN" title="JRA-VAN" onError="banner_Load_error( 'img4' , msg_14);" class="bnr bnrimg"></a>
+	 <DIV>&nbsp;&nbsp;競馬予想に役立つ情報を提供するサービスです。</br>&nbsp;&nbsp;ＪＲＡ－ＶＡＮを使って、最適な競馬情報を見つけよう！</DIV>
+	 <DIV>&nbsp;&nbsp;当サイトは、会員制（有料）サービスです。</DIV>
+	 <DIV style="clear:left"></DIV>
+	</li>
+	<li ID="img5" class="bnr"><a class="blank" href="http://world.jra-van.jp/" target="_blank">
+	 <img src="tmpl/images/jravan-world_banner.gif" alt="JRA-VAN 海外競馬" title="JRA-VAN 海外競馬" onError="banner_Load_error( 'img5' , msg_15);" class="bnr bnrimg"></a>
+	 <DIV>&nbsp;&nbsp;ＪＲＡ－ＶＡＮが海外競馬情報を配信！</br>&nbsp;&nbsp;海外馬券予想に役立つ情報が盛り沢山！</DIV>
+	 <DIV>&nbsp;&nbsp;</DIV>
+	 <DIV style="clear:left"></DIV>
+	</li>
+</ul>
+<br><br>
+</div>
+
+</td>
+</tr>
+</table>
+
+</div>
+</div>
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+<!--
+function send(){
+    var cCode = "";
+    var cStr = "";
+    var oDate;
+    var cExpires = "";
+
+    if( document.FORM1.inetid.value == "" ){
+        alert(msg2);
+        document.FORM1.inetid.focus();
+        return false;
+    }
+
+    if(document.FORM1.saveCookie.checked){
+        cCode = EProc(document.FORM1.inetid.value);
+        cStr = "inetid=" + cCode;
+        oDate = new Date();
+        oDate = new Date(oDate.getFullYear(),oDate.getMonth(),oDate.getDate()+g010_nExpDate-1,23,59,59,999);
+        cExpires = oDate.toGMTString();
+        cStr += "; expires=" + cExpires;
+        cStr += "; secure";
+        document.cookie = cStr;
+    }else{
+        cStr = "inetid=";
+        cStr += "; expires=" + g010_cExpDate_min;
+        cStr += "; secure";
+        document.cookie = cStr;
+    }
+
+    document.FORM1.action = URL;
+    document.FORM1.submit();
+}
+function banner_Load_error( imgID , msgID){
+     document.getElementById(imgID).style.height='auto';
+     document.getElementById(imgID).innerHTML=msgID;
+}
+// -->
+</SCRIPT>
+<DIV CLASS="footer">
+  <DIV CLASS="copy text-center">Copyright &copy; Japan Racing Association.</div>
+</DIV>
+</BODY>
+</HTML>
+<style>
+.bnr { height:50px }
+.bnr.bnrimg { height: 40px; width: 130px; float:left; margin: 5px 5px 5px 5px;}
+</style>
