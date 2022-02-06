@@ -307,7 +307,7 @@ graphType <- "rxStepPlot"
 pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", analyzeCategory, "_", analyzeFunc, "_", analyzeType, "_Type", analyzeTrackTypeCd, analyzeJyokenCd, "_", graphType, constColon, constFileExtensionPdf))
 print(paste0("pdfFilename=", pdfFilename))
 pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
-# par(ps = 9) # Font Size
+par(ps = 9) # Font Size
 
 print("rxStepPlot=")
 rxStepPlot(analyze.results.glm.step)
@@ -414,7 +414,6 @@ print(paste0(Sys.time(), " --- final Start ---"))
 nrow.data.final <- nrow(data)
 print(paste0("nrow(data) final=", nrow.data.final))
 print(paste0(Sys.time(), " --- final Finish ---"))
-
  # ---------------------------------------------------------------------------------------------------------------------------
 # Log End
 # ---------------------------------------------------------------------------------------------------------------------------
