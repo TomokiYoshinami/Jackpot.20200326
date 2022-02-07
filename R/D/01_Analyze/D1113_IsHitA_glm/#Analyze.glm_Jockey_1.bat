@@ -14,7 +14,7 @@ ECHO ********** Type15 **********
 Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Jockey IsHitA glm 1 5
 ECHO ********** Type16 **********
 Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Jockey IsHitA glm 1 6
-ECHO ********** Type21 **********
+REM ECHO ********** Type21 **********
 REM Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Jockey IsHitA glm 2 1
 REM ECHO ********** Type22 **********
 REM Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Jockey IsHitA glm 2 2
@@ -31,7 +31,7 @@ REM Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Jockey IsH
 REM ECHO ********** Type35 **********
 REM Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Jockey IsHitA glm 3 5
 
-PAUSE
+REM PAUSE
 
 REM R CMD BATCH --slave --vanilla --encoding=utf-8 script.R D1113 analyze Jockey IsHitA glm 1 1
 REM Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Jockey IsHitA glm 1 1

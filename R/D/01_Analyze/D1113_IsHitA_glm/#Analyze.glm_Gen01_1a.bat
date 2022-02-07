@@ -10,10 +10,10 @@ ECHO ********** Type13 **********
 Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Gen01 IsHitA glm 1 3
 ECHO ********** Type14 **********
 Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Gen01 IsHitA glm 1 4
-ECHO ********** Type15 **********
-Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Gen01 IsHitA glm 1 5
-ECHO ********** Type16 **********
-Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Gen01 IsHitA glm 1 6
+REM ECHO ********** Type15 **********
+REM Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Gen01 IsHitA glm 1 5
+REM ECHO ********** Type16 **********
+REM Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Gen01 IsHitA glm 1 6
 REM ECHO ********** Type21 **********
 REM Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Gen01 IsHitA glm 2 1
 REM ECHO ********** Type22 **********
@@ -31,7 +31,7 @@ REM Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Gen01 IsHi
 REM ECHO ********** Type35 **********
 REM Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Gen01 IsHitA glm 3 5
 
-PAUSE
+REM PAUSE
 
 REM R CMD BATCH --slave --vanilla --encoding=utf-8 script.R D1113 analyze Gen01 IsHitA glm 1 1
 REM Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Gen01 IsHitA glm 1 1

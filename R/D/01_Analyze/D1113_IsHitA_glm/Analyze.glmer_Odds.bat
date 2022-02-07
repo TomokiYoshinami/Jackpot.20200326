@@ -31,7 +31,7 @@ Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Odds IsHitA gl
 ECHO ********** Type35 **********
 Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Odds IsHitA glmer 3 5
 
-PAUSE
+REM PAUSE
 
 REM R CMD BATCH --slave --vanilla --encoding=utf-8 script.R D1113 analyze Odds IsHitA glmer 1 1
 REM Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Odds IsHitA glmer 1 1

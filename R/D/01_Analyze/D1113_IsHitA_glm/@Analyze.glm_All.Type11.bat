@@ -13,7 +13,7 @@ Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Jockey IsHitA 
 ECHO ********** Type11 **********
 Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Odds IsHitA glm 1 1
 
-PAUSE
+REM PAUSE
 
 REM R CMD BATCH --slave --vanilla --encoding=utf-8 script.R D1113 analyze Gen01 IsHitA glm 1 1
 REM Rscript --slave --vanilla --encoding=utf-8 script.R D1113 analyze Gen01 IsHitA glm 1 1
