@@ -113,7 +113,7 @@ rxGetComputeContext()
 
 sqlQuery <- paste0("SELECT * FROM ViewAnalyze", analyzeVersion, analyzeCategory, "01", analyzeType, "Type", analyzeTrackTypeCd, analyzeJyokenCd, " WHERE [Race.IsPredictedRace] = 1")
 print(paste0("sqlQuery=", sqlQuery))
-rowsPerRead <- 100000000
+rowsPerRead <- 100000 # 50000
 inDataSource <- RxSqlServerData(sqlQuery = sqlQuery, connectionString = sqlConnString, stringsAsFactors = TRUE, rowsPerRead = rowsPerRead)
 rxGetVarInfo(data = inDataSource)
 InputDataSet <- rxImport(inDataSource)
