@@ -49,7 +49,7 @@ RaceHorse.IsHitA
 # + Gen01.HitCountA
 # + Gen01.HitCountB
 # + Gen01.HitCountC
-+ Gen01.HitRate1
+# + Gen01.HitRate1
 # + Gen01.HitRate2
 # + Gen01.HitRate3
 # + Gen01.HitRate4

@@ -49,7 +49,7 @@ RaceHorse.IsHitA
 # + Jockey.HitCountA
 # + Jockey.HitCountB
 # + Jockey.HitCountC
-+ Jockey.HitRate1
+# + Jockey.HitRate1
 # + Jockey.HitRate2
 # + Jockey.HitRate3
 # + Jockey.HitRate4
