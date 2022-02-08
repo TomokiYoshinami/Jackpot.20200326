@@ -1,0 +1,538 @@
+[1] "2022-02-08 16:56:32 --- D1114_analyze_glm_Gen02_IsHitA_Type21 Start ---"
+[1] "2022-02-08 16:56:32 --- Log Start ---"
+[1] "2022-02-08 16:56:32 --- analyze_glm.R Start ---"
+[1] "analyzeVersion=D1114"
+[1] "analyzeCategory=analyze"
+[1] "analyzeType=Gen02"
+[1] "analyzeFamily=IsHitA"
+[1] "analyzeFunc=glm"
+[1] "analyzeTrackTypeCd=2"
+[1] "analyzeJyokenCd=1"
+[1] "2022-02-08 16:56:32 --- source_function.R Start ---"
+[1] "2022-02-08 16:56:32 --- source_function.R Finished ---"
+
+> print(paste0(Sys.time(), " --- source_library.R Start ---"))
+[1] "2022-02-08 16:56:32 --- source_library.R Start ---"
+
+> require("RevoScaleR")
+
+> print(paste0(Sys.time(), " --- source_library.R Finished ---"))
+[1] "2022-02-08 16:56:32 --- source_library.R Finished ---"
+[1] "2022-02-08 16:56:32 --- RxSqlServerData Start ---"
+[1] "sqlQuery=SELECT * FROM ViewAnalyzeD1114analyze01Gen02Type21"
+Rows Read: 19713, Total Rows Processed: 19713, Total Chunk Time: 18.053 seconds 
+[1] "head(data)="
+           Race.RaceId Race.IsPredictedRace Race.IsAnalyzeNormalPastAndFuture
+1 20170909-09-04-01-11                 TRUE                              TRUE
+2 20170909-09-04-01-11                 TRUE                              TRUE
+3 20170909-09-04-01-11                 TRUE                              TRUE
+4 20170909-09-04-01-11                 TRUE                              TRUE
+5 20170909-09-04-01-11                 TRUE                              TRUE
+6 20170909-09-04-01-11                 TRUE                              TRUE
+  Race.IsAnalyzeNormalPast Race.IsAnalyzeNormalFuture
+1                     TRUE                      FALSE
+2                     TRUE                      FALSE
+3                     TRUE                      FALSE
+4                     TRUE                      FALSE
+5                     TRUE                      FALSE
+6                     TRUE                      FALSE
+  Race.IsAnalyzeFullPastAndFuture Race.IsAnalyzeFullPast
+1                            TRUE                   TRUE
+2                            TRUE                   TRUE
+3                            TRUE                   TRUE
+4                            TRUE                   TRUE
+5                            TRUE                   TRUE
+6                            TRUE                   TRUE
+  Race.IsAnalyzeFullFuture Race.JyokenCd Race.JyoType1Cd   Race.RaceType0Cd
+1                    FALSE             1     2-09-1400-1 2-09-1400-1-1-E-13
+2                    FALSE             1     2-09-1400-1 2-09-1400-1-1-E-13
+3                    FALSE             1     2-09-1400-1 2-09-1400-1-1-E-13
+4                    FALSE             1     2-09-1400-1 2-09-1400-1-1-E-13
+5                    FALSE             1     2-09-1400-1 2-09-1400-1-1-E-13
+6                    FALSE             1     2-09-1400-1 2-09-1400-1-1-E-13
+  Race.RaceType1Cd Race.RaceType2Cd Race.RaceType3Cd Race.RaceType4Cd
+1            2-1-E            2-1-E           1-E-13           2-1-13
+2            2-1-E            2-1-E           1-E-13           2-1-13
+3            2-1-E            2-1-E           1-E-13           2-1-13
+4            2-1-E            2-1-E           1-E-13           2-1-13
+5            2-1-E            2-1-E           1-E-13           2-1-13
+6            2-1-E            2-1-E           1-E-13           2-1-13
+      RaceHorse.RaceId RaceHorse.KettoNum RaceHorse.IsHit1 RaceHorse.IsHit2
+1 20170909-09-04-01-11         2007100828                0                0
+2 20170909-09-04-01-11         2008102205                0                0
+3 20170909-09-04-01-11         2008102205                0                0
+4 20170909-09-04-01-11         2008102205                0                0
+5 20170909-09-04-01-11         2008102205                0                0
+6 20170909-09-04-01-11         2008102205                0                0
+  RaceHorse.IsHit3 RaceHorse.IsHit4 RaceHorse.IsHit5 RaceHorse.IsHit6
+1                0                0                0                1
+2                0                0                0                1
+3                0                0                0                1
+4                0                0                0                1
+5                0                0                0                1
+6                0                0                0                1
+  RaceHorse.IsValidRaceHorse RaceHorse.IsHitA RaceHorse.IsHitB RaceHorse.IsHitC
+1                       TRUE                0                0                0
+2                       TRUE                0                0                0
+3                       TRUE                0                0                0
+4                       TRUE                0                0                0
+5                       TRUE                0                0                0
+6                       TRUE                0                0                0
+          Gen02.RaceId Gen02.KettoNum Gen02.HansyokuNum Gen02.Num
+1 20170909-09-04-01-11     2007100828          12242523        22
+2 20170909-09-04-01-11     2008102205          12251798         1
+3 20170909-09-04-01-11     2008102205          12251798         2
+4 20170909-09-04-01-11     2008102205          12251798         3
+5 20170909-09-04-01-11     2008102205          12251798         4
+6 20170909-09-04-01-11     2008102205          12251798         5
+  Gen02.PrevKettoNum     Gen02.PrevRaceId Gen02.SyussoTosu Gen02.TimeDvByRace
+1         2007100828 20140824-04-02-08-11               15                 59
+2         2008102205 20170617-09-03-05-11               14                 53
+3         2008102205 20170422-05-02-01-11               16                 46
+4         2008102205 20161127-08-05-08-11               16                 46
+5         2008102205 20161120-05-05-06-11               16                 24
+6         2008102205 20160515-08-03-08-11               16                 50
+  Gen02.RunCount Gen02.HitCount1 Gen02.HitCount2 Gen02.HitCount3
+1              1               0               0               0
+2              1               0               0               0
+3              1               0               0               0
+4              1               0               0               0
+5              1               0               0               0
+6              1               0               0               0
+  Gen02.HitCount4 Gen02.HitCount5 EOF
+1               1               0   1
+2               0               0   1
+3               0               0   1
+4               0               0   1
+5               0               0   1
+6               0               0   1
+[1] "object.size(data) auto=3.8 Mb"
+[1] "nrow(data) RxSqlServerData=19713"
+[1] "str(data)="
+'data.frame':	19713 obs. of  42 variables:
+ $ Race.RaceId                      : Factor w/ 368 levels "20160109-06-01-02-11",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Race.IsPredictedRace             : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPastAndFuture: logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPast         : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalFuture       : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.IsAnalyzeFullPastAndFuture  : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullPast           : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullFuture         : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.JyokenCd                    : Factor w/ 1 level "1": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.JyoType1Cd                  : Factor w/ 71 levels "2-06-1800-1",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Race.RaceType0Cd                 : Factor w/ 168 levels "2-06-1800-1-1-E-14",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Race.RaceType1Cd                 : Factor w/ 5 levels "2-1-E","2-1-C",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.RaceType2Cd                 : Factor w/ 5 levels "2-1-E","2-1-C",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.RaceType3Cd                 : Factor w/ 13 levels "1-E-14","1-E-13",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Race.RaceType4Cd                 : Factor w/ 4 levels "2-1-14","2-1-13",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ RaceHorse.RaceId                 : Factor w/ 368 levels "20160109-06-01-02-11",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ RaceHorse.KettoNum               : Factor w/ 728 levels "2008100608","2009102195",..: 4 5 5 5 5 5 5 5 5 5 ...
+ $ RaceHorse.IsHit1                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit2                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit3                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit4                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit5                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit6                 : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ RaceHorse.IsValidRaceHorse       : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ RaceHorse.IsHitA                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHitB                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHitC                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ Gen02.RaceId                     : Factor w/ 368 levels "20160109-06-01-02-11",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Gen02.KettoNum                   : Factor w/ 728 levels "2008100608","2009102195",..: 4 5 5 5 5 5 5 5 5 5 ...
+ $ Gen02.HansyokuNum                : Factor w/ 662 levels "12242565","12251847",..: 4 5 5 5 5 5 5 5 5 5 ...
+ $ Gen02.Num                        : num  22 1 2 3 4 5 6 7 8 9 ...
+ $ Gen02.PrevKettoNum               : Factor w/ 784 levels "2008100608","2009102195",..: 4 5 5 5 5 5 5 5 5 5 ...
+ $ Gen02.PrevRaceId                 : Factor w/ 632 levels "20151101-03-03-02-11",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ Gen02.SyussoTosu                 : num  15 14 16 16 16 16 14 12 11 10 ...
+ $ Gen02.TimeDvByRace               : num  59.3 53.4 46.2 46.5 23.7 ...
+ $ Gen02.RunCount                   : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ Gen02.HitCount1                  : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ Gen02.HitCount2                  : int  0 0 0 0 0 0 1 0 0 0 ...
+ $ Gen02.HitCount3                  : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ Gen02.HitCount4                  : int  1 0 0 0 0 0 0 0 0 0 ...
+ $ Gen02.HitCount5                  : int  0 0 0 0 0 0 0 0 1 0 ...
+ $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
+[1] "2022-02-08 16:57:14 --- RxSqlServerData Finish ---"
+[1] "2022-02-08 16:57:14 --- subset Start ---"
+[1] "nrow(data) subset before=19713"
+[1] "nrow(data) subset after =16464"
+[1] "nrow(data) subset diff =3249"
+[1] "2022-02-08 16:57:14 --- subset Finish---"
+[1] "2022-02-08 16:57:14 --- transform Start ---"
+[1] "nrow(data) transform before=16464"
+[1] "nrow(data) transform after=16464"
+[1] "nrow(data) transform diff=0"
+[1] "str(data)="
+'data.frame':	16464 obs. of  42 variables:
+ $ Race.RaceId                      : Factor w/ 368 levels "20160109-06-01-02-11",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Race.IsPredictedRace             : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPastAndFuture: logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPast         : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalFuture       : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.IsAnalyzeFullPastAndFuture  : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullPast           : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullFuture         : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.JyokenCd                    : Factor w/ 1 level "1": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.JyoType1Cd                  : Factor w/ 71 levels "2-06-1800-1",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Race.RaceType0Cd                 : Factor w/ 168 levels "2-06-1800-1-1-E-14",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Race.RaceType1Cd                 : Factor w/ 5 levels "2-1-E","2-1-C",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.RaceType2Cd                 : Factor w/ 5 levels "2-1-E","2-1-C",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.RaceType3Cd                 : Factor w/ 13 levels "1-E-14","1-E-13",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Race.RaceType4Cd                 : Factor w/ 4 levels "2-1-14","2-1-13",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ RaceHorse.RaceId                 : Factor w/ 368 levels "20160109-06-01-02-11",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ RaceHorse.KettoNum               : Factor w/ 728 levels "2008100608","2009102195",..: 4 5 5 5 5 5 5 5 5 5 ...
+ $ RaceHorse.IsHit1                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit2                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit3                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit4                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit5                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit6                 : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ RaceHorse.IsValidRaceHorse       : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ RaceHorse.IsHitA                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHitB                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHitC                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ Gen02.RaceId                     : Factor w/ 368 levels "20160109-06-01-02-11",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Gen02.KettoNum                   : Factor w/ 728 levels "2008100608","2009102195",..: 4 5 5 5 5 5 5 5 5 5 ...
+ $ Gen02.HansyokuNum                : Factor w/ 662 levels "12242565","12251847",..: 4 5 5 5 5 5 5 5 5 5 ...
+ $ Gen02.Num                        : num  22 1 2 3 4 5 6 7 8 9 ...
+ $ Gen02.PrevKettoNum               : Factor w/ 784 levels "2008100608","2009102195",..: 4 5 5 5 5 5 5 5 5 5 ...
+ $ Gen02.PrevRaceId                 : Factor w/ 632 levels "20151101-03-03-02-11",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ Gen02.SyussoTosu                 : num  15 14 16 16 16 16 14 12 11 10 ...
+ $ Gen02.TimeDvByRace               : num  59.3 53.4 46.2 46.5 23.7 ...
+ $ Gen02.RunCount                   : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ Gen02.HitCount1                  : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ Gen02.HitCount2                  : int  0 0 0 0 0 0 1 0 0 0 ...
+ $ Gen02.HitCount3                  : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ Gen02.HitCount4                  : int  1 0 0 0 0 0 0 0 0 0 ...
+ $ Gen02.HitCount5                  : int  0 0 0 0 0 0 0 0 1 0 ...
+ $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
+NULL
+[1] "2022-02-08 16:57:14 --- transform Finish ---"
+[1] "2022-02-08 16:57:14 --- na.omit Start ---"
+[1] "nrow(data) na.omit before=16464"
+[1] "nrow(data) na.omit after =16464"
+[1] "nrow(data) na.omit diff =0"
+'data.frame':	16464 obs. of  42 variables:
+ $ Race.RaceId                      : Factor w/ 368 levels "20160109-06-01-02-11",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Race.IsPredictedRace             : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPastAndFuture: logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPast         : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalFuture       : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.IsAnalyzeFullPastAndFuture  : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullPast           : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullFuture         : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.JyokenCd                    : Factor w/ 1 level "1": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.JyoType1Cd                  : Factor w/ 71 levels "2-06-1800-1",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Race.RaceType0Cd                 : Factor w/ 168 levels "2-06-1800-1-1-E-14",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Race.RaceType1Cd                 : Factor w/ 5 levels "2-1-E","2-1-C",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.RaceType2Cd                 : Factor w/ 5 levels "2-1-E","2-1-C",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.RaceType3Cd                 : Factor w/ 13 levels "1-E-14","1-E-13",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Race.RaceType4Cd                 : Factor w/ 4 levels "2-1-14","2-1-13",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ RaceHorse.RaceId                 : Factor w/ 368 levels "20160109-06-01-02-11",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ RaceHorse.KettoNum               : Factor w/ 728 levels "2008100608","2009102195",..: 4 5 5 5 5 5 5 5 5 5 ...
+ $ RaceHorse.IsHit1                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit2                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit3                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit4                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit5                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit6                 : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ RaceHorse.IsValidRaceHorse       : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ RaceHorse.IsHitA                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHitB                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHitC                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ Gen02.RaceId                     : Factor w/ 368 levels "20160109-06-01-02-11",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Gen02.KettoNum                   : Factor w/ 728 levels "2008100608","2009102195",..: 4 5 5 5 5 5 5 5 5 5 ...
+ $ Gen02.HansyokuNum                : Factor w/ 662 levels "12242565","12251847",..: 4 5 5 5 5 5 5 5 5 5 ...
+ $ Gen02.Num                        : num  22 1 2 3 4 5 6 7 8 9 ...
+ $ Gen02.PrevKettoNum               : Factor w/ 784 levels "2008100608","2009102195",..: 4 5 5 5 5 5 5 5 5 5 ...
+ $ Gen02.PrevRaceId                 : Factor w/ 632 levels "20151101-03-03-02-11",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ Gen02.SyussoTosu                 : num  15 14 16 16 16 16 14 12 11 10 ...
+ $ Gen02.TimeDvByRace               : num  59.3 53.4 46.2 46.5 23.7 ...
+ $ Gen02.RunCount                   : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ Gen02.HitCount1                  : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ Gen02.HitCount2                  : int  0 0 0 0 0 0 1 0 0 0 ...
+ $ Gen02.HitCount3                  : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ Gen02.HitCount4                  : int  1 0 0 0 0 0 0 0 0 0 ...
+ $ Gen02.HitCount5                  : int  0 0 0 0 0 0 0 0 1 0 ...
+ $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
+[1] "2022-02-08 16:57:14 --- na.omit Finish ---"
+[1] "2022-02-08 16:57:14 --- rxGlm with rxStepControl Start ---"
+[1] "2022-02-08 16:57:14 --- source_logic_glm.R Start ---"
+[1] "2022-02-08 16:57:14 --- source_logic_glm.R Finished ---"
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.009 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.006 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 3 time: 0.004 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.004 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.005 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 6 time: 0.005 secs.
+
+Elapsed computation time: 0.053 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.007 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.007 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.003 seconds 
+
+Iteration 3 time: 0.006 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.005 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.003 seconds 
+
+Iteration 5 time: 0.005 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.003 seconds 
+
+Iteration 6 time: 0.006 secs.
+
+Elapsed computation time: 0.051 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.007 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.007 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 3 time: 0.005 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.005 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.005 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.003 seconds 
+
+Iteration 6 time: 0.005 secs.
+
+Elapsed computation time: 0.054 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.008 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.003 seconds 
+
+Iteration 2 time: 0.006 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.003 seconds 
+
+Iteration 3 time: 0.006 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.006 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.005 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 6 time: 0.004 secs.
+
+Elapsed computation time: 0.059 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.008 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.009 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 3 time: 0.006 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.005 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.008 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 6 time: 0.006 secs.
+
+Elapsed computation time: 0.066 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.003 seconds 
+
+Starting values (iteration 1) time: 0.008 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.007 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.003 seconds 
+
+Iteration 3 time: 0.005 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.005 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.004 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 6 time: 0.006 secs.
+
+Elapsed computation time: 0.059 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: Less than .001 seconds 
+
+Starting values (iteration 1) time: 0.006 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.006 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 3 time: 0.005 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.004 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.004 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 6 time: 0.004 secs.
+
+Elapsed computation time: 0.050 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.007 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.006 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 3 time: 0.004 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.006 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.005 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 6 time: 0.004 secs.
+
+Elapsed computation time: 0.052 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.008 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.004 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 3 time: 0.004 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.004 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.005 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 6 time: 0.004 secs.
+
+Elapsed computation time: 0.050 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.006 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.006 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 3 time: 0.004 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.003 seconds 
+
+Iteration 4 time: 0.007 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.003 seconds 
+
+Iteration 5 time: 0.006 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 6 time: 0.005 secs.
+
+Elapsed computation time: 0.053 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.008 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.007 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 3 time: 0.005 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.005 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.005 secs.
+Rows Read: 16464, Total Rows Processed: 16464, Total Chunk Time: 0.002 seconds 
+
+Iteration 6 time: 0.004 secs.
+
+Elapsed computation time: 0.052 secs.
+
+Elapsed computation time: 0.656 secs.
+[1] "analyze.results.glm.step="
+Generalized Linear Model Results for: RaceHorse.IsHitA ~
+    Gen02.HitCount1
+Data: data
+Dependent variable(s): RaceHorse.IsHitA
+Total independent variables: 2 
+Number of valid observations: 16464
+Number of missing observations: 0 
+Family-link: binomial-logit 
+ 
+ 
+Coefficients:
+                RaceHorse.IsHitA
+(Intercept)                 -3.1
+Gen02.HitCount1              0.5
+[1] "analyze.results.glm.step.summary"
+Call:
+rxGlm(formula = form, data = data, family = binomial(), variableSelection = analyze.results.glm.step.varsel)
+
+Generalized Linear Model Results for: RaceHorse.IsHitA ~
+    Gen02.HitCount1
+Data: data
+Dependent variable(s): RaceHorse.IsHitA
+Total independent variables: 2 
+Number of valid observations: 16464
+Number of missing observations: 0 
+Family-link: binomial-logit 
+ 
+Residual deviance: 6110.098 (on 16462 degrees of freedom)
+ 
+Coefficients:
+                Estimate Std. Error z value Pr(>|z|)    
+(Intercept)      -3.0893     0.0399  -77.38  2.2e-16 ***
+Gen02.HitCount1   0.5128     0.1116    4.59  4.4e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+Condition number of final variance-covariance matrix: 1 
+Number of iterations: 6
+[1] "2022-02-08 16:57:15 --- rxGlm with rxStepControl Finish ---"
+[1] "2022-02-08 16:57:15 --- rxStepPlot Start ---"
+[1] "pdfFilename=pdf_analyze_glm_Gen02_Type21_rxStepPlot.pdf"
+[1] "rxStepPlot="
+[1] "2022-02-08 16:57:15 --- rxStepPlot Finish ---"
+[1] "2022-02-08 16:57:15 --- save.image Start ---"
+[1] "save.image"
+[1] "rdataFilename=RData_analyze_glm_Gen02_Type21.RData"
+[1] "2022-02-08 16:57:17 --- save.image Finish ---"
+[1] "2022-02-08 16:57:17 --- final Start ---"
+[1] "nrow(data) final=16464"
+[1] "2022-02-08 16:57:17 --- final Finish ---"
+[1] "2022-02-08 16:57:17 --- analyze_glm.R Finished ---"
+[1] "2022-02-08 16:57:17 --- log Finish ---"

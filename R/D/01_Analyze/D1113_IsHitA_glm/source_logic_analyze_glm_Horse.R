@@ -39,7 +39,7 @@ RaceHorse.IsHitA
 # + Horse.PrevKettoNum
 
 # + Horse.PrevKettoNum
-+ Horse.TimeDvByRaceAvg
+# + Horse.TimeDvByRaceAvg
 # + Horse.TimeDvByRaceMax
 # + Horse.RunCount
 # + Horse.HitCount1
@@ -50,7 +50,7 @@ RaceHorse.IsHitA
 # + Horse.HitCountA
 # + Horse.HitCountB
 # + Horse.HitCountC
-# + Horse.HitRate1
++ Horse.HitRate1
 # + Horse.HitRate2
 # + Horse.HitRate3
 # + Horse.HitRate4
