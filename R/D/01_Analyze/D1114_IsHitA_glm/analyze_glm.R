@@ -286,12 +286,18 @@ print(paste0(Sys.time(), " --- na.omit Finish ---"))
 # tic()
 print(paste0(Sys.time(), " --- rxGlm with rxStepControl Start ---"))
 source(paste0("source_logic", "_", analyzeCategory, "_", analyzeFunc, "_", analyzeType, ".R"), echo = FALSE, max.deparse.length = Inf)
+
 analyze.results.glm.step.varsel <- rxStepControl(method = "stepwise", scope = form, keepStepCoefs = TRUE)
-analyze.results.glm.step <- rxGlm(form,
+
+analyze.results.glm.step <- rxLogit(form,
 , data = data
-, family = binomial()
 , variableSelection = analyze.results.glm.step.varsel
 )
+# analyze.results.glm.step <- rxGlm(form,
+# , data = data
+# , family = binomial(logit)
+# , variableSelection = analyze.results.glm.step.varsel
+# )
 
 print("analyze.results.glm.step=")
 print(analyze.results.glm.step)

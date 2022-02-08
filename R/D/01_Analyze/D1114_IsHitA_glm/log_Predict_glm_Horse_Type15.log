@@ -1,6 +1,6 @@
-[1] "2022-02-08 11:10:42 --- D1114_Predict_glm_Horse_IsHitA_Type15 Start ---"
-[1] "2022-02-08 11:10:42 --- Log Start ---"
-[1] "2022-02-08 11:10:42 --- predict.R Start ---"
+[1] "2022-02-08 14:16:08 --- D1114_Predict_glm_Horse_IsHitA_Type15 Start ---"
+[1] "2022-02-08 14:16:08 --- Log Start ---"
+[1] "2022-02-08 14:16:08 --- predict.R Start ---"
 [1] "analyzeVersion=D1114"
 [1] "analyzeCategory=Predict"
 [1] "analyzeType=Horse"
@@ -8,22 +8,22 @@
 [1] "analyzeFunc=glm"
 [1] "analyzeTrackTypeCd=1"
 [1] "analyzeJyokenCd=5"
-[1] "2022-02-08 11:10:43 --- source_function.R Start ---"
-[1] "2022-02-08 11:10:43 --- source_function.R Finished ---"
+[1] "2022-02-08 14:16:08 --- source_function.R Start ---"
+[1] "2022-02-08 14:16:08 --- source_function.R Finished ---"
 
 > print(paste0(Sys.time(), " --- source_library.R Start ---"))
-[1] "2022-02-08 11:10:43 --- source_library.R Start ---"
+[1] "2022-02-08 14:16:08 --- source_library.R Start ---"
 
 > require("RevoScaleR")
 
 > print(paste0(Sys.time(), " --- source_library.R Finished ---"))
-[1] "2022-02-08 11:10:43 --- source_library.R Finished ---"
-[1] "2022-02-08 11:10:43 --- Load Start ---"
+[1] "2022-02-08 14:16:08 --- source_library.R Finished ---"
+[1] "2022-02-08 14:16:08 --- Load Start ---"
 [1] "loadFilename=RData_Analyze_glm_Horse_Type15.RData"
-[1] "2022-02-08 11:10:44 --- Load Finished ---"
-[1] "2022-02-08 11:10:44 --- RxSqlServerData Start ---"
+[1] "2022-02-08 14:16:08 --- Load Finished ---"
+[1] "2022-02-08 14:16:08 --- RxSqlServerData Start ---"
 [1] "sqlQuery=SELECT * FROM ViewAnalyzeD1114analyze01HorseType15 WHERE [Race.IsPredictedRace] = 1"
-Rows Read: 76589, Total Rows Processed: 76589, Total Chunk Time: 4.961 seconds 
+Rows Read: 76589, Total Rows Processed: 76589, Total Chunk Time: 1.999 seconds 
 [1] "head(InputDataSet)="
            Race.RaceId Race.IsPredictedRace Race.IsAnalyzeNormalPastAndFuture
 1 20160123-08-01-07-05                 TRUE                              TRUE
@@ -81,13 +81,13 @@ Rows Read: 76589, Total Rows Processed: 76589, Total Chunk Time: 4.961 seconds
 4                       TRUE                0                0                0
 5                       TRUE                0                0                0
 6                       TRUE                0                0                0
-          Horse.RaceId Horse.KettoNum Horse.Num Horse.PrevKettoNum
-1 20160123-08-01-07-05     2013103396         3         2013103396
-2 20170226-10-01-06-04     2014103209         4         2014103209
-3 20170304-09-01-03-05     2014102133         3         2014102133
-4 20170423-03-01-06-06     2014105489         2         2014105489
-5 20170429-08-03-03-04     2014100488         4         2014100488
-6 20170514-04-01-06-05     2014103109         1         2014103109
+          Horse.RaceId Horse.KettoNum Horse.RowNum Horse.PrevKettoNum
+1 20160123-08-01-07-05     2013103396            3         2013103396
+2 20170226-10-01-06-04     2014103209            4         2014103209
+3 20170304-09-01-03-05     2014102133            3         2014102133
+4 20170423-03-01-06-06     2014105489            2         2014105489
+5 20170429-08-03-03-04     2014100488            4         2014100488
+6 20170514-04-01-06-05     2014103109            1         2014103109
       Horse.PrevRaceId Horse.SyussoTosu Horse.TimeDvByRace Horse.RunCount
 1 20150906-01-02-06-01               13           59.28485              1
 2 20160724-02-02-06-01               13           40.89701              1
@@ -142,10 +142,10 @@ Rows Read: 76589, Total Rows Processed: 76589, Total Chunk Time: 4.961 seconds
  $ RaceHorse.IsHitC                 : int  0 1 0 0 0 0 0 0 0 1 ...
  $ Horse.RaceId                     : Factor w/ 2936 levels "20160123-08-01-07-05",..: 1 2 3 4 5 6 7 8 9 10 ...
  $ Horse.KettoNum                   : Factor w/ 10493 levels "2013103396","2014103209",..: 1 2 3 4 5 6 7 8 9 10 ...
- $ Horse.Num                        : num  3 4 3 2 4 1 1 4 3 1 ...
+ $ Horse.RowNum                     : num  3 4 3 2 4 1 1 2 3 1 ...
  $ Horse.PrevKettoNum               : Factor w/ 10493 levels "2013103396","2014103209",..: 1 2 3 4 5 6 7 8 9 10 ...
  $ Horse.PrevRaceId                 : Factor w/ 3120 levels "20150906-01-02-06-01",..: 1 2 3 4 5 6 7 11 9 10 ...
- $ Horse.SyussoTosu                 : num  13 13 11 18 11 18 18 18 17 16 ...
+ $ Horse.SyussoTosu                 : num  13 13 11 18 11 18 18 16 17 16 ...
  $ Horse.TimeDvByRace               : num  59.3 40.9 61.4 56.7 33.3 ...
  $ Horse.RunCount                   : int  1 1 1 1 1 1 1 1 1 1 ...
  $ Horse.HitCount1                  : int  0 0 0 0 0 0 0 0 0 0 ...
@@ -154,15 +154,15 @@ Rows Read: 76589, Total Rows Processed: 76589, Total Chunk Time: 4.961 seconds
  $ Horse.HitCount4                  : int  0 0 0 0 0 0 0 0 0 0 ...
  $ Horse.HitCount5                  : int  0 0 0 1 0 0 0 0 0 0 ...
  $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
-[1] "2022-02-08 11:10:53 --- RxSqlServerData Finish ---"
-[1] "2022-02-08 11:10:53 --- subset Start ---"
+[1] "2022-02-08 14:16:12 --- RxSqlServerData Finish ---"
+[1] "2022-02-08 14:16:12 --- subset Start ---"
 [1] "nrow(InputDataSet) subset before=76589"
 [1] "nrow(InputDataSet) subset after=76589"
 [1] "nrow(InputDataSet) subset diff=0"
 [1] "class(InputDataSet$Race.IsAnalyzeNormalPast)=logical"
 [1] "class(InputDataSet$Race.analyzeTrackTypeCd)=NULL"
-[1] "2022-02-08 11:10:53 --- subset Finish ---"
-[1] "2022-02-08 11:10:53 --- transform Start ---"
+[1] "2022-02-08 14:16:12 --- subset Finish ---"
+[1] "2022-02-08 14:16:12 --- transform Start ---"
 [1] "nrow(InputDataSet) transaform before=76589"
 [1] "nrow(InputDataSet) transaform after=76589"
 [1] "nrow(InputDataSet) transaform diff=0"
@@ -197,10 +197,10 @@ Rows Read: 76589, Total Rows Processed: 76589, Total Chunk Time: 4.961 seconds
  $ RaceHorse.IsHitC                 : int  0 1 0 0 0 0 0 0 0 1 ...
  $ Horse.RaceId                     : Factor w/ 2936 levels "20160123-08-01-07-05",..: 1 2 3 4 5 6 7 8 9 10 ...
  $ Horse.KettoNum                   : Factor w/ 10493 levels "2013103396","2014103209",..: 1 2 3 4 5 6 7 8 9 10 ...
- $ Horse.Num                        : num  3 4 3 2 4 1 1 4 3 1 ...
+ $ Horse.RowNum                     : num  3 4 3 2 4 1 1 2 3 1 ...
  $ Horse.PrevKettoNum               : Factor w/ 10493 levels "2013103396","2014103209",..: 1 2 3 4 5 6 7 8 9 10 ...
  $ Horse.PrevRaceId                 : Factor w/ 3120 levels "20150906-01-02-06-01",..: 1 2 3 4 5 6 7 11 9 10 ...
- $ Horse.SyussoTosu                 : num  13 13 11 18 11 18 18 18 17 16 ...
+ $ Horse.SyussoTosu                 : num  13 13 11 18 11 18 18 16 17 16 ...
  $ Horse.TimeDvByRace               : num  59.3 40.9 61.4 56.7 33.3 ...
  $ Horse.RunCount                   : int  1 1 1 1 1 1 1 1 1 1 ...
  $ Horse.HitCount1                  : int  0 0 0 0 0 0 0 0 0 0 ...
@@ -210,23 +210,23 @@ Rows Read: 76589, Total Rows Processed: 76589, Total Chunk Time: 4.961 seconds
  $ Horse.HitCount5                  : int  0 0 0 1 0 0 0 0 0 0 ...
  $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
 NULL
-[1] "2022-02-08 11:10:53 --- transform Finish ---"
-[1] "2022-02-08 11:10:53 --- na.omit Start ---"
+[1] "2022-02-08 14:16:12 --- transform Finish ---"
+[1] "2022-02-08 14:16:12 --- na.omit Start ---"
 [1] "nrow(InputDataSet) na.omit before=76589"
 [1] "nrow(InputDataSet) na.omit after=76589"
 [1] "nrow(InputDataSet) na.omit diff=0"
-[1] "2022-02-08 11:10:53 --- na.omit Finish---"
-[1] "2022-02-08 11:10:53 --- New Levels Start ---"
+[1] "2022-02-08 14:16:12 --- na.omit Finish---"
+[1] "2022-02-08 14:16:12 --- New Levels Start ---"
 [1] "levels(data$Race.RaceType1Cd)=1-5-X"
 [1] "levels(InputDataSet$Race.RaceType1Cd)=1-5-X"
 [1] "length(Race.RaceType1Cd.Index)=0"
-[1] "2022-02-08 11:10:53 --- New Levels Finish ---"
-[1] "2022-02-08 11:10:53 --- na.omit Start ---"
+[1] "2022-02-08 14:16:12 --- New Levels Finish ---"
+[1] "2022-02-08 14:16:12 --- na.omit Start ---"
 [1] "nrow(InputDataSet) na.omit levels before=76589"
 [1] "nrow(InputDataSet) na.omit levels after=76589"
 [1] "nrow(InputDataSet) na.omit levels diff=0"
-[1] "2022-02-08 11:10:53 --- na.omit Finish ---"
-[1] "2022-02-08 11:10:53 --- Predict InputDataSet Start ---"
+[1] "2022-02-08 14:16:12 --- na.omit Finish ---"
+[1] "2022-02-08 14:16:12 --- Predict InputDataSet Start ---"
 [1] "nrow(InputDataSet) predict=76589"
 [1] "str(InputDataSet)="
 'data.frame':	76589 obs. of  41 variables:
@@ -259,10 +259,10 @@ NULL
  $ RaceHorse.IsHitC                 : int  0 1 0 0 0 0 0 0 0 1 ...
  $ Horse.RaceId                     : Factor w/ 2936 levels "20160123-08-01-07-05",..: 1 2 3 4 5 6 7 8 9 10 ...
  $ Horse.KettoNum                   : Factor w/ 10493 levels "2013103396","2014103209",..: 1 2 3 4 5 6 7 8 9 10 ...
- $ Horse.Num                        : num  3 4 3 2 4 1 1 4 3 1 ...
+ $ Horse.RowNum                     : num  3 4 3 2 4 1 1 2 3 1 ...
  $ Horse.PrevKettoNum               : Factor w/ 10493 levels "2013103396","2014103209",..: 1 2 3 4 5 6 7 8 9 10 ...
  $ Horse.PrevRaceId                 : Factor w/ 3120 levels "20150906-01-02-06-01",..: 1 2 3 4 5 6 7 11 9 10 ...
- $ Horse.SyussoTosu                 : num  13 13 11 18 11 18 18 18 17 16 ...
+ $ Horse.SyussoTosu                 : num  13 13 11 18 11 18 18 16 17 16 ...
  $ Horse.TimeDvByRace               : num  59.3 40.9 61.4 56.7 33.3 ...
  $ Horse.RunCount                   : int  1 1 1 1 1 1 1 1 1 1 ...
  $ Horse.HitCount1                  : int  0 0 0 0 0 0 0 0 0 0 ...
@@ -271,10 +271,10 @@ NULL
  $ Horse.HitCount4                  : int  0 0 0 0 0 0 0 0 0 0 ...
  $ Horse.HitCount5                  : int  0 0 0 1 0 0 0 0 0 0 ...
  $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
-[1] "2022-02-08 11:10:54 --- Predict InputDataSet Finish ---"
-[1] "2022-02-08 11:10:54 --- rxPredict (glm) Start ---"
+[1] "2022-02-08 14:16:12 --- Predict InputDataSet Finish ---"
+[1] "2022-02-08 14:16:12 --- rxPredict (glm) Start ---"
 [1] "analyzeFunc=glm"
-Rows Read: 76589, Total Rows Processed: 76589, Total Chunk Time: 0.001 seconds 
+Rows Read: 76589, Total Rows Processed: 76589, Total Chunk Time: Less than .001 seconds 
 [1] "nrow(PredictDataSet) afte predict=76589"
 [1] "str(PredictDataSet)"
 'data.frame':	76589 obs. of  1 variable:
@@ -288,16 +288,16 @@ NULL
 4            0.07963116
 5            0.07963116
 6            0.07963116
-[1] "2022-02-08 11:10:54 --- rxPredict (glm) Finish ---"
-[1] "2022-02-08 11:10:54 --- add key Start ---"
+[1] "2022-02-08 14:16:12 --- rxPredict (glm) Finish ---"
+[1] "2022-02-08 14:16:12 --- add key Start ---"
 [1] "nrow(OutputDataSet) add KeyColmn=76589"
 [1] "str(OutputDataSet) after add Key"
 'data.frame':	76589 obs. of  2 variables:
  $ RaceHorse.RaceId  : Factor w/ 2936 levels "20160123-08-01-07-05",..: 1 2 3 4 5 6 7 8 9 10 ...
  $ RaceHorse.KettoNum: Factor w/ 10493 levels "2013103396","2014103209",..: 1 2 3 4 5 6 7 8 9 10 ...
 NULL
-[1] "2022-02-08 11:10:54 --- add key Finish ---"
-[1] "2022-02-08 11:10:54 --- add PredictValue Start ---"
+[1] "2022-02-08 14:16:12 --- add key Finish ---"
+[1] "2022-02-08 14:16:12 --- add PredictValue Start ---"
 [1] "str(PredictDataSet) before rename="
 [1] "colnames(PredictDataSet)=RaceHorse.IsHitA_Pred"
 [1] "str(PredictDataSet) after rename="
@@ -315,8 +315,8 @@ NULL
  $ RaceHorse.KettoNum: Factor w/ 10493 levels "2013103396","2014103209",..: 1 2 3 4 5 6 7 8 9 10 ...
  $ PredictValue      : num  0.0796 0.0796 0.0796 0.0796 0.0796 ...
 NULL
-[1] "2022-02-08 11:10:54 --- add PredictValue Finish ---"
-[1] "2022-02-08 11:10:54 --- final Start ---"
+[1] "2022-02-08 14:16:13 --- add PredictValue Finish ---"
+[1] "2022-02-08 14:16:13 --- final Start ---"
 [1] "nrow(OutputDataSet) final=76589"
 [1] "head(OutputDataSet)="
       RaceHorse.RaceId RaceHorse.KettoNum PredictValue
@@ -332,6 +332,6 @@ NULL
  $ RaceHorse.KettoNum: Factor w/ 10493 levels "2013103396","2014103209",..: 1 2 3 4 5 6 7 8 9 10 ...
  $ PredictValue      : num  0.0796 0.0796 0.0796 0.0796 0.0796 ...
 NULL
-[1] "2022-02-08 11:10:54 --- final Finish ---"
-[1] "2022-02-08 11:10:54 --- predict.R Finished ---"
-[1] "2022-02-08 11:10:54 --- log Finish ---"
+[1] "2022-02-08 14:16:13 --- final Finish ---"
+[1] "2022-02-08 14:16:13 --- predict.R Finished ---"
+[1] "2022-02-08 14:16:13 --- log Finish ---"

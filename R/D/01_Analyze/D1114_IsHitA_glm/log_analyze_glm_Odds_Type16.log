@@ -1,6 +1,6 @@
-[1] "2022-02-08 16:57:29 --- D1114_analyze_glm_Odds_IsHitA_Type16 Start ---"
-[1] "2022-02-08 16:57:29 --- Log Start ---"
-[1] "2022-02-08 16:57:29 --- analyze_glm.R Start ---"
+[1] "2022-02-08 22:12:12 --- D1114_analyze_glm_Odds_IsHitA_Type16 Start ---"
+[1] "2022-02-08 22:12:12 --- Log Start ---"
+[1] "2022-02-08 22:12:12 --- analyze_glm.R Start ---"
 [1] "analyzeVersion=D1114"
 [1] "analyzeCategory=analyze"
 [1] "analyzeType=Odds"
@@ -8,19 +8,19 @@
 [1] "analyzeFunc=glm"
 [1] "analyzeTrackTypeCd=1"
 [1] "analyzeJyokenCd=6"
-[1] "2022-02-08 16:57:29 --- source_function.R Start ---"
-[1] "2022-02-08 16:57:29 --- source_function.R Finished ---"
+[1] "2022-02-08 22:12:12 --- source_function.R Start ---"
+[1] "2022-02-08 22:12:12 --- source_function.R Finished ---"
 
 > print(paste0(Sys.time(), " --- source_library.R Start ---"))
-[1] "2022-02-08 16:57:29 --- source_library.R Start ---"
+[1] "2022-02-08 22:12:12 --- source_library.R Start ---"
 
 > require("RevoScaleR")
 
 > print(paste0(Sys.time(), " --- source_library.R Finished ---"))
-[1] "2022-02-08 16:57:30 --- source_library.R Finished ---"
-[1] "2022-02-08 16:57:30 --- RxSqlServerData Start ---"
+[1] "2022-02-08 22:12:13 --- source_library.R Finished ---"
+[1] "2022-02-08 22:12:13 --- RxSqlServerData Start ---"
 [1] "sqlQuery=SELECT * FROM ViewAnalyzeD1114analyze01OddsType16"
-Rows Read: 16292, Total Rows Processed: 16292, Total Chunk Time: 0.611 seconds 
+Rows Read: 16292, Total Rows Processed: 16292, Total Chunk Time: 1.575 seconds 
 [1] "head(data)="
            Race.RaceId Race.IsPredictedRace Race.IsAnalyzeNormalPastAndFuture
 1 20170603-05-03-01-05                 TRUE                              TRUE
@@ -140,13 +140,13 @@ Rows Read: 16292, Total Rows Processed: 16292, Total Chunk Time: 0.611 seconds
  $ OddsByWin.ApprovalRate1          : num  0.01319 0.01553 0.00869 0.01656 0.01553 ...
  $ OddsByWin.ApprovalRateLog1       : num  0.01311 0.01541 0.00865 0.01642 0.01541 ...
  $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
-[1] "2022-02-08 16:57:32 --- RxSqlServerData Finish ---"
-[1] "2022-02-08 16:57:32 --- subset Start ---"
+[1] "2022-02-08 22:12:17 --- RxSqlServerData Finish ---"
+[1] "2022-02-08 22:12:17 --- subset Start ---"
 [1] "nrow(data) subset before=16292"
 [1] "nrow(data) subset after =12760"
 [1] "nrow(data) subset diff =3532"
-[1] "2022-02-08 16:57:32 --- subset Finish---"
-[1] "2022-02-08 16:57:32 --- transform Start ---"
+[1] "2022-02-08 22:12:17 --- subset Finish---"
+[1] "2022-02-08 22:12:17 --- transform Start ---"
 [1] "nrow(data) transform before=12760"
 [1] "nrow(data) transform after=12760"
 [1] "nrow(data) transform diff=0"
@@ -190,8 +190,8 @@ Rows Read: 16292, Total Rows Processed: 16292, Total Chunk Time: 0.611 seconds
  $ OddsByWin.ApprovalRateLog1       : num  0.01311 0.01541 0.00865 0.01642 0.01541 ...
  $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
 NULL
-[1] "2022-02-08 16:57:33 --- transform Finish ---"
-[1] "2022-02-08 16:57:33 --- na.omit Start ---"
+[1] "2022-02-08 22:12:18 --- transform Finish ---"
+[1] "2022-02-08 22:12:18 --- na.omit Start ---"
 [1] "nrow(data) na.omit before=12760"
 [1] "nrow(data) na.omit after =12760"
 [1] "nrow(data) na.omit diff =0"
@@ -233,117 +233,93 @@ NULL
  $ OddsByWin.ApprovalRate1          : num  0.01319 0.01553 0.00869 0.01656 0.01553 ...
  $ OddsByWin.ApprovalRateLog1       : num  0.01311 0.01541 0.00865 0.01642 0.01541 ...
  $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
-[1] "2022-02-08 16:57:33 --- na.omit Finish ---"
-[1] "2022-02-08 16:57:33 --- rxGlm with rxStepControl Start ---"
-[1] "2022-02-08 16:57:33 --- source_logic_glm.R Start ---"
-[1] "2022-02-08 16:57:33 --- source_logic_glm.R Finished ---"
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
-
-Starting values (iteration 1) time: 0.016 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
-
-Iteration 2 time: 0.009 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
-
-Iteration 3 time: 0.005 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
-
-Iteration 4 time: 0.007 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
-
-Iteration 5 time: 0.005 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
-
-Iteration 6 time: 0.005 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
-
-Iteration 7 time: 0.005 secs.
-
-Elapsed computation time: 0.074 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
-
-Starting values (iteration 1) time: 0.012 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
-
-Iteration 2 time: 0.009 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
-
-Iteration 3 time: 0.006 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
-
-Iteration 4 time: 0.004 secs.
+[1] "2022-02-08 22:12:18 --- na.omit Finish ---"
+[1] "2022-02-08 22:12:18 --- rxGlm with rxStepControl Start ---"
+[1] "2022-02-08 22:12:18 --- source_logic_glm.R Start ---"
+[1] "2022-02-08 22:12:18 --- source_logic_glm.R Finished ---"
 Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: Less than .001 seconds 
 
-Iteration 5 time: 0.006 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.001 seconds 
-
-Iteration 6 time: 0.005 secs.
-
-Elapsed computation time: 0.063 secs.
+Starting values (iteration 1) time: 0.033 secs.
 Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
 
-Starting values (iteration 1) time: 0.013 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
-
-Iteration 2 time: 0.007 secs.
+Iteration 2 time: 0.010 secs.
 Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
 
 Iteration 3 time: 0.004 secs.
 Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: Less than .001 seconds 
 
-Iteration 4 time: 0.004 secs.
+Iteration 4 time: 0.005 secs.
 Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
 
 Iteration 5 time: 0.005 secs.
 Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
 
 Iteration 6 time: 0.004 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
 
-Iteration 7 time: 0.004 secs.
-
-Elapsed computation time: 0.067 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
-
-Starting values (iteration 1) time: 0.012 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
-
-Iteration 2 time: 0.007 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
-
-Iteration 3 time: 0.005 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.001 seconds 
-
-Iteration 4 time: 0.005 secs.
+Elapsed computation time: 0.088 secs.
 Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: Less than .001 seconds 
 
-Iteration 5 time: 0.005 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
-
-Iteration 6 time: 0.006 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
-
-Iteration 7 time: 0.003 secs.
-
-Elapsed computation time: 0.067 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
-
 Starting values (iteration 1) time: 0.013 secs.
+Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.001 seconds 
+
+Iteration 2 time: 0.010 secs.
+Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
+
+Iteration 3 time: 0.004 secs.
+Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.001 seconds 
+
+Iteration 4 time: 0.006 secs.
+
+Elapsed computation time: 0.051 secs.
+Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: Less than .001 seconds 
+
+Starting values (iteration 1) time: 0.015 secs.
 Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
 
 Iteration 2 time: 0.010 secs.
 Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
 
-Iteration 3 time: 0.006 secs.
+Iteration 3 time: 0.004 secs.
+Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.007 secs.
+Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.005 secs.
+Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: Less than .001 seconds 
+
+Iteration 6 time: 0.005 secs.
+
+Elapsed computation time: 0.075 secs.
+Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.001 seconds 
+
+Starting values (iteration 1) time: 0.011 secs.
+Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.001 seconds 
+
+Iteration 2 time: 0.009 secs.
+Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.001 seconds 
+
+Iteration 3 time: 0.004 secs.
 Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
 
 Iteration 4 time: 0.005 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.003 seconds 
+Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: Less than .001 seconds 
 
-Iteration 5 time: 0.006 secs.
+Iteration 5 time: 0.005 secs.
+Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.001 seconds 
 
-Elapsed computation time: 0.053 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
+Iteration 6 time: 0.006 secs.
+
+Elapsed computation time: 0.064 secs.
+Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.001 seconds 
+
+Starting values (iteration 1) time: 0.009 secs.
+Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.001 seconds 
+
+Iteration 2 time: 0.005 secs.
+
+Elapsed computation time: 0.022 secs.
+Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.001 seconds 
 
 Starting values (iteration 1) time: 0.011 secs.
 Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
@@ -352,32 +328,27 @@ Iteration 2 time: 0.008 secs.
 Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: Less than .001 seconds 
 
 Iteration 3 time: 0.005 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: Less than .001 seconds 
+Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
 
-Iteration 4 time: 0.004 secs.
+Iteration 4 time: 0.006 secs.
 Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
 
 Iteration 5 time: 0.005 secs.
 Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
 
-Iteration 6 time: 0.005 secs.
-Rows Read: 12760, Total Rows Processed: 12760, Total Chunk Time: 0.002 seconds 
+Iteration 6 time: 0.006 secs.
 
-Iteration 7 time: 0.003 secs.
+Elapsed computation time: 0.065 secs.
 
-Elapsed computation time: 0.070 secs.
-
-Elapsed computation time: 0.425 secs.
+Elapsed computation time: 0.403 secs.
 [1] "analyze.results.glm.step="
-Generalized Linear Model Results for: RaceHorse.IsHitA ~
+Logistic Regression Results for: RaceHorse.IsHitA ~
     OddsByWin.OddsLogit1
 Data: data
 Dependent variable(s): RaceHorse.IsHitA
 Total independent variables: 2 
 Number of valid observations: 12760
 Number of missing observations: 0 
-Family-link: binomial-logit 
- 
  
 Coefficients:
                      RaceHorse.IsHitA
@@ -385,18 +356,16 @@ Coefficients:
 OddsByWin.OddsLogit1              1.2
 [1] "analyze.results.glm.step.summary"
 Call:
-rxGlm(formula = form, data = data, family = binomial(), variableSelection = analyze.results.glm.step.varsel)
+rxLogit(formula = form, data = data, variableSelection = analyze.results.glm.step.varsel)
 
-Generalized Linear Model Results for: RaceHorse.IsHitA ~
+Logistic Regression Results for: RaceHorse.IsHitA ~
     OddsByWin.OddsLogit1
 Data: data
 Dependent variable(s): RaceHorse.IsHitA
 Total independent variables: 2 
 Number of valid observations: 12760
 Number of missing observations: 0 
-Family-link: binomial-logit 
- 
-Residual deviance: 5377.823 (on 12758 degrees of freedom)
+-2*LogLikelihood: 5377.823 (Residual deviance on 12758 degrees of freedom)
  
 Coefficients:
                      Estimate Std. Error z value Pr(>|z|)    
@@ -405,21 +374,19 @@ OddsByWin.OddsLogit1   1.1720     0.0366   31.99  2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for binomial family taken to be 1)
-
 Condition number of final variance-covariance matrix: 1 
-Number of iterations: 7
-[1] "2022-02-08 16:57:33 --- rxGlm with rxStepControl Finish ---"
-[1] "2022-02-08 16:57:33 --- rxStepPlot Start ---"
+Number of iterations: 6
+[1] "2022-02-08 22:12:19 --- rxGlm with rxStepControl Finish ---"
+[1] "2022-02-08 22:12:19 --- rxStepPlot Start ---"
 [1] "pdfFilename=pdf_analyze_glm_Odds_Type16_rxStepPlot.pdf"
 [1] "rxStepPlot="
-[1] "2022-02-08 16:57:34 --- rxStepPlot Finish ---"
-[1] "2022-02-08 16:57:34 --- save.image Start ---"
+[1] "2022-02-08 22:12:19 --- rxStepPlot Finish ---"
+[1] "2022-02-08 22:12:19 --- save.image Start ---"
 [1] "save.image"
 [1] "rdataFilename=RData_analyze_glm_Odds_Type16.RData"
-[1] "2022-02-08 16:57:35 --- save.image Finish ---"
-[1] "2022-02-08 16:57:35 --- final Start ---"
+[1] "2022-02-08 22:12:19 --- save.image Finish ---"
+[1] "2022-02-08 22:12:19 --- final Start ---"
 [1] "nrow(data) final=12760"
-[1] "2022-02-08 16:57:35 --- final Finish ---"
-[1] "2022-02-08 16:57:35 --- analyze_glm.R Finished ---"
-[1] "2022-02-08 16:57:35 --- log Finish ---"
+[1] "2022-02-08 22:12:19 --- final Finish ---"
+[1] "2022-02-08 22:12:19 --- analyze_glm.R Finished ---"
+[1] "2022-02-08 22:12:19 --- log Finish ---"
