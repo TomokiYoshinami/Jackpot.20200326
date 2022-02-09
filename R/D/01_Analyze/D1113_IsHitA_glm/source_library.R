@@ -38,7 +38,8 @@ require("RevoScaleR")
 # require(rstan)
 ## require(Matrix)
 # lme4
-## require(lme4)
+library(lme4)
+# require(lme4)
 # require(lmerTest)
 # require(HSAUR2)
 ## require(lattice) #xyplot
