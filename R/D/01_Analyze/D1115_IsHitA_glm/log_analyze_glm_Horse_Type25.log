@@ -1,0 +1,562 @@
+[1] "2022-02-10 08:14:22 --- D1115_analyze_glm_Horse_IsHitA_Type25 Start ---"
+[1] "2022-02-10 08:14:22 --- Log Start ---"
+[1] "2022-02-10 08:14:22 --- analyze_glm.R Start ---"
+[1] "analyzeVersion=D1115"
+[1] "analyzeCategory=analyze"
+[1] "analyzeType=Horse"
+[1] "analyzeFamily=IsHitA"
+[1] "analyzeFunc=glm"
+[1] "analyzeTrackTypeCd=2"
+[1] "analyzeJyokenCd=5"
+[1] "2022-02-10 08:14:22 --- source_function.R Start ---"
+[1] "2022-02-10 08:14:22 --- source_function.R Finished ---"
+
+> print(paste0(Sys.time(), " --- source_library.R Start ---"))
+[1] "2022-02-10 08:14:22 --- source_library.R Start ---"
+
+> require("RevoScaleR")
+
+> print(paste0(Sys.time(), " --- source_library.R Finished ---"))
+[1] "2022-02-10 08:14:22 --- source_library.R Finished ---"
+[1] "2022-02-10 08:14:22 --- RxSqlServerData Start ---"
+[1] "sqlQuery=SELECT * FROM ViewAnalyzeD1115analyze01HorseType25"
+Rows Read: 56470, Total Rows Processed: 56470, Total Chunk Time: 1.315 seconds 
+[1] "head(data)="
+           Race.RaceId Race.IsPredictedRace Race.IsAnalyzeNormalPastAndFuture
+1 20181007-05-04-02-01                 TRUE                              TRUE
+2 20170716-03-02-06-03                 TRUE                              TRUE
+3 20170409-03-01-02-06                 TRUE                              TRUE
+4 20170722-03-02-07-03                 TRUE                              TRUE
+5 20170513-08-03-07-01                 TRUE                              TRUE
+6 20170617-02-01-01-04                 TRUE                              TRUE
+  Race.IsAnalyzeNormalPast Race.IsAnalyzeNormalFuture
+1                     TRUE                      FALSE
+2                     TRUE                      FALSE
+3                     TRUE                      FALSE
+4                     TRUE                      FALSE
+5                     TRUE                      FALSE
+6                     TRUE                      FALSE
+  Race.IsAnalyzeFullPastAndFuture Race.IsAnalyzeFullPast
+1                            TRUE                   TRUE
+2                            TRUE                   TRUE
+3                            TRUE                   TRUE
+4                            TRUE                   TRUE
+5                            TRUE                   TRUE
+6                            TRUE                   TRUE
+  Race.IsAnalyzeFullFuture Race.JyokenCd Race.JyoType1Cd   Race.RaceType0Cd
+1                    FALSE             5     2-05-1400-2 2-05-1400-2-5-X-11
+2                    FALSE             5     2-03-1700-1 2-03-1700-1-5-X-12
+3                    FALSE             5     2-03-1150-1 2-03-1150-1-5-X-12
+4                    FALSE             5     2-03-1700-1 2-03-1700-1-5-X-12
+5                    FALSE             5     2-08-1800-4 2-08-1800-4-5-X-12
+6                    FALSE             5     2-02-1700-1 2-02-1700-1-5-X-12
+  Race.RaceType1Cd Race.RaceType2Cd Race.RaceType3Cd Race.RaceType4Cd
+1            2-5-X            2-5-X           5-X-11           2-5-11
+2            2-5-X            2-5-X           5-X-12           2-5-12
+3            2-5-X            2-5-X           5-X-12           2-5-12
+4            2-5-X            2-5-X           5-X-12           2-5-12
+5            2-5-X            2-5-X           5-X-12           2-5-12
+6            2-5-X            2-5-X           5-X-12           2-5-12
+      RaceHorse.RaceId RaceHorse.KettoNum RaceHorse.IsHit1 RaceHorse.IsHit2
+1 20181007-05-04-02-01         2016101334                0                0
+2 20170716-03-02-06-03         2014105289                0                0
+3 20170409-03-01-02-06         2014102063                0                0
+4 20170722-03-02-07-03         2014100200                0                0
+5 20170513-08-03-07-01         2014104971                0                0
+6 20170617-02-01-01-04         2014100328                0                0
+  RaceHorse.IsHit3 RaceHorse.IsHit4 RaceHorse.IsHit5 RaceHorse.IsHit6
+1                0                0                0                1
+2                0                0                0                1
+3                0                0                0                1
+4                0                0                0                1
+5                0                1                0                0
+6                0                0                0                1
+  RaceHorse.IsValidRaceHorse RaceHorse.IsHitA RaceHorse.IsHitB RaceHorse.IsHitC
+1                       TRUE                0                0                0
+2                       TRUE                0                0                0
+3                       TRUE                0                0                0
+4                       TRUE                0                0                0
+5                       TRUE                0                0                0
+6                       TRUE                0                0                0
+  Horse.PrevKettoNum Horse.TimeDvByRaceAvg Horse.TimeDvByRaceMax Horse.RunCount
+1         2016101334                    55                    58              4
+2         2014105289                    55                    55              1
+3         2014102063                    55                    56              3
+4         2014100200                    43                    47              2
+5         2014104971                    49                    55              5
+6         2014100328                    53                    58              8
+  Horse.HitCount1 Horse.HitCount2 Horse.HitCount3 Horse.HitCount4
+1               0               0               0               0
+2               0               0               0               0
+3               0               0               0               1
+4               0               0               0               0
+5               0               0               0               0
+6               0               0               0               2
+  Horse.HitCount5 Horse.HitRate1 Horse.HitRate2 Horse.HitRate3 Horse.HitRate4
+1               1              0              0              0            0.0
+2               0              0              0              0            0.0
+3               0              0              0              0            0.3
+4               0              0              0              0            0.0
+5               1              0              0              0            0.0
+6               0              0              0              0            0.2
+  Horse.HitRate5 EOF
+1            0.2   1
+2            0.0   1
+3            0.0   1
+4            0.0   1
+5            0.2   1
+6            0.0   1
+[1] "object.size(data) auto=14 Mb"
+[1] "--------------------------------------------------------------------------------"
+[1] "nrow(data) RxSqlServerData=56470"
+[1] "--------------------------------------------------------------------------------"
+[1] "str(data)="
+'data.frame':	56470 obs. of  42 variables:
+ $ Race.RaceId                      : Factor w/ 4026 levels "20180805-10-02-04-02",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ Race.IsPredictedRace             : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPastAndFuture: logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPast         : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalFuture       : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.IsAnalyzeFullPastAndFuture  : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullPast           : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullFuture         : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.JyokenCd                    : Factor w/ 1 level "5": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.JyoType1Cd                  : Factor w/ 118 levels "2-10-1000-1",..: 8 10 11 10 12 13 14 15 16 17 ...
+ $ Race.RaceType0Cd                 : Factor w/ 205 levels "2-10-1000-1-5-X-12",..: 8 10 11 10 12 13 14 15 16 17 ...
+ $ Race.RaceType1Cd                 : Factor w/ 1 level "2-5-X": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.RaceType2Cd                 : Factor w/ 1 level "2-5-X": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.RaceType3Cd                 : Factor w/ 2 levels "5-X-12","5-X-11": 2 1 1 1 1 1 2 1 1 1 ...
+ $ Race.RaceType4Cd                 : Factor w/ 2 levels "2-5-12","2-5-11": 2 1 1 1 1 1 2 1 1 1 ...
+ $ RaceHorse.RaceId                 : Factor w/ 4026 levels "20180805-10-02-04-02",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ RaceHorse.KettoNum               : Factor w/ 19558 levels "2015105384","2015104232",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ RaceHorse.IsHit1                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit2                 : int  0 0 0 0 0 0 1 0 0 0 ...
+ $ RaceHorse.IsHit3                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit4                 : int  0 0 0 0 1 0 0 0 0 1 ...
+ $ RaceHorse.IsHit5                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit6                 : int  1 1 1 1 0 1 0 1 1 0 ...
+ $ RaceHorse.IsValidRaceHorse       : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ RaceHorse.IsHitA                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHitB                 : int  0 0 0 0 0 0 1 0 0 0 ...
+ $ RaceHorse.IsHitC                 : int  0 0 0 0 0 0 1 0 0 0 ...
+ $ Horse.PrevKettoNum               : Factor w/ 19558 levels "2015105384","2015104232",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ Horse.TimeDvByRaceAvg            : num  55.4 55.4 55.2 43.1 49.4 ...
+ $ Horse.TimeDvByRaceMax            : num  58.2 55.4 56.2 47.4 54.6 ...
+ $ Horse.RunCount                   : int  4 1 3 2 5 8 1 5 5 6 ...
+ $ Horse.HitCount1                  : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ Horse.HitCount2                  : int  0 0 0 0 0 0 0 1 0 2 ...
+ $ Horse.HitCount3                  : int  0 0 0 0 0 0 0 0 0 2 ...
+ $ Horse.HitCount4                  : int  0 0 1 0 0 2 0 0 2 0 ...
+ $ Horse.HitCount5                  : int  1 0 0 0 1 0 0 0 1 1 ...
+ $ Horse.HitRate1                   : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ Horse.HitRate2                   : num  0 0 0 0 0 ...
+ $ Horse.HitRate3                   : num  0 0 0 0 0 ...
+ $ Horse.HitRate4                   : num  0 0 0.333 0 0 ...
+ $ Horse.HitRate5                   : num  0.25 0 0 0 0.2 ...
+ $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
+[1] "2022-02-10 08:14:26 --- RxSqlServerData Finish ---"
+[1] "2022-02-10 08:14:26 --- subset Start ---"
+[1] "--------------------------------------------------------------------------------"
+[1] "nrow(data) subset before=56470"
+[1] "nrow(data) subset after =44851"
+[1] "nrow(data) subset diff =11619"
+[1] "--------------------------------------------------------------------------------"
+[1] "2022-02-10 08:14:26 --- subset Finish---"
+[1] "2022-02-10 08:14:26 --- transform Start ---"
+[1] "--------------------------------------------------------------------------------"
+[1] "nrow(data) transform before=44851"
+[1] "nrow(data) transform after=44851"
+[1] "nrow(data) transform diff=0"
+[1] "--------------------------------------------------------------------------------"
+[1] "str(data)="
+'data.frame':	44851 obs. of  42 variables:
+ $ Race.RaceId                      : Factor w/ 4026 levels "20180805-10-02-04-02",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ Race.IsPredictedRace             : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPastAndFuture: logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPast         : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalFuture       : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.IsAnalyzeFullPastAndFuture  : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullPast           : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullFuture         : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.JyokenCd                    : Factor w/ 1 level "5": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.JyoType1Cd                  : Factor w/ 118 levels "2-10-1000-1",..: 8 10 11 10 12 13 14 15 16 17 ...
+ $ Race.RaceType0Cd                 : Factor w/ 205 levels "2-10-1000-1-5-X-12",..: 8 10 11 10 12 13 14 15 16 17 ...
+ $ Race.RaceType1Cd                 : Factor w/ 1 level "2-5-X": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.RaceType2Cd                 : Factor w/ 1 level "2-5-X": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.RaceType3Cd                 : Factor w/ 2 levels "5-X-12","5-X-11": 2 1 1 1 1 1 2 1 1 1 ...
+ $ Race.RaceType4Cd                 : Factor w/ 2 levels "2-5-12","2-5-11": 2 1 1 1 1 1 2 1 1 1 ...
+ $ RaceHorse.RaceId                 : Factor w/ 4026 levels "20180805-10-02-04-02",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ RaceHorse.KettoNum               : Factor w/ 19558 levels "2015105384","2015104232",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ RaceHorse.IsHit1                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit2                 : int  0 0 0 0 0 0 1 0 0 0 ...
+ $ RaceHorse.IsHit3                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit4                 : int  0 0 0 0 1 0 0 0 0 1 ...
+ $ RaceHorse.IsHit5                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit6                 : int  1 1 1 1 0 1 0 1 1 0 ...
+ $ RaceHorse.IsValidRaceHorse       : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ RaceHorse.IsHitA                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHitB                 : int  0 0 0 0 0 0 1 0 0 0 ...
+ $ RaceHorse.IsHitC                 : int  0 0 0 0 0 0 1 0 0 0 ...
+ $ Horse.PrevKettoNum               : Factor w/ 19558 levels "2015105384","2015104232",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ Horse.TimeDvByRaceAvg            : num  55.4 55.4 55.2 43.1 49.4 ...
+ $ Horse.TimeDvByRaceMax            : num  58.2 55.4 56.2 47.4 54.6 ...
+ $ Horse.RunCount                   : int  4 1 3 2 5 8 1 5 5 6 ...
+ $ Horse.HitCount1                  : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ Horse.HitCount2                  : int  0 0 0 0 0 0 0 1 0 2 ...
+ $ Horse.HitCount3                  : int  0 0 0 0 0 0 0 0 0 2 ...
+ $ Horse.HitCount4                  : int  0 0 1 0 0 2 0 0 2 0 ...
+ $ Horse.HitCount5                  : int  1 0 0 0 1 0 0 0 1 1 ...
+ $ Horse.HitRate1                   : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ Horse.HitRate2                   : num  0 0 0 0 0 ...
+ $ Horse.HitRate3                   : num  0 0 0 0 0 ...
+ $ Horse.HitRate4                   : num  0 0 0.333 0 0 ...
+ $ Horse.HitRate5                   : num  0.25 0 0 0 0.2 ...
+ $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
+NULL
+[1] "2022-02-10 08:14:27 --- transform Finish ---"
+[1] "2022-02-10 08:14:27 --- na.omit Start ---"
+[1] "--------------------------------------------------------------------------------"
+[1] "nrow(data) na.omit before=44851"
+[1] "nrow(data) na.omit after =44851"
+[1] "nrow(data) na.omit diff =0"
+[1] "--------------------------------------------------------------------------------"
+'data.frame':	44851 obs. of  42 variables:
+ $ Race.RaceId                      : Factor w/ 4026 levels "20180805-10-02-04-02",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ Race.IsPredictedRace             : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPastAndFuture: logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPast         : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalFuture       : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.IsAnalyzeFullPastAndFuture  : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullPast           : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullFuture         : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.JyokenCd                    : Factor w/ 1 level "5": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.JyoType1Cd                  : Factor w/ 118 levels "2-10-1000-1",..: 8 10 11 10 12 13 14 15 16 17 ...
+ $ Race.RaceType0Cd                 : Factor w/ 205 levels "2-10-1000-1-5-X-12",..: 8 10 11 10 12 13 14 15 16 17 ...
+ $ Race.RaceType1Cd                 : Factor w/ 1 level "2-5-X": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.RaceType2Cd                 : Factor w/ 1 level "2-5-X": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.RaceType3Cd                 : Factor w/ 2 levels "5-X-12","5-X-11": 2 1 1 1 1 1 2 1 1 1 ...
+ $ Race.RaceType4Cd                 : Factor w/ 2 levels "2-5-12","2-5-11": 2 1 1 1 1 1 2 1 1 1 ...
+ $ RaceHorse.RaceId                 : Factor w/ 4026 levels "20180805-10-02-04-02",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ RaceHorse.KettoNum               : Factor w/ 19558 levels "2015105384","2015104232",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ RaceHorse.IsHit1                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit2                 : int  0 0 0 0 0 0 1 0 0 0 ...
+ $ RaceHorse.IsHit3                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit4                 : int  0 0 0 0 1 0 0 0 0 1 ...
+ $ RaceHorse.IsHit5                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit6                 : int  1 1 1 1 0 1 0 1 1 0 ...
+ $ RaceHorse.IsValidRaceHorse       : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ RaceHorse.IsHitA                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHitB                 : int  0 0 0 0 0 0 1 0 0 0 ...
+ $ RaceHorse.IsHitC                 : int  0 0 0 0 0 0 1 0 0 0 ...
+ $ Horse.PrevKettoNum               : Factor w/ 19558 levels "2015105384","2015104232",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ Horse.TimeDvByRaceAvg            : num  55.4 55.4 55.2 43.1 49.4 ...
+ $ Horse.TimeDvByRaceMax            : num  58.2 55.4 56.2 47.4 54.6 ...
+ $ Horse.RunCount                   : int  4 1 3 2 5 8 1 5 5 6 ...
+ $ Horse.HitCount1                  : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ Horse.HitCount2                  : int  0 0 0 0 0 0 0 1 0 2 ...
+ $ Horse.HitCount3                  : int  0 0 0 0 0 0 0 0 0 2 ...
+ $ Horse.HitCount4                  : int  0 0 1 0 0 2 0 0 2 0 ...
+ $ Horse.HitCount5                  : int  1 0 0 0 1 0 0 0 1 1 ...
+ $ Horse.HitRate1                   : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ Horse.HitRate2                   : num  0 0 0 0 0 ...
+ $ Horse.HitRate3                   : num  0 0 0 0 0 ...
+ $ Horse.HitRate4                   : num  0 0 0.333 0 0 ...
+ $ Horse.HitRate5                   : num  0.25 0 0 0 0.2 ...
+ $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
+[1] "2022-02-10 08:14:27 --- na.omit Finish ---"
+[1] "2022-02-10 08:14:27 --- rxGlm with rxStepControl Start ---"
+[1] "2022-02-10 08:14:27 --- source_logic_glm.R Start ---"
+[1] "2022-02-10 08:14:27 --- source_logic_glm.R Finished ---"
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.003 seconds 
+
+Starting values (iteration 1) time: 0.032 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.005 seconds 
+
+Iteration 2 time: 0.015 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 3 time: 0.007 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.005 seconds 
+
+Iteration 4 time: 0.009 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 5 time: 0.008 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 6 time: 0.008 secs.
+
+Elapsed computation time: 0.097 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.027 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 2 time: 0.014 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.005 seconds 
+
+Iteration 3 time: 0.007 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.005 seconds 
+
+Iteration 4 time: 0.007 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 5 time: 0.007 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.005 seconds 
+
+Iteration 6 time: 0.008 secs.
+
+Elapsed computation time: 0.095 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.024 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.005 seconds 
+
+Iteration 2 time: 0.016 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.005 seconds 
+
+Iteration 3 time: 0.011 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.003 seconds 
+
+Iteration 4 time: 0.007 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.006 seconds 
+
+Iteration 5 time: 0.009 secs.
+
+Elapsed computation time: 0.086 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.003 seconds 
+
+Starting values (iteration 1) time: 0.023 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 2 time: 0.016 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 3 time: 0.007 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 4 time: 0.008 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.006 seconds 
+
+Iteration 5 time: 0.010 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.005 seconds 
+
+Iteration 6 time: 0.009 secs.
+
+Elapsed computation time: 0.093 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.005 seconds 
+
+Starting values (iteration 1) time: 0.037 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 2 time: 0.016 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 3 time: 0.007 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.007 seconds 
+
+Iteration 4 time: 0.009 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 5 time: 0.007 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.006 seconds 
+
+Iteration 6 time: 0.009 secs.
+
+Elapsed computation time: 0.104 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.003 seconds 
+
+Starting values (iteration 1) time: 0.021 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.005 seconds 
+
+Iteration 2 time: 0.013 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.006 seconds 
+
+Iteration 3 time: 0.010 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.005 seconds 
+
+Iteration 4 time: 0.008 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 5 time: 0.006 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.006 seconds 
+
+Iteration 6 time: 0.011 secs.
+
+Elapsed computation time: 0.089 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.017 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 2 time: 0.016 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 3 time: 0.008 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 4 time: 0.006 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.005 seconds 
+
+Iteration 5 time: 0.008 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.005 seconds 
+
+Iteration 6 time: 0.008 secs.
+
+Elapsed computation time: 0.080 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.022 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.005 seconds 
+
+Iteration 2 time: 0.019 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.005 seconds 
+
+Iteration 3 time: 0.009 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.005 seconds 
+
+Iteration 4 time: 0.008 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 5 time: 0.008 secs.
+
+Elapsed computation time: 0.083 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.023 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.005 seconds 
+
+Iteration 2 time: 0.015 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.008 seconds 
+
+Iteration 3 time: 0.014 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 4 time: 0.007 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.005 seconds 
+
+Iteration 5 time: 0.009 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 6 time: 0.007 secs.
+
+Elapsed computation time: 0.091 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.027 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.003 seconds 
+
+Iteration 2 time: 0.013 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 3 time: 0.006 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 4 time: 0.006 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 5 time: 0.006 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 6 time: 0.006 secs.
+
+Elapsed computation time: 0.082 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.019 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 2 time: 0.013 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.003 seconds 
+
+Iteration 3 time: 0.005 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.006 seconds 
+
+Iteration 4 time: 0.009 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 5 time: 0.007 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 6 time: 0.007 secs.
+
+Elapsed computation time: 0.077 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.003 seconds 
+
+Starting values (iteration 1) time: 0.018 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 2 time: 0.014 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.005 seconds 
+
+Iteration 3 time: 0.007 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.004 seconds 
+
+Iteration 4 time: 0.006 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.005 seconds 
+
+Iteration 5 time: 0.008 secs.
+Rows Read: 44851, Total Rows Processed: 44851, Total Chunk Time: 0.006 seconds 
+
+Iteration 6 time: 0.009 secs.
+
+Elapsed computation time: 0.082 secs.
+
+Elapsed computation time: 1.134 secs.
+[1] "analyze.results.glm.step="
+Logistic Regression Results for: RaceHorse.IsHitA ~ Horse.HitRate2 +
+    Horse.HitRate3 + Horse.HitRate4 + Horse.HitRate5
+Data: data
+Dependent variable(s): RaceHorse.IsHitA
+Total independent variables: 5 
+Number of valid observations: 44851
+Number of missing observations: 0 
+ 
+Coefficients:
+               RaceHorse.IsHitA
+(Intercept)                  -4
+Horse.HitRate2                3
+Horse.HitRate3                2
+Horse.HitRate4                2
+Horse.HitRate5                1
+[1] "analyze.results.glm.step.summary"
+Call:
+rxLogit(formula = form, data = data, variableSelection = analyze.results.glm.step.varsel)
+
+Logistic Regression Results for: RaceHorse.IsHitA ~ Horse.HitRate2 +
+    Horse.HitRate3 + Horse.HitRate4 + Horse.HitRate5
+Data: data
+Dependent variable(s): RaceHorse.IsHitA
+Total independent variables: 5 
+Number of valid observations: 44851
+Number of missing observations: 0 
+-2*LogLikelihood: 20512.535 (Residual deviance on 44846 degrees of freedom)
+ 
+Coefficients:
+               Estimate Std. Error z value Pr(>|z|)    
+(Intercept)     -3.5557     0.0344  -103.3  2.2e-16 ***
+Horse.HitRate2   3.2805     0.0742    44.2  2.2e-16 ***
+Horse.HitRate3   2.4755     0.0804    30.8  2.2e-16 ***
+Horse.HitRate4   2.0466     0.0866    23.6  2.2e-16 ***
+Horse.HitRate5   1.4876     0.0966    15.4  2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Condition number of final variance-covariance matrix: 2 
+Number of iterations: 6
+[1] "2022-02-10 08:14:28 --- rxGlm with rxStepControl Finish ---"
+[1] "2022-02-10 08:14:28 --- rxStepPlot Start ---"
+[1] "pdfFilename=pdf_analyze_glm_Horse_Type25_rxStepPlot.pdf"
+[1] "rxStepPlot="
+[1] "2022-02-10 08:14:28 --- rxStepPlot Finish ---"
+[1] "2022-02-10 08:14:28 --- save.image Start ---"
+[1] "save.image"
+[1] "rdataFilename=RData_analyze_glm_Horse_Type25.RData"
+[1] "2022-02-10 08:14:29 --- save.image Finish ---"
+[1] "2022-02-10 08:14:29 --- final Start ---"
+[1] "--------------------------------------------------------------------------------"
+[1] "nrow(data) final=44851"
+[1] "--------------------------------------------------------------------------------"
+[1] "2022-02-10 08:14:29 --- final Finish ---"
+[1] "2022-02-10 08:14:29 --- analyze_glm.R Finished ---"
+[1] "2022-02-10 08:14:29 --- log Finish ---"

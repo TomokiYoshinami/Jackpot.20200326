@@ -155,7 +155,9 @@ print(head(data))
 objectSize <- object.size(data)
 print(paste0("object.size(data) auto=", format(objectSize, units = "auto")))
 nrow.data.sqlQuery <- nrow(data)
+print("--------------------------------------------------------------------------------")
 print(paste0("nrow(data) RxSqlServerData=" ,nrow.data.sqlQuery))
+print("--------------------------------------------------------------------------------")
 print("str(data)=")
 str(data, list.len = ncol(data))
 print(paste0(Sys.time(), " --- RxSqlServerData Finish ---"))
@@ -169,9 +171,11 @@ data <- subset(data, Race.IsAnalyzeNormalPast == 1 & RaceHorse.IsValidRaceHorse 
 # data<- subset(data, Race.IsAnalyzeNormalPast == 1 & Race.analyzeTrackTypeCd == analyzeTrackTypeCd & Race.analyzeJyokenCd == analyzeJyokenCd & RaceHorse.IsValidRaceHorse == 1)
 nrow.data.after <- nrow(data)
 nrow.data.diff <- nrow.data.before - nrow.data.after
+print("--------------------------------------------------------------------------------")
 print(paste0("nrow(data) subset before=" ,nrow.data.before))
 print(paste0("nrow(data) subset after =" ,nrow.data.after))
 print(paste0("nrow(data) subset diff =" ,nrow.data.diff))
+print("--------------------------------------------------------------------------------")
 print(paste0(Sys.time(), " --- subset Finish---"))
 # toc()
 # ---------------------------------------------------------------------------------------------------------------------------
@@ -185,9 +189,11 @@ nrow.data.transform.before <- nrow(data)
 #########################################################################################
 nrow.data.transform.after <- nrow(data)
 nrow.data.transform.diff <- nrow.data.transform.before - nrow.data.transform.after
+print("--------------------------------------------------------------------------------")
 print(paste0("nrow(data) transform before=" ,nrow.data.transform.before))
 print(paste0("nrow(data) transform after=" ,nrow.data.transform.after))
 print(paste0("nrow(data) transform diff=" ,nrow.data.transform.diff))
+print("--------------------------------------------------------------------------------")
 print("str(data)=")
 print(str(data, list.len=ncol(data)))
 print(paste0(Sys.time(), " --- transform Finish ---"))
@@ -203,7 +209,9 @@ print(paste0(Sys.time(), " --- transform Finish ---"))
 # data <- data
 # str(data, list.len = ncol(data))
 # source("source_centering.R", echo = FALSE, max.deparse.length = Inf) 
+# print("--------------------------------------------------------------------------------")
 # print(paste0("nrow(data) after cintering=" ,nrow(data)))
+# print("--------------------------------------------------------------------------------")
 # print(paste0(Sys.time(), " --- centering Finish ---"))
 # toc()
 # ---------------------------------------------------------------------------------------------------------------------------
@@ -214,7 +222,9 @@ print(paste0(Sys.time(), " --- transform Finish ---"))
 # data <- data
 # str(data, list.len = ncol(data))
 # source("source_scale.R", echo = FALSE, max.deparse.length = Inf) 
+# print("--------------------------------------------------------------------------------")
 # print(paste0("nrow(data) after rescale=" ,nrow(data)))
+# print("--------------------------------------------------------------------------------")
 # print(paste0(Sys.time(), " --- rescale Finish ---"))
 # toc()
 # ---------------------------------------------------------------------------------------------------------------------------
@@ -224,7 +234,9 @@ print(paste0(Sys.time(), " --- transform Finish ---"))
 # print(paste0(Sys.time(), " --- mean Start ---"))
 # data <- data
 # source("source_mean.R", echo = FALSE, max.deparse.length = Inf) 
+# print("--------------------------------------------------------------------------------")
 # print(paste0("nrow(data) after mean=" ,nrow(data)))
+# print("--------------------------------------------------------------------------------")
 # toc()
 # print(paste0(Sys.time(), " --- mean Finish---"))
 # ---------------------------------------------------------------------------------------------------------------------------
@@ -236,9 +248,11 @@ nrow.data.na.omit.before <- nrow(data)
 data <- na.omit(data)
 nrow.data.na.omit.after <- nrow(data)
 nrow.data.na.omit.diff <- nrow.data.na.omit.before - nrow.data.na.omit.after
+print("--------------------------------------------------------------------------------")
 print(paste0("nrow(data) na.omit before=" ,nrow.data.na.omit.before))
 print(paste0("nrow(data) na.omit after =" ,nrow.data.na.omit.after))
 print(paste0("nrow(data) na.omit diff =" ,nrow.data.na.omit.diff))
+print("--------------------------------------------------------------------------------")
 str(data, list.len = ncol(data))
 print(paste0(Sys.time(), " --- na.omit Finish ---"))
 # toc()
@@ -287,8 +301,7 @@ print(paste0(Sys.time(), " --- na.omit Finish ---"))
 print(paste0(Sys.time(), " --- rxGlm with rxStepControl Start ---"))
 source(paste0("source_logic", "_", analyzeCategory, "_", analyzeFunc, "_", analyzeType, ".R"), echo = FALSE, max.deparse.length = Inf)
 
-analyze.results.glm.step.varsel <- rxStepControl(method = "stepwise", scope = form, keepStepCoefs = TRUE)
-
+# analyze.results.glm.step.varsel <- rxStepControl(method = "stepwise", scope = form, keepStepCoefs = TRUE)
 # analyze.results.glm.step <- rxLogit(form,
 # , data = data
 # , variableSelection = analyze.results.glm.step.varsel
@@ -425,7 +438,9 @@ print(paste0(Sys.time(), " --- save.image Finish ---"))
 # ---------------------------------------------------------------------------------------------------------------------------
 print(paste0(Sys.time(), " --- final Start ---"))
 nrow.data.final <- nrow(data)
+print("--------------------------------------------------------------------------------")
 print(paste0("nrow(data) final=", nrow.data.final))
+print("--------------------------------------------------------------------------------")
 print(paste0(Sys.time(), " --- final Finish ---"))
  # ---------------------------------------------------------------------------------------------------------------------------
 # Log End
