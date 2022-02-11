@@ -152,7 +152,7 @@ print(paste0(Sys.time(), " --- rxSetComputeContext Finish ---"))
 print(paste0(Sys.time(), " --- RxSqlServerData Start ---"))
 sqlQuery <- paste0("SELECT * FROM ViewAnalyze", analyzeVersion, analyzeCategory, "01", analyzeType, "Type", analyzeTrackTypeCd, analyzeJyokenCd)
 print(paste0("sqlQuery=", sqlQuery))
-rowsPerRead <- 10000000 # 50000
+rowsPerRead <- 100000 # 50000
 inDataSource <- RxSqlServerData(sqlQuery = sqlQuery, connectionString = sqlConnString, stringsAsFactors = TRUE, rowsPerRead = rowsPerRead)
 print(paste0(Sys.time(), " --- RxSqlServerData Finish ---"))
 
@@ -161,7 +161,7 @@ rxGetVarInfo(data = inDataSource)
 print(paste0(Sys.time(), " --- rxGetVarInfo Finish---"))
 
 print(paste0(Sys.time(), " --- rxImport Start ---"))
-rowsPerRead <- 100000000
+rowsPerRead <- 100000
 data <- rxImport(inDataSource, rowsPerRead = rowsPerRead)
 # data <- rxImport(inDataSource)
 print(paste0(Sys.time(), " --- rxImport Finish ---"))
@@ -184,7 +184,7 @@ print(paste0(Sys.time(), " --- RxSqlServerData Finish ---"))
 # tic()
 print(paste0(Sys.time(), " --- subset Start ---"))
 nrow.data.before <- nrow(data)
-data <- subset(data, Race.IsAnalyzeNormalPast == 1 & RaceHorse.IsValidRaceHorse == 1)
+data <- subset(data, Race.IsAnalyzeNormalPast == 1)
 # data<- subset(data, Race.IsAnalyzeNormalPast == 1 & Race.analyzeTrackTypeCd == analyzeTrackTypeCd & Race.analyzeJyokenCd == analyzeJyokenCd & RaceHorse.IsValidRaceHorse == 1)
 nrow.data.after <- nrow(data)
 nrow.data.diff <- nrow.data.before - nrow.data.after
