@@ -137,22 +137,37 @@ print(paste0(Sys.time(), " --- RxSqlServerData Start ---"))
 # source("source_rodbc.R", echo = FALSE, max.deparse.length = Inf) 
 sqlConnString <- "Driver={SQL Server};Server=(local);Database=Jackpot;Trusted_Connection=true"
 
+print(paste0(Sys.time(), " --- RxInSqlServer Start ---"))
 sqlWait <- TRUE
 sqlConsoleOutput <- FALSE
 sqlCompute <- RxInSqlServer(connectionString = sqlConnString, wait = sqlWait, consoleOutput = sqlConsoleOutput)
+print(paste0(Sys.time(), " --- RxInSqlServer Finish ---"))
 
+print(paste0(Sys.time(), " --- rxSetComputeContext Start ---"))
 # rxSetComputeContext(sqlCompute)
 rxSetComputeContext("local")
 rxGetComputeContext()
+print(paste0(Sys.time(), " --- rxSetComputeContext Finish ---"))
 
+print(paste0(Sys.time(), " --- RxSqlServerData Start ---"))
 sqlQuery <- paste0("SELECT * FROM ViewAnalyze", analyzeVersion, analyzeCategory, "01", analyzeType, "Type", analyzeTrackTypeCd, analyzeJyokenCd)
 print(paste0("sqlQuery=", sqlQuery))
 rowsPerRead <- 10000000 # 50000
 inDataSource <- RxSqlServerData(sqlQuery = sqlQuery, connectionString = sqlConnString, stringsAsFactors = TRUE, rowsPerRead = rowsPerRead)
+print(paste0(Sys.time(), " --- RxSqlServerData Finish ---"))
+
+print(paste0(Sys.time(), " --- rxGetVarInfo Start ---"))
 rxGetVarInfo(data = inDataSource)
-data <- rxImport(inDataSource)
-print("head(data)=")
-print(head(data))
+print(paste0(Sys.time(), " --- rxGetVarInfo Finish---"))
+
+print(paste0(Sys.time(), " --- rxImport Start ---"))
+rowsPerRead <- 100000000
+data <- rxImport(inDataSource, rowsPerRead = rowsPerRead)
+# data <- rxImport(inDataSource)
+print(paste0(Sys.time(), " --- rxImport Finish ---"))
+
+# print("head(data)=")
+# print(head(data))
 
 objectSize <- object.size(data)
 print(paste0("object.size(data) auto=", format(objectSize, units = "auto")))
