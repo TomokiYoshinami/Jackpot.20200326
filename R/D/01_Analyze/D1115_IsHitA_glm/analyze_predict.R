@@ -129,6 +129,7 @@ print(head(InputDataSet))
 objectSize <- object.size(InputDataSet)
 print(paste0("object.size(InputDataSet) auto=", format(objectSize, units = "auto")))
 nrow.InputDataSet.sqlQuery <- nrow(InputDataSet)
+
 print("--------------------------------------------------------------------------------")
 print(paste0("nrow(InputDataSet) RxSqlServerData=" ,nrow.InputDataSet.sqlQuery))
 print("--------------------------------------------------------------------------------")
@@ -153,6 +154,7 @@ print("-------------------------------------------------------------------------
 print(paste0("class(InputDataSet$Race.IsAnalyzeNormalPast)=", class(InputDataSet$Race.IsAnalyzeNormalPast)))
 print(paste0("class(InputDataSet$Race.analyzeTrackTypeCd)=", class(InputDataSet$Race.analyzeTrackTypeCd)))
 print(paste0(Sys.time(), " --- subset Finish ---"))
+
 # ---------------------------------------------------------------------------------------------------------------------------
 # InputDataSet transform
 # ---------------------------------------------------------------------------------------------------------------------------
@@ -169,6 +171,7 @@ print("-------------------------------------------------------------------------
 print("str(InputDataSet)=")
 print(str(InputDataSet, list.len = ncol(InputDataSet)))
 print(paste0(Sys.time(), " --- transform Finish ---"))
+
 # ---------------------------------------------------------------------------------------------------------------------------
 # InputDataSet na.omit
 # ---------------------------------------------------------------------------------------------------------------------------
@@ -183,6 +186,7 @@ print(paste0("nrow(InputDataSet) na.omit after=", nrow.InputDataSet.na.omit.afte
 print(paste0("nrow(InputDataSet) na.omit diff=" , nrow.InputDataSet.na.omit.diff))
 print("--------------------------------------------------------------------------------")
 print(paste0(Sys.time(), " --- na.omit Finish---"))
+
 # ---------------------------------------------------------------------------------------------------------------------------
 # InputDataSet New Levels
 # ---------------------------------------------------------------------------------------------------------------------------
@@ -343,6 +347,7 @@ InputDataSet$Race.RaceType1Cd[Race.RaceType1Cd.Index] <- NA
 # InputDataSet New Levels
 # ---------------------------------------------------------------------------------------------------------------------------
 print(paste0(Sys.time(), " --- New Levels Finish ---"))
+
 # ---------------------------------------------------------------------------------------------------------------------------
 # InputDataSet na.omit
 # ---------------------------------------------------------------------------------------------------------------------------
@@ -357,6 +362,7 @@ print(paste0("nrow(InputDataSet) na.omit levels after=", nrow.InputDataSet.na.om
 print(paste0("nrow(InputDataSet) na.omit levels diff=" , nrow.InputDataSet.na.omit.levels.diff))
 print("--------------------------------------------------------------------------------")
 print(paste0(Sys.time(), " --- na.omit Finish ---"))
+
 # ---------------------------------------------------------------------------------------------------------------------------
 # Predict: glm
 # ---------------------------------------------------------------------------------------------------------------------------
@@ -377,6 +383,7 @@ print(paste0(Sys.time(), " --- na.omit Finish ---"))
 # na.action={na.omit, na.fail, na.exclude, na.pass}
 # print(paste0(Sys.time(), " --- predict (glm) Finish ---"))
 # }
+
 # ---------------------------------------------------------------------------------------------------------------------------
 # InputDataSet: Predict
 # ---------------------------------------------------------------------------------------------------------------------------
@@ -388,6 +395,7 @@ print("-------------------------------------------------------------------------
 print("str(InputDataSet)=")
 str(InputDataSet, list.len = ncol(InputDataSet))
 print(paste0(Sys.time(), " --- Predict InputDataSet Finish ---"))
+
 # ---------------------------------------------------------------------------------------------------------------------------
 # Predict: glmer
 # ---------------------------------------------------------------------------------------------------------------------------
@@ -410,18 +418,22 @@ print(paste0(Sys.time(), " --- Predict InputDataSet Finish ---"))
 # na.action={na.omit, na.fail, na.exclude, na.pass}
 # print(paste0(Sys.time(), " --- predict (glmer) Finish ---"))
 # }
+
 # ---------------------------------------------------------------------------------------------------------------------------
 # rxPredict: rxGlm
 # ---------------------------------------------------------------------------------------------------------------------------
-if (analyzeFunc  == "glm")
 print(paste0(Sys.time(), " --- rxPredict (glm) Start ---"))
 {
 print(paste0("analyzeFunc=", analyzeFunc))
 
-PredictDataSet <- data.frame(rxPredict(analyze.results.glm.step, data = InputDataSet, writeModelVars = FALSE))
+	if(nrow.InputDataSet.predict > 0)
+	{
+	PredictDataSet <- data.frame(rxPredict(analyze.results.glm.step, data = InputDataSet, writeModelVars = FALSE))
+	}
 
+nrow.InputDataSet.predict <- nrow(PredictDataSet)
 print("--------------------------------------------------------------------------------")
-print(paste0("nrow(PredictDataSet) afte predict=", nrow(PredictDataSet)))
+print(paste0("nrow(PredictDataSet) afte predict=", nrow.InputDataSet.predict))
 print("--------------------------------------------------------------------------------")
 print("str(PredictDataSet)")
 print(str(PredictDataSet, list.len = ncol(PredictDataSet)))
@@ -430,6 +442,7 @@ print(head(PredictDataSet))
 # na.action={na.omit, na.fail, na.exclude, na.pass}
 print(paste0(Sys.time(), " --- rxPredict (glm) Finish ---"))
 }
+
 # ---------------------------------------------------------------------------------------------------------------------------
 # OutputDataSet: Add Key
 # ---------------------------------------------------------------------------------------------------------------------------
@@ -442,6 +455,7 @@ print("-------------------------------------------------------------------------
 print("str(OutputDataSet) after add Key")
 print(str(OutputDataSet, list.len = ncol(OutputDataSet)))
 print(paste0(Sys.time(), " --- add key Finish ---"))
+
 # ---------------------------------------------------------------------------------------------------------------------------
 # OutputDataSet: Add PredictValue
 # ---------------------------------------------------------------------------------------------------------------------------
@@ -461,6 +475,7 @@ print("str(OutputDataSet) after cbind=")
 print(str(OutputDataSet, list.len = ncol(OutputDataSet)))
 
 print(paste0(Sys.time(), " --- add PredictValue Finish ---"))
+
 # ---------------------------------------------------------------------------------------------------------------------------
 # Final
 # ---------------------------------------------------------------------------------------------------------------------------
@@ -474,6 +489,7 @@ print(head(OutputDataSet))
 print("str(OutputDataSet)=")
 print(str(OutputDataSet, list.len = ncol(OutputDataSet)))
 print(paste0(Sys.time(), " --- final Finish ---"))
+
  # ---------------------------------------------------------------------------------------------------------------------------
 # Log End
 # ---------------------------------------------------------------------------------------------------------------------------
