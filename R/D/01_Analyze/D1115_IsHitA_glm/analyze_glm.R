@@ -37,7 +37,7 @@ analyzeJyokenCd <- as.character(args[7])
 # analyzeFunc <- "glmmML"
 # analyzeFunc <- "predict"
 # analyzeTrackTypeCd <- 1
-# analyzeJyokenCd <- 1
+# analyzeJyokenCd <- "1"
 
 print("--------------------------------------------------------------------------------")
 print(paste0("analyzeVersion=", analyzeVersion))
@@ -151,6 +151,8 @@ print(paste0(Sys.time(), " --- rxSetComputeContext Finish ---"))
 
 print(paste0(Sys.time(), " --- RxSqlServerData Start ---"))
 sqlQuery <- paste0("SELECT * FROM ViewAnalyze", analyzeVersion, analyzeCategory, "01", analyzeType, "Type", analyzeTrackTypeCd, analyzeJyokenCd)
+# sqlQuery <- paste0("SELECT * FROM ViewAnalyze", analyzeVersion, analyzeCategory, "01", analyzeType, "Type", analyzeTrackTypeCd, analyzeJyokenCd, "WHERE 1=0")
+
 print(paste0("sqlQuery=", sqlQuery))
 rowsPerRead <- 100000 # 50000
 inDataSource <- RxSqlServerData(sqlQuery = sqlQuery, connectionString = sqlConnString, stringsAsFactors = TRUE, rowsPerRead = rowsPerRead)
@@ -178,6 +180,20 @@ print("-------------------------------------------------------------------------
 print("str(data)=")
 str(data, list.len = ncol(data))
 print(paste0(Sys.time(), " --- RxSqlServerData Finish ---"))
+# ---------------------------------------------------------------------------------------------------------------------------
+# rxSummary
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+print(paste0(Sys.time(), " --- rxSummary Start ---"))
+rxSummary <- rxSummary(
+       formula = form,
+       data = RxSqlServerData(sqlQuery = sqlQuery, connectionString = sqlConnString),
+       computeContext = RxInSqlServer(connectionString = sqlConnString)
+       )
+# print("rxSummary=")
+# print(rxSummary)
+print(paste0(Sys.time(), " --- rxSummary Start ---"))
+
 # ---------------------------------------------------------------------------------------------------------------------------
 # Race.IsAnalyzeNormalPast == 1
 # ---------------------------------------------------------------------------------------------------------------------------

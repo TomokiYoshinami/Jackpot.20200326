@@ -26,9 +26,9 @@ fileNamePrefixPdf <- "pdf"
 # ---------------------------------------------------------------------------------------------------------------------------
 # Log Start
 # ---------------------------------------------------------------------------------------------------------------------------
-logFilename <- paste(paste0(fileNamePrefixLog, "_", analyzeCategory, "_", analyzeFunc, "_", analyzeType, "_Type", analyzeTrackTypeCd, analyzeJyokenCd), constFileExtensionLog, sep=constColon)
-print(paste0("logFilename=", logFilename))
-sink(logFilename, append=FALSE, type="output", split=TRUE)
+predictLogFilename <- paste(paste0(fileNamePrefixLog, "_", analyzeCategory, "_", analyzeFunc, "_", analyzeType, "_Type", analyzeTrackTypeCd, analyzeJyokenCd), constFileExtensionLog, sep=constColon)
+print(paste0("predictLogFilename=", predictLogFilename))
+sink(predictLogFilename, append=FALSE, type="output", split=TRUE)
 print(paste0(Sys.time(),  " --- ", analyzeVersion, "_", analyzeCategory,  "_", analyzeFunc,"_", analyzeType, "_", analyzeFamily, "_Type", analyzeTrackTypeCd, analyzeJyokenCd, " Start ---"))
 print(paste0(Sys.time(), " --- Log Start ---"))
 print(paste0(Sys.time(),  " --- predict.R Start ---"))
@@ -87,6 +87,10 @@ source("source_library.R", echo=TRUE, max.deparse.length = Inf) # source(sourceF
 # Load
 # ---------------------------------------------------------------------------------------------------------------------------
 print(paste0(Sys.time(), " --- Load Start ---"))
+####################
+print(paste0("analyzeTrackTypeCd=", analyzeTrackTypeCd))
+print(paste0("analyzeJyokenCd=", analyzeJyokenCd))
+####################
 loadFilename <- paste0(paste0(fileNamePrefixRData, "_", "Analyze", "_", analyzeFunc, "_", analyzeType, "_Type", analyzeTrackTypeCd, analyzeJyokenCd, constColon, constFileExtensionRData))
 print(paste0("loadFilename=", loadFilename))
 load(loadFilename)
@@ -121,11 +125,19 @@ rxGetComputeContext()
 print(paste0(Sys.time(), " --- rxSetComputeContext Finish ---"))
 
 print(paste0(Sys.time(), " --- RxSqlServerData Start ---"))
+
+####################
+print(paste0("analyzeTrackTypeCd=", analyzeTrackTypeCd))
+print(paste0("analyzeJyokenCd=", analyzeJyokenCd))
+####################
+
 sqlQuery <- paste0("SELECT * FROM ViewAnalyze", analyzeVersion, analyzeCategory, "01", analyzeType, "Type", analyzeTrackTypeCd, analyzeJyokenCd)
+# sqlQuery <- paste0("SELECT * FROM ViewAnalyze", analyzeVersion, analyzeCategory, "01", analyzeType, "Type", analyzeTrackTypeCd, analyzeJyokenCd, " WHERE 1=0")
 # sqlQuery <- paste0("SELECT * FROM ViewAnalyze", analyzeVersion, analyzeCategory, "01", analyzeType, "Type", analyzeTrackTypeCd, analyzeJyokenCd, " WHERE [Race.IsPredictedRace] = 1")
 print(paste0("sqlQuery=", sqlQuery))
 rowsPerRead <- 100000 # 50000
 inDataSource <- RxSqlServerData(sqlQuery = sqlQuery, connectionString = sqlConnString, stringsAsFactors = TRUE, rowsPerRead = rowsPerRead)
+
 print(paste0(Sys.time(), " --- RxSqlServerData Finish ---"))
 
 print(paste0(Sys.time(), " --- rxGetVarInfo Start ---"))
