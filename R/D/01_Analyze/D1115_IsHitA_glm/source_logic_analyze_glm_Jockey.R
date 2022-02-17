@@ -39,6 +39,7 @@ RaceHorse.IsHitA
 
 # + Jockey.KisyuCode
 # + Jockey.TimeDvByRaceAvg
+# + Jockey.TimeDvByRaceMin
 # + Jockey.TimeDvByRaceMax
 # + Jockey.RunCount
 # + Jockey.HitCount1
@@ -50,8 +51,8 @@ RaceHorse.IsHitA
 # + Jockey.HitCountB
 # + Jockey.HitCountC
 + Jockey.HitRate1
-# + Jockey.HitRate2
-# + Jockey.HitRate3
++ Jockey.HitRate2
++ Jockey.HitRate3
 # + Jockey.HitRate4
 # + Jockey.HitRate5
 # + Jockey.HitRateA

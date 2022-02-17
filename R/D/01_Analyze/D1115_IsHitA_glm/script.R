@@ -18,7 +18,7 @@ analyzeCategory <- as.character(args[2])
 analyzeType <- as.character(args[3])
 analyzeFamily <- as.character(args[4])
 analyzeFunc <- as.character(args[5])
-analyzeTrackTypeCd <- as.character(args[6])
+analyzeTrackTypeCd <- as.integer(args[6])
 analyzeJyokenCd <- as.character(args[7])
 
 print(paste0("analyzeVersion=", analyzeVersion))

@@ -154,7 +154,7 @@ sqlQuery <- paste0("SELECT * FROM ViewAnalyze", analyzeVersion, analyzeCategory,
 # sqlQuery <- paste0("SELECT * FROM ViewAnalyze", analyzeVersion, analyzeCategory, "01", analyzeType, "Type", analyzeTrackTypeCd, analyzeJyokenCd, "WHERE 1=0")
 
 print(paste0("sqlQuery=", sqlQuery))
-rowsPerRead <- 100000 # 50000
+rowsPerRead <- 100000000 # 50000
 inDataSource <- RxSqlServerData(sqlQuery = sqlQuery, connectionString = sqlConnString, stringsAsFactors = TRUE, rowsPerRead = rowsPerRead)
 print(paste0(Sys.time(), " --- RxSqlServerData Finish ---"))
 
@@ -163,7 +163,7 @@ rxGetVarInfo(data = inDataSource)
 print(paste0(Sys.time(), " --- rxGetVarInfo Finish---"))
 
 print(paste0(Sys.time(), " --- rxImport Start ---"))
-rowsPerRead <- 100000
+rowsPerRead <- 100000000
 data <- rxImport(inDataSource, rowsPerRead = rowsPerRead)
 # data <- rxImport(inDataSource)
 print(paste0(Sys.time(), " --- rxImport Finish ---"))
@@ -184,15 +184,15 @@ print(paste0(Sys.time(), " --- RxSqlServerData Finish ---"))
 # rxSummary
 # ---------------------------------------------------------------------------------------------------------------------------
 # tic()
-print(paste0(Sys.time(), " --- rxSummary Start ---"))
-rxSummary <- rxSummary(
-       formula = form,
-       data = RxSqlServerData(sqlQuery = sqlQuery, connectionString = sqlConnString),
-       computeContext = RxInSqlServer(connectionString = sqlConnString)
-       )
+# print(paste0(Sys.time(), " --- rxSummary Start ---"))
+# rxSummary <- rxSummary(
+       # formula = form,
+       # data = RxSqlServerData(sqlQuery = sqlQuery, connectionString = sqlConnString),
+       # computeContext = RxInSqlServer(connectionString = sqlConnString)
+       # )
 # print("rxSummary=")
 # print(rxSummary)
-print(paste0(Sys.time(), " --- rxSummary Start ---"))
+# print(paste0(Sys.time(), " --- rxSummary Start ---"))
 
 # ---------------------------------------------------------------------------------------------------------------------------
 # Race.IsAnalyzeNormalPast == 1
@@ -347,11 +347,24 @@ analyze.results.glm.step <- rxLogit(form,
 # , variableSelection = analyze.results.glm.step.varsel
 # )
 
+print("--------------------------------------------------------------------------------")
 print("analyze.results.glm.step=")
 print(analyze.results.glm.step)
 analyze.results.glm.step.summary <- summary(analyze.results.glm.step)
 print("analyze.results.glm.step.summary")
 print(analyze.results.glm.step.summary)
+print("--------------------------------------------------------------------------------")
+
+# print("--------------------------------------------------------------------------------")
+# analyze.results.glm.step.loglik <- logLik(analyze.results.glm.step)
+# print(paste0("logLik(analyze.results.glm.step)=", analyze.results.glm.step.loglik))
+# print("--------------------------------------------------------------------------------")
+
+# print("--------------------------------------------------------------------------------")
+# analyze.results.glm.step.aic <- stepAIC(analyze.results.glm.step)
+# print(paste0("stepAIC(analyze.results.glm.step)=", analyze.results.glm.step.aic))
+# print("--------------------------------------------------------------------------------")
+
 print(paste0(Sys.time(), " --- rxGlm with rxStepControl Finish ---"))
 # ---------------------------------------------------------------------------------------------------------------------------
 # rxStepPlot

@@ -39,6 +39,7 @@ RaceHorse.IsHitA
 	
 # + Gen01.HansyokuNum
 # + Gen01.TimeDvByRaceAvg
+# + Gen01.TimeDvByRaceMin
 # + Gen01.TimeDvByRaceMax
 # + Gen01.RunCount
 # + Gen01.HitCount1
@@ -50,8 +51,8 @@ RaceHorse.IsHitA
 # + Gen01.HitCountB
 # + Gen01.HitCountC
 + Gen01.HitRate1
-# + Gen01.HitRate2
-# + Gen01.HitRate3
++ Gen01.HitRate2
++ Gen01.HitRate3
 # + Gen01.HitRate4
 # + Gen01.HitRate5
 # + Gen01.HitRateA
@@ -59,6 +60,7 @@ RaceHorse.IsHitA
 # + Gen01.HitRateC
 
 # + EOF
+
 )
 
 print(paste0(Sys.time(),  " --- source_logic_glm.R Finished ---"))

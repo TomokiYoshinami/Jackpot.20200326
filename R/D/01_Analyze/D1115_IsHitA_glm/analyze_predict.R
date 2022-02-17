@@ -135,7 +135,7 @@ sqlQuery <- paste0("SELECT * FROM ViewAnalyze", analyzeVersion, analyzeCategory,
 # sqlQuery <- paste0("SELECT * FROM ViewAnalyze", analyzeVersion, analyzeCategory, "01", analyzeType, "Type", analyzeTrackTypeCd, analyzeJyokenCd, " WHERE 1=0")
 # sqlQuery <- paste0("SELECT * FROM ViewAnalyze", analyzeVersion, analyzeCategory, "01", analyzeType, "Type", analyzeTrackTypeCd, analyzeJyokenCd, " WHERE [Race.IsPredictedRace] = 1")
 print(paste0("sqlQuery=", sqlQuery))
-rowsPerRead <- 100000 # 50000
+rowsPerRead <- 100000000 # 50000
 inDataSource <- RxSqlServerData(sqlQuery = sqlQuery, connectionString = sqlConnString, stringsAsFactors = TRUE, rowsPerRead = rowsPerRead)
 
 print(paste0(Sys.time(), " --- RxSqlServerData Finish ---"))
@@ -145,7 +145,7 @@ rxGetVarInfo(data = inDataSource)
 print(paste0(Sys.time(), " --- rxGetVarInfo Finish---"))
 
 print(paste0(Sys.time(), " --- rxImport Start ---"))
-rowsPerRead <- 1000000
+rowsPerRead <- 100000000
 InputDataSet <- rxImport(inDataSource, rowsPerRead = rowsPerRead)
 # InputDataSet <- rxImport(inDataSource)
 print(paste0(Sys.time(), " --- rxImport Finish ---"))
