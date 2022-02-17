@@ -1,6 +1,6 @@
 print(paste0(Sys.time(),  " --- source_logic_glmer.R Start ---"))
 
-form <- formula(
+formula <- formula(
 RaceHorse.IsHitA
 # RaceHorse.IsHitB
 # RaceHorse.IsHitC

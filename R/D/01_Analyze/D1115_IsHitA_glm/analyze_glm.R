@@ -332,11 +332,11 @@ print(paste0(Sys.time(), " --- na.omit Finish ---"))
 # ---------------------------------------------------------------------------------------------------------------------------
 # tic()
 print(paste0(Sys.time(), " --- rxGlm with rxStepControl Start ---"))
-source(paste0("source_logic", "_", analyzeCategory, "_", analyzeFunc, "_", analyzeType, ".R"), echo = FALSE, max.deparse.length = Inf)
+source(paste0("source_logic", "_", analyzeCategory, "_", analyzeFunc, "_", analyzeType, ".R"), echo = TRUE, max.deparse.length = Inf)
 
-analyze.results.glm.step.varsel <- rxStepControl(method = "stepwise", scope = form, keepStepCoefs = TRUE)
+analyze.results.glm.step.varsel <- rxStepControl(method = "stepwise", scope = formula, keepStepCoefs = TRUE)
 
-analyze.results.glm.step <- rxLogit(form,
+analyze.results.glm.step <- rxLogit(formula,
 , data = data
 , variableSelection = analyze.results.glm.step.varsel
 )
