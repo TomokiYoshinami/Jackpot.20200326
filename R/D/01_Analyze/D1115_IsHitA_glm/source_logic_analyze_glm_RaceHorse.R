@@ -26,9 +26,11 @@ RaceHorse.IsHitA
 # + RaceHorse.KettoNum
 + RaceHorse.Umaban
 # + RaceHorse.SexCd
-+ RaceHorse.Futan
-+ RaceHorse.Bataijyu
-+ RaceHorse.Lifetime
++ RaceHorse.ZogenSa
++ RaceHorse.FutanSdv
++ RaceHorse.FutanRatioSdv
++ RaceHorse.BataijyuSdv
++ RaceHorse.LifetimeSdv
 # + RaceHorse.IsHit1
 # + RaceHorse.IsHit2
 # + RaceHorse.IsHit3

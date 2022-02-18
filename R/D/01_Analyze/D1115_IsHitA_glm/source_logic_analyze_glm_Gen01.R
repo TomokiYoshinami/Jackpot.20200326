@@ -38,9 +38,9 @@ RaceHorse.IsHitA
 # + RaceHorse.IsHitE
 	
 # + Gen01.HansyokuNum
-# + Gen01.TimeDvByRaceAvg
-# + Gen01.TimeDvByRaceMin
-# + Gen01.TimeDvByRaceMax
+# + Gen01.TimeSdvByRaceAvg
+# + Gen01.TimeSdvByRaceMin
+# + Gen01.TimeSdvByRaceMax
 # + Gen01.RunCount
 # + Gen01.HitCount1
 # + Gen01.HitCount2

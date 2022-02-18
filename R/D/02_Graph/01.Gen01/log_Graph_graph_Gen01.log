@@ -1,0 +1,173 @@
+[1] "2022-02-17 21:06:03 --- D1115_Graph_graph_Gen01_IsHitA Start ---"
+[1] "2022-02-17 21:06:03 --- Log Start ---"
+[1] "2022-02-17 21:06:03 --- graph Start ---"
+[1] "analyzeVersion=D1115"
+[1] "analyzeCategory=Graph"
+[1] "analyzetype = Gen01"
+[1] "analyzeFamily=IsHitA"
+[1] "analyzeFunc=graph"
+[1] "analyzeTrackTypeCd=0"
+[1] "analyzeJyokenCd=0"
+
+> print(paste0(Sys.time(),  " --- source_library.R Start ---"))
+[1] "2022-02-17 21:06:03 --- source_library.R Start ---"
+
+> # RODBC
+> # require("RODBC")
+> # require("DBI")
+> # require("RSQLServer")
+> 
+> # RovoScaleR
+> require("RevoScaleR")
+
+> # Excel
+> # require(xlsx)
+> ## require(stats)
+> ## require(MASS) #stepAIC
+> # require(mgcv)
+> # require(DAAG)
+> # require(geneplotter)
+> # require(tcltk)
+> # require(car)
+> # require(nnet)
+> # require(survival)
+> # require(splines)
+> # require(Rcmdr)
+> # require(mgcv)
+> # require(ggplot2)
+> # require("ggstatsplot")
+> # require(GGally)
+> # require(MuMIn)
+> # require(gplots)
+> # require(arm)
+> # require(coefplot)
+> # require(formula.tools)
+> # GLMM
+> # require(glmmML)
+> # require(MCMCglmm)
+> # require(glmmstan)
+> # require(doParallel)
+> # require(rstan)
+> ## require(Matrix)
+> # lme4
+> # require(lme4)
+> # require(lmerTest)
+> # require(HSAUR2)
+> ## require(lattice) #xyplot
+> # require(wle)
+> # Centering
+> # require(pequod)
+> # require(lsmeans)
+> # require(Rmisc)
+> # require(inline) 
+> # require(Rcpp)
+> 
+> # require(caret)
+> 
+> # require(colorspace)
+> 
+> # require(optimx)
+> 
+> # require(tictoc)
+> 
+> #RStan
+> # require(rstan)
+> 
+> # require(performance) #check_collinearity, check_zeroinflation
+> 
+> print(paste0(Sys.time(),  " --- source_library.R Finished ---"))
+[1] "2022-02-17 21:06:03 --- source_library.R Finished ---"
+[1] "2022-02-17 21:06:03 --- RxSqlServerData Start ---"
+[1] "2022-02-17 21:06:03 --- RxInSqlServer Start ---"
+[1] "2022-02-17 21:06:03 --- RxInSqlServer Finish ---"
+[1] "2022-02-17 21:06:03 --- rxSetComputeContext Start ---"
+RxLocalSeq Compute Context
+[1] "2022-02-17 21:06:03 --- rxSetComputeContext Finish ---"
+[1] "2022-02-17 21:06:03 --- RxSqlServerData Start ---"
+[1] "sqlQuery=SELECT * FROM ViewAnalyzeD1115Graph01Gen01"
+[1] "2022-02-17 21:06:03 --- RxSqlServerData Finish ---"
+[1] "2022-02-17 21:06:03 --- rxGetVarInfo Start ---"
+Var 1: Race.RaceId
+       0 factor levels: 
+Var 2: Race.IsPredictedRace, Type: logical
+Var 3: Race.IsAnalyzeNormalPastAndFuture, Type: logical
+Var 4: Race.IsAnalyzeNormalPast, Type: logical
+Var 5: Race.IsAnalyzeNormalFuture, Type: logical
+Var 6: Race.IsAnalyzeFullPastAndFuture, Type: logical
+Var 7: Race.IsAnalyzeFullPast, Type: logical
+Var 8: Race.IsAnalyzeFullFuture, Type: logical
+Var 9: Race.JyokenCd
+       0 factor levels: 
+Var 10: Race.JyoType1Cd
+       0 factor levels: 
+Var 11: Race.RaceType0Cd
+       0 factor levels: 
+Var 12: Race.RaceType1Cd
+       0 factor levels: 
+Var 13: Race.RaceType2Cd
+       0 factor levels: 
+Var 14: Race.RaceType3Cd
+       0 factor levels: 
+Var 15: Race.RaceType4Cd
+       0 factor levels: 
+Var 16: RaceHorse.RaceId
+       0 factor levels: 
+Var 17: RaceHorse.KettoNum
+       0 factor levels: 
+Var 18: RaceHorse.IsHit1, Type: integer
+Var 19: RaceHorse.IsHit2, Type: integer
+Var 20: RaceHorse.IsHit3, Type: integer
+Var 21: RaceHorse.IsHit4, Type: integer
+Var 22: RaceHorse.IsHit5, Type: integer
+Var 23: RaceHorse.IsHit6, Type: integer
+Var 24: RaceHorse.IsValidRaceHorse, Type: logical
+Var 25: RaceHorse.TimeDvByRace, Type: numeric
+Var 26: RaceHorse.IsHitA, Type: integer
+Var 27: RaceHorse.IsHitB, Type: integer
+Var 28: RaceHorse.IsHitC, Type: integer
+Var 29: Gen01.HansyokuNum
+       0 factor levels: 
+Var 30: Gen01.TimeDvByRaceAvg, Type: numeric
+Var 31: Gen01.TimeDvByRaceMin, Type: numeric
+Var 32: Gen01.TimeDvByRaceMax, Type: numeric
+Var 33: Gen01.RunCount, Type: integer
+Var 34: Gen01.HitCount1, Type: integer
+Var 35: Gen01.HitCount2, Type: integer
+Var 36: Gen01.HitCount3, Type: integer
+Var 37: Gen01.HitCount4, Type: integer
+Var 38: Gen01.HitCount5, Type: integer
+Var 39: Gen01.HitRate1, Type: numeric
+Var 40: Gen01.HitRate2, Type: numeric
+Var 41: Gen01.HitRate3, Type: numeric
+Var 42: Gen01.HitRate4, Type: numeric
+Var 43: Gen01.HitRate5, Type: numeric
+Var 44: EOF, Type: integer
+[1] "2022-02-17 21:06:03 --- rxGetVarInfo Finish---"
+[1] "2022-02-17 21:06:03 --- rxImport Start ---"
+Rows Read: 292447, Total Rows Processed: 292447, Total Chunk Time: 798.688 seconds 
+[1] "2022-02-17 21:31:28 --- rxImport Finish ---"
+[1] "object.size(data) auto=65.5 Mb"
+[1] "--------------------------------------------------------------------------------"
+[1] "nrow(data) RxSqlServerData=292447"
+[1] "--------------------------------------------------------------------------------"
+[1] "2022-02-17 21:31:28 --- RxSqlServerData Finish ---"
+[1] "pdf_Graph_graph_Gen01_hist.pdf"
+null device 
+          1 
+[1] "pdf_Graph_graph_Gen01_histogram.Gen01.TimeDvByRaceAvg.pdf"
+null device 
+          1 
+[1] "pdf_Graph_graph_Gen01_histogram.Gen01.TimeDvByRaceMin.pdf"
+null device 
+          1 
+[1] "pdf_Graph_graph_Gen01_histogram.Gen01.TimeDvByRaceMax.pdf"
+null device 
+          1 
+[1] "pdf_Graph_graph_Gen01_xyplot.RaceHorse.TimeDvByRaceAvg vs Gen01.TimeDvByRace by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdf_Graph_graph_Gen01_xyplot.RaceHorse.IsHitA vs Gen01.TimeDvByRace by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "2022-02-17 21:31:36 --- log Finish ---"
+[1] "2022-02-17 21:31:36 --- graph Finish ---"
