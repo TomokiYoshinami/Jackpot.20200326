@@ -100,7 +100,7 @@ print(paste0(Sys.time(), " --- Load Finished ---"))
 # ---------------------------------------------------------------------------------------------------------------------------
 # InputDataSet.nrow.database <- nrow(InputDataSet)
 # print("--------------------------------------------------------------------------------")
-# print(paste0("nrow(InputDataSet) sqlQuery=", InputDataSet.nrow.database))
+# print(paste0("nrow(InputDataSet) predictSqlQuery=", InputDataSet.nrow.database))
 # print("--------------------------------------------------------------------------------")
 # print("str(InputDataSet)=")
 # print(str(InputDataSet, list.len = ncol(InputDataSet)))
@@ -131,34 +131,35 @@ print(paste0("analyzeTrackTypeCd=", analyzeTrackTypeCd))
 print(paste0("analyzeJyokenCd=", analyzeJyokenCd))
 ####################
 
-sqlQuery <- paste0("SELECT * FROM ViewAnalyze", analyzeVersion, analyzeCategory, "01", analyzeType, "Type", analyzeTrackTypeCd, analyzeJyokenCd)
-# sqlQuery <- paste0("SELECT * FROM ViewAnalyze", analyzeVersion, analyzeCategory, "01", analyzeType, "Type", analyzeTrackTypeCd, analyzeJyokenCd, " WHERE 1=0")
-# sqlQuery <- paste0("SELECT * FROM ViewAnalyze", analyzeVersion, analyzeCategory, "01", analyzeType, "Type", analyzeTrackTypeCd, analyzeJyokenCd, " WHERE [Race.IsPredictedRace] = 1")
-print(paste0("sqlQuery=", sqlQuery))
-rowsPerRead <- 100000000 # 50000
-inDataSource <- RxSqlServerData(sqlQuery = sqlQuery, connectionString = sqlConnString, stringsAsFactors = TRUE, rowsPerRead = rowsPerRead)
+predictSqlQuery <- paste0("SELECT * FROM ViewAnalyze", analyzeVersion, "Predict", "01", analyzeType, "Type", analyzeTrackTypeCd, analyzeJyokenCd)
+# predictSqlQuery <- paste0("SELECT * FROM ViewAnalyze", analyzeVersion, analyzeCategory, "01", analyzeType, "Type", analyzeTrackTypeCd, analyzeJyokenCd)
+# predictSqlQuery <- paste0("SELECT * FROM ViewAnalyze", analyzeVersion, analyzeCategory, "01", analyzeType, "Type", analyzeTrackTypeCd, analyzeJyokenCd, " WHERE 1=0")
+# predictSqlQuery <- paste0("SELECT * FROM ViewAnalyze", analyzeVersion, analyzeCategory, "01", analyzeType, "Type", analyzeTrackTypeCd, analyzeJyokenCd, " WHERE [Race.IsPredictedRace] = 1")
+print(paste0("predictSqlQuery=", predictSqlQuery))
+predictRowsPerRead <- 100000000 # 50000
+predictInDataSource <- RxSqlServerData(sqlQuery = predictSqlQuery, connectionString = sqlConnString, stringsAsFactors = TRUE, rowsPerRead = predictRowsPerRead)
 
 print(paste0(Sys.time(), " --- RxSqlServerData Finish ---"))
 
 print(paste0(Sys.time(), " --- rxGetVarInfo Start ---"))
-rxGetVarInfo(data = inDataSource)
+rxGetVarInfo(data = predictInDataSource)
 print(paste0(Sys.time(), " --- rxGetVarInfo Finish---"))
 
 print(paste0(Sys.time(), " --- rxImport Start ---"))
-rowsPerRead <- 100000000
-InputDataSet <- rxImport(inDataSource, rowsPerRead = rowsPerRead)
-# InputDataSet <- rxImport(inDataSource)
+predictRowsPerRead <- 100000000
+InputDataSet <- rxImport(predictInDataSource, rowsPerRead = predictRowsPerRead)
+# InputDataSet <- rxImport(predictInDataSource)
 print(paste0(Sys.time(), " --- rxImport Finish ---"))
 
 # print("head(InputDataSet)=")
 # print(head(InputDataSet))
 
-objectSize <- object.size(InputDataSet)
-print(paste0("object.size(InputDataSet) auto=", format(objectSize, units = "auto")))
-nrow.InputDataSet.sqlQuery <- nrow(InputDataSet)
+predictObjectSize <- object.size(InputDataSet)
+print(paste0("object.size(InputDataSet) auto=", format(predictObjectSize, units = "auto")))
+nrow.InputDataSet.predictSqlQuery <- nrow(InputDataSet)
 
 print("--------------------------------------------------------------------------------")
-print(paste0("nrow(InputDataSet) RxSqlServerData=" ,nrow.InputDataSet.sqlQuery))
+print(paste0("nrow(InputDataSet) RxSqlServerData=" ,nrow.InputDataSet.predictSqlQuery))
 print("--------------------------------------------------------------------------------")
 print("str(InputDataSet)=")
 str(InputDataSet, list.len = ncol(InputDataSet))
@@ -531,4 +532,5 @@ sink()
 
 print("q...")
  # q("no")
+ 
  
