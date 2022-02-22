@@ -24,7 +24,7 @@ RaceHorse.IsHitA
 
 # + RaceHorse.RaceId
 # + RaceHorse.KettoNum
-+ RaceHorse.Umaban
++ RaceHorse.UmabanSdv
 # + RaceHorse.SexCd
 + RaceHorse.ZogenSa
 + RaceHorse.FutanSdv
