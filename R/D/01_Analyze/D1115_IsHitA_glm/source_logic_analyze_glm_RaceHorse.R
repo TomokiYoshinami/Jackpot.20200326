@@ -26,7 +26,7 @@ RaceHorse.IsHitA
 # + RaceHorse.KettoNum
 + RaceHorse.UmabanSdv
 # + RaceHorse.SexCd
-+ RaceHorse.ZogenSa
+# + RaceHorse.ZogenSaSdv
 + RaceHorse.FutanSdv
 + RaceHorse.FutanRatioSdv
 + RaceHorse.BataijyuSdv
@@ -41,6 +41,14 @@ RaceHorse.IsHitA
 # + RaceHorse.IsHitA
 # + RaceHorse.IsHitB
 # + RaceHorse.IsHitC
+
+# + OddsByWin.Odds1
+# + OddsByWin.Ninki
+# + OddsByWin.OddsLog1
+# + OddsByWin.OddsRatio1
++ OddsByWin.OddsLogit1
+# + OddsByWin.ApprovalRate1
+# + OddsByWin.ApprovalRateLog1
 
 # + EOF
 

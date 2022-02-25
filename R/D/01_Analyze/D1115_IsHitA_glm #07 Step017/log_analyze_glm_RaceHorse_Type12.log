@@ -1,0 +1,565 @@
+[1] "2022-02-21 22:17:28 --- D1115_analyze_glm_RaceHorse_IsHitA_Type12 Start ---"
+[1] "2022-02-21 22:17:28 --- Log Start ---"
+[1] "2022-02-21 22:17:28 --- analyze_glm.R Start ---"
+[1] "analyzeVersion=D1115"
+[1] "analyzeCategory=analyze"
+[1] "analyzeType=RaceHorse"
+[1] "analyzeFamily=IsHitA"
+[1] "analyzeFunc=glm"
+[1] "analyzeTrackTypeCd=1"
+[1] "analyzeJyokenCd=2"
+[1] "2022-02-21 22:17:28 --- source_function.R Start ---"
+[1] "2022-02-21 22:17:28 --- source_function.R Finished ---"
+
+> print(paste0(Sys.time(), " --- source_library.R Start ---"))
+[1] "2022-02-21 22:17:28 --- source_library.R Start ---"
+
+> require("RevoScaleR")
+
+> print(paste0(Sys.time(), " --- source_library.R Finished ---"))
+[1] "2022-02-21 22:17:31 --- source_library.R Finished ---"
+[1] "2022-02-21 22:17:31 --- RxSqlServerData Start ---"
+[1] "2022-02-21 22:17:32 --- RxInSqlServer Start ---"
+[1] "2022-02-21 22:17:32 --- RxInSqlServer Finish ---"
+[1] "2022-02-21 22:17:32 --- rxSetComputeContext Start ---"
+[1] "2022-02-21 22:17:32 --- rxSetComputeContext Finish ---"
+[1] "2022-02-21 22:17:32 --- RxSqlServerData Start ---"
+[1] "sqlQuery=SELECT * FROM ViewAnalyzeD1115analyze01RaceHorseType12"
+[1] "2022-02-21 22:17:32 --- RxSqlServerData Finish ---"
+[1] "2022-02-21 22:17:32 --- rxGetVarInfo Start ---"
+[1] "2022-02-21 22:17:32 --- rxGetVarInfo Finish---"
+[1] "2022-02-21 22:17:32 --- rxImport Start ---"
+Rows Read: 6809, Total Rows Processed: 6809, Total Chunk Time: 0.214 seconds 
+[1] "2022-02-21 22:17:33 --- rxImport Finish ---"
+[1] "object.size(data) auto=1.1 Mb"
+[1] "--------------------------------------------------------------------------------"
+[1] "nrow(data) RxSqlServerData=6809"
+[1] "--------------------------------------------------------------------------------"
+[1] "str(data)="
+'data.frame':	6809 obs. of  29 variables:
+ $ Race.RaceId                      : Factor w/ 529 levels "20160109-06-01-02-10",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.IsPredictedRace             : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPastAndFuture: logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPast         : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalFuture       : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.IsAnalyzeFullPastAndFuture  : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullPast           : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullFuture         : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.JyokenCd                    : Factor w/ 1 level "2": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.RaceType1Cd                 : Factor w/ 1 level "1-2-E": 1 1 1 1 1 1 1 1 1 1 ...
+ $ RaceHorse.RaceId                 : Factor w/ 529 levels "20160109-06-01-02-10",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ RaceHorse.KettoNum               : Factor w/ 1439 levels "2007100476","2008102799",..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ RaceHorse.ZogenSa                : num  0 0 6 4 0 6 2 2 0 0 ...
+ $ RaceHorse.IsHit1                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit2                 : int  0 0 0 0 0 0 0 0 1 0 ...
+ $ RaceHorse.IsHit3                 : int  0 0 0 0 0 0 0 1 0 0 ...
+ $ RaceHorse.IsHit4                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit5                 : int  0 1 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit6                 : int  1 0 1 1 1 1 1 0 0 1 ...
+ $ RaceHorse.IsValidRaceHorse       : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ RaceHorse.UmabanSdv              : num  0.691 -1.382 -0.461 -0.23 0.921 ...
+ $ RaceHorse.BataijyuSdv            : num  0.1082 -0.0501 0.5041 -0.8417 -0.4459 ...
+ $ RaceHorse.FutanSdv               : num  0.965 0.965 0.965 0.965 0.965 ...
+ $ RaceHorse.LifetimeSdv            : num  2.572 1.885 1.093 1.07 0.979 ...
+ $ RaceHorse.FutanRatioSdv          : num  0.38003 0.53549 0.00244 1.35352 0.93576 ...
+ $ RaceHorse.IsHitA                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHitB                 : int  0 0 0 0 0 0 0 0 1 0 ...
+ $ RaceHorse.IsHitC                 : int  0 0 0 0 0 0 0 1 1 0 ...
+ $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
+[1] "2022-02-21 22:17:34 --- RxSqlServerData Finish ---"
+[1] "2022-02-21 22:17:34 --- subset Start ---"
+[1] "--------------------------------------------------------------------------------"
+[1] "nrow(data) subset before=6809"
+[1] "nrow(data) subset after =6809"
+[1] "nrow(data) subset diff =0"
+[1] "--------------------------------------------------------------------------------"
+[1] "2022-02-21 22:17:34 --- subset Finish---"
+[1] "2022-02-21 22:17:34 --- transform Start ---"
+[1] "--------------------------------------------------------------------------------"
+[1] "nrow(data) transform before=6809"
+[1] "nrow(data) transform after=6809"
+[1] "nrow(data) transform diff=0"
+[1] "--------------------------------------------------------------------------------"
+[1] "str(data)="
+'data.frame':	6809 obs. of  29 variables:
+ $ Race.RaceId                      : Factor w/ 529 levels "20160109-06-01-02-10",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.IsPredictedRace             : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPastAndFuture: logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPast         : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalFuture       : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.IsAnalyzeFullPastAndFuture  : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullPast           : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullFuture         : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.JyokenCd                    : Factor w/ 1 level "2": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.RaceType1Cd                 : Factor w/ 1 level "1-2-E": 1 1 1 1 1 1 1 1 1 1 ...
+ $ RaceHorse.RaceId                 : Factor w/ 529 levels "20160109-06-01-02-10",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ RaceHorse.KettoNum               : Factor w/ 1439 levels "2007100476","2008102799",..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ RaceHorse.ZogenSa                : num  0 0 6 4 0 6 2 2 0 0 ...
+ $ RaceHorse.IsHit1                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit2                 : int  0 0 0 0 0 0 0 0 1 0 ...
+ $ RaceHorse.IsHit3                 : int  0 0 0 0 0 0 0 1 0 0 ...
+ $ RaceHorse.IsHit4                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit5                 : int  0 1 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit6                 : int  1 0 1 1 1 1 1 0 0 1 ...
+ $ RaceHorse.IsValidRaceHorse       : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ RaceHorse.UmabanSdv              : num  0.691 -1.382 -0.461 -0.23 0.921 ...
+ $ RaceHorse.BataijyuSdv            : num  0.1082 -0.0501 0.5041 -0.8417 -0.4459 ...
+ $ RaceHorse.FutanSdv               : num  0.965 0.965 0.965 0.965 0.965 ...
+ $ RaceHorse.LifetimeSdv            : num  2.572 1.885 1.093 1.07 0.979 ...
+ $ RaceHorse.FutanRatioSdv          : num  0.38003 0.53549 0.00244 1.35352 0.93576 ...
+ $ RaceHorse.IsHitA                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHitB                 : int  0 0 0 0 0 0 0 0 1 0 ...
+ $ RaceHorse.IsHitC                 : int  0 0 0 0 0 0 0 1 1 0 ...
+ $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
+NULL
+[1] "2022-02-21 22:17:34 --- transform Finish ---"
+[1] "2022-02-21 22:17:34 --- na.omit Start ---"
+[1] "--------------------------------------------------------------------------------"
+[1] "nrow(data) na.omit before=6809"
+[1] "nrow(data) na.omit after =6785"
+[1] "nrow(data) na.omit diff =24"
+[1] "--------------------------------------------------------------------------------"
+'data.frame':	6785 obs. of  29 variables:
+ $ Race.RaceId                      : Factor w/ 529 levels "20160109-06-01-02-10",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.IsPredictedRace             : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPastAndFuture: logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPast         : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalFuture       : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.IsAnalyzeFullPastAndFuture  : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullPast           : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullFuture         : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.JyokenCd                    : Factor w/ 1 level "2": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.RaceType1Cd                 : Factor w/ 1 level "1-2-E": 1 1 1 1 1 1 1 1 1 1 ...
+ $ RaceHorse.RaceId                 : Factor w/ 529 levels "20160109-06-01-02-10",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ RaceHorse.KettoNum               : Factor w/ 1439 levels "2007100476","2008102799",..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ RaceHorse.ZogenSa                : num  0 0 6 4 0 6 2 2 0 0 ...
+ $ RaceHorse.IsHit1                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit2                 : int  0 0 0 0 0 0 0 0 1 0 ...
+ $ RaceHorse.IsHit3                 : int  0 0 0 0 0 0 0 1 0 0 ...
+ $ RaceHorse.IsHit4                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit5                 : int  0 1 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHit6                 : int  1 0 1 1 1 1 1 0 0 1 ...
+ $ RaceHorse.IsValidRaceHorse       : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ RaceHorse.UmabanSdv              : num  0.691 -1.382 -0.461 -0.23 0.921 ...
+ $ RaceHorse.BataijyuSdv            : num  0.1082 -0.0501 0.5041 -0.8417 -0.4459 ...
+ $ RaceHorse.FutanSdv               : num  0.965 0.965 0.965 0.965 0.965 ...
+ $ RaceHorse.LifetimeSdv            : num  2.572 1.885 1.093 1.07 0.979 ...
+ $ RaceHorse.FutanRatioSdv          : num  0.38003 0.53549 0.00244 1.35352 0.93576 ...
+ $ RaceHorse.IsHitA                 : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHitB                 : int  0 0 0 0 0 0 0 0 1 0 ...
+ $ RaceHorse.IsHitC                 : int  0 0 0 0 0 0 0 1 1 0 ...
+ $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
+ - attr(*, "na.action")= 'omit' Named int  155 570 1215 1326 1397 1747 2724 2832 2841 2842 ...
+  ..- attr(*, "names")= chr  "155" "570" "1215" "1326" ...
+[1] "2022-02-21 22:17:35 --- na.omit Finish ---"
+[1] "2022-02-21 22:17:35 --- rxGlm with rxStepControl Start ---"
+
+> print(paste0(Sys.time(), " --- source_logic_glm.R Start ---"))
+[1] "2022-02-21 22:17:35 --- source_logic_glm.R Start ---"
+
+> formula <- formula(RaceHorse.IsHitA ~ +1 + RaceHorse.UmabanSdv + 
++     RaceHorse.ZogenSa + RaceHorse.FutanSdv + RaceHorse.FutanRatioSdv + 
++     RaceHorse.BataijyuSdv + RaceHorse.LifetimeSdv)
+
+> print(paste0(Sys.time(), " --- source_logic_glm.R Finished ---"))
+[1] "2022-02-21 22:17:35 --- source_logic_glm.R Finished ---"
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.010 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 2 time: 0.012 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 3 time: 0.007 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 4 time: 0.007 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 5 time: 0.007 secs.
+
+Elapsed computation time: 0.067 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.001 seconds 
+
+Starting values (iteration 1) time: 0.007 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 2 time: 0.008 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 3 time: 0.006 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.007 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.007 secs.
+
+Elapsed computation time: 0.064 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.007 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.009 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 3 time: 0.008 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.007 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.007 secs.
+
+Elapsed computation time: 0.063 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.008 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 2 time: 0.009 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 3 time: 0.006 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 4 time: 0.008 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 5 time: 0.006 secs.
+
+Elapsed computation time: 0.057 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.010 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 2 time: 0.010 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 3 time: 0.007 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 4 time: 0.007 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 5 time: 0.007 secs.
+
+Elapsed computation time: 0.073 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.007 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.008 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 3 time: 0.007 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 4 time: 0.008 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.007 secs.
+
+Elapsed computation time: 0.070 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.007 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.008 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 3 time: 0.006 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.007 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 5 time: 0.007 secs.
+
+Elapsed computation time: 0.068 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.008 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 2 time: 0.009 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 3 time: 0.008 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 4 time: 0.007 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.010 secs.
+
+Elapsed computation time: 0.070 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.007 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.008 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 3 time: 0.006 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 4 time: 0.008 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.006 secs.
+
+Elapsed computation time: 0.071 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.006 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.008 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 3 time: 0.006 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.009 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.008 secs.
+
+Elapsed computation time: 0.076 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: Less than .001 seconds 
+
+Starting values (iteration 1) time: 0.006 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 2 time: 0.007 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 3 time: 0.007 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 4 time: 0.008 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 5 time: 0.008 secs.
+
+Elapsed computation time: 0.068 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.007 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.008 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 3 time: 0.006 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.008 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.007 secs.
+
+Elapsed computation time: 0.067 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: Less than .001 seconds 
+
+Starting values (iteration 1) time: 0.009 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 2 time: 0.019 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 3 time: 0.014 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.008 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 5 time: 0.011 secs.
+
+Elapsed computation time: 0.123 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: Less than .001 seconds 
+
+Starting values (iteration 1) time: 0.010 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.010 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 3 time: 0.008 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 4 time: 0.007 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.007 secs.
+
+Elapsed computation time: 0.078 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.007 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 2 time: 0.008 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 3 time: 0.006 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.007 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.007 secs.
+
+Elapsed computation time: 0.076 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.006 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.009 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 3 time: 0.008 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.006 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.007 secs.
+
+Elapsed computation time: 0.076 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.006 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.012 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 3 time: 0.007 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.007 secs.
+
+Elapsed computation time: 0.060 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: Less than .001 seconds 
+
+Starting values (iteration 1) time: 0.007 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.014 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 3 time: 0.008 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.006 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.006 seconds 
+
+Iteration 5 time: 0.013 secs.
+
+Elapsed computation time: 0.076 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Starting values (iteration 1) time: 0.012 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 2 time: 0.015 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 3 time: 0.006 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.003 seconds 
+
+Iteration 4 time: 0.011 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.014 secs.
+
+Elapsed computation time: 0.109 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.008 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.012 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 3 time: 0.013 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.009 secs.
+Rows Read: 6785, Total Rows Processed: 6785, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.010 secs.
+
+Elapsed computation time: 0.086 secs.
+
+Elapsed computation time: 1.678 secs.
+[1] "--------------------------------------------------------------------------------"
+[1] "analyze.results.glm.step="
+Logistic Regression Results for: RaceHorse.IsHitA ~
+    RaceHorse.BataijyuSdv + RaceHorse.FutanRatioSdv +
+    RaceHorse.LifetimeSdv + RaceHorse.UmabanSdv
+Data: data
+Dependent variable(s): RaceHorse.IsHitA
+Total independent variables: 5 
+Number of valid observations: 6785
+Number of missing observations: 0 
+ 
+Coefficients:
+                        RaceHorse.IsHitA
+(Intercept)                         -2.6
+RaceHorse.BataijyuSdv                0.4
+RaceHorse.FutanRatioSdv              0.3
+RaceHorse.LifetimeSdv               -0.7
+RaceHorse.UmabanSdv                 -0.1
+[1] "analyze.results.glm.step.summary"
+Call:
+rxLogit(formula = formula, data = data, variableSelection = analyze.results.glm.step.varsel)
+
+Logistic Regression Results for: RaceHorse.IsHitA ~
+    RaceHorse.BataijyuSdv + RaceHorse.FutanRatioSdv +
+    RaceHorse.LifetimeSdv + RaceHorse.UmabanSdv
+Data: data
+Dependent variable(s): RaceHorse.IsHitA
+Total independent variables: 5 
+Number of valid observations: 6785
+Number of missing observations: 0 
+-2*LogLikelihood: 3504.156 (Residual deviance on 6780 degrees of freedom)
+ 
+Coefficients:
+                        Estimate Std. Error z value Pr(>|z|)    
+(Intercept)              -2.6444     0.0538  -49.18  2.2e-16 ***
+RaceHorse.BataijyuSdv     0.4277     0.0896    4.78  1.8e-06 ***
+RaceHorse.FutanRatioSdv   0.3070     0.0935    3.28   0.0010 ** 
+RaceHorse.LifetimeSdv    -0.6993     0.0563  -12.41  2.2e-16 ***
+RaceHorse.UmabanSdv      -0.1483     0.0482   -3.08   0.0021 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Condition number of final variance-covariance matrix: 16 
+Number of iterations: 5
+[1] "--------------------------------------------------------------------------------"
+[1] "2022-02-21 22:17:37 --- rxGlm with rxStepControl Finish ---"
+[1] "2022-02-21 22:17:37 --- rxStepPlot Start ---"
+[1] "pdfFilename=pdf_analyze_glm_RaceHorse_Type12_rxStepPlot.pdf"
+[1] "rxStepPlot="
+[1] "2022-02-21 22:17:37 --- rxStepPlot Finish ---"
+[1] "2022-02-21 22:17:37 --- save.image Start ---"
+[1] "save.image"
+[1] "rdataFilename=RData_analyze_glm_RaceHorse_Type12.RData"
+[1] "2022-02-21 22:17:37 --- save.image Finish ---"
+[1] "2022-02-21 22:17:37 --- final Start ---"
+[1] "--------------------------------------------------------------------------------"
+[1] "nrow(data) final=6785"
+[1] "--------------------------------------------------------------------------------"
+[1] "2022-02-21 22:17:37 --- final Finish ---"
+[1] "2022-02-21 22:17:37 --- analyze_glm.R Finished ---"
+[1] "2022-02-21 22:17:37 --- log Finish ---"

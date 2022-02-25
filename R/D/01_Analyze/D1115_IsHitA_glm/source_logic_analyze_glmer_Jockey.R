@@ -41,7 +41,10 @@ RaceHorse.IsHitA
 # + Jockey.TimeSdvByRaceAvg
 # + Jockey.TimeSdvByRaceMin
 # + Jockey.TimeSdvByRaceMax
-+ Jockey.OrderOfFinishSdvAvg
++ Jockey.TimeSdvAvg
+# + Jockey.TimeSdvMin
+# + Jockey.TimeSdvMax
+# + Jockey.OrderOfFinishSdvAvg
 # + Jockey.RunCount
 # + Jockey.HitCount1
 # + Jockey.HitCount2
