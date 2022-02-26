@@ -39,10 +39,10 @@ RaceHorse.IsHitA
 # + Horse.PrevKettoNum
 
 # + Horse.KettoNum
-# + Horse.TimeSdvByRaceAvg
++ Horse.TimeSdvByRaceAvg
 # + Horse.TimeSdvByRaceMin
 # + Horse.TimeSdvByRaceMax
-+ Horse.TimeSdvAvg
+# + Horse.TimeSdvAvg
 # + Horse.TimeSdvMin
 # + Horse.TimeSdvMax
 # + Horse.OrderOfFinishSdvAvg

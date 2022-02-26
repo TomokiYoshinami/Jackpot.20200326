@@ -38,10 +38,10 @@ RaceHorse.IsHitA
 # + RaceHorse.IsHitE
 
 # + Jockey.KisyuCode
-# + Jockey.TimeSdvByRaceAvg
++ Jockey.TimeSdvByRaceAvg
 # + Jockey.TimeSdvByRaceMin
 # + Jockey.TimeSdvByRaceMax
-+ Jockey.TimeSdvAvg
+# + Jockey.TimeSdvAvg
 # + Jockey.TimeSdvMin
 # + Jockey.TimeSdvMax
 # + Jockey.OrderOfFinishSdvAvg

@@ -38,10 +38,10 @@ RaceHorse.IsHitA
 # + RaceHorse.IsHitE
 	
 # + Gen01.HansyokuNum
-# + Gen01.TimeSdvByRaceAvg
++ Gen01.TimeSdvByRaceAvg
 # + Gen01.TimeSdvByRaceMin
 # + Gen01.TimeSdvByRaceMax
-+ Gen01.TimeSdvAvg
+# + Gen01.TimeSdvAvg
 # + Gen01.TimeSdvMin
 # + Gen01.TimeSdvMax
 # + Gen01.OrderOfFinishSdvAvg

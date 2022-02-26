@@ -39,9 +39,9 @@ RaceHorse.IsHitA
 
 # + OddsByWin.Odds1
 # + OddsByWin.Ninki
-# + OddsByWin.OddsLog1
++ OddsByWin.OddsLog1
 # + OddsByWin.OddsRatio1
-+ OddsByWin.OddsLogit1
+# + OddsByWin.OddsLogit1
 # + OddsByWin.ApprovalRate1
 # + OddsByWin.ApprovalRateLog1
 

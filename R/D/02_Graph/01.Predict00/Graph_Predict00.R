@@ -262,21 +262,21 @@ dev.off()
 # ---------------------------------------------------------------------------------------------------------------------------
 # tic()
 
-# graphName <- "histogram.OddsByWin"
-# pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
-# print(paste0("pdfFilename=", pdfFilename))
-# pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
-# par(ps=9)
+graphName <- "histogram.OddsByWin"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
 
-# histogram(~ OddsByWin.Odds1, main = "OddsByWin.Odds1", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
-# histogram(~ OddsByWin.Ninki | Race.RaceType1Cd, main = "OddsByWin.Ninki by Race.RaceType1Cd", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
-# histogram(~ OddsByWin.OddsLog1 | Race.RaceType1Cd, main = "OddsByWin.OddsLog1 by Race.RaceType1Cd", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
-# histogram(~ OddsByWin.OddsRatio1 | Race.RaceType1Cd, main = "OddsByWin.OddsRatio1 by Race.RaceType1Cd", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
-# histogram(~ OddsByWin.OddsLogit1 | Race.RaceType1Cd, main = "OddsByWin.OddsLogit1 by Race.RaceType1Cd", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
-# histogram(~ OddsByWin.ApprovalRate1 | Race.RaceType1Cd, main = "OddsByWin.ApprovalRate1 by Race.RaceType1Cd", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
-# histogram(~ OddsByWin.ApprovalRateLog1 | Race.RaceType1Cd, main = "OddsByWin.ApprovalRateLog1 by Race.RaceType1Cd", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+histogram(~ OddsByWin.Odds1, main = "OddsByWin.Odds1", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+histogram(~ OddsByWin.Ninki | Race.RaceType1Cd, main = "OddsByWin.Ninki by Race.RaceType1Cd", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+histogram(~ OddsByWin.OddsLog1 | Race.RaceType1Cd, main = "OddsByWin.OddsLog1 by Race.RaceType1Cd", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+histogram(~ OddsByWin.OddsRatio1 | Race.RaceType1Cd, main = "OddsByWin.OddsRatio1 by Race.RaceType1Cd", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+histogram(~ OddsByWin.OddsLogit1 | Race.RaceType1Cd, main = "OddsByWin.OddsLogit1 by Race.RaceType1Cd", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+histogram(~ OddsByWin.ApprovalRate1 | Race.RaceType1Cd, main = "OddsByWin.ApprovalRate1 by Race.RaceType1Cd", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+histogram(~ OddsByWin.ApprovalRateLog1 | Race.RaceType1Cd, main = "OddsByWin.ApprovalRateLog1 by Race.RaceType1Cd", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
 
-# dev.off()
+dev.off()
 # toc()
 
 # ---------------------------------------------------------------------------------------------------------------------------
