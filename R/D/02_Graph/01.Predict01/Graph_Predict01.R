@@ -166,17 +166,35 @@ print(paste0(Sys.time(), " --- RxSqlServerData Finish ---"))
 # hist
 # ---------------------------------------------------------------------------------------------------------------------------
 # tic()
-graphName <- "hist.OddsByWin"
-pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
-print(paste0("pdfFilename=", pdfFilename))
-pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
-par(ps=9)
+# graphName <- "hist.OddsByWin"
+# pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+# print(paste0("pdfFilename=", pdfFilename))
+# pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+# par(ps=9)
 # par(mfrow = c(2, 2))
 # par(mfcol = c(2, 2))
 # par(mfrow = (1, 1)) # 1画面
 # par(new = TRUE) # 上書き
 # par(mfrow = c(1, 2)) #グラフ表示画面を 1×2 分割します
 # plot(res_2, which = 1) ; plot(res_2, which = 2) #目的の図のみを出すこともできます
+# hist(data$OddsByWin.Odds1, main = "Odds1", breaks = "scott", col = "orange")
+# hist(data$OddsByWin.Ninki, main = "Ninki", breaks = "scott", col = "orange")
+# hist(data$OddsByWin.OddsLog1, main = "OddsLog1", breaks = "scott", col = "orange")
+# hist(data$OddsByWin.OddsRatio1, main = "OddsRatio1", breaks = "scott", col = "orange")
+# hist(data$OddsByWin.OddsLogit1, main = "OddsLogit1", breaks = "scott", col = "orange")
+# hist(data$OddsByWin.ApprovalRate1, main = "ApprovalRate1", breaks = "scott", col = "orange")
+# hist(data$OddsByWin.ApprovalRateLog1, main = "ApprovalRateLog1", breaks = "scott", col = "orange")
+# dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# hist
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "hist.OddsByWin"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
 hist(data$OddsByWin.Odds1, main = "Odds1", breaks = "scott", col = "orange")
 hist(data$OddsByWin.Ninki, main = "Ninki", breaks = "scott", col = "orange")
 hist(data$OddsByWin.OddsLog1, main = "OddsLog1", breaks = "scott", col = "orange")
@@ -195,12 +213,6 @@ pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphTyp
 print(paste0("pdfFilename=", pdfFilename))
 pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
 par(ps=9)
-# par(mfrow = c(2, 2))
-# par(mfcol = c(2, 2))
-# par(mfrow = (1, 1)) # 1画面
-# par(new = TRUE) # 上書き
-# par(mfrow = c(1, 2)) #グラフ表示画面を 1×2 分割します
-# plot(res_2, which = 1) ; plot(res_2, which = 2) #目的の図のみを出すこともできます
 hist(data$PayoffByWin.IsHit, main = "IsHit", breaks = "scott", col = "orange")
 hist(data$PayoffByWin.Ninki, main = "Ninki", breaks = "scott", col = "orange")
 hist(data$PayoffByWin.Pay, main = "Pay", breaks = "scott", col = "orange")
@@ -216,12 +228,6 @@ pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphTyp
 print(paste0("pdfFilename=", pdfFilename))
 pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
 par(ps=9)
-# par(mfrow = c(2, 2))
-# par(mfcol = c(2, 2))
-# par(mfrow = (1, 1)) # 1画面
-# par(new = TRUE) # 上書き
-# par(mfrow = c(1, 2)) #グラフ表示画面を 1×2 分割します
-# plot(res_2, which = 1) ; plot(res_2, which = 2) #目的の図のみを出すこともできます
 hist(data$PredictByWin.PredictValue, main = "PredictValue", breaks = "scott", col = "orange")
 hist(data$PredictByWin.PredictValueNorm, main = "PredictValueNorm", breaks = "scott", col = "orange")
 hist(data$PredictByWin.PredictValueDv, main = "PredictValueDv", breaks = "scott", col = "orange")
@@ -270,6 +276,34 @@ dev.off()
 # histogram
 # ---------------------------------------------------------------------------------------------------------------------------
 # tic()
+graphName <- "histogram.RaceHorse.LastTimeSdvByRace"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+histogram(~ RaceHorse.LastTimeSdvByRace, main = "RaceHorse.LastTimeSdvByRace", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+histogram(~ RaceHorse.LastTimeSdvByRace | Race.JyoType1Cd, main = "RaceHorse.LastTimeSdvByRace by Race.JyoType1Cd", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+histogram(~ RaceHorse.LastTimeSdvByRace | Race.RaceType1Cd, main = "RaceHorse.LastTimeSdvByRace by Race.RaceType1Cd", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# histogram
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "histogram.RaceHorse.FirstTimeSdvByRace"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+histogram(~ RaceHorse.FirstTimeSdvByRace, main = "RaceHorse.FirstTimeSdvByRace", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+histogram(~ RaceHorse.FirstTimeSdvByRace | Race.JyoType1Cd, main = "RaceHorse.FirstTimeSdvByRace by Race.JyoType1Cd", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+histogram(~ RaceHorse.FirstTimeSdvByRace | Race.RaceType1Cd, main = "RaceHorse.FirstTimeSdvByRace by Race.RaceType1Cd", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# histogram
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
 graphName <- "histogram.RaceHorse.TimeSdv"
 pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
 print(paste0("pdfFilename=", pdfFilename))
@@ -281,10 +315,78 @@ histogram(~ RaceHorse.TimeSdv | Race.RaceType1Cd, main = "RaceHorse.TimeSdv by R
 dev.off()
 # toc()
 # ---------------------------------------------------------------------------------------------------------------------------
+# histogram
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "histogram.RaceHorse.LastTimeSdv"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+histogram(~ RaceHorse.LastTimeSdv, main = "RaceHorse.LastTimeSdv", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+histogram(~ RaceHorse.LastTimeSdv | Race.JyoType1Cd, main = "RaceHorse.LastTimeSdv by Race.JyoType1Cd", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+histogram(~ RaceHorse.LastTimeSdv | Race.RaceType1Cd, main = "RaceHorse.LastTimeSdv by Race.RaceType1Cd", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# histogram
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "histogram.RaceHorse.FirstTimeSdv"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+histogram(~ RaceHorse.FirstTimeSdv, main = "RaceHorse.FirstTimeSdv", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+histogram(~ RaceHorse.FirstTimeSdv | Race.RaceType1Cd, main = "RaceHorse.FirstTimeSdv by Race.RaceType1Cd", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# histogram
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "histogram.PayoffByWin.Pay"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+histogram(~ PayoffByWin.Pay, main = "PayoffByWin.Pay", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+histogram(~ PayoffByWin.Pay | RaceHorse.KakuteiJyuni, main = "PayoffByWin.Pay by RaceHorse.KakuteiJyuni", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+histogram(~ PayoffByWin.Pay | Race.RaceType1Cd, main = "PayoffByWin.Pay by Race.RaceType1Cd", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# histogram
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "histogram.PayoffByWin.PayLog"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+histogram(~ PayoffByWin.PayLog, main = "PayoffByWin.PayLog", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+histogram(~ PayoffByWin.PayLog | RaceHorse.KakuteiJyuni, main = "PayoffByWin.PayLog by RaceHorse.KakuteiJyuni", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+histogram(~ PayoffByWin.PayLog | Race.RaceType1Cd, main = "PayoffByWin.PayLog by Race.RaceType1Cd", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# histogram
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "histogram.PredictByWin.PredictValue"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+histogram(~ PredictByWin.PredictValue, main = "PredictByWin.PredictValue", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+histogram(~ PredictByWin.PredictValue | Race.RaceType1Cd, main = "PredictByWin.PredictValue by Race.RaceType1Cd", data= data, labels = TRUE, type = histogramType, layout = histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
 # xyplot
 # ---------------------------------------------------------------------------------------------------------------------------
 # tic()
-graphName <- "xyplot.PayoffByWin.Pay vs RaceHorse.UmabanSdv by Race.RaceType1Cd"
+graphName <- "xyplot.PayoffByWin.Pay vs RaceHorse.UmabanSdv by Race.JyoType1Cd"
 pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
 print(paste0("pdfFilename=", pdfFilename))
 pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
@@ -297,13 +399,13 @@ dev.off()
 # xyplot
 # ---------------------------------------------------------------------------------------------------------------------------
 # tic()
-graphName <- "xyplot.RaceHorse.TimeSdv vs RaceHorse.TimeByRaceSdv by Race.RaceType1Cd"
+graphName <- "xyplot.RaceHorse.TimeSdv vs RaceHorse.TimeSdvByRace by Race.RaceType1Cd"
 pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
 print(paste0("pdfFilename=", pdfFilename))
 pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
 par(ps=9)
-xyplot(RaceHorse.TimeSdv ~ RaceHorse.TimeByRaceSdv, data = data, main = "RaceHorse.TimeSdv vs RaceHorse.TimeByRaceSdv", col = "blue", layout =  histogramLayout)
-xyplot(RaceHorse.TimeSdv ~ RaceHorse.TimeByRaceSdv | Race.RaceType1Cd, data = data, main = "RaceHorse.TimeSdv vs RaceHorse.TimeByRaceSdv by Race.RaceType1Cd", col = "blue", layout =  histogramLayout)
+xyplot(RaceHorse.TimeSdv ~ RaceHorse.TimeSdvByRace, data = data, main = "RaceHorse.TimeSdv vs RaceHorse.TimeSdvByRace", col = "blue", layout =  histogramLayout)
+xyplot(RaceHorse.TimeSdv ~ RaceHorse.TimeSdvByRace | Race.RaceType1Cd, data = data, main = "RaceHorse.TimeSdv vs RaceHorse.TimeSdvByRace by Race.RaceType1Cd", col = "blue", layout =  histogramLayout)
 dev.off()
 # toc()
 # ---------------------------------------------------------------------------------------------------------------------------
@@ -323,13 +425,13 @@ dev.off()
 # xyplot
 # ---------------------------------------------------------------------------------------------------------------------------
 # tic()
-graphName <- "xyplot.PayoffByWin.Pay vs RaceHorse.TimeByRaceSdv by Race.RaceType1Cd"
+graphName <- "xyplot.PayoffByWin.Pay vs RaceHorse.TimeSdvByRace by Race.RaceType1Cd"
 pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
 print(paste0("pdfFilename=", pdfFilename))
 pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
 par(ps=9)
-xyplot(PayoffByWin.Pay ~ RaceHorse.TimeByRaceSdv, data = data, main = "PayoffByWin.Pay vs RaceHorse.TimeByRaceSdv", col = "blue", layout =  histogramLayout)
-xyplot(PayoffByWin.Pay ~ RaceHorse.TimeByRaceSdv | Race.RaceType1Cd, data = data, main = "PayoffByWin.Pay vs RaceHorse.TimeByRaceSdv by Race.RaceType1Cd", col = "blue", layout =  histogramLayout)
+xyplot(PayoffByWin.Pay ~ RaceHorse.TimeSdvByRace, data = data, main = "PayoffByWin.Pay vs RaceHorse.TimeSdvByRace", col = "blue", layout =  histogramLayout)
+xyplot(PayoffByWin.Pay ~ RaceHorse.TimeSdvByRace | Race.RaceType1Cd, data = data, main = "PayoffByWin.Pay vs RaceHorse.TimeSdvByRace by Race.RaceType1Cd", col = "blue", layout =  histogramLayout)
 dev.off()
 # toc()
 # ---------------------------------------------------------------------------------------------------------------------------
@@ -512,6 +614,214 @@ pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
 par(ps=9)
 xyplot(PayoffByWin.Pay ~ OddsByWin.ApprovalRateLog1, data = data, main = "PayoffByWin.Pay vs OddsByWin.ApprovalRateLog1", col = "blue", layout =  histogramLayout)
 xyplot(PayoffByWin.Pay ~ OddsByWin.ApprovalRateLog1 | Race.RaceType1Cd, data = data, main = "PayoffByWin.Pay vs OddsByWin.ApprovalRateLog1 by Race.RaceType1Cd", col = "blue", layout =  histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# xyplot
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "xyplot.PayoffByWin.PayLog vs RaceHorse.TimeSdv by Race.RaceType1Cd"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+xyplot(PayoffByWin.PayLog ~ RaceHorse.TimeSdv, data = data, main = "PayoffByWin.PayLog vs RaceHorse.TimeSdv", col = "blue", layout =  histogramLayout)
+xyplot(PayoffByWin.PayLog ~ RaceHorse.TimeSdv | Race.RaceType1Cd, data = data, main = "PayoffByWin.PayLog vs RaceHorse.TimeSdv by Race.RaceType1Cd", col = "blue", layout =  histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# xyplot
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "xyplot.PayoffByWin.PayLog vs RaceHorse.TimeSdvByRace by Race.RaceType1Cd"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+xyplot(PayoffByWin.PayLog ~ RaceHorse.TimeSdvByRace, data = data, main = "PayoffByWin.PayLog vs RaceHorse.TimeSdvByRace", col = "blue", layout =  histogramLayout)
+xyplot(PayoffByWin.PayLog ~ RaceHorse.TimeSdvByRace | Race.RaceType1Cd, data = data, main = "PayoffByWin.PayLog vs RaceHorse.TimeSdvByRace by Race.RaceType1Cd", col = "blue", layout =  histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# xyplot
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "xyplot.PayoffByWin.PayLog vs RaceHorse.BataijyuSdv by Race.RaceType1Cd"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+xyplot(PayoffByWin.PayLog ~ RaceHorse.BataijyuSdv, data = data, main = "PayoffByWin.PayLog vs RaceHorse.BataijyuSdv", col = "blue", layout =  histogramLayout)
+xyplot(PayoffByWin.PayLog ~ RaceHorse.BataijyuSdv | Race.RaceType1Cd, data = data, main = "PayoffByWin.PayLog vs RaceHorse.BataijyuSdv by Race.RaceType1Cd", col = "blue", layout =  histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# xyplot
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "xyplot.PayoffByWin.PayLog vs RaceHorse.ZogenSa by Race.RaceType1Cd"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+xyplot(PayoffByWin.PayLog ~ RaceHorse.ZogenSa, data = data, main = "PayoffByWin.PayLog vs RaceHorse.ZogenSa", col = "blue", layout =  histogramLayout)
+xyplot(PayoffByWin.PayLog ~ RaceHorse.ZogenSa | Race.RaceType1Cd, data = data, main = "PayoffByWin.PayLog vs RaceHorse.ZogenSa by Race.RaceType1Cd", col = "blue", layout =  histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# xyplot
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "xyplot.PayoffByWin.PayLog vs RaceHorse.FutanSdv by Race.RaceType1Cd"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+xyplot(PayoffByWin.PayLog ~ RaceHorse.FutanSdv, data = data, main = "PayoffByWin.PayLog vs RaceHorse.FutanSdv", col = "blue", layout =  histogramLayout)
+xyplot(PayoffByWin.PayLog ~ RaceHorse.FutanSdv | Race.RaceType1Cd, data = data, main = "PayoffByWin.PayLog vs RaceHorse.FutanSdv by Race.RaceType1Cd", col = "blue", layout =  histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# xyplot
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "xyplot.PayoffByWin.PayLog vs RaceHorse.FutanRatioSdv by Race.RaceType1Cd"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+xyplot(PayoffByWin.PayLog ~ RaceHorse.FutanRatioSdv, data = data, main = "PayoffByWin.PayLog vs RaceHorse.FutanRatioSdv", col = "blue", layout =  histogramLayout)
+xyplot(PayoffByWin.PayLog ~ RaceHorse.FutanRatioSdv | Race.RaceType1Cd, data = data, main = "PayoffByWin.PayLog vs RaceHorse.FutanRatioSdv by Race.RaceType1Cd", col = "blue", layout =  histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# xyplot
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "xyplot.PayoffByWin.PayLog vs RaceHorse.LifetimeSdv by Race.RaceType1Cd"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+xyplot(PayoffByWin.PayLog ~ RaceHorse.LifetimeSdv, data = data, main = "PayoffByWin.PayLog vs RaceHorse.LifetimeSdv", col = "blue", layout =  histogramLayout)
+xyplot(PayoffByWin.PayLog ~ RaceHorse.LifetimeSdv | Race.RaceType1Cd, data = data, main = "PayoffByWin.PayLog vs RaceHorse.LifetimeSdv by Race.RaceType1Cd", col = "blue", layout =  histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# xyplot
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "xyplot.PayoffByWin.PayLog vs PredictByWin.PredictValue by Race.RaceType1Cd"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+xyplot(PayoffByWin.PayLog ~ PredictByWin.PredictValue, data = data, main = "PayoffByWin.PayLog vs PredictByWin.PredictValue", col = "blue", layout =  histogramLayout)
+xyplot(PayoffByWin.PayLog ~ PredictByWin.PredictValue | Race.RaceType1Cd, data = data, main = "PayoffByWin.PayLog vs PredictByWin.PredictValue by Race.RaceType1Cd", col = "blue", layout =  histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# xyplot
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "xyplot.PayoffByWin.PayLog vs OddsByWin.Odds1 by Race.RaceType1Cd"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+xyplot(PayoffByWin.PayLog ~ OddsByWin.Odds1, data = data, main = "PayoffByWin.PayLog vs OddsByWin.Odds1", col = "blue", layout =  histogramLayout)
+xyplot(PayoffByWin.PayLog ~ OddsByWin.Odds1 | Race.RaceType1Cd, data = data, main = "PayoffByWin.PayLog vs OddsByWin.Odds1 by Race.RaceType1Cd", col = "blue", layout =  histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# xyplot
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "xyplot.PayoffByWin.PayLog vs OddsByWin.OddsLog1 by Race.RaceType1Cd"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+xyplot(PayoffByWin.PayLog ~ OddsByWin.OddsLog1, data = data, main = "PayoffByWin.PayLog vs OddsByWin.OddsLog1", col = "blue", layout =  histogramLayout)
+xyplot(PayoffByWin.PayLog ~ OddsByWin.OddsLog1 | Race.RaceType1Cd, data = data, main = "PayoffByWin.PayLog vs OddsByWin.OddsLog1 by Race.RaceType1Cd", col = "blue", layout =  histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# xyplot
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "xyplot.PayoffByWin.PayLog vs DataMining.DmTimeSdv by Race.RaceType1Cd"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+xyplot(PayoffByWin.PayLog ~ DataMining.DmTimeSdv, data = data, main = "PayoffByWin.PayLog vs DataMining.DmTimeSdv", col = "blue", layout =  histogramLayout)
+xyplot(PayoffByWin.PayLog ~ DataMining.DmTimeSdv | Race.RaceType1Cd, data = data, main = "PayoffByWin.PayLog vs DataMining.DmTimeSdv by Race.RaceType1Cd", col = "blue", layout =  histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# xyplot
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "xyplot.PayoffByWin.PayLog vs DataMiningTaisen.TmScoreSdv by Race.RaceType1Cd"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+xyplot(PayoffByWin.PayLog ~ DataMiningTaisen.TmScoreSdv, data = data, main = "PayoffByWin.PayLog vs DataMiningTaisen.TmScoreSdv", col = "blue", layout =  histogramLayout)
+xyplot(PayoffByWin.PayLog ~ DataMiningTaisen.TmScoreSdv | Race.RaceType1Cd, data = data, main = "PayoffByWin.PayLog vs DataMiningTaisen.TmScoreSdv by Race.RaceType1Cd", col = "blue", layout =  histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# xyplot
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "xyplot.PayoffByWin.PayLog vs OddsByWin.OddsRatio1 by Race.RaceType1Cd"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+xyplot(PayoffByWin.PayLog ~ OddsByWin.OddsRatio1, data = data, main = "PayoffByWin.PayLog vs OddsByWin.OddsRatio1", col = "blue", layout =  histogramLayout)
+xyplot(PayoffByWin.PayLog ~ OddsByWin.OddsRatio1 | Race.RaceType1Cd, data = data, main = "PayoffByWin.PayLog vs OddsByWin.OddsRatio1 by Race.RaceType1Cd", col = "blue", layout =  histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# xyplot
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "xyplot.PayoffByWin.PayLog vs OddsByWin.OddsLogit1 by Race.RaceType1Cd"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+xyplot(PayoffByWin.PayLog ~ OddsByWin.OddsLogit1, data = data, main = "PayoffByWin.PayLog vs OddsByWin.OddsLogit1", col = "blue", layout =  histogramLayout)
+xyplot(PayoffByWin.PayLog ~ OddsByWin.OddsLogit1 | Race.RaceType1Cd, data = data, main = "PayoffByWin.PayLog vs OddsByWin.OddsLogit1 by Race.RaceType1Cd", col = "blue", layout =  histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# xyplot
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "xyplot.PayoffByWin.PayLog vs OddsByWin.ApprovalRate1 by Race.RaceType1Cd"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+xyplot(PayoffByWin.PayLog ~ OddsByWin.ApprovalRate1, data = data, main = "PayoffByWin.PayLog vs OddsByWin.ApprovalRate1", col = "blue", layout =  histogramLayout)
+xyplot(PayoffByWin.PayLog ~ OddsByWin.ApprovalRate1 | Race.RaceType1Cd, data = data, main = "PayoffByWin.PayLog vs OddsByWin.ApprovalRate1 by Race.RaceType1Cd", col = "blue", layout =  histogramLayout)
+dev.off()
+# toc()
+# ---------------------------------------------------------------------------------------------------------------------------
+# xyplot
+# ---------------------------------------------------------------------------------------------------------------------------
+# tic()
+graphName <- "xyplot.PayoffByWin.PayLog vs OddsByWin.ApprovalRateLog1 by Race.RaceType1Cd"
+pdfFilename <- paste(paste0(fileNamePrefixPdf, "_", graphCategory, "_", graphType, "_", graphName), constFileExtensionPdf, sep = constColon)
+print(paste0("pdfFilename=", pdfFilename))
+pdf(pdfFilename, paper = "a4r", width = 9.5, height = 7, pointsize = 9)
+par(ps=9)
+xyplot(PayoffByWin.PayLog ~ OddsByWin.ApprovalRateLog1, data = data, main = "PayoffByWin.PayLog vs OddsByWin.ApprovalRateLog1", col = "blue", layout =  histogramLayout)
+xyplot(PayoffByWin.PayLog ~ OddsByWin.ApprovalRateLog1 | Race.RaceType1Cd, data = data, main = "PayoffByWin.PayLog vs OddsByWin.ApprovalRateLog1 by Race.RaceType1Cd", col = "blue", layout =  histogramLayout)
 dev.off()
 # toc()
 # ---------------------------------------------------------------------------------------------------------------------------
