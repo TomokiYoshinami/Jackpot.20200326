@@ -38,13 +38,14 @@ RaceHorse.IsHitA
 # + RaceHorse.IsHitE
 	
 # + Gen01.HansyokuNum
-+ Gen01.TimeSdvByRaceAvg
-+ Gen01.LastTimeSdvByRaceAvg
-+ Gen01.FirstTimeSdvByRaceAvg
-+ Gen01.TimeSdvAvg
-+ Gen01.LastTimeSdvAvg
-+ Gen01.FirstTimeSdvAvg
-# + Gen01.OrderOfFinishSdvAvg
++ Gen01.FinishTimeSdvByRaceAvg
+# + exp(Gen01.FinishTimeSdvByRaceAvg)
+# + Gen01.FirstTimeSdvByRaceAvg
+# + Gen01.LastTimeSdvByRaceAvg
+# + Gen01.FinishTimeSdvAvg
+# + Gen01.FirstTimeSdvAvg
+# + Gen01.LastTimeSdvAvg
+# + Gen01.RealOddsLog1Avg
 # + Gen01.RunCount
 # + Gen01.HitCount1
 # + Gen01.HitCount2

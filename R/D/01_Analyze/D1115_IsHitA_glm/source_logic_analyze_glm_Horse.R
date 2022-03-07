@@ -39,13 +39,14 @@ RaceHorse.IsHitA
 # + Horse.PrevKettoNum
 
 # + Horse.KettoNum
-+ Horse.TimeSdvByRaceAvg
-+ Horse.LastTimeSdvByRaceAvg
-+ Horse.FirstTimeSdvByRaceAvg
-+ Horse.TimeSdvAvg
-+ Horse.LastTimeSdvAvg
-+ Horse.FirstTimeSdvAvg
-# + Horse.OrderOfFinishSdvAvg
++ Horse.FinishTimeSdvByRaceAvg
+# + exp(Horse.FinishTimeSdvByRaceAvg)
+# + Horse.FirstTimeSdvByRaceAvg
+# + Horse.LastTimeSdvByRaceAvg
+# + Horse.FinishTimeSdvAvg
+# + Horse.FirstTimeSdvAvg
+# + Horse.LastTimeSdvAvg
+# + Horse.RealOddsLog1Avg
 # + Horse.RunCount
 # + Horse.HitCount1
 # + Horse.HitCount2

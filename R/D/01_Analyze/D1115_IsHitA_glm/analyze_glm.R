@@ -328,10 +328,10 @@ print(paste0(Sys.time(), " --- na.omit Finish ---"))
 # print(analyze.results.glm.step.summary)
 # print(paste0(Sys.time(), " --- step Finish ---"))
 # ---------------------------------------------------------------------------------------------------------------------------
-# rxGlm with rxStepControl
+# rxLogit with rxStepControl
 # ---------------------------------------------------------------------------------------------------------------------------
 # tic()
-print(paste0(Sys.time(), " --- rxGlm with rxStepControl Start ---"))
+print(paste0(Sys.time(), " --- rxLogit with rxStepControl Start ---"))
 source(paste0("source_logic", "_", analyzeCategory, "_", analyzeFunc, "_", analyzeType, ".R"), echo = TRUE, max.deparse.length = Inf)
 
 analyze.results.glm.step.varsel <- rxStepControl(method = "stepwise", scope = formula, keepStepCoefs = TRUE)
@@ -365,7 +365,7 @@ print("-------------------------------------------------------------------------
 # print(paste0("stepAIC(analyze.results.glm.step)=", analyze.results.glm.step.aic))
 # print("--------------------------------------------------------------------------------")
 
-print(paste0(Sys.time(), " --- rxGlm with rxStepControl Finish ---"))
+print(paste0(Sys.time(), " --- rxLogit with rxStepControl Finish ---"))
 # ---------------------------------------------------------------------------------------------------------------------------
 # rxStepPlot
 # ---------------------------------------------------------------------------------------------------------------------------

@@ -38,24 +38,41 @@ RaceHorse.IsHitA
 # + RaceHorse.IsHitE
 
 # + RaceHorse.SexCd
-+ RaceHorse.UmabanSdv
-+ RaceHorse.BataijyuSdv
-# + RaceHorse.ZogenSaSdv
-+ RaceHorse.FutanSdv
-+ RaceHorse.FutanRatioSdv
-+ RaceHorse.LifetimeSdv
+# + RaceHorse.HorseNumRatio
+# + RaceHorse.Weight
+# + RaceHorse.WeightDelta
+# + RaceHorse.WeightDeltaRatio
+# + RaceHorse.Handicap
+# + RaceHorse.HandicapRatio
+# + RaceHorse.Lifetime
+
+# + RaceHorse.HorseNumRatioSdvByRace
++ RaceHorse.WeightSdvByRace
++ RaceHorse.WeightDeltaSdvByRace
++ RaceHorse.WeightDeltaRatioSdvByRace
++ RaceHorse.HandicapSdvByRace
++ RaceHorse.HandicapRatioSdvByRace
+# + RaceHorse.LifetimeSdvByRace
+
+# + RaceHorse.HorseNumRatioSdv
+# + RaceHorse.WeightSdv
+# + RaceHorse.WeightDeltaSdv
+# + RaceHorse.WeightDeltaRatioSdv
+# + RaceHorse.HandicapSdv
+# + RaceHorse.HandicapRatioSdv
+# + RaceHorse.LifetimeSdv
 
 + DataMining.DmTimeSdv
 	
 + DataMiningTaisen.TmScoreSdv
 
-# + OddsByWin.Odds1
 # + OddsByWin.Ninki
-+ OddsByWin.OddsLog1
-# + OddsByWin.OddsRatio1
-# + OddsByWin.OddsLogit1
+# + OddsByWin.OddsLog1
+# + log(OddsByWin.Odds1)
+# + OddsByWin.RealOddsLog1
++ log(OddsByWin.RealOdds1)
 # + OddsByWin.ApprovalRate1
-# + OddsByWin.ApprovalRateLog1
+# + OddsByWin.RealApprovalRate1
 
 # + EOF
 
