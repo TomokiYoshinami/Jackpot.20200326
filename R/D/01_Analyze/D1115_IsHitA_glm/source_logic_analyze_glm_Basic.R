@@ -47,10 +47,10 @@ RaceHorse.IsHitA
 # + RaceHorse.Lifetime
 
 # + RaceHorse.HorseNumRatioSdvByRace
-+ RaceHorse.WeightSdvByRace
-+ RaceHorse.WeightDeltaSdvByRace
+# + RaceHorse.WeightSdvByRace
+# + RaceHorse.WeightDeltaSdvByRace
 + RaceHorse.WeightDeltaRatioSdvByRace
-+ RaceHorse.HandicapSdvByRace
+# + RaceHorse.HandicapSdvByRace
 + RaceHorse.HandicapRatioSdvByRace
 # + RaceHorse.LifetimeSdvByRace
 
@@ -62,7 +62,7 @@ RaceHorse.IsHitA
 # + RaceHorse.HandicapRatioSdv
 # + RaceHorse.LifetimeSdv
 
-+ DataMining.DmTimeSdv
+# + DataMining.DmTimeSdv
 	
 + DataMiningTaisen.TmScoreSdv
 
