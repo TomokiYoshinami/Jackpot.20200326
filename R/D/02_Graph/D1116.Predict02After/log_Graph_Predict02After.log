@@ -1,0 +1,1354 @@
+[1] "2022-03-09 17:31:44 --- D1116_Graph_Predict02After Start ---"
+[1] "2022-03-09 17:31:44 --- Log Start ---"
+[1] "2022-03-09 17:31:44 --- graph Start ---"
+[1] "--------------------------------------------------------------------------------"
+[1] "graphVersion=D1116"
+[1] "graphCategory=Graph"
+[1] "graphType=Predict02After"
+[1] "graphTrackTypeCd=0"
+[1] "graphJyokenCd=0"
+[1] "--------------------------------------------------------------------------------"
+[1] "2022-03-09 17:31:44 --- source_library.R Start ---"
+[1] "2022-03-09 17:31:44 --- source_library.R Finished ---"
+[1] "2022-03-09 17:31:44 --- RxSqlServerData Start ---"
+[1] "2022-03-09 17:31:44 --- RxInSqlServer Start ---"
+[1] "2022-03-09 17:31:44 --- RxInSqlServer Finish ---"
+[1] "2022-03-09 17:31:44 --- rxSetComputeContext Start ---"
+RxLocalSeq Compute Context
+[1] "2022-03-09 17:31:45 --- rxSetComputeContext Finish ---"
+[1] "2022-03-09 17:31:45 --- RxSqlServerData Start ---"
+[1] "sqlQuery=SELECT * FROM ViewAnalyzeD1116Graph01Predict02After"
+[1] "2022-03-09 17:31:45 --- RxSqlServerData Finish ---"
+[1] "2022-03-09 17:31:45 --- rxGetVarInfo Start ---"
+Var 1: Race.RecKubun
+       0 factor levels: 
+Var 2: Race.DataKubun
+       0 factor levels: 
+Var 3: Race.MakeDate
+       0 factor levels: 
+Var 4: Race.RaceDate
+       0 factor levels: 
+Var 5: Race.JyoCd
+       0 factor levels: 
+Var 6: Race.Kaiji, Type: integer
+Var 7: Race.Nichiji, Type: integer
+Var 8: Race.RaceNum, Type: integer
+Var 9: Race.RaceId
+       0 factor levels: 
+Var 10: Race.RaceDayId
+       0 factor levels: 
+Var 11: Race.YoubiCd
+       0 factor levels: 
+Var 12: Race.TokuNum
+       0 factor levels: 
+Var 13: Race.Hondai
+       0 factor levels: 
+Var 14: Race.Fukudai
+       0 factor levels: 
+Var 15: Race.Kakko
+       0 factor levels: 
+Var 16: Race.HondaiEng
+       0 factor levels: 
+Var 17: Race.FukudaiEng
+       0 factor levels: 
+Var 18: Race.KakkoEng
+       0 factor levels: 
+Var 19: Race.Ryakusyo10
+       0 factor levels: 
+Var 20: Race.Ryakusyo6
+       0 factor levels: 
+Var 21: Race.Ryakusyo3
+       0 factor levels: 
+Var 22: Race.Kubun
+       0 factor levels: 
+Var 23: Race.Nkai, Type: integer
+Var 24: Race.GradeCd
+       0 factor levels: 
+Var 25: Race.GradeCdBefore
+       0 factor levels: 
+Var 26: Race.SyubetuCd
+       0 factor levels: 
+Var 27: Race.KigoCd
+       0 factor levels: 
+Var 28: Race.JyuryoCd
+       0 factor levels: 
+Var 29: Race.Jyoken1Cd
+       0 factor levels: 
+Var 30: Race.Jyoken2Cd
+       0 factor levels: 
+Var 31: Race.Jyoken3Cd
+       0 factor levels: 
+Var 32: Race.Jyoken4Cd
+       0 factor levels: 
+Var 33: Race.Jyoken5Cd
+       0 factor levels: 
+Var 34: Race.JyokenName
+       0 factor levels: 
+Var 35: Race.Kyori, Type: numeric
+Var 36: Race.KyoriBefore, Type: numeric
+Var 37: Race.DistanceTypeCd, Type: integer
+Var 38: Race.DistanceType2Cd, Type: integer
+Var 39: Race.TrackCd
+       0 factor levels: 
+Var 40: Race.TrackCdBefore
+       0 factor levels: 
+Var 41: Race.CourseKubunCd
+       0 factor levels: 
+Var 42: Race.CourseKubunCdBefore
+       0 factor levels: 
+Var 43: Race.Honsyokin1, Type: numeric
+Var 44: Race.Honsyokin2, Type: numeric
+Var 45: Race.Honsyokin3, Type: numeric
+Var 46: Race.Honsyokin4, Type: numeric
+Var 47: Race.Honsyokin5, Type: numeric
+Var 48: Race.Honsyokin6, Type: numeric
+Var 49: Race.Honsyokin7, Type: numeric
+Var 50: Race.HonsyokinBefore1, Type: numeric
+Var 51: Race.HonsyokinBefore2, Type: numeric
+Var 52: Race.HonsyokinBefore3, Type: numeric
+Var 53: Race.HonsyokinBefore4, Type: numeric
+Var 54: Race.HonsyokinBefore5, Type: numeric
+Var 55: Race.Fukasyokin1, Type: numeric
+Var 56: Race.Fukasyokin2, Type: numeric
+Var 57: Race.Fukasyokin3, Type: numeric
+Var 58: Race.Fukasyokin4, Type: numeric
+Var 59: Race.Fukasyokin5, Type: numeric
+Var 60: Race.FukasyokinBefore1, Type: numeric
+Var 61: Race.FukasyokinBefore2, Type: numeric
+Var 62: Race.FukasyokinBefore3, Type: numeric
+Var 63: Race.HassoTime
+       0 factor levels: 
+Var 64: Race.HassoTimeBefore
+       0 factor levels: 
+Var 65: Race.TorokuTosu, Type: numeric
+Var 66: Race.SyussoTosu, Type: numeric
+Var 67: Race.NyusenTosu, Type: numeric
+Var 68: Race.TenkoCd
+       0 factor levels: 
+Var 69: Race.TrackTypeCd, Type: integer
+Var 70: Race.TrackType2Cd, Type: integer
+Var 71: Race.TrackType3Cd, Type: integer
+Var 72: Race.CourseTypeCd, Type: integer
+Var 73: Race.TrackConditionCd, Type: integer
+Var 74: Race.SibaBabaCd
+       0 factor levels: 
+Var 75: Race.DirtBabaCd
+       0 factor levels: 
+Var 76: Race.FastestStart3Time, Type: numeric
+Var 77: Race.FastestStart8Time, Type: numeric
+Var 78: Race.FastestStart4Time, Type: numeric
+Var 79: Race.FastestLast3Time, Type: numeric
+Var 80: Race.FastestLast4Time, Type: numeric
+Var 81: Race.RecordUpKubun
+       0 factor levels: 
+Var 82: Race.IsJraRace, Type: logical
+Var 83: Race.IsUpdatedEntity, Type: logical
+Var 84: Race.Timestamp01
+       0 factor levels: 
+Var 85: Race.IsPredictedRace, Type: logical
+Var 86: Race.Timestamp02
+       0 factor levels: 
+Var 87: Race.IsConfirmedRace, Type: logical
+Var 88: Race.IsAnalyzeNormalPastAndFuture, Type: logical
+Var 89: Race.IsAnalyzeNormalPast, Type: logical
+Var 90: Race.IsAnalyzeNormalFuture, Type: logical
+Var 91: Race.IsAnalyzeFullPastAndFuture, Type: logical
+Var 92: Race.IsAnalyzeFullPast, Type: logical
+Var 93: Race.IsAnalyzeFullFuture, Type: logical
+Var 94: Race.JyokenCd
+       0 factor levels: 
+Var 95: Race.JyoType1Cd
+       0 factor levels: 
+Var 96: Race.RaceType1Cd
+       0 factor levels: 
+Var 97: Race.ThisRaceYear, Type: integer
+Var 98: Race.PrevRaceYear, Type: integer
+Var 99: Race.AnalyzeGeneralRaceDateFrom
+       0 factor levels: 
+Var 100: Race.AnalyzeGeneralRaceDateTo
+       0 factor levels: 
+Var 101: Race.AnalyzeGen01RaceDateFrom
+       0 factor levels: 
+Var 102: Race.AnalyzeGen01RaceDateTo
+       0 factor levels: 
+Var 103: Race.AnalyzeGen02RaceDateFrom
+       0 factor levels: 
+Var 104: Race.AnalyzeGen02RaceDateTo
+       0 factor levels: 
+Var 105: Race.AnalyzeGen05RaceDateFrom
+       0 factor levels: 
+Var 106: Race.AnalyzeGen05RaceDateTo
+       0 factor levels: 
+Var 107: Race.AnalyzeHorseRaceDateFrom
+       0 factor levels: 
+Var 108: Race.AnalyzeHorseRaceDateTo
+       0 factor levels: 
+Var 109: Race.AnalyzeJockeyRaceDateFrom
+       0 factor levels: 
+Var 110: Race.AnalyzeJockeyRaceDateTo
+       0 factor levels: 
+Var 111: Race.KyoriRemainder, Type: numeric
+Var 112: Race.FastestStart38Time, Type: numeric
+Var 113: Race.Timestamp03
+       0 factor levels: 
+Var 114: Race.CrawlDatetime
+       0 factor levels: 
+Var 115: Race.IsAutoBet, Type: logical
+Var 116: Race.AutoBetDatetime
+       0 factor levels: 
+Var 117: Race.Timestamp05
+       0 factor levels: 
+Var 118: Race.DefaultHitRateA, Type: numeric
+Var 119: Race.DefaultHitRateB, Type: numeric
+Var 120: Race.DefaultHitRateC, Type: numeric
+Var 121: RaceHorse.RecKubun
+       0 factor levels: 
+Var 122: RaceHorse.DataKubun
+       0 factor levels: 
+Var 123: RaceHorse.MakeDate
+       0 factor levels: 
+Var 124: RaceHorse.RaceDate
+       0 factor levels: 
+Var 125: RaceHorse.JyoCd
+       0 factor levels: 
+Var 126: RaceHorse.Kaiji, Type: integer
+Var 127: RaceHorse.Nichiji, Type: integer
+Var 128: RaceHorse.RaceNum, Type: integer
+Var 129: RaceHorse.RaceId
+       0 factor levels: 
+Var 130: RaceHorse.KettoNum
+       0 factor levels: 
+Var 131: RaceHorse.Wakuban, Type: integer
+Var 132: RaceHorse.Umaban, Type: integer
+Var 133: RaceHorse.Bamei
+       0 factor levels: 
+Var 134: RaceHorse.UmaKigoCd
+       0 factor levels: 
+Var 135: RaceHorse.SexCd
+       0 factor levels: 
+Var 136: RaceHorse.HinsyuCd
+       0 factor levels: 
+Var 137: RaceHorse.KeiroCd
+       0 factor levels: 
+Var 138: RaceHorse.Barei, Type: numeric
+Var 139: RaceHorse.TozaiCd
+       0 factor levels: 
+Var 140: RaceHorse.ChokyosiCode
+       0 factor levels: 
+Var 141: RaceHorse.ChokyosiRyakusyo
+       0 factor levels: 
+Var 142: RaceHorse.BanusiCode
+       0 factor levels: 
+Var 143: RaceHorse.BanusiName
+       0 factor levels: 
+Var 144: RaceHorse.SilkCd
+       0 factor levels: 
+Var 145: RaceHorse.Reserved1
+       0 factor levels: 
+Var 146: RaceHorse.Futan, Type: numeric
+Var 147: RaceHorse.FutanBefore, Type: numeric
+Var 148: RaceHorse.BlinkerCd
+       0 factor levels: 
+Var 149: RaceHorse.Reserved2
+       0 factor levels: 
+Var 150: RaceHorse.KisyuCode
+       0 factor levels: 
+Var 151: RaceHorse.KisyuCodeBefore
+       0 factor levels: 
+Var 152: RaceHorse.KisyuRyakusyo
+       0 factor levels: 
+Var 153: RaceHorse.KisyuRyakusyoBefore
+       0 factor levels: 
+Var 154: RaceHorse.MinaraiCd
+       0 factor levels: 
+Var 155: RaceHorse.MinaraiCdBefore
+       0 factor levels: 
+Var 156: RaceHorse.Bataijyu, Type: numeric
+Var 157: RaceHorse.ZogenFugo
+       0 factor levels: 
+Var 158: RaceHorse.ZogenSa, Type: numeric
+Var 159: RaceHorse.IjyoCd
+       0 factor levels: 
+Var 160: RaceHorse.NyusenJyuni, Type: numeric
+Var 161: RaceHorse.KakuteiJyuni, Type: numeric
+Var 162: RaceHorse.DochakuKubun
+       0 factor levels: 
+Var 163: RaceHorse.DochakuTosu, Type: numeric
+Var 164: RaceHorse.Time, Type: numeric
+Var 165: RaceHorse.ChakusaCd
+       0 factor levels: 
+Var 166: RaceHorse.ChakusaCdP
+       0 factor levels: 
+Var 167: RaceHorse.ChakusaCdPp
+       0 factor levels: 
+Var 168: RaceHorse.Jyuni1C, Type: numeric
+Var 169: RaceHorse.Jyuni2C, Type: numeric
+Var 170: RaceHorse.Jyuni3C, Type: numeric
+Var 171: RaceHorse.Jyuni4C, Type: numeric
+Var 172: RaceHorse.Odds, Type: numeric
+Var 173: RaceHorse.Ninki, Type: numeric
+Var 174: RaceHorse.Honsyokin, Type: numeric
+Var 175: RaceHorse.Fukasyokin, Type: numeric
+Var 176: RaceHorse.Reserved3
+       0 factor levels: 
+Var 177: RaceHorse.Reserved4
+       0 factor levels: 
+Var 178: RaceHorse.Last4Time, Type: numeric
+Var 179: RaceHorse.Last3Time, Type: numeric
+Var 180: RaceHorse.KettoNum1
+       0 factor levels: 
+Var 181: RaceHorse.Bamei1
+       0 factor levels: 
+Var 182: RaceHorse.KettoNum2
+       0 factor levels: 
+Var 183: RaceHorse.Bamei2
+       0 factor levels: 
+Var 184: RaceHorse.KettoNum3
+       0 factor levels: 
+Var 185: RaceHorse.Bamei3
+       0 factor levels: 
+Var 186: RaceHorse.TimeDiff, Type: numeric
+Var 187: RaceHorse.RecordUpKubun
+       0 factor levels: 
+Var 188: RaceHorse.DmKubun
+       0 factor levels: 
+Var 189: RaceHorse.DmTime, Type: numeric
+Var 190: RaceHorse.DmGosaP, Type: numeric
+Var 191: RaceHorse.DmGosaM, Type: numeric
+Var 192: RaceHorse.DmJyuni, Type: integer
+Var 193: RaceHorse.RunTypeCd
+       0 factor levels: 
+Var 194: RaceHorse.IsRun, Type: numeric
+Var 195: RaceHorse.IsHit1, Type: numeric
+Var 196: RaceHorse.IsHit2, Type: numeric
+Var 197: RaceHorse.IsHit3, Type: numeric
+Var 198: RaceHorse.IsHit4, Type: numeric
+Var 199: RaceHorse.IsHit5, Type: numeric
+Var 200: RaceHorse.IsHit6, Type: numeric
+Var 201: RaceHorse.IsUpdatedEntity, Type: logical
+Var 202: RaceHorse.Timestamp01
+       0 factor levels: 
+Var 203: RaceHorse.IsConfirmedRaceHorse, Type: logical
+Var 204: RaceHorse.Timestamp02
+       0 factor levels: 
+Var 205: RaceHorse.IsValidRaceHorse, Type: logical
+Var 206: RaceHorse.Timestamp03
+       0 factor levels: 
+Var 207: RaceHorse.HorseNumRatio, Type: numeric
+Var 208: RaceHorse.Weight, Type: numeric
+Var 209: RaceHorse.WeightDelta, Type: numeric
+Var 210: RaceHorse.WeightDeltaRatio, Type: numeric
+Var 211: RaceHorse.Handicap, Type: numeric
+Var 212: RaceHorse.HandicapRatio, Type: numeric
+Var 213: RaceHorse.Lifetime, Type: numeric
+Var 214: RaceHorse.Timestamp11
+       0 factor levels: 
+Var 215: RaceHorse.IsValidHorseNumRatioSdvByRace, Type: logical
+Var 216: RaceHorse.HorseNumRatioSdvByRace, Type: numeric
+Var 217: RaceHorse.IsValidWeightDeltaSdvByRace, Type: logical
+Var 218: RaceHorse.WeightDeltaSdvByRace, Type: numeric
+Var 219: RaceHorse.IsValidWeightSdvByRace, Type: logical
+Var 220: RaceHorse.WeightSdvByRace, Type: numeric
+Var 221: RaceHorse.IsValidWeightDeltaRatioSdvByRace, Type: logical
+Var 222: RaceHorse.WeightDeltaRatioSdvByRace, Type: numeric
+Var 223: RaceHorse.IsValidHandicapSdvByRace, Type: logical
+Var 224: RaceHorse.HandicapSdvByRace, Type: numeric
+Var 225: RaceHorse.IsValidHandicapRatioSdvByRace, Type: logical
+Var 226: RaceHorse.HandicapRatioSdvByRace, Type: numeric
+Var 227: RaceHorse.IsValidLifetimeSdvByRace, Type: logical
+Var 228: RaceHorse.LifetimeSdvByRace, Type: numeric
+Var 229: RaceHorse.Timestamp12
+       0 factor levels: 
+Var 230: RaceHorse.IsValidHorseNumRatioSdv, Type: logical
+Var 231: RaceHorse.HorseNumRatioSdv, Type: numeric
+Var 232: RaceHorse.IsValidWeightDeltaSdv, Type: logical
+Var 233: RaceHorse.WeightDeltaSdv, Type: numeric
+Var 234: RaceHorse.IsValidWeightSdv, Type: logical
+Var 235: RaceHorse.WeightSdv, Type: numeric
+Var 236: RaceHorse.IsValidWeightDeltaRatioSdv, Type: logical
+Var 237: RaceHorse.WeightDeltaRatioSdv, Type: numeric
+Var 238: RaceHorse.IsValidHandicapSdv, Type: logical
+Var 239: RaceHorse.HandicapSdv, Type: numeric
+Var 240: RaceHorse.IsValidHandicapRatioSdv, Type: logical
+Var 241: RaceHorse.HandicapRatioSdv, Type: numeric
+Var 242: RaceHorse.IsValidLifetimeSdv, Type: logical
+Var 243: RaceHorse.LifetimeSdv, Type: numeric
+Var 244: RaceHorse.Timestamp13
+       0 factor levels: 
+Var 245: RaceHorse.FinishTime, Type: numeric
+Var 246: RaceHorse.FirstTime, Type: numeric
+Var 247: RaceHorse.LastTime, Type: numeric
+Var 248: RaceHorse.Timestamp21
+       0 factor levels: 
+Var 249: RaceHorse.IsValidFinishTimeSdvByRace, Type: logical
+Var 250: RaceHorse.FinishTimeSdvByRace, Type: numeric
+Var 251: RaceHorse.IsValidFirstTimeSdvByRace, Type: logical
+Var 252: RaceHorse.FirstTimeSdvByRace, Type: numeric
+Var 253: RaceHorse.IsValidLastTimeSdvByRace, Type: logical
+Var 254: RaceHorse.LastTimeSdvByRace, Type: numeric
+Var 255: RaceHorse.Timestamp22
+       0 factor levels: 
+Var 256: RaceHorse.IsValidFinishTimeSdv, Type: logical
+Var 257: RaceHorse.FinishTimeSdv, Type: numeric
+Var 258: RaceHorse.IsValidFirstTimeSdv, Type: logical
+Var 259: RaceHorse.FirstTimeSdv, Type: numeric
+Var 260: RaceHorse.IsValidLastTimeSdv, Type: logical
+Var 261: RaceHorse.LastTimeSdv, Type: numeric
+Var 262: RaceHorse.Timestamp23
+       0 factor levels: 
+Var 263: RaceHorse.PredictDatetime
+       0 factor levels: 
+Var 264: RaceHorse.IsValidPredictValueA, Type: logical
+Var 265: RaceHorse.PredictValueA, Type: numeric
+Var 266: RaceHorse.PredictValueSdvA, Type: numeric
+Var 267: RaceHorse.PredictValueDvA, Type: numeric
+Var 268: RaceHorse.PredictValueRankA, Type: integer
+Var 269: RaceHorse.PredictErrorA, Type: integer
+Var 270: RaceHorse.IsValidPredictValueB, Type: logical
+Var 271: RaceHorse.PredictValueB, Type: numeric
+Var 272: RaceHorse.PredictValueSdvB, Type: numeric
+Var 273: RaceHorse.PredictValueDvB, Type: numeric
+Var 274: RaceHorse.PredictValueRankB, Type: integer
+Var 275: RaceHorse.PredictErrorB, Type: integer
+Var 276: RaceHorse.IsValidPredictValueC, Type: logical
+Var 277: RaceHorse.PredictValueC, Type: numeric
+Var 278: RaceHorse.PredictValueSdvC, Type: numeric
+Var 279: RaceHorse.PredictValueDvC, Type: numeric
+Var 280: RaceHorse.PredictValueRankC, Type: integer
+Var 281: RaceHorse.PredictErrorC, Type: integer
+Var 282: RaceHorse.Timestamp32
+       0 factor levels: 
+Var 283: RaceHorse.PrepHorseNumRatio, Type: numeric
+Var 284: RaceHorse.PrepWeight, Type: numeric
+Var 285: RaceHorse.PrepWeightDelta, Type: numeric
+Var 286: RaceHorse.PrepWeightDeltaRatio, Type: numeric
+Var 287: RaceHorse.PrepHandicap, Type: numeric
+Var 288: RaceHorse.PrepHandicapRatio, Type: numeric
+Var 289: RaceHorse.PrepLifetime, Type: numeric
+Var 290: RaceHorse.Timestamp81
+       0 factor levels: 
+Var 291: RaceHorse.IsValidPrepHorseNumRatioSdv, Type: logical
+Var 292: RaceHorse.PrepHorseNumRatioSdv, Type: numeric
+Var 293: RaceHorse.IsValidPrepWeightSdv, Type: logical
+Var 294: RaceHorse.PrepWeightSdv, Type: numeric
+Var 295: RaceHorse.IsValidPrepWeightDeltaSdv, Type: logical
+Var 296: RaceHorse.PrepWeightDeltaSdv, Type: numeric
+Var 297: RaceHorse.IsValidPrepWeightDeltaRatioSdv, Type: logical
+Var 298: RaceHorse.PrepWeightDeltaRatioSdv, Type: numeric
+Var 299: RaceHorse.IsValidPrepHandicapSdv, Type: logical
+Var 300: RaceHorse.PrepHandicapSdv, Type: numeric
+Var 301: RaceHorse.IsValidPrepHandicapRatioSdv, Type: logical
+Var 302: RaceHorse.PrepHandicapRatioSdv, Type: numeric
+Var 303: RaceHorse.IsValidPrepLifetimeSdv, Type: logical
+Var 304: RaceHorse.PrepLifetimeSdv, Type: numeric
+Var 305: RaceHorse.Timestamp82
+       0 factor levels: 
+Var 306: RaceHorse.PrepFinishTime, Type: numeric
+Var 307: RaceHorse.PrepFirstTime, Type: numeric
+Var 308: RaceHorse.PrepLastTime, Type: numeric
+Var 309: RaceHorse.Timestamp91
+       0 factor levels: 
+Var 310: RaceHorse.IsValidPrepFinishTimeSdv, Type: logical
+Var 311: RaceHorse.PrepFinishTimeSdv, Type: numeric
+Var 312: RaceHorse.IsValidPrepFirstTimeSdv, Type: logical
+Var 313: RaceHorse.PrepFirstTimeSdv, Type: numeric
+Var 314: RaceHorse.IsValidPrepLastTimeSdv, Type: logical
+Var 315: RaceHorse.PrepLastTimeSdv, Type: numeric
+Var 316: RaceHorse.Timestamp92
+       0 factor levels: 
+Var 317: RaceHorse.OddsLog, Type: numeric
+Var 318: RaceHorse.OddsRatio, Type: numeric
+Var 319: RaceHorse.OddsLogit, Type: numeric
+Var 320: RaceHorse.ApprovalRate, Type: numeric
+Var 321: RaceHorse.ApprovalRateLog, Type: numeric
+Var 322: RaceHorse.IsHitA, Type: numeric
+Var 323: RaceHorse.IsHitB, Type: numeric
+Var 324: RaceHorse.IsHitC, Type: numeric
+Var 325: RaceHorse.IsHitD, Type: numeric
+Var 326: RaceHorse.IsHitE, Type: numeric
+Var 327: RaceHorse.LifetimeLog, Type: numeric
+Var 328: DataMining.DmTimeSdv, Type: numeric
+Var 329: DataMiningTaisen.TmScoreSdv, Type: numeric
+Var 330: OddsByWin.Odds1, Type: numeric
+Var 331: OddsByWin.RealOdds1, Type: numeric
+Var 332: OddsByWin.Ninki, Type: numeric
+Var 333: OddsByWin.OddsLog1, Type: numeric
+Var 334: OddsByWin.ApprovalRate1, Type: numeric
+Var 335: OddsByWin.RealOddsLog1, Type: numeric
+Var 336: OddsByWin.RealApprovalRate1, Type: numeric
+Var 337: PredictByWin.RaceId
+       0 factor levels: 
+Var 338: PredictByWin.BetTypeCd, Type: integer
+Var 339: PredictByWin.Kumi1, Type: integer
+Var 340: PredictByWin.Kumi2, Type: integer
+Var 341: PredictByWin.Kumi3, Type: integer
+Var 342: PredictByWin.IsValidPredictValue, Type: logical
+Var 343: PredictByWin.PredictValue, Type: numeric
+Var 344: PredictByWin.PredictValueNorm, Type: numeric
+Var 345: PredictByWin.PredictValueSdv, Type: numeric
+Var 346: PredictByWin.PredictValueDv, Type: numeric
+Var 347: PredictByWin.PredictValueRank, Type: numeric
+Var 348: PredictByWin.ExpectedOdds, Type: numeric
+Var 349: PredictByWin.ExpectedOddsRatio, Type: numeric
+Var 350: PredictByWin.PredictScore, Type: numeric
+Var 351: PredictByWin.PredictScoreRank, Type: numeric
+Var 352: PredictByWin.IsValidPredictValue1, Type: logical
+Var 353: PredictByWin.PredictValue1, Type: numeric
+Var 354: PredictByWin.PredictError1, Type: numeric
+Var 355: PredictByWin.Timestamp01
+       0 factor levels: 
+Var 356: PredictByWin.PredictValueLog, Type: numeric
+Var 357: AnalyzeD1116Step02Basic.RaceId
+       0 factor levels: 
+Var 358: AnalyzeD1116Step02Basic.KettoNum
+       0 factor levels: 
+Var 359: AnalyzeD1116Step02Basic.PredictValueA, Type: numeric
+Var 360: AnalyzeD1116Step02Basic.PredictValueB, Type: numeric
+Var 361: AnalyzeD1116Step02Basic.PredictValueC, Type: numeric
+Var 362: AnalyzeD1116Step02Basic.PredictValueLogitA, Type: numeric
+Var 363: AnalyzeD1116Step02Basic.PredictValueLogitB, Type: numeric
+Var 364: AnalyzeD1116Step02Basic.PredictValueLogitC, Type: numeric
+Var 365: AnalyzeD1116Step02Basic.Timestamp01
+       0 factor levels: 
+Var 366: AnalyzeD1116Step02Gen01.RaceId
+       0 factor levels: 
+Var 367: AnalyzeD1116Step02Gen01.KettoNum
+       0 factor levels: 
+Var 368: AnalyzeD1116Step02Gen01.PredictValueA, Type: numeric
+Var 369: AnalyzeD1116Step02Gen01.PredictValueB, Type: numeric
+Var 370: AnalyzeD1116Step02Gen01.PredictValueC, Type: numeric
+Var 371: AnalyzeD1116Step02Gen01.PredictValueLogitA, Type: numeric
+Var 372: AnalyzeD1116Step02Gen01.PredictValueLogitB, Type: numeric
+Var 373: AnalyzeD1116Step02Gen01.PredictValueLogitC, Type: numeric
+Var 374: AnalyzeD1116Step02Gen01.Timestamp01
+       0 factor levels: 
+Var 375: AnalyzeD1116Step02Gen02.RaceId
+       0 factor levels: 
+Var 376: AnalyzeD1116Step02Gen02.KettoNum
+       0 factor levels: 
+Var 377: AnalyzeD1116Step02Gen02.PredictValueA, Type: numeric
+Var 378: AnalyzeD1116Step02Gen02.PredictValueB, Type: numeric
+Var 379: AnalyzeD1116Step02Gen02.PredictValueC, Type: numeric
+Var 380: AnalyzeD1116Step02Gen02.PredictValueLogitA, Type: numeric
+Var 381: AnalyzeD1116Step02Gen02.PredictValueLogitB, Type: numeric
+Var 382: AnalyzeD1116Step02Gen02.PredictValueLogitC, Type: numeric
+Var 383: AnalyzeD1116Step02Gen02.Timestamp01
+       0 factor levels: 
+Var 384: AnalyzeD1116Step02Horse.RaceId
+       0 factor levels: 
+Var 385: AnalyzeD1116Step02Horse.KettoNum
+       0 factor levels: 
+Var 386: AnalyzeD1116Step02Horse.PredictValueA, Type: numeric
+Var 387: AnalyzeD1116Step02Horse.PredictValueB, Type: numeric
+Var 388: AnalyzeD1116Step02Horse.PredictValueC, Type: numeric
+Var 389: AnalyzeD1116Step02Horse.PredictValueLogitA, Type: numeric
+Var 390: AnalyzeD1116Step02Horse.PredictValueLogitB, Type: numeric
+Var 391: AnalyzeD1116Step02Horse.PredictValueLogitC, Type: numeric
+Var 392: AnalyzeD1116Step02Horse.Timestamp01
+       0 factor levels: 
+Var 393: AnalyzeD1116Step02Jockey.RaceId
+       0 factor levels: 
+Var 394: AnalyzeD1116Step02Jockey.KettoNum
+       0 factor levels: 
+Var 395: AnalyzeD1116Step02Jockey.PredictValueA, Type: numeric
+Var 396: AnalyzeD1116Step02Jockey.PredictValueB, Type: numeric
+Var 397: AnalyzeD1116Step02Jockey.PredictValueC, Type: numeric
+Var 398: AnalyzeD1116Step02Jockey.PredictValueLogitA, Type: numeric
+Var 399: AnalyzeD1116Step02Jockey.PredictValueLogitB, Type: numeric
+Var 400: AnalyzeD1116Step02Jockey.PredictValueLogitC, Type: numeric
+Var 401: AnalyzeD1116Step02Jockey.Timestamp01
+       0 factor levels: 
+Var 402: BayesianTrial01.RaceId
+       0 factor levels: 
+Var 403: BayesianTrial01.KettoNum
+       0 factor levels: 
+Var 404: BayesianTrial01.TryNum, Type: integer
+Var 405: BayesianTrial01.TryNumOrderAsc, Type: integer
+Var 406: BayesianTrial01.TryNumOrderDesc, Type: integer
+Var 407: BayesianTrial01.LhName
+       0 factor levels: 
+Var 408: BayesianTrial01.PriorProbNormA, Type: numeric
+Var 409: BayesianTrial01.PriorProbSdvA, Type: numeric
+Var 410: BayesianTrial01.IsValidLhProbA, Type: logical
+Var 411: BayesianTrial01.LhProbA, Type: numeric
+Var 412: BayesianTrial01.LhProbNormA, Type: numeric
+Var 413: BayesianTrial01.LhProbSdvA, Type: numeric
+Var 414: BayesianTrial01.PostProbA, Type: numeric
+Var 415: BayesianTrial01.PostProbNormA, Type: numeric
+Var 416: BayesianTrial01.PostProbSdvA, Type: numeric
+Var 417: BayesianTrial01.PriorProbNormB, Type: numeric
+Var 418: BayesianTrial01.PriorProbSdvB, Type: numeric
+Var 419: BayesianTrial01.IsValidLhProbB, Type: logical
+Var 420: BayesianTrial01.LhProbB, Type: numeric
+Var 421: BayesianTrial01.LhProbNormB, Type: numeric
+Var 422: BayesianTrial01.LhProbSdvB, Type: numeric
+Var 423: BayesianTrial01.PostProbB, Type: numeric
+Var 424: BayesianTrial01.PostProbNormB, Type: numeric
+Var 425: BayesianTrial01.PostProbSdvB, Type: numeric
+Var 426: BayesianTrial01.PriorProbNormC, Type: numeric
+Var 427: BayesianTrial01.PriorProbSdvC, Type: numeric
+Var 428: BayesianTrial01.IsValidLhProbC, Type: logical
+Var 429: BayesianTrial01.LhProbC, Type: numeric
+Var 430: BayesianTrial01.LhProbNormC, Type: numeric
+Var 431: BayesianTrial01.LhProbSdvC, Type: numeric
+Var 432: BayesianTrial01.PostProbC, Type: numeric
+Var 433: BayesianTrial01.PostProbNormC, Type: numeric
+Var 434: BayesianTrial01.PostProbSdvC, Type: numeric
+Var 435: BayesianTrial01.Timestamp01
+       0 factor levels: 
+Var 436: PayoffByPayAll.RaceId
+       0 factor levels: 
+Var 437: PayoffByPayAll.BetTypeCd, Type: integer
+Var 438: PayoffByPayAll.Kumi1, Type: integer
+Var 439: PayoffByPayAll.Kumi2, Type: integer
+Var 440: PayoffByPayAll.Kumi3, Type: integer
+Var 441: PayoffByPayAll.IsHit, Type: logical
+Var 442: PayoffByPayAll.Ninki, Type: numeric
+Var 443: PayoffByPayAll.Pay, Type: numeric
+Var 444: PayoffByPayAll.Timestamp01
+       0 factor levels: 
+Var 445: PayoffByPayAll.PayLog, Type: numeric
+Var 446: EOF, Type: integer
+[1] "2022-03-09 17:31:47 --- rxGetVarInfo Finish---"
+[1] "2022-03-09 17:31:47 --- rxImport Start ---"
+Rows Read: 267108, Total Rows Processed: 267108, Total Chunk Time: 64.767 seconds 
+[1] "2022-03-09 17:33:28 --- rxImport Finish ---"
+[1] "object.size(data) auto=714.5 Mb"
+[1] "--------------------------------------------------------------------------------"
+[1] "nrow(data) RxSqlServerData=267108"
+[1] "--------------------------------------------------------------------------------"
+[1] "2022-03-09 17:33:28 --- RxSqlServerData Finish ---"
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.RaceHorse.FinishTime.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.RaceHorse.FirstTime.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.RaceHorse.LastTime.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.RaceHorse.PrepHorseNumRatio.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.RaceHorse.PrepWeight.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.RaceHorse.PrepWeightDelta.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.RaceHorse.PrepWeightDeltaRatio.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.RaceHorse.PrepHandicap.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.RaceHorse.PrepHandicapRatio.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.RaceHorse.PrepLifetime.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.RaceHorse.HorseNumRatio.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.RaceHorse.Weight.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.RaceHorse.WeightDelta.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.RaceHorse.WeightDeltaRatio.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.RaceHorse.Handicap.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.RaceHorse.HandicapRatio.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.RaceHorse.Lifetime.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.RaceHorse.PredictValueA.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.OddsByWin.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.PayoffByPayAll.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.PredictByWin.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.AnalyzeD1116Step02Basic.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.AnalyzeD1116Step02Gen01.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.AnalyzeD1116Step02Gen02.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.AnalyzeD1116Step02Horse.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.AnalyzeD1116Step02Jockey.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_hist.BayesianTrial01.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.PredictValueA.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.PredictValueA_log.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.PredictValueA by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.PredictValueA_log by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.PredictValueA by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.PredictValueA_log by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.PredictValueA by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.PredictValueA_log by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.PredictValueA by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.PredictValueA_log by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.PredictValueA by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.PredictValueA_log by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.OddsByWin.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.OddsByWin_log.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.OddsByWin.Ninki.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.OddsByWin.OddsLog1.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.OddsByWin.OddsLog1 by TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.OddsByWin.OddsLog1 by JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.OddsByWin.OddsLog1 by JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.OddsByWin.OddsLog1 by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.OddsByWin.OddsLog1 by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.OddsByWin.ApprovalRate1.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.OddsByWin.ApprovalRate1_log.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.OddsByWin.RealOddsLog1.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.OddsByWin.RealApprovalRate1.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.FinishTimeSdvByRace.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.FinishTimeSdvByRace by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.FinishTimeSdvByRace by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.FinishTimeSdvByRace by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.FinishTimeSdvByRace by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.FinishTimeSdvByRace by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.FinishTimeSdv.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.FinishTimeSdv by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.FinishTimeSdv by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.FinishTimeSdv by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.FinishTimeSdv by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.RaceHorse.FinishTimeSdv by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictValue.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictValue_log.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictValue by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictValue_log by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictValue by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictValue_log by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictValue by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictValue_log by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictValue by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictValue_log by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictValue by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictValue_log by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOdds.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOdds_log.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOdds by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOdds_log by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOdds by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOdds_log by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOdds by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOdds_log by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOdds by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOdds_log by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOdds by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOdds_log by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictScore.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictScore_log.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictScore by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictScore_log by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictScore by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictScore_log by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictScore by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictScore_log by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictScore by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictScore_log by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictScore by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.PredictScore_log by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOddsRatio.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOddsRatio_log.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOddsRatio by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOddsRatio_log by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOddsRatio by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOddsRatio_log by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOddsRatio by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOddsRatio_log by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOddsRatio by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOddsRatio_log by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOddsRatio by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.PredictByWin.ExpectedOddsRatio_log by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.AnalyzeD1116Step02Basic.PredictValueA by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.AnalyzeD1116Step02Gen01.PredictValueA by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.AnalyzeD1116Step02Gen01.PredictValueA by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.AnalyzeD1116Step02Gen02.PredictValueA by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.AnalyzeD1116Step02Horse.PredictValueA by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.AnalyzeD1116Step02Jockey.PredictValueA by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.log(AnalyzeD1116Step02Basic.PredictValueA) by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.log(AnalyzeD1116Step02Gen01.PredictValueA) by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.log(AnalyzeD1116Step02Gen01.PredictValueA) by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.log(AnalyzeD1116Step02Gen02.PredictValueA) by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.log(AnalyzeD1116Step02Horse.PredictValueA) by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_histogram.log(AnalyzeD1116Step02Jockey.PredictValueA) by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.HorseNumRatio.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.HorseNumRatio by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.HorseNumRatio by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.HorseNumRatio by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.HorseNumRatio by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.HorseNumRatio by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.WeightSdv.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.WeightSdv by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.WeightSdv by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.WeightSdv by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.WeightSdv by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.WeightSdv by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.WeightDeltaSdv.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.WeightDeltaSdv by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.WeightDeltaSdv by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.WeightDeltaSdv by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.WeightDeltaSdv by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.WeightDeltaSdv by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.HandicapSdv.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.HandicapSdv by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.HandicapSdv by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.HandicapSdv by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.HandicapSdv by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.HandicapSdv by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.HandicapRatioSdv.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.HandicapRatioSdv by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.HandicapRatioSdv by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.HandicapRatioSdv by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.HandicapRatioSdv by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.HandicapRatioSdv by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.LifetimeSdv.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.LifetimeSdv by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.LifetimeSdv by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.LifetimeSdv by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.LifetimeSdv by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs RaceHorse.LifetimeSdv by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs PredictByWin.PredictValue_log.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs PredictByWin.PredictValue_log by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs PredictByWin.PredictValue_log by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs PredictByWin.PredictValue_log by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs PredictByWin.PredictValue_log by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs PredictByWin.PredictValue_log by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs DataMining.DmTimeSdv.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs DataMining.DmTimeSdv by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs DataMining.DmTimeSdv by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs DataMining.DmTimeSdv by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs DataMining.DmTimeSdv by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs DataMining.DmTimeSdv by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs DataMiningTaisen.TmScoreSdv.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs DataMiningTaisen.TmScoreSdv by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs DataMiningTaisen.TmScoreSdv by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs DataMiningTaisen.TmScoreSdv by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs DataMiningTaisen.TmScoreSdv by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs DataMiningTaisen.TmScoreSdv by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs OddsByWin.OddsLog1.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs OddsByWin.OddsLog1 by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs OddsByWin.OddsLog1 by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs OddsByWin.OddsLog1 by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs OddsByWin.OddsLog1 by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdv vs OddsByWin.OddsLog1 by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.HorseNumRatio.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.HorseNumRatio by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.HorseNumRatio by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.HorseNumRatio by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.HorseNumRatio by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.HorseNumRatio by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.WeightSdv.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.WeightSdv by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.WeightSdv by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.WeightSdv by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.WeightSdv by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.WeightSdv by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.WeightDeltaSdv.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.WeightDeltaSdv by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.WeightDeltaSdv by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.WeightDeltaSdv by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.WeightDeltaSdv by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.WeightDeltaSdv by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.HandicapSdv.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.HandicapSdv by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.HandicapSdv by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.HandicapSdv by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.HandicapSdv by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.HandicapSdv by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.HandicapRatioSdv.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.HandicapRatioSdv by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.HandicapRatioSdv by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.HandicapRatioSdv by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.HandicapRatioSdv by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.HandicapRatioSdv by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.LifetimeSdv.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.LifetimeSdv by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.LifetimeSdv by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.LifetimeSdv by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.LifetimeSdv by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs RaceHorse.LifetimeSdv by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs PredictByWin.PredictValue_log_log.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs PredictByWin.PredictValue_log by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs PredictByWin.PredictValue_log by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs PredictByWin.PredictValue_log by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs PredictByWin.PredictValue_log by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs PredictByWin.PredictValue_log by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs DataMining.DmTimeSdv.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs DataMining.DmTimeSdv by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs DataMining.DmTimeSdv by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs DataMining.DmTimeSdv by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs DataMining.DmTimeSdv by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs DataMining.DmTimeSdv by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs DataMiningTaisen.TmScoreSdv.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs DataMiningTaisen.TmScoreSdv by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs DataMiningTaisen.TmScoreSdv by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs DataMiningTaisen.TmScoreSdv by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs DataMiningTaisen.TmScoreSdv by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs DataMiningTaisen.TmScoreSdv by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs OddsByWin.OddsLog1.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs OddsByWin.OddsLog1 by Race.TrackTypeCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs OddsByWin.OddsLog1 by Race.JyokenCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs OddsByWin.OddsLog1 by Race.JyoCd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs OddsByWin.OddsLog1 by Race.JyoType1Cd.pdf"
+null device 
+          1 
+[1] "pdfFilename=pdf_Graph_Predict02After_xyplot.RaceHorse.FinishTimeSdvByRace vs OddsByWin.OddsLog1 by Race.RaceType1Cd.pdf"
+null device 
+          1 
+[1] "2022-03-09 17:45:28 --- log Finish ---"
+[1] "2022-03-09 17:45:28 --- graph Finish ---"
