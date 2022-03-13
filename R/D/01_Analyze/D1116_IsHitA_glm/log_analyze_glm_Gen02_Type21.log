@@ -1,6 +1,6 @@
-[1] "2022-03-09 08:57:26 --- D1116_analyze_glm_Gen02_IsHitA_Type21 Start ---"
-[1] "2022-03-09 08:57:26 --- Log Start ---"
-[1] "2022-03-09 08:57:26 --- analyze_glm.R Start ---"
+[1] "2022-03-10 16:39:36 --- D1116_analyze_glm_Gen02_IsHitA_Type21 Start ---"
+[1] "2022-03-10 16:39:36 --- Log Start ---"
+[1] "2022-03-10 16:39:36 --- analyze_glm.R Start ---"
 [1] "analyzeVersion=D1116"
 [1] "analyzeCategory=analyze"
 [1] "analyzeType=Gen02"
@@ -8,35 +8,35 @@
 [1] "analyzeFunc=glm"
 [1] "analyzeTrackTypeCd=2"
 [1] "analyzeJyokenCd=1"
-[1] "2022-03-09 08:57:26 --- source_function.R Start ---"
-[1] "2022-03-09 08:57:26 --- source_function.R Finished ---"
+[1] "2022-03-10 16:39:36 --- source_function.R Start ---"
+[1] "2022-03-10 16:39:36 --- source_function.R Finished ---"
 
 > print(paste0(Sys.time(), " --- source_library.R Start ---"))
-[1] "2022-03-09 08:57:26 --- source_library.R Start ---"
+[1] "2022-03-10 16:39:36 --- source_library.R Start ---"
 
 > require("RevoScaleR")
 
 > print(paste0(Sys.time(), " --- source_library.R Finished ---"))
-[1] "2022-03-09 08:57:27 --- source_library.R Finished ---"
-[1] "2022-03-09 08:57:27 --- RxSqlServerData Start ---"
-[1] "2022-03-09 08:57:27 --- RxInSqlServer Start ---"
-[1] "2022-03-09 08:57:27 --- RxInSqlServer Finish ---"
-[1] "2022-03-09 08:57:27 --- rxSetComputeContext Start ---"
-[1] "2022-03-09 08:57:27 --- rxSetComputeContext Finish ---"
-[1] "2022-03-09 08:57:27 --- RxSqlServerData Start ---"
+[1] "2022-03-10 16:39:37 --- source_library.R Finished ---"
+[1] "2022-03-10 16:39:37 --- RxSqlServerData Start ---"
+[1] "2022-03-10 16:39:37 --- RxInSqlServer Start ---"
+[1] "2022-03-10 16:39:37 --- RxInSqlServer Finish ---"
+[1] "2022-03-10 16:39:37 --- rxSetComputeContext Start ---"
+[1] "2022-03-10 16:39:37 --- rxSetComputeContext Finish ---"
+[1] "2022-03-10 16:39:37 --- RxSqlServerData Start ---"
 [1] "sqlQuery=SELECT * FROM ViewAnalyzeD1116analyze01Gen02Type21"
-[1] "2022-03-09 08:57:27 --- RxSqlServerData Finish ---"
-[1] "2022-03-09 08:57:27 --- rxGetVarInfo Start ---"
-[1] "2022-03-09 08:57:27 --- rxGetVarInfo Finish---"
-[1] "2022-03-09 08:57:27 --- rxImport Start ---"
-Rows Read: 14097, Total Rows Processed: 14097, Total Chunk Time: 6.259 seconds 
-[1] "2022-03-09 08:57:38 --- rxImport Finish ---"
-[1] "object.size(data) auto=4.2 Mb"
+[1] "2022-03-10 16:39:37 --- RxSqlServerData Finish ---"
+[1] "2022-03-10 16:39:37 --- rxGetVarInfo Start ---"
+[1] "2022-03-10 16:39:37 --- rxGetVarInfo Finish---"
+[1] "2022-03-10 16:39:37 --- rxImport Start ---"
+Rows Read: 14097, Total Rows Processed: 14097, Total Chunk Time: 39.015 seconds 
+[1] "2022-03-10 16:40:40 --- rxImport Finish ---"
+[1] "object.size(data) auto=4.3 Mb"
 [1] "--------------------------------------------------------------------------------"
 [1] "nrow(data) RxSqlServerData=14097"
 [1] "--------------------------------------------------------------------------------"
 [1] "str(data)="
-'data.frame':	14097 obs. of  45 variables:
+'data.frame':	14097 obs. of  46 variables:
  $ Race.RaceId                      : Factor w/ 298 levels "20160109-06-01-02-11",..: 1 1 1 1 1 1 1 1 1 1 ...
  $ Race.IsAnalyzeNormalPastAndFuture: logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
  $ Race.IsAnalyzeNormalPast         : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
@@ -67,6 +67,7 @@ Rows Read: 14097, Total Rows Processed: 14097, Total Chunk Time: 6.259 seconds
  $ RaceHorse.IsHitC                 : num  0 0 1 1 1 0 0 0 0 0 ...
  $ PrevRaceHorse.RaceId             : Factor w/ 531 levels "20100221-05-01-08-11",..: 1 2 3 4 5 6 7 8 9 10 ...
  $ PrevRaceHorse.KettoNum           : Factor w/ 654 levels "2006100429","2009102606",..: 1 1 2 2 2 3 3 3 3 3 ...
+ $ PrevHorse.Ketto3InfoHansyokuNum2 : Factor w/ 564 levels "12244618","12245505",..: 1 1 2 2 2 3 3 3 3 3 ...
  $ PrevRaceHorse.FinishTimeSdvByRace: num  0.303 1.074 -0.545 0.145 0.347 ...
  $ PrevRaceHorse.FirstTimeSdvByRace : num  -0.565 -0.126 -0.91 -0.659 -1.312 ...
  $ PrevRaceHorse.LastTimeSdvByRace  : num  0.472 0.999 -0.154 0.442 0.943 ...
@@ -82,22 +83,22 @@ Rows Read: 14097, Total Rows Processed: 14097, Total Chunk Time: 6.259 seconds
  $ PrevRaceHorse.RowNum             : num  1 2 1 2 3 1 2 3 4 5 ...
  $ PrevOdds.RealOddsLog1            : num  2.94 4.05 5.3 3.89 5.48 ...
  $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
-[1] "2022-03-09 08:57:38 --- RxSqlServerData Finish ---"
-[1] "2022-03-09 08:57:38 --- subset Start ---"
+[1] "2022-03-10 16:40:41 --- RxSqlServerData Finish ---"
+[1] "2022-03-10 16:40:41 --- subset Start ---"
 [1] "--------------------------------------------------------------------------------"
 [1] "nrow(data) subset before=14097"
 [1] "nrow(data) subset after =14097"
 [1] "nrow(data) subset diff =0"
 [1] "--------------------------------------------------------------------------------"
-[1] "2022-03-09 08:57:38 --- subset Finish---"
-[1] "2022-03-09 08:57:38 --- transform Start ---"
+[1] "2022-03-10 16:40:41 --- subset Finish---"
+[1] "2022-03-10 16:40:41 --- transform Start ---"
 [1] "--------------------------------------------------------------------------------"
 [1] "nrow(data) transform before=14097"
 [1] "nrow(data) transform after=14097"
 [1] "nrow(data) transform diff=0"
 [1] "--------------------------------------------------------------------------------"
 [1] "str(data)="
-'data.frame':	14097 obs. of  45 variables:
+'data.frame':	14097 obs. of  46 variables:
  $ Race.RaceId                      : Factor w/ 298 levels "20160109-06-01-02-11",..: 1 1 1 1 1 1 1 1 1 1 ...
  $ Race.IsAnalyzeNormalPastAndFuture: logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
  $ Race.IsAnalyzeNormalPast         : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
@@ -128,6 +129,7 @@ Rows Read: 14097, Total Rows Processed: 14097, Total Chunk Time: 6.259 seconds
  $ RaceHorse.IsHitC                 : num  0 0 1 1 1 0 0 0 0 0 ...
  $ PrevRaceHorse.RaceId             : Factor w/ 531 levels "20100221-05-01-08-11",..: 1 2 3 4 5 6 7 8 9 10 ...
  $ PrevRaceHorse.KettoNum           : Factor w/ 654 levels "2006100429","2009102606",..: 1 1 2 2 2 3 3 3 3 3 ...
+ $ PrevHorse.Ketto3InfoHansyokuNum2 : Factor w/ 564 levels "12244618","12245505",..: 1 1 2 2 2 3 3 3 3 3 ...
  $ PrevRaceHorse.FinishTimeSdvByRace: num  0.303 1.074 -0.545 0.145 0.347 ...
  $ PrevRaceHorse.FirstTimeSdvByRace : num  -0.565 -0.126 -0.91 -0.659 -1.312 ...
  $ PrevRaceHorse.LastTimeSdvByRace  : num  0.472 0.999 -0.154 0.442 0.943 ...
@@ -144,14 +146,14 @@ Rows Read: 14097, Total Rows Processed: 14097, Total Chunk Time: 6.259 seconds
  $ PrevOdds.RealOddsLog1            : num  2.94 4.05 5.3 3.89 5.48 ...
  $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
 NULL
-[1] "2022-03-09 08:57:38 --- transform Finish ---"
-[1] "2022-03-09 08:57:38 --- na.omit Start ---"
+[1] "2022-03-10 16:40:41 --- transform Finish ---"
+[1] "2022-03-10 16:40:41 --- na.omit Start ---"
 [1] "--------------------------------------------------------------------------------"
 [1] "nrow(data) na.omit before=14097"
 [1] "nrow(data) na.omit after =14029"
 [1] "nrow(data) na.omit diff =68"
 [1] "--------------------------------------------------------------------------------"
-'data.frame':	14029 obs. of  45 variables:
+'data.frame':	14029 obs. of  46 variables:
  $ Race.RaceId                      : Factor w/ 298 levels "20160109-06-01-02-11",..: 1 1 1 1 1 1 1 1 1 1 ...
  $ Race.IsAnalyzeNormalPastAndFuture: logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
  $ Race.IsAnalyzeNormalPast         : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
@@ -182,6 +184,7 @@ NULL
  $ RaceHorse.IsHitC                 : num  0 0 1 1 1 0 0 0 0 0 ...
  $ PrevRaceHorse.RaceId             : Factor w/ 531 levels "20100221-05-01-08-11",..: 1 2 3 4 5 6 7 8 9 10 ...
  $ PrevRaceHorse.KettoNum           : Factor w/ 654 levels "2006100429","2009102606",..: 1 1 2 2 2 3 3 3 3 3 ...
+ $ PrevHorse.Ketto3InfoHansyokuNum2 : Factor w/ 564 levels "12244618","12245505",..: 1 1 2 2 2 3 3 3 3 3 ...
  $ PrevRaceHorse.FinishTimeSdvByRace: num  0.303 1.074 -0.545 0.145 0.347 ...
  $ PrevRaceHorse.FirstTimeSdvByRace : num  -0.565 -0.126 -0.91 -0.659 -1.312 ...
  $ PrevRaceHorse.LastTimeSdvByRace  : num  0.472 0.999 -0.154 0.442 0.943 ...
@@ -199,104 +202,1541 @@ NULL
  $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
  - attr(*, "na.action")= 'omit' Named int  532 533 534 535 536 537 538 539 540 541 ...
   ..- attr(*, "names")= chr  "532" "533" "534" "535" ...
-[1] "2022-03-09 08:57:39 --- na.omit Finish ---"
-[1] "2022-03-09 08:57:39 --- rxLogit with rxStepControl Start ---"
+[1] "2022-03-10 16:40:41 --- na.omit Finish ---"
+[1] "2022-03-10 16:40:41 --- rxLogit with rxStepControl Start ---"
 
 > print(paste0(Sys.time(), " --- source_logic_glm.R Start ---"))
-[1] "2022-03-09 08:57:39 --- source_logic_glm.R Start ---"
+[1] "2022-03-10 16:40:41 --- source_logic_glm.R Start ---"
 
-> formula <- formula(RaceHorse.IsHitA ~ +1 + PrevRaceHorse.FinishTimeSdvByRace)
+> formula <- formula(RaceHorse.IsHitA ~ +1 + PrevHorse.Ketto3InfoHansyokuNum2, 
++     +PrevRaceHorse.FinishTimeSdvByRace)
 
 > print(paste0(Sys.time(), " --- source_logic_glm.R Finished ---"))
-[1] "2022-03-09 08:57:39 --- source_logic_glm.R Finished ---"
-Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: Less than .001 seconds 
+[1] "2022-03-10 16:40:41 --- source_logic_glm.R Finished ---"
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
 
-Starting values (iteration 1) time: 0.113 secs.
+Starting values (iteration 1) time: 0.032 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.032 secs.
+Rows Read: 14029, Total Rows Processed: 14029
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+, Total Chunk Time: 0.002 seconds 
+
+Iteration 3 time: 0.052 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.035 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.003 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation. (similar message repeated 5 times)
+
+Iteration 5 time: 0.040 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 6 time: 0.037 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 7 time: 0.033 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation. (similar message repeated 6 times)
+
+Iteration 8 time: 0.039 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 9 time: 0.039 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 10 time: 0.040 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation. (similar message repeated 6 times)
+
+Iteration 11 time: 0.040 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 12 time: 0.041 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 13 time: 0.039 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation. (similar message repeated 6 times)
+
+Iteration 14 time: 0.040 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 15 time: 0.040 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 16 time: 0.041 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation. (similar message repeated 6 times)
+
+Iteration 17 time: 0.040 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.003 seconds 
+
+Iteration 18 time: 0.044 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 19 time: 0.042 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation. (similar message repeated 6 times)
+
+Iteration 20 time: 0.045 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 21 time: 0.036 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.003 seconds 
+
+Iteration 22 time: 0.042 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation. (similar message repeated 6 times)
+
+Iteration 23 time: 0.041 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation. (similar message repeated 2 times)
+
+Iteration 24 time: 0.275 secs.
+Rows Read: 14029, Total Rows Processed: 14029
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+, Total Chunk Time: 0.003 seconds 
+
+Iteration 25 time: 0.053 secs.
+*****WARNING: The model has failed to converge using estimated initial values.
+              An attempt is being made to estimate the model using 'initialValues=NA'.*****
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+
+Starting values (iteration 1) time: 0.051 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.057 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 3 time: 0.046 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.042 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.041 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 6 time: 0.039 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.003 seconds 
+
+Iteration 7 time: 0.037 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 8 time: 0.039 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 9 time: 0.037 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 10 time: 0.037 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 11 time: 0.038 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 12 time: 0.043 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 13 time: 0.052 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 14 time: 0.038 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 15 time: 0.038 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 16 time: 0.038 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 17 time: 0.037 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 18 time: 0.041 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.003 seconds 
+
+Iteration 19 time: 0.046 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 20 time: 0.045 secs.
+
+Elapsed computation time: 0.851 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.001 seconds 
+
+Starting values (iteration 1) time: 0.006 secs.
 Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
 
 Iteration 2 time: 0.005 secs.
+
+Elapsed computation time: 0.020 secs.
 Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: Less than .001 seconds 
 
-Iteration 3 time: 0.003 secs.
+Starting values (iteration 1) time: 0.036 secs.
 Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
 
-Iteration 4 time: 0.005 secs.
+Iteration 2 time: 0.038 secs.
+Rows Read: 14029, Total Rows Processed: 14029
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+, Total Chunk Time: 0.002 seconds 
 
-Elapsed computation time: 0.140 secs.
-Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: Less than .001 seconds 
-
-Starting values (iteration 1) time: 0.004 secs.
+Iteration 3 time: 0.045 secs.
 Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
 
-Iteration 2 time: 0.004 secs.
-
-Elapsed computation time: 0.019 secs.
-Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: Less than .001 seconds 
-
-Starting values (iteration 1) time: 0.006 secs.
-Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.004 seconds 
-
-Iteration 2 time: 0.010 secs.
-Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: Less than .001 seconds 
-
-Iteration 3 time: 0.005 secs.
+Iteration 4 time: 0.037 secs.
 Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
 
-Iteration 4 time: 0.005 secs.
 
-Elapsed computation time: 0.050 secs.
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation. (similar message repeated 5 times)
 
-Elapsed computation time: 0.237 secs.
+Iteration 5 time: 0.044 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 6 time: 0.037 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 7 time: 0.035 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.003 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation. (similar message repeated 6 times)
+
+Iteration 8 time: 0.038 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 9 time: 0.037 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 10 time: 0.039 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation. (similar message repeated 6 times)
+
+Iteration 11 time: 0.042 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 12 time: 0.040 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 13 time: 0.040 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation. (similar message repeated 6 times)
+
+Iteration 14 time: 0.041 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 15 time: 0.051 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.003 seconds 
+
+Iteration 16 time: 0.041 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation. (similar message repeated 6 times)
+
+Iteration 17 time: 0.040 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 18 time: 0.039 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 19 time: 0.039 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation. (similar message repeated 6 times)
+
+Iteration 20 time: 0.038 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 21 time: 0.035 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 22 time: 0.035 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation. (similar message repeated 6 times)
+
+Iteration 23 time: 0.040 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation. (similar message repeated 2 times)
+
+Iteration 24 time: 0.267 secs.
+Rows Read: 14029, Total Rows Processed: 14029
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+, Total Chunk Time: 0.002 seconds 
+
+Iteration 25 time: 0.043 secs.
+*****WARNING: The model has failed to converge using estimated initial values.
+              An attempt is being made to estimate the model using 'initialValues=NA'.*****
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Starting values (iteration 1) time: 0.038 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+
+Iteration 2 time: 0.036 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 3 time: 0.037 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 4 time: 0.040 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 5 time: 0.039 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 6 time: 0.040 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.003 seconds 
+
+Iteration 7 time: 0.043 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 8 time: 0.047 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.003 seconds 
+
+Iteration 9 time: 0.051 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 10 time: 0.044 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 11 time: 0.036 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 12 time: 0.039 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 13 time: 0.037 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 14 time: 0.036 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 15 time: 0.039 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.003 seconds 
+
+Iteration 16 time: 0.039 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 17 time: 0.037 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 18 time: 0.044 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 19 time: 0.041 secs.
+Rows Read: 14029, Total Rows Processed: 14029, Total Chunk Time: 0.002 seconds 
+
+Iteration 20 time: 0.041 secs.
+
+Elapsed computation time: 0.806 secs.
+
+Elapsed computation time: 4.269 secs.
 [1] "--------------------------------------------------------------------------------"
 [1] "analyze.results.glm.step="
 Logistic Regression Results for: RaceHorse.IsHitA ~
-    PrevRaceHorse.FinishTimeSdvByRace
+    PrevHorse.Ketto3InfoHansyokuNum2
 Data: data
 Dependent variable(s): RaceHorse.IsHitA
-Total independent variables: 2 
+Total independent variables: 565 (Including number dropped: 2)
 Number of valid observations: 14029
 Number of missing observations: 0 
  
 Coefficients:
-                                  RaceHorse.IsHitA
-(Intercept)                                   -3.1
-PrevRaceHorse.FinishTimeSdvByRace              0.3
+                                          RaceHorse.IsHitA
+(Intercept)                                         -20.54
+PrevHorse.Ketto3InfoHansyokuNum2=12244618            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12245505            16.29
+PrevHorse.Ketto3InfoHansyokuNum2=12255107            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12246455            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253978            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12246854            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251765            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252380            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12242523            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251798            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253000            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251315            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253033            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251470            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253946            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12245847            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12246250            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254503            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12248964            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255007            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12250838            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12247834            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253495            16.29
+PrevHorse.Ketto3InfoHansyokuNum2=12247769            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12243753            16.93
+PrevHorse.Ketto3InfoHansyokuNum2=12254100            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12245026            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12426831            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251196            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12244464            18.93
+PrevHorse.Ketto3InfoHansyokuNum2=12246140            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251587            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251248            20.54
+PrevHorse.Ketto3InfoHansyokuNum2=12245080            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12250408            19.15
+PrevHorse.Ketto3InfoHansyokuNum2=12245052            17.34
+PrevHorse.Ketto3InfoHansyokuNum2=12252927            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253624            17.33
+PrevHorse.Ketto3InfoHansyokuNum2=12249069            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12241333            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12243772            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12243784            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251484            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12247530            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12426447            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256018            18.04
+PrevHorse.Ketto3InfoHansyokuNum2=12251847            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251515            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12248896            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253685            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254792            17.47
+PrevHorse.Ketto3InfoHansyokuNum2=12252190            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252197            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253255            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12243828            19.37
+PrevHorse.Ketto3InfoHansyokuNum2=12418244            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12245396            18.75
+PrevHorse.Ketto3InfoHansyokuNum2=12256272            19.51
+PrevHorse.Ketto3InfoHansyokuNum2=12427187            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253364            18.29
+PrevHorse.Ketto3InfoHansyokuNum2=12427411            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254392            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12245756            17.85
+PrevHorse.Ketto3InfoHansyokuNum2=12257033            18.34
+PrevHorse.Ketto3InfoHansyokuNum2=12427448            18.88
+PrevHorse.Ketto3InfoHansyokuNum2=12242565            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12426529            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255758            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12246436            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256319            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256245            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12250918            17.63
+PrevHorse.Ketto3InfoHansyokuNum2=12254039            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12241213            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254700            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253299            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257047            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12258519            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257440            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12258546            18.93
+PrevHorse.Ketto3InfoHansyokuNum2=12428903            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12241445            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253758            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12426854            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252598            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12427813            18.12
+PrevHorse.Ketto3InfoHansyokuNum2=12249080            20.54
+PrevHorse.Ketto3InfoHansyokuNum2=12242433            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12246107            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252111            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252611            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12243773            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254485            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254873            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12243060            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251356            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12425890            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12246763            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253196            17.70
+PrevHorse.Ketto3InfoHansyokuNum2=12250086            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256021            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253470            16.57
+PrevHorse.Ketto3InfoHansyokuNum2=12259774            18.67
+PrevHorse.Ketto3InfoHansyokuNum2=12249541            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259634            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12428923            18.34
+PrevHorse.Ketto3InfoHansyokuNum2=12255138            18.51
+PrevHorse.Ketto3InfoHansyokuNum2=12258320            16.03
+PrevHorse.Ketto3InfoHansyokuNum2=12248982            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12245252            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252039            17.14
+PrevHorse.Ketto3InfoHansyokuNum2=12427005            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256182            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255073            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251975            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254375            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257018            19.37
+PrevHorse.Ketto3InfoHansyokuNum2=12428381            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254085            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12426218            17.65
+PrevHorse.Ketto3InfoHansyokuNum2=12252983            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12428969            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252744            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254168            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12428366            19.07
+PrevHorse.Ketto3InfoHansyokuNum2=12254459            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257022            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12240989            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12246923            17.63
+PrevHorse.Ketto3InfoHansyokuNum2=12258394            18.00
+PrevHorse.Ketto3InfoHansyokuNum2=12257296            18.89
+PrevHorse.Ketto3InfoHansyokuNum2=12253638            20.54
+PrevHorse.Ketto3InfoHansyokuNum2=12247426            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254117            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251181            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12258089            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12249193            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12246106            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255445            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12244960            16.51
+PrevHorse.Ketto3InfoHansyokuNum2=12427333            18.00
+PrevHorse.Ketto3InfoHansyokuNum2=12240855            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254197            18.67
+PrevHorse.Ketto3InfoHansyokuNum2=12257655            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257575            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252587            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12250931            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255403            19.21
+PrevHorse.Ketto3InfoHansyokuNum2=12252933            17.33
+PrevHorse.Ketto3InfoHansyokuNum2=12256043            18.79
+PrevHorse.Ketto3InfoHansyokuNum2=12254370            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252269            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257384            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252919            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12244487            17.35
+PrevHorse.Ketto3InfoHansyokuNum2=12246562            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251951            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12249116            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255361            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255964            17.32
+PrevHorse.Ketto3InfoHansyokuNum2=12245782            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12249952            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256134            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254142            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12427763            18.93
+PrevHorse.Ketto3InfoHansyokuNum2=12257065            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12427162            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12246445            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256176            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253139            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12248930            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251859            18.19
+PrevHorse.Ketto3InfoHansyokuNum2=12246566            18.14
+PrevHorse.Ketto3InfoHansyokuNum2=12254734            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12244286            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12246729            16.38
+PrevHorse.Ketto3InfoHansyokuNum2=12427845            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252211            16.06
+PrevHorse.Ketto3InfoHansyokuNum2=12255011            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12245760            16.90
+PrevHorse.Ketto3InfoHansyokuNum2=12247901            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12249696            18.61
+PrevHorse.Ketto3InfoHansyokuNum2=12255257            18.75
+PrevHorse.Ketto3InfoHansyokuNum2=12249691            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12258563            17.39
+PrevHorse.Ketto3InfoHansyokuNum2=12250226            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255113            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12428037            17.70
+PrevHorse.Ketto3InfoHansyokuNum2=12250566            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12428315            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256661            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12247693            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252180            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251638            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12428913            17.33
+PrevHorse.Ketto3InfoHansyokuNum2=12247576            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255216            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256343            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255077            19.94
+PrevHorse.Ketto3InfoHansyokuNum2=12255360            16.59
+PrevHorse.Ketto3InfoHansyokuNum2=12247329            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12242514            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12258687            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259993            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259997            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12250976            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257220            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256013            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255223            17.12
+PrevHorse.Ketto3InfoHansyokuNum2=12242723            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255147            18.54
+PrevHorse.Ketto3InfoHansyokuNum2=12258312            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12245224            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12247672            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12245594            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257357            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259422            20.01
+PrevHorse.Ketto3InfoHansyokuNum2=12257644            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256502            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253889            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256351            17.87
+PrevHorse.Ketto3InfoHansyokuNum2=12428107            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12247342            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12250097            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252287            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12429227            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251018            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12250109          Dropped
+PrevHorse.Ketto3InfoHansyokuNum2=12428505            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12246256            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256534            20.25
+PrevHorse.Ketto3InfoHansyokuNum2=12255676            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12260284            18.64
+PrevHorse.Ketto3InfoHansyokuNum2=12258172            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252786            19.84
+PrevHorse.Ketto3InfoHansyokuNum2=12252051            19.99
+PrevHorse.Ketto3InfoHansyokuNum2=12257362            18.71
+PrevHorse.Ketto3InfoHansyokuNum2=12255119            17.47
+PrevHorse.Ketto3InfoHansyokuNum2=12244123            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12258294            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255063            17.83
+PrevHorse.Ketto3InfoHansyokuNum2=12248383            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251253            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259026            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251234            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12258017            19.28
+PrevHorse.Ketto3InfoHansyokuNum2=12253796            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256887            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252325            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251056            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253402            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254743            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257401            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256498            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252249            19.12
+PrevHorse.Ketto3InfoHansyokuNum2=12255656            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256240            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259542            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252414            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256909            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251225            16.67
+PrevHorse.Ketto3InfoHansyokuNum2=12250651            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12250418            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12249073            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12243577            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12428262            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12429178            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255137            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252651            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12249102            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251327            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251238            18.05
+PrevHorse.Ketto3InfoHansyokuNum2=12256426            17.95
+PrevHorse.Ketto3InfoHansyokuNum2=12249939            17.10
+PrevHorse.Ketto3InfoHansyokuNum2=12251680            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12246497            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251133            18.29
+PrevHorse.Ketto3InfoHansyokuNum2=12253563            19.84
+PrevHorse.Ketto3InfoHansyokuNum2=12247847            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252209            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252035            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12260774            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257377            18.70
+PrevHorse.Ketto3InfoHansyokuNum2=12260129            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256010            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256307            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256971            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12428544            18.46
+PrevHorse.Ketto3InfoHansyokuNum2=12261095            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12261388            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255049            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256119            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12241694            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253980            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252560            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251271            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12247448            20.54
+PrevHorse.Ketto3InfoHansyokuNum2=12260188            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259846            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12261461            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256244            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252321            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12247736            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12260874            16.67
+PrevHorse.Ketto3InfoHansyokuNum2=12255906            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252336            18.72
+PrevHorse.Ketto3InfoHansyokuNum2=12256664            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12258618            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12261819            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12260958            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254661            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253797            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12260624            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257421            17.04
+PrevHorse.Ketto3InfoHansyokuNum2=12256194            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251732            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257299            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254748            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259579            41.10
+PrevHorse.Ketto3InfoHansyokuNum2=12255160            21.23
+PrevHorse.Ketto3InfoHansyokuNum2=12260751            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254015            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253378            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12258204            16.26
+PrevHorse.Ketto3InfoHansyokuNum2=12258933            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256224            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257483            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257390            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12261556            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251477            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259511            16.51
+PrevHorse.Ketto3InfoHansyokuNum2=12252453            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255214            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12243607            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12258051            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256811            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12261463            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251700            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12258838            18.67
+PrevHorse.Ketto3InfoHansyokuNum2=12257233            18.67
+PrevHorse.Ketto3InfoHansyokuNum2=12254982            17.88
+PrevHorse.Ketto3InfoHansyokuNum2=12430068            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12429447            18.05
+PrevHorse.Ketto3InfoHansyokuNum2=12248928            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12247733            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253430            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256036            17.49
+PrevHorse.Ketto3InfoHansyokuNum2=12260587            19.28
+PrevHorse.Ketto3InfoHansyokuNum2=12252801            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253905            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12250371            18.05
+PrevHorse.Ketto3InfoHansyokuNum2=12249716            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255243            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259994            20.44
+PrevHorse.Ketto3InfoHansyokuNum2=12253314            20.54
+PrevHorse.Ketto3InfoHansyokuNum2=12255008            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256925            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253580            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12430024            20.54
+PrevHorse.Ketto3InfoHansyokuNum2=12252694            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12244759            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12258717            19.46
+PrevHorse.Ketto3InfoHansyokuNum2=12250696            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12258150            18.09
+PrevHorse.Ketto3InfoHansyokuNum2=12256749            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257500            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12260092            18.46
+PrevHorse.Ketto3InfoHansyokuNum2=12253456            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257833            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257055            18.14
+PrevHorse.Ketto3InfoHansyokuNum2=12250384            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259959            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251646            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12250285            19.15
+PrevHorse.Ketto3InfoHansyokuNum2=12260090            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251108            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12246033            17.65
+PrevHorse.Ketto3InfoHansyokuNum2=12256918            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12248526            18.63
+PrevHorse.Ketto3InfoHansyokuNum2=12250526            19.11
+PrevHorse.Ketto3InfoHansyokuNum2=12253763            19.78
+PrevHorse.Ketto3InfoHansyokuNum2=12254739            17.68
+PrevHorse.Ketto3InfoHansyokuNum2=12259464            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257659            18.93
+PrevHorse.Ketto3InfoHansyokuNum2=12253876            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251631            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12250463            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255497            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256275            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259982            19.84
+PrevHorse.Ketto3InfoHansyokuNum2=12258745            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12258513            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254235            17.54
+PrevHorse.Ketto3InfoHansyokuNum2=12262089            18.93
+PrevHorse.Ketto3InfoHansyokuNum2=12260352            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12429763            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12430205            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12430685            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12428526            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255753            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254031            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253373            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12248066            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259493            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12429774            17.49
+PrevHorse.Ketto3InfoHansyokuNum2=12430691            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12258303            16.90
+PrevHorse.Ketto3InfoHansyokuNum2=12249526            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12260531            21.64
+PrevHorse.Ketto3InfoHansyokuNum2=12258553            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259527            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257666            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253745            19.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256141            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251544            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256273            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12262494            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255282            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259365            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12258052            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12245828            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252311            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257048            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12245925            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257230            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12262674            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12262782            19.73
+PrevHorse.Ketto3InfoHansyokuNum2=12259046            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259576            18.01
+PrevHorse.Ketto3InfoHansyokuNum2=12257595            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255847            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12260025            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254315            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12258844            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256286            19.74
+PrevHorse.Ketto3InfoHansyokuNum2=12249182            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254948            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12429539            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259872            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12430044            18.34
+PrevHorse.Ketto3InfoHansyokuNum2=12259333            19.58
+PrevHorse.Ketto3InfoHansyokuNum2=12257361            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252258            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254824            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12429101            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12260693            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12429632            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255092            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259891            16.98
+PrevHorse.Ketto3InfoHansyokuNum2=12258572            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256641            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259498            17.83
+PrevHorse.Ketto3InfoHansyokuNum2=12257883            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12248279            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259181            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12260847            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251686            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254063            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256359            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259626            19.15
+PrevHorse.Ketto3InfoHansyokuNum2=12257812            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12260085            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254872            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12429127            20.54
+PrevHorse.Ketto3InfoHansyokuNum2=12258081            19.84
+PrevHorse.Ketto3InfoHansyokuNum2=12256241            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12430105            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257093            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12246316            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259198            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256550            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12260584            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259786            41.10
+PrevHorse.Ketto3InfoHansyokuNum2=12259595            19.44
+PrevHorse.Ketto3InfoHansyokuNum2=12250450            18.93
+PrevHorse.Ketto3InfoHansyokuNum2=12263892            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256953            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12262768            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256143            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12430865            41.10
+PrevHorse.Ketto3InfoHansyokuNum2=12426374            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12431363            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259519            19.44
+PrevHorse.Ketto3InfoHansyokuNum2=12257773            18.75
+PrevHorse.Ketto3InfoHansyokuNum2=12247539            19.33
+PrevHorse.Ketto3InfoHansyokuNum2=12260787            18.93
+PrevHorse.Ketto3InfoHansyokuNum2=12248459            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12260765            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252602            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12258426            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252595            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255108            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256310            18.75
+PrevHorse.Ketto3InfoHansyokuNum2=12258482            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257448            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255134            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12260070            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259483            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12258032            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259330            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259970            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12261976            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12245145            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255366            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12258011            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12261740            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12261744            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252592            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12261264            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256011            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12260231            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253137            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259862            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259060            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12263917            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252844            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12263931            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257618            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12430879            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12431377            20.54
+PrevHorse.Ketto3InfoHansyokuNum2=12259258            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12258201            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257485            19.84
+PrevHorse.Ketto3InfoHansyokuNum2=12247788            41.10
+PrevHorse.Ketto3InfoHansyokuNum2=12257934            21.38
+PrevHorse.Ketto3InfoHansyokuNum2=12254083            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12263852            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12260681            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12261479            41.10
+PrevHorse.Ketto3InfoHansyokuNum2=12260983            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12260830            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256702            41.10
+PrevHorse.Ketto3InfoHansyokuNum2=12261677            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256992            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12429433            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259799            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257305            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259266            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12252950            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12251756            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12256396            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255746            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12430008            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257552            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255315            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12258502            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12260036            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255237            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12260691            21.23
+PrevHorse.Ketto3InfoHansyokuNum2=12253728            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257222            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254665            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259265            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12255337            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12259329            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12262066            41.10
+PrevHorse.Ketto3InfoHansyokuNum2=12259379            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12253411            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12260286            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12257549            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12260218            41.10
+PrevHorse.Ketto3InfoHansyokuNum2=12254147            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12260619            -0.03
+PrevHorse.Ketto3InfoHansyokuNum2=12254123          Dropped
 [1] "analyze.results.glm.step.summary"
 Call:
 rxLogit(formula = formula, data = data, variableSelection = analyze.results.glm.step.varsel)
 
 Logistic Regression Results for: RaceHorse.IsHitA ~
-    PrevRaceHorse.FinishTimeSdvByRace
+    PrevHorse.Ketto3InfoHansyokuNum2
 Data: data
 Dependent variable(s): RaceHorse.IsHitA
-Total independent variables: 2 
+Total independent variables: 565 (Including number dropped: 2)
 Number of valid observations: 14029
 Number of missing observations: 0 
--2*LogLikelihood: 5278.006 (Residual deviance on 14027 degrees of freedom)
+-2*LogLikelihood: 3796.387 (Residual deviance on 13466 degrees of freedom)
  
 Coefficients:
-                                  Estimate Std. Error z value Pr(>|z|)    
-(Intercept)                        -3.1491     0.0485   -65.0  2.2e-16 ***
-PrevRaceHorse.FinishTimeSdvByRace   0.3344     0.0548     6.1  1.1e-09 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+                                           Estimate Std. Error z value Pr(>|z|)
+(Intercept)                               -2.05e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12244618 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12245505  1.63e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255107 -2.87e-02   2.93e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12246455 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253978 -2.87e-02   2.88e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12246854 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251765 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252380 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12242523 -2.87e-02   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251798 -2.87e-02   2.88e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253000 -2.87e-02   2.91e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251315 -2.87e-02   2.88e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253033 -2.87e-02   2.98e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251470 -2.87e-02   2.91e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253946 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12245847 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12246250 -2.87e-02   2.96e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254503 -2.87e-02   2.88e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12248964 -2.87e-02   3.03e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255007 -2.87e-02   2.97e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12250838 -2.87e-02   3.01e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12247834 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253495  1.63e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12247769 -2.87e-02   2.93e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12243753  1.69e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254100 -2.87e-02   3.01e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12245026 -2.87e-02   2.94e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12426831 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251196 -2.87e-02   2.92e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12244464  1.89e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12246140 -2.87e-02   2.98e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251587 -2.87e-02   2.92e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251248  2.05e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12245080 -2.87e-02   2.88e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12250408  1.92e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12245052  1.73e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252927 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253624  1.73e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12249069 -2.87e-02   2.89e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12241333 -2.87e-02   3.00e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12243772 -2.87e-02   3.15e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12243784 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251484 -2.87e-02   2.95e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12247530 -2.87e-02   2.92e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12426447 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256018  1.80e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251847 -2.87e-02   2.89e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251515 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12248896 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253685 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254792  1.75e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252190 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252197 -2.87e-02   3.03e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253255 -2.87e-02   2.99e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12243828  1.94e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12418244 -2.87e-02   2.92e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12245396  1.87e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256272  1.95e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12427187 -2.87e-02   2.92e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253364  1.83e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12427411 -2.87e-02   2.92e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254392 -2.87e-02   2.97e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12245756  1.78e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257033  1.83e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12427448  1.89e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12242565 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12426529 -2.87e-02   2.94e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255758 -2.87e-02   2.93e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12246436 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256319 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256245 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12250918  1.76e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254039 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12241213 -2.87e-02   2.89e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254700 -2.87e-02   2.95e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253299 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257047 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258519 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257440 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258546  1.89e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12428903 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12241445 -2.87e-02   2.88e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253758 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12426854 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252598 -2.87e-02   2.92e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12427813  1.81e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12249080  2.05e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12242433 -2.87e-02   2.89e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12246107 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252111 -2.87e-02   2.89e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252611 -2.87e-02   2.89e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12243773 -2.87e-02   2.98e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254485 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254873 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12243060 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251356 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12425890 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12246763 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253196  1.77e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12250086 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256021 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253470  1.66e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259774  1.87e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12249541 -2.87e-02   2.89e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259634 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12428923  1.83e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255138  1.85e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258320  1.60e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12248982 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12245252 -2.87e-02   2.95e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252039  1.71e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12427005 -2.87e-02   3.03e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256182 -2.87e-02   2.97e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255073 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251975 -2.87e-02   2.97e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254375 -2.87e-02   2.89e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257018  1.94e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12428381 -2.87e-02   2.96e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254085 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12426218  1.76e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252983 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12428969 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252744 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254168 -2.87e-02   2.91e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12428366  1.91e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254459 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257022 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12240989 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12246923  1.76e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258394  1.80e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257296  1.89e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253638  2.05e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12247426 -2.87e-02   3.01e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254117 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251181 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258089 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12249193 -2.87e-02   2.91e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12246106 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255445 -2.87e-02   2.91e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12244960  1.65e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12427333  1.80e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12240855 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254197  1.87e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257655 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257575 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252587 -2.87e-02   2.91e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12250931 -2.87e-02   2.89e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255403  1.92e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252933  1.73e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256043  1.88e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254370 -2.87e-02   3.07e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252269 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257384 -2.87e-02   3.00e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252919 -2.87e-02   2.89e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12244487  1.73e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12246562 -2.87e-02   3.15e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251951 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12249116 -2.87e-02   2.88e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255361 -2.87e-02   2.94e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255964  1.73e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12245782 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12249952 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256134 -2.87e-02   2.96e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254142 -2.87e-02   2.89e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12427763  1.89e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257065 -2.87e-02   2.89e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12427162 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12246445 -2.87e-02   3.15e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256176 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253139 -2.87e-02   3.01e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12248930 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251859  1.82e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12246566  1.81e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254734 -2.87e-02   2.91e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12244286 -2.87e-02   3.07e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12246729  1.64e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12427845 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252211  1.61e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255011 -2.87e-02   2.92e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12245760  1.69e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12247901 -2.87e-02   3.01e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12249696  1.86e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255257  1.87e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12249691 -2.87e-02   2.95e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258563  1.74e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12250226 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255113 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12428037  1.77e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12250566 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12428315 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256661 -2.87e-02   2.93e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12247693 -2.87e-02   3.03e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252180 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251638 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12428913  1.73e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12247576 -2.87e-02   2.88e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255216 -2.87e-02   2.91e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256343 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255077  1.99e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255360  1.66e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12247329 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12242514 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258687 -2.87e-02   2.97e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259993 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259997 -2.87e-02   3.05e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12250976 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257220 -2.87e-02   3.01e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256013 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255223  1.71e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12242723 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255147  1.85e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258312 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12245224 -2.87e-02   2.88e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12247672 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12245594 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257357 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259422  2.00e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257644 -2.87e-02   2.88e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256502 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253889 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256351  1.79e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12428107 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12247342 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12250097 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252287 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12429227 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251018 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12250109   Dropped    Dropped Dropped  Dropped
+PrevHorse.Ketto3InfoHansyokuNum2=12428505 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12246256 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256534  2.02e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255676 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260284  1.86e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258172 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252786  1.98e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252051  2.00e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257362  1.87e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255119  1.75e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12244123 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258294 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255063  1.78e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12248383 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251253 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259026 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251234 -2.87e-02   2.95e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258017  1.93e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253796 -2.87e-02   3.00e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256887 -2.87e-02   2.92e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252325 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251056 -2.87e-02   2.92e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253402 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254743 -2.87e-02   3.15e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257401 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256498 -2.87e-02   2.99e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252249  1.91e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255656 -2.87e-02   2.98e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256240 -2.87e-02   2.98e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259542 -2.87e-02   2.95e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252414 -2.87e-02   2.91e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256909 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251225  1.67e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12250651 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12250418 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12249073 -2.87e-02   2.99e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12243577 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12428262 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12429178 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255137 -2.87e-02   2.95e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252651 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12249102 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251327 -2.87e-02   3.01e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251238  1.81e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256426  1.80e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12249939  1.71e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251680 -2.87e-02   3.00e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12246497 -2.87e-02   3.15e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251133  1.83e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253563  1.98e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12247847 -2.87e-02   2.94e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252209 -2.87e-02   2.88e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252035 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260774 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257377  1.87e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260129 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256010 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256307 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256971 -2.87e-02   2.91e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12428544  1.85e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12261095 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12261388 -2.87e-02   3.07e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255049 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256119 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12241694 -2.87e-02   2.91e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253980 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252560 -2.87e-02   3.00e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251271 -2.87e-02   2.96e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12247448  2.05e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260188 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259846 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12261461 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256244 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252321 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12247736 -2.87e-02   2.96e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260874  1.67e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255906 -2.87e-02   2.94e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252336  1.87e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256664 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258618 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12261819 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260958 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254661 -2.87e-02   3.01e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253797 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260624 -2.87e-02   2.99e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257421  1.70e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256194 -2.87e-02   2.95e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251732 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257299 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254748 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259579  4.11e+01   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255160  2.12e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260751 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254015 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253378 -2.87e-02   3.07e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258204  1.63e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258933 -2.87e-02   2.99e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256224 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257483 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257390 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12261556 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251477 -2.87e-02   2.98e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259511  1.65e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252453 -2.87e-02   2.98e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255214 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12243607 -2.87e-02   2.91e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258051 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256811 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12261463 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251700 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258838  1.87e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257233  1.87e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254982  1.79e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12430068 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12429447  1.81e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12248928 -2.87e-02   3.03e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12247733 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253430 -2.87e-02   3.15e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256036  1.75e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260587  1.93e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252801 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253905 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12250371  1.81e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12249716 -2.87e-02   2.99e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255243 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259994  2.04e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253314  2.05e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255008 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256925 -2.87e-02   3.07e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253580 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12430024  2.05e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252694 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12244759 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258717  1.95e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12250696 -2.87e-02   3.07e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258150  1.81e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256749 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257500 -2.87e-02   2.95e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260092  1.85e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253456 -2.87e-02   2.98e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257833 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257055  1.81e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12250384 -2.87e-02   2.96e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259959 -2.87e-02   2.91e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251646 -2.87e-02   2.96e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12250285  1.92e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260090 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251108 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12246033  1.76e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256918 -2.87e-02   3.00e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12248526  1.86e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12250526  1.91e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253763  1.98e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254739  1.77e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259464 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257659  1.89e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253876 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251631 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12250463 -2.87e-02   2.92e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255497 -2.87e-02   3.07e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256275 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259982  1.98e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258745 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258513 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254235  1.75e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12262089  1.89e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260352 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12429763 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12430205 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12430685 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12428526 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255753 -2.87e-02   2.96e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254031 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253373 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12248066 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259493 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12429774  1.75e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12430691 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258303  1.69e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12249526 -2.87e-02   3.03e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260531  2.16e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258553 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259527 -2.87e-02   2.99e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257666 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253745  1.90e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256141 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251544 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256273 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12262494 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255282 -2.87e-02   3.00e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259365 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258052 -2.87e-02   2.98e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12245828 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252311 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257048 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12245925 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257230 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12262674 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12262782  1.97e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259046 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259576  1.80e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257595 -2.87e-02   3.01e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255847 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260025 -2.87e-02   2.92e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254315 -2.87e-02   3.07e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258844 -2.87e-02   2.90e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256286  1.97e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12249182 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254948 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12429539 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259872 -2.87e-02   3.01e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12430044  1.83e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259333  1.96e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257361 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252258 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254824 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12429101 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260693 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12429632 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255092 -2.87e-02   2.93e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259891  1.70e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258572 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256641 -2.87e-02   3.07e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259498  1.78e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257883 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12248279 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259181 -2.87e-02   2.93e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260847 -2.87e-02   2.96e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251686 -2.87e-02   2.97e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254063 -2.87e-02   2.95e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256359 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259626  1.92e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257812 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260085 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254872 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12429127  2.05e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258081  1.98e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256241 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12430105 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257093 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12246316 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259198 -2.87e-02   3.00e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256550 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260584 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259786  4.11e+01   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259595  1.94e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12250450  1.89e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12263892 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256953 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12262768 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256143 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12430865  4.11e+01   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12426374 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12431363 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259519  1.94e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257773  1.87e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12247539  1.93e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260787  1.89e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12248459 -2.87e-02   3.00e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260765 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252602 -2.87e-02   3.07e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258426 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252595 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255108 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256310  1.87e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258482 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257448 -2.87e-02   3.07e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255134 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260070 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259483 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258032 -2.87e-02   3.03e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259330 -2.87e-02   3.03e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259970 -2.87e-02   3.07e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12261976 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12245145 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255366 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258011 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12261740 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12261744 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252592 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12261264 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256011 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260231 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253137 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259862 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259060 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12263917 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252844 -2.87e-02   2.92e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12263931 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257618 -2.87e-02   3.54e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12430879 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12431377  2.05e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259258 -2.87e-02   3.01e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258201 -2.87e-02   3.22e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257485  1.98e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12247788  4.11e+01   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257934  2.14e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254083 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12263852 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260681 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12261479  4.11e+01   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260983 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260830 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256702  4.11e+01   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12261677 -2.87e-02   3.01e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256992 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12429433 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259799 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257305 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259266 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12252950 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12251756 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12256396 -2.87e-02   3.11e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255746 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12430008 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257552 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255315 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12258502 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260036 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255237 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260691  2.12e+01   2.87e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253728 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257222 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254665 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259265 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12255337 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259329 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12262066  4.11e+01   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12259379 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12253411 -2.87e-02   3.33e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260286 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12257549 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260218  4.11e+01   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254147 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12260619 -2.87e-02   4.10e+04       0        1
+PrevHorse.Ketto3InfoHansyokuNum2=12254123   Dropped    Dropped Dropped  Dropped
 
-Condition number of final variance-covariance matrix: 1 
-Number of iterations: 4
+Condition number of final variance-covariance matrix: 3e+12 
+Number of iterations: 20
 [1] "--------------------------------------------------------------------------------"
-[1] "2022-03-09 08:57:39 --- rxLogit with rxStepControl Finish ---"
-[1] "2022-03-09 08:57:39 --- rxStepPlot Start ---"
+[1] "2022-03-10 16:40:49 --- rxLogit with rxStepControl Finish ---"
+[1] "2022-03-10 16:40:49 --- rxStepPlot Start ---"
 [1] "pdfFilename=pdf_analyze_glm_Gen02_Type21_rxStepPlot.pdf"
 [1] "rxStepPlot="
-[1] "2022-03-09 08:57:39 --- rxStepPlot Finish ---"
-[1] "2022-03-09 08:57:39 --- save.image Start ---"
+[1] "2022-03-10 16:40:50 --- rxStepPlot Finish ---"
+[1] "2022-03-10 16:40:50 --- save.image Start ---"
 [1] "save.image"
 [1] "rdataFilename=RData_analyze_glm_Gen02_Type21.RData"
-[1] "2022-03-09 08:57:39 --- save.image Finish ---"
-[1] "2022-03-09 08:57:39 --- final Start ---"
+[1] "2022-03-10 16:40:50 --- save.image Finish ---"
+[1] "2022-03-10 16:40:50 --- final Start ---"
 [1] "--------------------------------------------------------------------------------"
 [1] "nrow(data) final=14029"
 [1] "--------------------------------------------------------------------------------"
-[1] "2022-03-09 08:57:39 --- final Finish ---"
-[1] "2022-03-09 08:57:39 --- analyze_glm.R Finished ---"
-[1] "2022-03-09 08:57:39 --- log Finish ---"
+[1] "2022-03-10 16:40:50 --- final Finish ---"
+[1] "2022-03-10 16:40:50 --- analyze_glm.R Finished ---"
+[1] "2022-03-10 16:40:50 --- log Finish ---"

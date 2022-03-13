@@ -1,0 +1,975 @@
+[1] "2022-03-13 19:06:18 --- D1117_analyze_glmer_Basic_IsHitA_Type31 Start ---"
+[1] "2022-03-13 19:06:18 --- Log Start ---"
+[1] "2022-03-13 19:06:18 --- analyze_glmer.R Start ---"
+[1] "analyzeVersion=D1117"
+[1] "analyzeCategory=analyze"
+[1] "analyzeType=Basic"
+[1] "analyzeFamily=IsHitA"
+[1] "analyzeFunc=glmer"
+[1] "analyzeTrackTypeCd=3"
+[1] "analyzeJyokenCd=1"
+[1] "2022-03-13 19:06:18 --- source_function.R Start ---"
+[1] "2022-03-13 19:06:18 --- source_function.R Finished ---"
+
+> print(paste0(Sys.time(), " --- source_library.R Start ---"))
+[1] "2022-03-13 19:06:18 --- source_library.R Start ---"
+
+> require("RevoScaleR")
+
+> require(MASS)
+
+> require(lme4)
+
+> print(paste0(Sys.time(), " --- source_library.R Finished ---"))
+[1] "2022-03-13 19:06:20 --- source_library.R Finished ---"
+[1] "2022-03-13 19:06:20 --- RxSqlServerData Start ---"
+[1] "2022-03-13 19:06:20 --- RxInSqlServer Start ---"
+[1] "2022-03-13 19:06:20 --- RxInSqlServer Finish ---"
+[1] "2022-03-13 19:06:20 --- rxSetComputeContext Start ---"
+[1] "2022-03-13 19:06:20 --- rxSetComputeContext Finish ---"
+[1] "2022-03-13 19:06:20 --- RxSqlServerData Start ---"
+[1] "sqlQuery=SELECT * FROM ViewAnalyzeD1117analyze01BasicType31"
+[1] "2022-03-13 19:06:20 --- RxSqlServerData Finish ---"
+[1] "2022-03-13 19:06:20 --- rxGetVarInfo Start ---"
+[1] "2022-03-13 19:06:20 --- rxGetVarInfo Finish---"
+[1] "2022-03-13 19:06:20 --- rxImport Start ---"
+Rows Read: 3031, Total Rows Processed: 3031, Total Chunk Time: 0.678 seconds 
+[1] "2022-03-13 19:06:23 --- rxImport Finish ---"
+[1] "object.size(data) auto=1 Mb"
+[1] "--------------------------------------------------------------------------------"
+[1] "nrow(data) RxSqlServerData=3031"
+[1] "--------------------------------------------------------------------------------"
+[1] "str(data)="
+'data.frame':	3031 obs. of  48 variables:
+ $ Race.RaceId                        : Factor w/ 255 levels "20160109-06-01-02-08",..: 9 10 10 11 12 13 14 15 15 15 ...
+ $ Race.IsAnalyzeNormalPastAndFuture  : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPast           : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalFuture         : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.IsAnalyzeFullPastAndFuture    : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullPast             : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullFuture           : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.JyokenCd                      : Factor w/ 1 level "1": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.JyoType1Cd                    : Factor w/ 61 levels "52-06-3200-1",..: 3 5 5 1 6 1 7 8 8 8 ...
+ $ Race.RaceType1Cd                   : Factor w/ 2 levels "3-1-19","3-1-18": 1 1 1 1 1 1 2 2 2 2 ...
+ $ RaceHorse.RaceId                   : Factor w/ 255 levels "20160109-06-01-02-08",..: 9 10 10 11 12 13 14 15 15 15 ...
+ $ RaceHorse.KettoNum                 : Factor w/ 552 levels "2011102192","2010102599",..: 11 12 13 3 14 15 16 17 18 6 ...
+ $ RaceHorse.IsValidRaceHorse         : logi  TRUE FALSE FALSE TRUE TRUE TRUE ...
+ $ RaceHorse.HorseNumRatio            : num  0.643 0.583 0.833 0.917 0.462 ...
+ $ RaceHorse.WeightSdvByRace          : num  -0.227 -0.93 -0.588 0.977 0.989 ...
+ $ RaceHorse.WeightDeltaSdvByRace     : num  -1.111 -0.223 -0.519 0.32 2.016 ...
+ $ RaceHorse.WeightDeltaRatioSdvByRace: num  -1.081 -0.214 -0.529 0.321 1.92 ...
+ $ RaceHorse.HandicapSdvByRace        : num  -1.884 -2.008 1.847 -0.302 -1.143 ...
+ $ RaceHorse.HandicapRatioSdvByRace   : num  -0.377 0.351 1.26 -1.027 -1.194 ...
+ $ RaceHorse.WeightSdv                : num  -0.691 -1.015 -0.609 0.932 0.77 ...
+ $ RaceHorse.WeightDeltaSdv           : num  -1.455 -0.327 -0.609 0.52 1.366 ...
+ $ RaceHorse.WeightDeltaRatioSdv      : num  -1.506 -0.337 -0.623 0.503 1.325 ...
+ $ RaceHorse.HandicapSdv              : num  -1.8819 -2.7849 0.8271 -0.0759 -0.9789 ...
+ $ RaceHorse.HandicapRatioSdv         : num  -0.0392 -0.0421 0.8694 -0.9424 -1.1048 ...
+ $ RaceHorse.FinishTimeSdvByRace      : num  0.486 -2.242 -1.491 0.188 -0.744 ...
+ $ RaceHorse.FirstTimeSdvByRace       : num  0.567 -2.269 -1.47 0.118 -0.846 ...
+ $ RaceHorse.LastTimeSdvByRace        : num  0.144 -2.121 -1.566 0.471 -0.232 ...
+ $ RaceHorse.FinishTimeSdv            : num  -0.13599 -3.11581 -2.32988 -0.00761 -0.93171 ...
+ $ RaceHorse.FirstTimeSdv             : num  -0.1058 -3.0592 -2.2532 -0.0292 -0.9676 ...
+ $ RaceHorse.LastTimeSdv              : num  -0.2715 -3.075 -2.4501 0.0862 -0.7614 ...
+ $ RaceHorse.IsHitA                   : num  0 0 0 0 0 0 0 0 0 1 ...
+ $ RaceHorse.IsHitB                   : num  0 0 0 0 0 1 0 0 0 1 ...
+ $ RaceHorse.IsHitC                   : num  0 0 0 0 0 1 0 0 1 1 ...
+ $ DataMining.DmTimeSdv               : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ DataMiningTaisen.TmScoreSdv        : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ OddsByWin.Odds1                    : num  150.5 85.4 7.5 3.1 23.7 ...
+ $ OddsByWin.RealOdds1                : num  188.12 106.75 9.38 3.88 29.62 ...
+ $ OddsByWin.Ninki                    : num  14 11 4 1 7 10 4 9 11 1 ...
+ $ OddsByWin.OddsLog1                 : num  5.01 4.45 2.01 1.13 3.17 ...
+ $ OddsByWin.ApprovalRate1            : num  0.00532 0.00937 0.10667 0.25806 0.03376 ...
+ $ OddsByWin.RealOddsLog1             : num  5.24 4.67 2.24 1.35 3.39 ...
+ $ OddsByWin.RealApprovalRate1        : num  0.00664 0.01171 0.13333 0.32258 0.04219 ...
+ $ Horse.Ketto3InfoHansyokuNum1       : Factor w/ 155 levels "11202006","11201901",..: 10 9 11 3 12 13 14 15 16 6 ...
+ $ Horse.Ketto3InfoHansyokuNum2       : Factor w/ 535 levels "12256409","12243278",..: 11 12 13 3 14 15 16 17 18 6 ...
+ $ RaceHorse.ChokyosiCode             : Factor w/ 188 levels "00415","01053",..: 11 12 13 14 15 16 17 18 19 6 ...
+ $ RaceHorse.BanusiCode               : Factor w/ 275 levels "270006","764001",..: 10 11 12 3 13 3 14 15 16 6 ...
+ $ RaceHorse.KisyuCode                : Factor w/ 33 levels "01069","01046",..: 10 11 5 1 12 3 13 14 15 5 ...
+ $ EOF                                : int  1 1 1 1 1 1 1 1 1 1 ...
+[1] "2022-03-13 19:06:23 --- RxSqlServerData Finish ---"
+[1] "2022-03-13 19:06:23 --- subset Start ---"
+[1] "--------------------------------------------------------------------------------"
+[1] "nrow(data) subset before=3031"
+[1] "nrow(data) subset after =3031"
+[1] "nrow(data) subset diff =0"
+[1] "--------------------------------------------------------------------------------"
+[1] "2022-03-13 19:06:23 --- Subset Finish---"
+[1] "2022-03-13 19:06:23 --- transform Start ---"
+[1] "--------------------------------------------------------------------------------"
+[1] "nrow(data) transform before=3031"
+[1] "nrow(data) transform after=3031"
+[1] "nrow(data) transform diff=0"
+[1] "--------------------------------------------------------------------------------"
+[1] "str(data)="
+'data.frame':	3031 obs. of  48 variables:
+ $ Race.RaceId                        : Factor w/ 255 levels "20160109-06-01-02-08",..: 9 10 10 11 12 13 14 15 15 15 ...
+ $ Race.IsAnalyzeNormalPastAndFuture  : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPast           : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalFuture         : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.IsAnalyzeFullPastAndFuture    : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullPast             : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullFuture           : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.JyokenCd                      : Factor w/ 1 level "1": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.JyoType1Cd                    : Factor w/ 61 levels "52-06-3200-1",..: 3 5 5 1 6 1 7 8 8 8 ...
+ $ Race.RaceType1Cd                   : Factor w/ 2 levels "3-1-19","3-1-18": 1 1 1 1 1 1 2 2 2 2 ...
+ $ RaceHorse.RaceId                   : Factor w/ 255 levels "20160109-06-01-02-08",..: 9 10 10 11 12 13 14 15 15 15 ...
+ $ RaceHorse.KettoNum                 : Factor w/ 552 levels "2011102192","2010102599",..: 11 12 13 3 14 15 16 17 18 6 ...
+ $ RaceHorse.IsValidRaceHorse         : logi  TRUE FALSE FALSE TRUE TRUE TRUE ...
+ $ RaceHorse.HorseNumRatio            : num  0.643 0.583 0.833 0.917 0.462 ...
+ $ RaceHorse.WeightSdvByRace          : num  -0.227 -0.93 -0.588 0.977 0.989 ...
+ $ RaceHorse.WeightDeltaSdvByRace     : num  -1.111 -0.223 -0.519 0.32 2.016 ...
+ $ RaceHorse.WeightDeltaRatioSdvByRace: num  -1.081 -0.214 -0.529 0.321 1.92 ...
+ $ RaceHorse.HandicapSdvByRace        : num  -1.884 -2.008 1.847 -0.302 -1.143 ...
+ $ RaceHorse.HandicapRatioSdvByRace   : num  -0.377 0.351 1.26 -1.027 -1.194 ...
+ $ RaceHorse.WeightSdv                : num  -0.691 -1.015 -0.609 0.932 0.77 ...
+ $ RaceHorse.WeightDeltaSdv           : num  -1.455 -0.327 -0.609 0.52 1.366 ...
+ $ RaceHorse.WeightDeltaRatioSdv      : num  -1.506 -0.337 -0.623 0.503 1.325 ...
+ $ RaceHorse.HandicapSdv              : num  -1.8819 -2.7849 0.8271 -0.0759 -0.9789 ...
+ $ RaceHorse.HandicapRatioSdv         : num  -0.0392 -0.0421 0.8694 -0.9424 -1.1048 ...
+ $ RaceHorse.FinishTimeSdvByRace      : num  0.486 -2.242 -1.491 0.188 -0.744 ...
+ $ RaceHorse.FirstTimeSdvByRace       : num  0.567 -2.269 -1.47 0.118 -0.846 ...
+ $ RaceHorse.LastTimeSdvByRace        : num  0.144 -2.121 -1.566 0.471 -0.232 ...
+ $ RaceHorse.FinishTimeSdv            : num  -0.13599 -3.11581 -2.32988 -0.00761 -0.93171 ...
+ $ RaceHorse.FirstTimeSdv             : num  -0.1058 -3.0592 -2.2532 -0.0292 -0.9676 ...
+ $ RaceHorse.LastTimeSdv              : num  -0.2715 -3.075 -2.4501 0.0862 -0.7614 ...
+ $ RaceHorse.IsHitA                   : num  0 0 0 0 0 0 0 0 0 1 ...
+ $ RaceHorse.IsHitB                   : num  0 0 0 0 0 1 0 0 0 1 ...
+ $ RaceHorse.IsHitC                   : num  0 0 0 0 0 1 0 0 1 1 ...
+ $ DataMining.DmTimeSdv               : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ DataMiningTaisen.TmScoreSdv        : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ OddsByWin.Odds1                    : num  150.5 85.4 7.5 3.1 23.7 ...
+ $ OddsByWin.RealOdds1                : num  188.12 106.75 9.38 3.88 29.62 ...
+ $ OddsByWin.Ninki                    : num  14 11 4 1 7 10 4 9 11 1 ...
+ $ OddsByWin.OddsLog1                 : num  5.01 4.45 2.01 1.13 3.17 ...
+ $ OddsByWin.ApprovalRate1            : num  0.00532 0.00937 0.10667 0.25806 0.03376 ...
+ $ OddsByWin.RealOddsLog1             : num  5.24 4.67 2.24 1.35 3.39 ...
+ $ OddsByWin.RealApprovalRate1        : num  0.00664 0.01171 0.13333 0.32258 0.04219 ...
+ $ Horse.Ketto3InfoHansyokuNum1       : Factor w/ 155 levels "11202006","11201901",..: 10 9 11 3 12 13 14 15 16 6 ...
+ $ Horse.Ketto3InfoHansyokuNum2       : Factor w/ 535 levels "12256409","12243278",..: 11 12 13 3 14 15 16 17 18 6 ...
+ $ RaceHorse.ChokyosiCode             : Factor w/ 188 levels "00415","01053",..: 11 12 13 14 15 16 17 18 19 6 ...
+ $ RaceHorse.BanusiCode               : Factor w/ 275 levels "270006","764001",..: 10 11 12 3 13 3 14 15 16 6 ...
+ $ RaceHorse.KisyuCode                : Factor w/ 33 levels "01069","01046",..: 10 11 5 1 12 3 13 14 15 5 ...
+ $ EOF                                : int  1 1 1 1 1 1 1 1 1 1 ...
+NULL
+[1] "2022-03-13 19:06:24 --- transform Finish ---"
+[1] "2022-03-13 19:06:24 --- na.omit Start ---"
+[1] "--------------------------------------------------------------------------------"
+[1] "nrow(data) na.omit before=3031"
+[1] "nrow(data) na.omit after =3023"
+[1] "nrow(data) na.omit diff =8"
+[1] "--------------------------------------------------------------------------------"
+'data.frame':	3023 obs. of  48 variables:
+ $ Race.RaceId                        : Factor w/ 255 levels "20160109-06-01-02-08",..: 9 10 10 11 12 13 14 15 15 15 ...
+ $ Race.IsAnalyzeNormalPastAndFuture  : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPast           : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalFuture         : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.IsAnalyzeFullPastAndFuture    : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullPast             : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullFuture           : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.JyokenCd                      : Factor w/ 1 level "1": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.JyoType1Cd                    : Factor w/ 61 levels "52-06-3200-1",..: 3 5 5 1 6 1 7 8 8 8 ...
+ $ Race.RaceType1Cd                   : Factor w/ 2 levels "3-1-19","3-1-18": 1 1 1 1 1 1 2 2 2 2 ...
+ $ RaceHorse.RaceId                   : Factor w/ 255 levels "20160109-06-01-02-08",..: 9 10 10 11 12 13 14 15 15 15 ...
+ $ RaceHorse.KettoNum                 : Factor w/ 552 levels "2011102192","2010102599",..: 11 12 13 3 14 15 16 17 18 6 ...
+ $ RaceHorse.IsValidRaceHorse         : logi  TRUE FALSE FALSE TRUE TRUE TRUE ...
+ $ RaceHorse.HorseNumRatio            : num  0.643 0.583 0.833 0.917 0.462 ...
+ $ RaceHorse.WeightSdvByRace          : num  -0.227 -0.93 -0.588 0.977 0.989 ...
+ $ RaceHorse.WeightDeltaSdvByRace     : num  -1.111 -0.223 -0.519 0.32 2.016 ...
+ $ RaceHorse.WeightDeltaRatioSdvByRace: num  -1.081 -0.214 -0.529 0.321 1.92 ...
+ $ RaceHorse.HandicapSdvByRace        : num  -1.884 -2.008 1.847 -0.302 -1.143 ...
+ $ RaceHorse.HandicapRatioSdvByRace   : num  -0.377 0.351 1.26 -1.027 -1.194 ...
+ $ RaceHorse.WeightSdv                : num  -0.691 -1.015 -0.609 0.932 0.77 ...
+ $ RaceHorse.WeightDeltaSdv           : num  -1.455 -0.327 -0.609 0.52 1.366 ...
+ $ RaceHorse.WeightDeltaRatioSdv      : num  -1.506 -0.337 -0.623 0.503 1.325 ...
+ $ RaceHorse.HandicapSdv              : num  -1.8819 -2.7849 0.8271 -0.0759 -0.9789 ...
+ $ RaceHorse.HandicapRatioSdv         : num  -0.0392 -0.0421 0.8694 -0.9424 -1.1048 ...
+ $ RaceHorse.FinishTimeSdvByRace      : num  0.486 -2.242 -1.491 0.188 -0.744 ...
+ $ RaceHorse.FirstTimeSdvByRace       : num  0.567 -2.269 -1.47 0.118 -0.846 ...
+ $ RaceHorse.LastTimeSdvByRace        : num  0.144 -2.121 -1.566 0.471 -0.232 ...
+ $ RaceHorse.FinishTimeSdv            : num  -0.13599 -3.11581 -2.32988 -0.00761 -0.93171 ...
+ $ RaceHorse.FirstTimeSdv             : num  -0.1058 -3.0592 -2.2532 -0.0292 -0.9676 ...
+ $ RaceHorse.LastTimeSdv              : num  -0.2715 -3.075 -2.4501 0.0862 -0.7614 ...
+ $ RaceHorse.IsHitA                   : num  0 0 0 0 0 0 0 0 0 1 ...
+ $ RaceHorse.IsHitB                   : num  0 0 0 0 0 1 0 0 0 1 ...
+ $ RaceHorse.IsHitC                   : num  0 0 0 0 0 1 0 0 1 1 ...
+ $ DataMining.DmTimeSdv               : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ DataMiningTaisen.TmScoreSdv        : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ OddsByWin.Odds1                    : num  150.5 85.4 7.5 3.1 23.7 ...
+ $ OddsByWin.RealOdds1                : num  188.12 106.75 9.38 3.88 29.62 ...
+ $ OddsByWin.Ninki                    : num  14 11 4 1 7 10 4 9 11 1 ...
+ $ OddsByWin.OddsLog1                 : num  5.01 4.45 2.01 1.13 3.17 ...
+ $ OddsByWin.ApprovalRate1            : num  0.00532 0.00937 0.10667 0.25806 0.03376 ...
+ $ OddsByWin.RealOddsLog1             : num  5.24 4.67 2.24 1.35 3.39 ...
+ $ OddsByWin.RealApprovalRate1        : num  0.00664 0.01171 0.13333 0.32258 0.04219 ...
+ $ Horse.Ketto3InfoHansyokuNum1       : Factor w/ 155 levels "11202006","11201901",..: 10 9 11 3 12 13 14 15 16 6 ...
+ $ Horse.Ketto3InfoHansyokuNum2       : Factor w/ 535 levels "12256409","12243278",..: 11 12 13 3 14 15 16 17 18 6 ...
+ $ RaceHorse.ChokyosiCode             : Factor w/ 188 levels "00415","01053",..: 11 12 13 14 15 16 17 18 19 6 ...
+ $ RaceHorse.BanusiCode               : Factor w/ 275 levels "270006","764001",..: 10 11 12 3 13 3 14 15 16 6 ...
+ $ RaceHorse.KisyuCode                : Factor w/ 33 levels "01069","01046",..: 10 11 5 1 12 3 13 14 15 5 ...
+ $ EOF                                : int  1 1 1 1 1 1 1 1 1 1 ...
+ - attr(*, "na.action")= 'omit' Named int  924 1331 1431 1501 1738 1882 2017 2881
+  ..- attr(*, "names")= chr  "924" "1331" "1431" "1501" ...
+[1] "2022-03-13 19:06:25 --- na.omit Finish ---"
+[1] "2022-03-13 19:06:25 --- glmer Start ---"
+
+> print(paste0(Sys.time(), " --- source_logic_glmer.R Start ---"))
+[1] "2022-03-13 19:06:25 --- source_logic_glmer.R Start ---"
+
+> formula <- formula(RaceHorse.IsHitA ~ +1 + RaceHorse.WeightSdvByRace + 
++     RaceHorse.WeightDeltaSdvByRace + RaceHorse.WeightDeltaRatioSdvByRace + 
++     RaceHorse.HandicapSdvByRace + RaceHorse.HandicapRatioSdvByRace + 
++     DataMiningTaisen.TmScoreSdv + log(OddsByWin.RealOdds1) + 
++     (1 | Horse.Ketto3InfoHansyokuNum2) + (1 | RaceHorse.KisyuCode))
+
+> print(paste0(Sys.time(), " --- source_logic_glmer.R Finished ---"))
+[1] "2022-03-13 19:06:25 --- source_logic_glmer.R Finished ---"
+[1] "--------------------------------------------------------------------------------"
+[1] "analyze.results.summary"
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: 
+RaceHorse.IsHitA ~ +1 + RaceHorse.WeightSdvByRace + RaceHorse.WeightDeltaSdvByRace +  
+    RaceHorse.WeightDeltaRatioSdvByRace + RaceHorse.HandicapSdvByRace +  
+    RaceHorse.HandicapRatioSdvByRace + DataMiningTaisen.TmScoreSdv +  
+    log(OddsByWin.RealOdds1) + (1 | Horse.Ketto3InfoHansyokuNum2) +  
+    (1 | RaceHorse.KisyuCode)
+   Data: data
+
+     AIC      BIC   logLik deviance df.resid 
+    1447     1501     -714     1429     3014 
+
+Scaled residuals: 
+   Min     1Q Median     3Q    Max 
+-1.356 -0.317 -0.184 -0.098 10.714 
+
+Random effects:
+ Groups                       Name        Variance Std.Dev.
+ Horse.Ketto3InfoHansyokuNum2 (Intercept) 0.08223  0.2868  
+ RaceHorse.KisyuCode          (Intercept) 0.00332  0.0576  
+Number of obs: 3023, groups:  
+Horse.Ketto3InfoHansyokuNum2, 535; RaceHorse.KisyuCode, 33
+
+Fixed effects:
+                                    Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                           0.2315     0.1917    1.21    0.227    
+RaceHorse.WeightSdvByRace            -0.7550     0.5026   -1.50    0.133    
+RaceHorse.WeightDeltaSdvByRace        0.1830     1.5539    0.12    0.906    
+RaceHorse.WeightDeltaRatioSdvByRace  -0.2702     1.5568   -0.17    0.862    
+RaceHorse.HandicapSdvByRace           0.3189     0.1484    2.15    0.032 *  
+RaceHorse.HandicapRatioSdvByRace     -0.7333     0.5059   -1.45    0.147    
+log(OddsByWin.RealOdds1)             -1.0458     0.0767  -13.64   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            (Intr) RH.WSB RH.WDS RH.WDR RH.HSB RH.HRS
+RcHrs.WgSBR -0.028                                   
+RcHrs.WDSBR  0.034 -0.026                            
+RcHr.WDRSBR -0.034  0.023 -0.999                     
+RcHrs.HnSBR -0.125 -0.854  0.019 -0.017              
+RcHrs.HRSBR -0.009  0.989 -0.020  0.018 -0.855       
+lg(OBW.RO1) -0.886  0.035 -0.029  0.030  0.094  0.019
+fit warnings:
+fixed-effect model matrix is rank deficient so dropping 1 column / coefficient
+convergence code: 0
+Model failed to converge with max|grad| = 0.00804514 (tol = 0.001, component 1)
+
+[1] "--------------------------------------------------------------------------------"
+[1] "--------------------------------------------------------------------------------"
+[1] "--------------------------------------------------------------------------------"
+[1] "--------------------------------------------------------------------------------"
+[1] "logLik(analyze.results.step)=-714.277517600452"
+[1] "--------------------------------------------------------------------------------"
+[1] "--------------------------------------------------------------------------------"
+[1] "AIC(analyze.results.step)=1446.5550352009"
+[1] "--------------------------------------------------------------------------------"
+[1] "--------------------------------------------------------------------------------"
+[1] "analyze.results.step="
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: 
+RaceHorse.IsHitA ~ +1 + RaceHorse.WeightSdvByRace + RaceHorse.WeightDeltaSdvByRace +  
+    RaceHorse.WeightDeltaRatioSdvByRace + RaceHorse.HandicapSdvByRace +  
+    RaceHorse.HandicapRatioSdvByRace + DataMiningTaisen.TmScoreSdv +  
+    log(OddsByWin.RealOdds1) + (1 | Horse.Ketto3InfoHansyokuNum2) +  
+    (1 | RaceHorse.KisyuCode)
+   Data: data
+     AIC      BIC   logLik deviance df.resid 
+    1447     1501     -714     1429     3014 
+Random effects:
+ Groups                       Name        Std.Dev.
+ Horse.Ketto3InfoHansyokuNum2 (Intercept) 0.2868  
+ RaceHorse.KisyuCode          (Intercept) 0.0576  
+Number of obs: 3023, groups:  
+Horse.Ketto3InfoHansyokuNum2, 535; RaceHorse.KisyuCode, 33
+Fixed Effects:
+                        (Intercept)            RaceHorse.WeightSdvByRace  
+                              0.232                               -0.755  
+     RaceHorse.WeightDeltaSdvByRace  RaceHorse.WeightDeltaRatioSdvByRace  
+                              0.183                               -0.270  
+        RaceHorse.HandicapSdvByRace     RaceHorse.HandicapRatioSdvByRace  
+                              0.319                               -0.733  
+           log(OddsByWin.RealOdds1)  
+                             -1.046  
+fit warnings:
+fixed-effect model matrix is rank deficient so dropping 1 column / coefficient
+convergence code 0; 1 optimizer warnings; 0 lme4 warnings 
+[1] "--------------------------------------------------------------------------------"
+[1] "--------------------------------------------------------------------------------"
+[1] "analyze.results.step.summary"
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: 
+RaceHorse.IsHitA ~ +1 + RaceHorse.WeightSdvByRace + RaceHorse.WeightDeltaSdvByRace +  
+    RaceHorse.WeightDeltaRatioSdvByRace + RaceHorse.HandicapSdvByRace +  
+    RaceHorse.HandicapRatioSdvByRace + DataMiningTaisen.TmScoreSdv +  
+    log(OddsByWin.RealOdds1) + (1 | Horse.Ketto3InfoHansyokuNum2) +  
+    (1 | RaceHorse.KisyuCode)
+   Data: data
+
+     AIC      BIC   logLik deviance df.resid 
+    1447     1501     -714     1429     3014 
+
+Scaled residuals: 
+   Min     1Q Median     3Q    Max 
+-1.356 -0.317 -0.184 -0.098 10.714 
+
+Random effects:
+ Groups                       Name        Variance Std.Dev.
+ Horse.Ketto3InfoHansyokuNum2 (Intercept) 0.08223  0.2868  
+ RaceHorse.KisyuCode          (Intercept) 0.00332  0.0576  
+Number of obs: 3023, groups:  
+Horse.Ketto3InfoHansyokuNum2, 535; RaceHorse.KisyuCode, 33
+
+Fixed effects:
+                                    Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                           0.2315     0.1917    1.21    0.227    
+RaceHorse.WeightSdvByRace            -0.7550     0.5026   -1.50    0.133    
+RaceHorse.WeightDeltaSdvByRace        0.1830     1.5539    0.12    0.906    
+RaceHorse.WeightDeltaRatioSdvByRace  -0.2702     1.5568   -0.17    0.862    
+RaceHorse.HandicapSdvByRace           0.3189     0.1484    2.15    0.032 *  
+RaceHorse.HandicapRatioSdvByRace     -0.7333     0.5059   -1.45    0.147    
+log(OddsByWin.RealOdds1)             -1.0458     0.0767  -13.64   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            (Intr) RH.WSB RH.WDS RH.WDR RH.HSB RH.HRS
+RcHrs.WgSBR -0.028                                   
+RcHrs.WDSBR  0.034 -0.026                            
+RcHr.WDRSBR -0.034  0.023 -0.999                     
+RcHrs.HnSBR -0.125 -0.854  0.019 -0.017              
+RcHrs.HRSBR -0.009  0.989 -0.020  0.018 -0.855       
+lg(OBW.RO1) -0.886  0.035 -0.029  0.030  0.094  0.019
+fit warnings:
+fixed-effect model matrix is rank deficient so dropping 1 column / coefficient
+convergence code: 0
+Model failed to converge with max|grad| = 0.00804514 (tol = 0.001, component 1)
+
+[1] "--------------------------------------------------------------------------------"
+[1] "--------------------------------------------------------------------------------"
+[1] "analyze.results.step.fixef"
+                        (Intercept)           RaceHorse.WeightSdvByRace 
+                                0.2                                -0.8 
+     RaceHorse.WeightDeltaSdvByRace RaceHorse.WeightDeltaRatioSdvByRace 
+                                0.2                                -0.3 
+        RaceHorse.HandicapSdvByRace    RaceHorse.HandicapRatioSdvByRace 
+                                0.3                                -0.7 
+           log(OddsByWin.RealOdds1) 
+                               -1.0 
+[1] "--------------------------------------------------------------------------------"
+[1] "--------------------------------------------------------------------------------"
+[1] "analyze.results.step.ranef"
+$Horse.Ketto3InfoHansyokuNum2
+         (Intercept)
+12256409      -4e-03
+12243278      -5e-02
+12254831       9e-03
+12246262       8e-05
+12256159      -6e-03
+12253456       2e-02
+12257639      -2e-02
+12258603      -7e-03
+12257509      -4e-02
+12252889      -2e-02
+12246017      -1e-02
+12256333      -1e-03
+12248863      -1e-02
+12253123      -8e-03
+12250288      -2e-02
+12254746       1e-02
+12253685      -3e-02
+12260027       2e-01
+12251088      -2e-02
+12253655       3e-04
+12256096      -1e-03
+12256410      -5e-02
+12249516      -6e-03
+12426706       5e-02
+12252552      -2e-02
+12250145      -1e-02
+12257809      -5e-03
+12253939       5e-03
+12243322       1e-02
+12251765      -4e-02
+12244274       2e-02
+12253533       8e-02
+12253382      -8e-03
+12255249      -2e-02
+12251791       2e-02
+12243422      -3e-03
+12244504      -4e-02
+12257936       5e-02
+12250357      -4e-02
+12250450      -3e-03
+12253781       1e-01
+12256234      -8e-03
+12241092      -3e-02
+12250109      -5e-02
+12258778      -3e-02
+12254009       8e-02
+12249672      -2e-01
+12256144      -5e-03
+12249507      -7e-02
+12253552      -2e-02
+12248306       4e-02
+12241199      -1e-02
+12251759      -3e-02
+12253270      -2e-02
+12253069      -6e-03
+12252361      -1e-03
+12253370      -2e-02
+12241557      -3e-02
+12253371      -2e-02
+12257649      -9e-02
+12260656      -3e-02
+12258464      -1e-03
+12254246      -1e-02
+12253179      -1e-02
+12259459      -5e-02
+12429101       2e-02
+12259086      -4e-02
+12258294      -5e-02
+12252761      -2e-02
+12258821       7e-02
+12256893      -1e-02
+12238547      -9e-02
+12252789       5e-02
+12254552      -3e-02
+12251904       1e-02
+12261578      -4e-03
+12255946      -5e-03
+12249882      -5e-02
+12251200      -6e-03
+12256813       5e-02
+12255291      -1e-02
+12248239      -7e-02
+12247677      -8e-02
+12252670      -3e-02
+12253780       5e-02
+12252611       3e-02
+12256350       1e-01
+12256885       4e-02
+12246259       3e-02
+12259828       3e-02
+12259471      -2e-02
+12260675       7e-02
+12256581      -1e-02
+12255299      -2e-02
+12256023      -2e-02
+12253507      -9e-03
+12248916       3e-02
+12254619      -1e-02
+12250682       6e-02
+12253771       2e-01
+12248572       3e-02
+12247696      -5e-02
+12254238       3e-02
+12247119      -1e-02
+12251485      -1e-02
+12248214       1e-01
+12260471      -4e-02
+12253614       4e-02
+12252844      -9e-03
+12259569      -2e-02
+12246876      -1e-02
+12258800      -6e-03
+12250751       5e-02
+12254596      -3e-02
+12259955       7e-02
+12261410      -4e-02
+12259769       1e-01
+12231849      -3e-03
+12246249       6e-02
+12261094      -4e-03
+12427851      -6e-03
+12259131      -1e-02
+12259966      -2e-02
+12241684      -1e-02
+12252568      -2e-02
+12250681      -1e-02
+12249891      -5e-03
+12252190       1e-01
+12252277       2e-02
+12252544       1e-01
+12252685      -4e-02
+12253880      -8e-03
+12259654       6e-02
+12254875       7e-02
+12253812      -1e-02
+12253431      -7e-02
+12255966      -3e-02
+12255551      -4e-02
+12253728      -4e-03
+12248787      -4e-02
+12257377      -1e-02
+12255144       7e-02
+12246608      -1e-02
+12244953      -8e-02
+12255209       9e-02
+12248764      -1e-01
+12246306      -6e-03
+12253508      -3e-02
+12242652      -5e-02
+12250354      -2e-02
+12252856      -6e-02
+12239217      -3e-03
+12259539       1e-02
+12258260       4e-02
+12249947      -3e-02
+12248972      -5e-02
+12259527      -1e-02
+12254056      -9e-02
+12252252      -2e-02
+12256312       2e-01
+12255461       5e-02
+12235432      -7e-03
+12251360       1e-01
+12248512       8e-03
+12257741      -2e-02
+12257883       1e-01
+12261316       1e-01
+12258249       7e-02
+12255044      -3e-02
+12245958      -3e-02
+12257411       4e-02
+12248921      -4e-02
+12250173      -1e-02
+12253872       5e-02
+12250244      -2e-02
+12250499      -1e-02
+12250384      -2e-02
+12250429      -2e-02
+12257807      -2e-02
+12254305      -1e-03
+12251645      -1e-02
+12242605      -2e-02
+12244770      -6e-03
+12255832      -1e-02
+12247302      -1e-02
+12245620      -1e-02
+12248928      -4e-03
+12248241      -5e-03
+12256728      -3e-03
+12255337       3e-02
+12256367       1e-01
+12243271       8e-02
+12254602      -5e-02
+12259235      -4e-04
+12241364      -8e-03
+12259096      -1e-02
+12255073      -2e-02
+12255176      -9e-02
+12254824      -2e-02
+12250438      -9e-02
+12241802      -5e-02
+12255425       2e-01
+12256389      -3e-03
+12246006       5e-02
+12256777      -2e-02
+12250329      -6e-03
+12259558      -3e-02
+12248943      -2e-03
+12257421      -2e-02
+12257422      -4e-02
+12256514      -7e-02
+12257802       4e-03
+12260983      -1e-02
+12257890      -9e-03
+12247064      -1e-03
+12256891      -1e-02
+12253883      -2e-02
+12247100      -4e-03
+12254734       4e-02
+12259097      -1e-02
+12257342      -1e-01
+12258176      -2e-03
+12255943      -2e-02
+12256426      -4e-03
+12245594      -4e-03
+12257840       9e-02
+12251358       5e-02
+12256185       1e-01
+12260805      -2e-02
+12256304      -4e-02
+12242411       1e-02
+12252468      -2e-02
+12255280      -4e-02
+12252197      -4e-02
+12253107       6e-02
+12251041       5e-02
+12242005      -2e-02
+12243793      -2e-02
+12255569      -6e-03
+12250171       5e-02
+12248760      -4e-03
+12252402      -5e-03
+12255360       3e-01
+12255674      -2e-02
+12258299      -7e-02
+12254761       5e-02
+12256509       1e-01
+12257579      -8e-03
+12256319       4e-03
+12253130      -7e-04
+12258888      -2e-02
+12252739      -1e-02
+12254242       6e-02
+12259805      -9e-03
+12262894       2e-01
+12262147       3e-02
+12246773      -7e-02
+12253606      -2e-02
+12256018       1e-01
+12256584      -6e-03
+12256361      -1e-02
+12255876      -5e-03
+12257508      -4e-02
+12255502       3e-02
+12251668      -4e-02
+12256425      -2e-02
+12262247      -1e-02
+12249065      -1e-02
+12255830      -7e-03
+12252214      -4e-02
+12241755       6e-02
+12244571      -2e-02
+12251836      -2e-03
+12254843      -3e-03
+12254916      -2e-02
+12256604       6e-02
+12251339      -1e-02
+12255274      -7e-03
+12249085      -1e-02
+12240130       3e-02
+12249058      -4e-02
+12254872      -6e-02
+12253763      -2e-02
+12246917      -4e-03
+12250974      -6e-03
+12246139       5e-02
+12260625      -6e-03
+12259116      -3e-02
+12252848      -8e-04
+12254016       3e-02
+12255819       4e-01
+12253022      -3e-02
+12257483       1e-01
+12430160       5e-02
+12254195      -3e-02
+12258483      -5e-02
+12258454      -1e-02
+12254376       6e-02
+12263755      -4e-02
+12259555      -1e-02
+12255113       4e-02
+12256906      -6e-03
+12252892      -3e-03
+12253926      -5e-02
+12260132       4e-02
+12250424      -2e-03
+12256730      -1e-02
+12260530      -4e-03
+12244477      -1e-02
+12258298      -2e-03
+12256193      -3e-03
+12257046      -4e-02
+12426650      -3e-02
+12250226      -1e-03
+12253943       1e-02
+12255764      -2e-02
+12251992      -1e-02
+12247139      -8e-03
+12256877       2e-01
+12257600      -1e-02
+12251330      -6e-03
+12257414       5e-02
+12254419      -5e-03
+12256532      -5e-02
+12255774       1e-01
+12262885      -6e-02
+12258754      -1e-02
+12429651      -6e-03
+12249182      -5e-02
+12429402      -5e-02
+22200856      -3e-02
+12260209       1e-01
+12258622       7e-02
+12257373      -6e-02
+12257180      -8e-03
+12252973       1e-01
+12254833      -5e-03
+12256307      -4e-02
+12256098      -1e-03
+12257505      -4e-02
+12256564       5e-02
+12256119      -2e-03
+12253535      -4e-02
+12257433      -2e-03
+12254004      -2e-03
+12257668      -3e-03
+12251529      -3e-02
+12241611      -7e-03
+12258957      -9e-03
+12256771      -3e-03
+12261982      -2e-03
+12256227      -1e-03
+12254570      -3e-02
+12244517      -4e-03
+12251124      -5e-03
+12255083      -4e-02
+12253566      -4e-03
+12244793      -3e-02
+12257087      -2e-02
+12250172      -3e-02
+12253555      -3e-02
+12246878      -1e-02
+12256521      -3e-03
+12256261      -1e-02
+12253159      -1e-02
+12258205      -2e-03
+12256237       4e-02
+12256770      -6e-02
+12258980      -2e-03
+12257129      -3e-02
+12249254      -1e-02
+12254180      -6e-03
+12258516       3e-02
+12244891      -3e-03
+12259464      -1e-02
+12252608      -2e-03
+12247467      -2e-02
+12255153      -8e-03
+12250704      -3e-03
+12246336      -7e-03
+12252123      -4e-03
+12258928      -9e-03
+12251472      -2e-02
+12250708      -6e-03
+12251466      -3e-03
+12247619      -2e-02
+12252822      -1e-02
+12257060      -5e-03
+12262714      -3e-03
+12260078      -2e-03
+12261508      -1e-02
+12258648      -2e-02
+12251094      -2e-03
+12257213      -2e-02
+12252840       8e-04
+12236759      -1e-03
+12250677      -4e-03
+12262609      -9e-03
+12251489      -2e-03
+12253402      -1e-01
+12252589       3e-02
+12258246      -1e-02
+12254553      -5e-02
+12248029      -1e-02
+12242528       6e-02
+12243607      -1e-02
+12258490       6e-02
+12259757      -3e-02
+12257897       7e-02
+12254023      -2e-02
+12252851      -1e-02
+12248913       4e-02
+12253234      -5e-03
+12243387       6e-02
+12254228       1e-01
+12250916      -5e-03
+12243382      -6e-03
+12257220      -5e-03
+12260550       5e-02
+12251677      -6e-03
+12262729      -5e-03
+12259243      -1e-02
+12253356      -1e-02
+12252959      -1e-02
+12247743      -3e-02
+12245431      -1e-02
+12251697      -3e-03
+12259750      -5e-03
+12258645      -1e-02
+12259798      -2e-03
+12255821       5e-02
+12242529       2e-02
+12249074      -3e-03
+12254057      -2e-02
+12259763       4e-02
+12262719      -3e-02
+12246776      -9e-03
+12245951      -1e-02
+12429178      -9e-03
+12256512      -3e-02
+12255129       5e-02
+12246341      -1e-03
+12255361      -2e-03
+12430096      -3e-03
+12256005      -6e-03
+12256683      -3e-03
+12255870      -9e-03
+12261322      -7e-03
+12259292      -3e-03
+12244532      -5e-04
+12257812      -1e-02
+12258509      -1e-02
+12250283      -5e-03
+12252919      -5e-03
+12256364      -2e-02
+12253981      -2e-02
+12248902      -3e-03
+12252174      -5e-03
+12252809      -2e-02
+12255437      -3e-03
+12247362      -2e-03
+12254041      -6e-04
+12259656       3e-02
+12254603      -1e-03
+12260968      -1e-03
+12245162      -1e-02
+12251830      -3e-03
+12245101      -7e-03
+12251465      -3e-02
+12257025      -8e-04
+12246311      -5e-03
+12259566      -2e-03
+12255089      -5e-03
+12257355      -5e-03
+12261945      -2e-02
+12251277      -2e-03
+12258047      -5e-03
+12253432      -1e-02
+12256360      -9e-03
+12258599      -1e-02
+12246383       4e-02
+12251886      -8e-03
+12249780      -9e-03
+12256332      -9e-03
+12250117       6e-02
+12255090       8e-02
+12258843       6e-02
+12431595      -3e-03
+12255553      -1e-02
+12258351      -2e-03
+12255237      -6e-03
+12262157      -3e-03
+12250769      -3e-03
+12257097      -2e-02
+12254117      -2e-02
+12255353      -2e-03
+12257702      -1e-02
+12258471      -3e-03
+12255049      -6e-03
+12255670      -7e-03
+12255954      -1e-02
+12260773      -5e-02
+12241405      -5e-03
+12251493      -7e-03
+12256592      -8e-03
+12248674      -2e-03
+12256186      -9e-03
+12256376      -3e-03
+12259658      -3e-02
+12252742      -4e-03
+12254235      -1e-02
+12251680      -2e-03
+12255727      -4e-04
+12252018      -5e-03
+12248386      -1e-02
+12239095      -4e-03
+12428544       4e-02
+12260253      -2e-02
+12255880      -1e-03
+12431363      -2e-02
+12256073       7e-02
+12258799      -8e-03
+12258052      -1e-03
+12256853      -2e-03
+12253889      -2e-02
+12258553      -4e-03
+12242448      -2e-03
+12245256      -1e-03
+12247058      -2e-02
+12254744      -6e-03
+12239248      -8e-03
+12249434      -4e-03
+12261615      -9e-04
+12247656      -2e-03
+12253785      -2e-02
+
+$RaceHorse.KisyuCode
+      (Intercept)
+01069       5e-03
+01046       7e-03
+00727       2e-02
+01068       1e-03
+00652      -6e-03
+01080      -1e-03
+01035      -2e-02
+01059       2e-02
+01087      -4e-03
+01120      -2e-03
+01143       2e-03
+00691      -9e-03
+01067       1e-02
+01113       8e-05
+01101       3e-03
+01139       1e-02
+01063      -2e-02
+00655       5e-03
+01105      -2e-03
+00695      -1e-03
+01066      -2e-03
+01023       9e-04
+01008       2e-03
+01052       5e-03
+01089      -2e-03
+01123      -2e-03
+01149      -1e-03
+01072      -1e-03
+01005      -9e-03
+01082       5e-03
+01061      -7e-04
+01119      -4e-04
+01159       4e-03
+
+[1] "--------------------------------------------------------------------------------"
+[1] "2022-03-13 19:06:35 --- glmer Finish ---"
+[1] "2022-03-13 19:06:35 --- save.image Start ---"
+[1] "save.image"
+[1] "rdataFilename=RData_analyze_glmer_Basic_Type31.RData"
+[1] "2022-03-13 19:06:35 --- save.image Finish ---"
+[1] "2022-03-13 19:06:35 --- final Start ---"
+[1] "--------------------------------------------------------------------------------"
+[1] "nrow(data) final=3023"
+[1] "--------------------------------------------------------------------------------"
+[1] "2022-03-13 19:06:35 --- final Finish ---"
+[1] "2022-03-13 19:06:35 --- analyze_glmer.R Finished ---"
+[1] "2022-03-13 19:06:35 --- log Finish ---"

@@ -1,0 +1,3375 @@
+[1] "2022-03-13 19:06:17 --- D1117_analyze_glmer_Basic_IsHitA_Type13 Start ---"
+[1] "2022-03-13 19:06:17 --- Log Start ---"
+[1] "2022-03-13 19:06:17 --- analyze_glmer.R Start ---"
+[1] "analyzeVersion=D1117"
+[1] "analyzeCategory=analyze"
+[1] "analyzeType=Basic"
+[1] "analyzeFamily=IsHitA"
+[1] "analyzeFunc=glmer"
+[1] "analyzeTrackTypeCd=1"
+[1] "analyzeJyokenCd=3"
+[1] "2022-03-13 19:06:17 --- source_function.R Start ---"
+[1] "2022-03-13 19:06:17 --- source_function.R Finished ---"
+
+> print(paste0(Sys.time(), " --- source_library.R Start ---"))
+[1] "2022-03-13 19:06:17 --- source_library.R Start ---"
+
+> require("RevoScaleR")
+
+> require(MASS)
+
+> require(lme4)
+
+> print(paste0(Sys.time(), " --- source_library.R Finished ---"))
+[1] "2022-03-13 19:06:19 --- source_library.R Finished ---"
+[1] "2022-03-13 19:06:19 --- RxSqlServerData Start ---"
+[1] "2022-03-13 19:06:19 --- RxInSqlServer Start ---"
+[1] "2022-03-13 19:06:19 --- RxInSqlServer Finish ---"
+[1] "2022-03-13 19:06:19 --- rxSetComputeContext Start ---"
+[1] "2022-03-13 19:06:19 --- rxSetComputeContext Finish ---"
+[1] "2022-03-13 19:06:19 --- RxSqlServerData Start ---"
+[1] "sqlQuery=SELECT * FROM ViewAnalyzeD1117analyze01BasicType13"
+[1] "2022-03-13 19:06:19 --- RxSqlServerData Finish ---"
+[1] "2022-03-13 19:06:19 --- rxGetVarInfo Start ---"
+[1] "2022-03-13 19:06:20 --- rxGetVarInfo Finish---"
+[1] "2022-03-13 19:06:20 --- rxImport Start ---"
+Rows Read: 17717, Total Rows Processed: 17717, Total Chunk Time: 1.123 seconds 
+[1] "2022-03-13 19:06:23 --- rxImport Finish ---"
+[1] "object.size(data) auto=6 Mb"
+[1] "--------------------------------------------------------------------------------"
+[1] "nrow(data) RxSqlServerData=17717"
+[1] "--------------------------------------------------------------------------------"
+[1] "str(data)="
+'data.frame':	17717 obs. of  48 variables:
+ $ Race.RaceId                        : Factor w/ 1430 levels "20160105-06-01-01-12",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Race.IsAnalyzeNormalPastAndFuture  : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPast           : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalFuture         : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.IsAnalyzeFullPastAndFuture    : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullPast             : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullFuture           : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.JyokenCd                      : Factor w/ 1 level "3": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.JyoType1Cd                    : Factor w/ 168 levels "18-06-1600-1",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Race.RaceType1Cd                   : Factor w/ 2 levels "1-3-14","1-3-13": 1 1 1 1 1 1 1 1 1 1 ...
+ $ RaceHorse.RaceId                   : Factor w/ 1430 levels "20160105-06-01-01-12",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ RaceHorse.KettoNum                 : Factor w/ 3518 levels "2011103326","2012100287",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ RaceHorse.IsValidRaceHorse         : logi  TRUE FALSE TRUE TRUE TRUE TRUE ...
+ $ RaceHorse.HorseNumRatio            : num  0.0625 0.125 0.1875 0.25 0.3125 ...
+ $ RaceHorse.WeightSdvByRace          : num  0.257 -0.0367 0.3548 0.5506 0.0612 ...
+ $ RaceHorse.WeightDeltaSdvByRace     : num  0.0318 -0.9847 0.0318 0.54 -0.2224 ...
+ $ RaceHorse.WeightDeltaRatioSdvByRace: num  0.025 -0.965 0.023 0.505 -0.219 ...
+ $ RaceHorse.HandicapSdvByRace        : num  -0.243 -0.243 1.698 1.698 -1.213 ...
+ $ RaceHorse.HandicapRatioSdvByRace   : num  -0.507 -0.129 0.463 0.21 -0.81 ...
+ $ RaceHorse.WeightSdv                : num  0.39 0.159 0.466 0.62 0.236 ...
+ $ RaceHorse.WeightDeltaSdv           : num  0.59 -0.684 0.59 1.227 0.271 ...
+ $ RaceHorse.WeightDeltaRatioSdv      : num  0.583 -0.673 0.581 1.192 0.274 ...
+ $ RaceHorse.HandicapSdv              : num  -0.337 -0.337 0.937 0.937 -0.974 ...
+ $ RaceHorse.HandicapRatioSdv         : num  -0.589 -0.3714 -0.0301 -0.1761 -0.7635 ...
+ $ RaceHorse.FinishTimeSdvByRace      : num  -0.132 -3.051 1.166 0.355 0.841 ...
+ $ RaceHorse.FirstTimeSdvByRace       : num  -0.1 0.358 1.276 -1.248 1.735 ...
+ $ RaceHorse.LastTimeSdvByRace        : num  -0.0505 -2.7415 0.2186 1.026 -0.3196 ...
+ $ RaceHorse.FinishTimeSdv            : num  0.413 -1.142 1.105 0.673 0.932 ...
+ $ RaceHorse.FirstTimeSdv             : num  0.805 1.061 1.573 0.164 1.83 ...
+ $ RaceHorse.LastTimeSdv              : num  -0.1626 -2.3308 0.0542 0.7047 -0.3795 ...
+ $ RaceHorse.IsHitA                   : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHitB                   : num  0 0 1 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHitC                   : num  0 0 1 0 1 0 0 0 0 0 ...
+ $ DataMining.DmTimeSdv               : num  0.8236 -2.2928 0.7346 1.0314 0.0223 ...
+ $ DataMiningTaisen.TmScoreSdv        : num  0.9834 -1.5306 0.5496 0.0123 -0.1208 ...
+ $ OddsByWin.Odds1                    : num  12.4 137.9 8.9 26.3 10.3 ...
+ $ OddsByWin.RealOdds1                : num  15.5 172.4 11.1 32.9 12.9 ...
+ $ OddsByWin.Ninki                    : num  5 13 3 8 4 11 12 6 10 15 ...
+ $ OddsByWin.OddsLog1                 : num  2.52 4.93 2.19 3.27 2.33 ...
+ $ OddsByWin.ApprovalRate1            : num  0.0645 0.0058 0.0899 0.0304 0.0777 ...
+ $ OddsByWin.RealOddsLog1             : num  2.74 5.15 2.41 3.49 2.56 ...
+ $ OddsByWin.RealApprovalRate1        : num  0.08065 0.00725 0.11236 0.03802 0.09709 ...
+ $ Horse.Ketto3InfoHansyokuNum1       : Factor w/ 335 levels "11201916","11201954",..: 9 10 11 12 13 14 15 16 17 18 ...
+ $ Horse.Ketto3InfoHansyokuNum2       : Factor w/ 2763 levels "12255330","12258268",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ RaceHorse.ChokyosiCode             : Factor w/ 248 levels "01048","01086",..: 11 12 12 13 14 10 15 16 17 18 ...
+ $ RaceHorse.BanusiCode               : Factor w/ 823 levels "839004","032800",..: 11 12 13 14 15 16 17 18 3 19 ...
+ $ RaceHorse.KisyuCode                : Factor w/ 208 levels "01151","05386",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ EOF                                : int  1 1 1 1 1 1 1 1 1 1 ...
+[1] "2022-03-13 19:06:24 --- RxSqlServerData Finish ---"
+[1] "2022-03-13 19:06:24 --- subset Start ---"
+[1] "--------------------------------------------------------------------------------"
+[1] "nrow(data) subset before=17717"
+[1] "nrow(data) subset after =17717"
+[1] "nrow(data) subset diff =0"
+[1] "--------------------------------------------------------------------------------"
+[1] "2022-03-13 19:06:24 --- Subset Finish---"
+[1] "2022-03-13 19:06:24 --- transform Start ---"
+[1] "--------------------------------------------------------------------------------"
+[1] "nrow(data) transform before=17717"
+[1] "nrow(data) transform after=17717"
+[1] "nrow(data) transform diff=0"
+[1] "--------------------------------------------------------------------------------"
+[1] "str(data)="
+'data.frame':	17717 obs. of  48 variables:
+ $ Race.RaceId                        : Factor w/ 1430 levels "20160105-06-01-01-12",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Race.IsAnalyzeNormalPastAndFuture  : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPast           : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalFuture         : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.IsAnalyzeFullPastAndFuture    : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullPast             : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullFuture           : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.JyokenCd                      : Factor w/ 1 level "3": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.JyoType1Cd                    : Factor w/ 168 levels "18-06-1600-1",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Race.RaceType1Cd                   : Factor w/ 2 levels "1-3-14","1-3-13": 1 1 1 1 1 1 1 1 1 1 ...
+ $ RaceHorse.RaceId                   : Factor w/ 1430 levels "20160105-06-01-01-12",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ RaceHorse.KettoNum                 : Factor w/ 3518 levels "2011103326","2012100287",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ RaceHorse.IsValidRaceHorse         : logi  TRUE FALSE TRUE TRUE TRUE TRUE ...
+ $ RaceHorse.HorseNumRatio            : num  0.0625 0.125 0.1875 0.25 0.3125 ...
+ $ RaceHorse.WeightSdvByRace          : num  0.257 -0.0367 0.3548 0.5506 0.0612 ...
+ $ RaceHorse.WeightDeltaSdvByRace     : num  0.0318 -0.9847 0.0318 0.54 -0.2224 ...
+ $ RaceHorse.WeightDeltaRatioSdvByRace: num  0.025 -0.965 0.023 0.505 -0.219 ...
+ $ RaceHorse.HandicapSdvByRace        : num  -0.243 -0.243 1.698 1.698 -1.213 ...
+ $ RaceHorse.HandicapRatioSdvByRace   : num  -0.507 -0.129 0.463 0.21 -0.81 ...
+ $ RaceHorse.WeightSdv                : num  0.39 0.159 0.466 0.62 0.236 ...
+ $ RaceHorse.WeightDeltaSdv           : num  0.59 -0.684 0.59 1.227 0.271 ...
+ $ RaceHorse.WeightDeltaRatioSdv      : num  0.583 -0.673 0.581 1.192 0.274 ...
+ $ RaceHorse.HandicapSdv              : num  -0.337 -0.337 0.937 0.937 -0.974 ...
+ $ RaceHorse.HandicapRatioSdv         : num  -0.589 -0.3714 -0.0301 -0.1761 -0.7635 ...
+ $ RaceHorse.FinishTimeSdvByRace      : num  -0.132 -3.051 1.166 0.355 0.841 ...
+ $ RaceHorse.FirstTimeSdvByRace       : num  -0.1 0.358 1.276 -1.248 1.735 ...
+ $ RaceHorse.LastTimeSdvByRace        : num  -0.0505 -2.7415 0.2186 1.026 -0.3196 ...
+ $ RaceHorse.FinishTimeSdv            : num  0.413 -1.142 1.105 0.673 0.932 ...
+ $ RaceHorse.FirstTimeSdv             : num  0.805 1.061 1.573 0.164 1.83 ...
+ $ RaceHorse.LastTimeSdv              : num  -0.1626 -2.3308 0.0542 0.7047 -0.3795 ...
+ $ RaceHorse.IsHitA                   : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHitB                   : num  0 0 1 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHitC                   : num  0 0 1 0 1 0 0 0 0 0 ...
+ $ DataMining.DmTimeSdv               : num  0.8236 -2.2928 0.7346 1.0314 0.0223 ...
+ $ DataMiningTaisen.TmScoreSdv        : num  0.9834 -1.5306 0.5496 0.0123 -0.1208 ...
+ $ OddsByWin.Odds1                    : num  12.4 137.9 8.9 26.3 10.3 ...
+ $ OddsByWin.RealOdds1                : num  15.5 172.4 11.1 32.9 12.9 ...
+ $ OddsByWin.Ninki                    : num  5 13 3 8 4 11 12 6 10 15 ...
+ $ OddsByWin.OddsLog1                 : num  2.52 4.93 2.19 3.27 2.33 ...
+ $ OddsByWin.ApprovalRate1            : num  0.0645 0.0058 0.0899 0.0304 0.0777 ...
+ $ OddsByWin.RealOddsLog1             : num  2.74 5.15 2.41 3.49 2.56 ...
+ $ OddsByWin.RealApprovalRate1        : num  0.08065 0.00725 0.11236 0.03802 0.09709 ...
+ $ Horse.Ketto3InfoHansyokuNum1       : Factor w/ 335 levels "11201916","11201954",..: 9 10 11 12 13 14 15 16 17 18 ...
+ $ Horse.Ketto3InfoHansyokuNum2       : Factor w/ 2763 levels "12255330","12258268",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ RaceHorse.ChokyosiCode             : Factor w/ 248 levels "01048","01086",..: 11 12 12 13 14 10 15 16 17 18 ...
+ $ RaceHorse.BanusiCode               : Factor w/ 823 levels "839004","032800",..: 11 12 13 14 15 16 17 18 3 19 ...
+ $ RaceHorse.KisyuCode                : Factor w/ 208 levels "01151","05386",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ EOF                                : int  1 1 1 1 1 1 1 1 1 1 ...
+NULL
+[1] "2022-03-13 19:06:25 --- transform Finish ---"
+[1] "2022-03-13 19:06:25 --- na.omit Start ---"
+[1] "--------------------------------------------------------------------------------"
+[1] "nrow(data) na.omit before=17717"
+[1] "nrow(data) na.omit after =17657"
+[1] "nrow(data) na.omit diff =60"
+[1] "--------------------------------------------------------------------------------"
+'data.frame':	17657 obs. of  48 variables:
+ $ Race.RaceId                        : Factor w/ 1430 levels "20160105-06-01-01-12",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Race.IsAnalyzeNormalPastAndFuture  : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalPast           : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeNormalFuture         : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.IsAnalyzeFullPastAndFuture    : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullPast             : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+ $ Race.IsAnalyzeFullFuture           : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Race.JyokenCd                      : Factor w/ 1 level "3": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Race.JyoType1Cd                    : Factor w/ 168 levels "18-06-1600-1",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Race.RaceType1Cd                   : Factor w/ 2 levels "1-3-14","1-3-13": 1 1 1 1 1 1 1 1 1 1 ...
+ $ RaceHorse.RaceId                   : Factor w/ 1430 levels "20160105-06-01-01-12",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ RaceHorse.KettoNum                 : Factor w/ 3518 levels "2011103326","2012100287",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ RaceHorse.IsValidRaceHorse         : logi  TRUE FALSE TRUE TRUE TRUE TRUE ...
+ $ RaceHorse.HorseNumRatio            : num  0.0625 0.125 0.1875 0.25 0.3125 ...
+ $ RaceHorse.WeightSdvByRace          : num  0.257 -0.0367 0.3548 0.5506 0.0612 ...
+ $ RaceHorse.WeightDeltaSdvByRace     : num  0.0318 -0.9847 0.0318 0.54 -0.2224 ...
+ $ RaceHorse.WeightDeltaRatioSdvByRace: num  0.025 -0.965 0.023 0.505 -0.219 ...
+ $ RaceHorse.HandicapSdvByRace        : num  -0.243 -0.243 1.698 1.698 -1.213 ...
+ $ RaceHorse.HandicapRatioSdvByRace   : num  -0.507 -0.129 0.463 0.21 -0.81 ...
+ $ RaceHorse.WeightSdv                : num  0.39 0.159 0.466 0.62 0.236 ...
+ $ RaceHorse.WeightDeltaSdv           : num  0.59 -0.684 0.59 1.227 0.271 ...
+ $ RaceHorse.WeightDeltaRatioSdv      : num  0.583 -0.673 0.581 1.192 0.274 ...
+ $ RaceHorse.HandicapSdv              : num  -0.337 -0.337 0.937 0.937 -0.974 ...
+ $ RaceHorse.HandicapRatioSdv         : num  -0.589 -0.3714 -0.0301 -0.1761 -0.7635 ...
+ $ RaceHorse.FinishTimeSdvByRace      : num  -0.132 -3.051 1.166 0.355 0.841 ...
+ $ RaceHorse.FirstTimeSdvByRace       : num  -0.1 0.358 1.276 -1.248 1.735 ...
+ $ RaceHorse.LastTimeSdvByRace        : num  -0.0505 -2.7415 0.2186 1.026 -0.3196 ...
+ $ RaceHorse.FinishTimeSdv            : num  0.413 -1.142 1.105 0.673 0.932 ...
+ $ RaceHorse.FirstTimeSdv             : num  0.805 1.061 1.573 0.164 1.83 ...
+ $ RaceHorse.LastTimeSdv              : num  -0.1626 -2.3308 0.0542 0.7047 -0.3795 ...
+ $ RaceHorse.IsHitA                   : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHitB                   : num  0 0 1 0 0 0 0 0 0 0 ...
+ $ RaceHorse.IsHitC                   : num  0 0 1 0 1 0 0 0 0 0 ...
+ $ DataMining.DmTimeSdv               : num  0.8236 -2.2928 0.7346 1.0314 0.0223 ...
+ $ DataMiningTaisen.TmScoreSdv        : num  0.9834 -1.5306 0.5496 0.0123 -0.1208 ...
+ $ OddsByWin.Odds1                    : num  12.4 137.9 8.9 26.3 10.3 ...
+ $ OddsByWin.RealOdds1                : num  15.5 172.4 11.1 32.9 12.9 ...
+ $ OddsByWin.Ninki                    : num  5 13 3 8 4 11 12 6 10 15 ...
+ $ OddsByWin.OddsLog1                 : num  2.52 4.93 2.19 3.27 2.33 ...
+ $ OddsByWin.ApprovalRate1            : num  0.0645 0.0058 0.0899 0.0304 0.0777 ...
+ $ OddsByWin.RealOddsLog1             : num  2.74 5.15 2.41 3.49 2.56 ...
+ $ OddsByWin.RealApprovalRate1        : num  0.08065 0.00725 0.11236 0.03802 0.09709 ...
+ $ Horse.Ketto3InfoHansyokuNum1       : Factor w/ 335 levels "11201916","11201954",..: 9 10 11 12 13 14 15 16 17 18 ...
+ $ Horse.Ketto3InfoHansyokuNum2       : Factor w/ 2763 levels "12255330","12258268",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ RaceHorse.ChokyosiCode             : Factor w/ 248 levels "01048","01086",..: 11 12 12 13 14 10 15 16 17 18 ...
+ $ RaceHorse.BanusiCode               : Factor w/ 823 levels "839004","032800",..: 11 12 13 14 15 16 17 18 3 19 ...
+ $ RaceHorse.KisyuCode                : Factor w/ 208 levels "01151","05386",..: 11 12 13 14 15 16 17 18 19 20 ...
+ $ EOF                                : int  1 1 1 1 1 1 1 1 1 1 ...
+ - attr(*, "na.action")= 'omit' Named int  839 1355 1434 1597 1682 1754 1796 3352 3790 4103 ...
+  ..- attr(*, "names")= chr  "839" "1355" "1434" "1597" ...
+[1] "2022-03-13 19:06:25 --- na.omit Finish ---"
+[1] "2022-03-13 19:06:25 --- glmer Start ---"
+
+> print(paste0(Sys.time(), " --- source_logic_glmer.R Start ---"))
+[1] "2022-03-13 19:06:25 --- source_logic_glmer.R Start ---"
+
+> formula <- formula(RaceHorse.IsHitA ~ +1 + RaceHorse.WeightSdvByRace + 
++     RaceHorse.WeightDeltaSdvByRace + RaceHorse.WeightDeltaRatioSdvByRace + 
++     RaceHorse.HandicapSdvByRace + RaceHorse.HandicapRatioSdvByRace + 
++     DataMiningTaisen.TmScoreSdv + log(OddsByWin.RealOdds1) + 
++     (1 | Horse.Ketto3InfoHansyokuNum2) + (1 | RaceHorse.KisyuCode))
+
+> print(paste0(Sys.time(), " --- source_logic_glmer.R Finished ---"))
+[1] "2022-03-13 19:06:25 --- source_logic_glmer.R Finished ---"
+[1] "--------------------------------------------------------------------------------"
+[1] "analyze.results.summary"
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: 
+RaceHorse.IsHitA ~ +1 + RaceHorse.WeightSdvByRace + RaceHorse.WeightDeltaSdvByRace +  
+    RaceHorse.WeightDeltaRatioSdvByRace + RaceHorse.HandicapSdvByRace +  
+    RaceHorse.HandicapRatioSdvByRace + DataMiningTaisen.TmScoreSdv +  
+    log(OddsByWin.RealOdds1) + (1 | Horse.Ketto3InfoHansyokuNum2) +  
+    (1 | RaceHorse.KisyuCode)
+   Data: data
+
+     AIC      BIC   logLik deviance df.resid 
+    8106     8184    -4043     8086    17647 
+
+Scaled residuals: 
+   Min     1Q Median     3Q    Max 
+-1.158 -0.317 -0.175 -0.089 25.998 
+
+Random effects:
+ Groups                       Name        Variance Std.Dev.
+ Horse.Ketto3InfoHansyokuNum2 (Intercept) 3.33e-09 5.77e-05
+ RaceHorse.KisyuCode          (Intercept) 8.93e-03 9.45e-02
+Number of obs: 17657, groups:  
+Horse.Ketto3InfoHansyokuNum2, 2762; RaceHorse.KisyuCode, 208
+
+Fixed effects:
+                                    Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                           0.8091     0.1277    6.34  2.3e-10 ***
+RaceHorse.WeightSdvByRace            -0.3783     0.1331   -2.84   0.0045 ** 
+RaceHorse.WeightDeltaSdvByRace       -0.2180     0.5902   -0.37   0.7118    
+RaceHorse.WeightDeltaRatioSdvByRace   0.1648     0.5906    0.28   0.7802    
+RaceHorse.HandicapSdvByRace           0.0929     0.0608    1.53   0.1262    
+RaceHorse.HandicapRatioSdvByRace     -0.4067     0.1302   -3.12   0.0018 ** 
+DataMiningTaisen.TmScoreSdv          -0.1321     0.0511   -2.58   0.0098 ** 
+log(OddsByWin.RealOdds1)             -1.2561     0.0470  -26.72  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            (Intr) RH.WSB RH.WDS RH.WDR RH.HSB RH.HRS DMT.TS
+RcHrs.WgSBR -0.013                                          
+RcHrs.WDSBR  0.009 -0.042                                   
+RcHr.WDRSBR -0.012  0.041 -0.999                            
+RcHrs.HnSBR  0.113 -0.868  0.016 -0.015                     
+RcHrs.HRSBR -0.004  0.971 -0.018  0.019 -0.862              
+DtMnngT.TSS -0.779 -0.020 -0.011  0.014 -0.097 -0.023       
+lg(OBW.RO1) -0.949  0.017 -0.003  0.007 -0.101  0.010  0.677
+convergence code: 0
+singular fit
+
+[1] "--------------------------------------------------------------------------------"
+[1] "--------------------------------------------------------------------------------"
+[1] "--------------------------------------------------------------------------------"
+[1] "--------------------------------------------------------------------------------"
+[1] "logLik(analyze.results.step)=-4043.20854761645"
+[1] "--------------------------------------------------------------------------------"
+[1] "--------------------------------------------------------------------------------"
+[1] "AIC(analyze.results.step)=8106.41709523291"
+[1] "--------------------------------------------------------------------------------"
+[1] "--------------------------------------------------------------------------------"
+[1] "analyze.results.step="
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: 
+RaceHorse.IsHitA ~ +1 + RaceHorse.WeightSdvByRace + RaceHorse.WeightDeltaSdvByRace +  
+    RaceHorse.WeightDeltaRatioSdvByRace + RaceHorse.HandicapSdvByRace +  
+    RaceHorse.HandicapRatioSdvByRace + DataMiningTaisen.TmScoreSdv +  
+    log(OddsByWin.RealOdds1) + (1 | Horse.Ketto3InfoHansyokuNum2) +  
+    (1 | RaceHorse.KisyuCode)
+   Data: data
+     AIC      BIC   logLik deviance df.resid 
+    8106     8184    -4043     8086    17647 
+Random effects:
+ Groups                       Name        Std.Dev.
+ Horse.Ketto3InfoHansyokuNum2 (Intercept) 5.77e-05
+ RaceHorse.KisyuCode          (Intercept) 9.45e-02
+Number of obs: 17657, groups:  
+Horse.Ketto3InfoHansyokuNum2, 2762; RaceHorse.KisyuCode, 208
+Fixed Effects:
+                        (Intercept)            RaceHorse.WeightSdvByRace  
+                             0.8091                              -0.3783  
+     RaceHorse.WeightDeltaSdvByRace  RaceHorse.WeightDeltaRatioSdvByRace  
+                            -0.2180                               0.1648  
+        RaceHorse.HandicapSdvByRace     RaceHorse.HandicapRatioSdvByRace  
+                             0.0929                              -0.4067  
+        DataMiningTaisen.TmScoreSdv             log(OddsByWin.RealOdds1)  
+                            -0.1321                              -1.2561  
+convergence code 0; 1 optimizer warnings; 0 lme4 warnings 
+[1] "--------------------------------------------------------------------------------"
+[1] "--------------------------------------------------------------------------------"
+[1] "analyze.results.step.summary"
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: 
+RaceHorse.IsHitA ~ +1 + RaceHorse.WeightSdvByRace + RaceHorse.WeightDeltaSdvByRace +  
+    RaceHorse.WeightDeltaRatioSdvByRace + RaceHorse.HandicapSdvByRace +  
+    RaceHorse.HandicapRatioSdvByRace + DataMiningTaisen.TmScoreSdv +  
+    log(OddsByWin.RealOdds1) + (1 | Horse.Ketto3InfoHansyokuNum2) +  
+    (1 | RaceHorse.KisyuCode)
+   Data: data
+
+     AIC      BIC   logLik deviance df.resid 
+    8106     8184    -4043     8086    17647 
+
+Scaled residuals: 
+   Min     1Q Median     3Q    Max 
+-1.158 -0.317 -0.175 -0.089 25.998 
+
+Random effects:
+ Groups                       Name        Variance Std.Dev.
+ Horse.Ketto3InfoHansyokuNum2 (Intercept) 3.33e-09 5.77e-05
+ RaceHorse.KisyuCode          (Intercept) 8.93e-03 9.45e-02
+Number of obs: 17657, groups:  
+Horse.Ketto3InfoHansyokuNum2, 2762; RaceHorse.KisyuCode, 208
+
+Fixed effects:
+                                    Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                           0.8091     0.1277    6.34  2.3e-10 ***
+RaceHorse.WeightSdvByRace            -0.3783     0.1331   -2.84   0.0045 ** 
+RaceHorse.WeightDeltaSdvByRace       -0.2180     0.5902   -0.37   0.7118    
+RaceHorse.WeightDeltaRatioSdvByRace   0.1648     0.5906    0.28   0.7802    
+RaceHorse.HandicapSdvByRace           0.0929     0.0608    1.53   0.1262    
+RaceHorse.HandicapRatioSdvByRace     -0.4067     0.1302   -3.12   0.0018 ** 
+DataMiningTaisen.TmScoreSdv          -0.1321     0.0511   -2.58   0.0098 ** 
+log(OddsByWin.RealOdds1)             -1.2561     0.0470  -26.72  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            (Intr) RH.WSB RH.WDS RH.WDR RH.HSB RH.HRS DMT.TS
+RcHrs.WgSBR -0.013                                          
+RcHrs.WDSBR  0.009 -0.042                                   
+RcHr.WDRSBR -0.012  0.041 -0.999                            
+RcHrs.HnSBR  0.113 -0.868  0.016 -0.015                     
+RcHrs.HRSBR -0.004  0.971 -0.018  0.019 -0.862              
+DtMnngT.TSS -0.779 -0.020 -0.011  0.014 -0.097 -0.023       
+lg(OBW.RO1) -0.949  0.017 -0.003  0.007 -0.101  0.010  0.677
+convergence code: 0
+singular fit
+
+[1] "--------------------------------------------------------------------------------"
+[1] "--------------------------------------------------------------------------------"
+[1] "analyze.results.step.fixef"
+                        (Intercept)           RaceHorse.WeightSdvByRace 
+                               0.81                               -0.38 
+     RaceHorse.WeightDeltaSdvByRace RaceHorse.WeightDeltaRatioSdvByRace 
+                              -0.22                                0.16 
+        RaceHorse.HandicapSdvByRace    RaceHorse.HandicapRatioSdvByRace 
+                               0.09                               -0.41 
+        DataMiningTaisen.TmScoreSdv            log(OddsByWin.RealOdds1) 
+                              -0.13                               -1.26 
+[1] "--------------------------------------------------------------------------------"
+[1] "--------------------------------------------------------------------------------"
+[1] "analyze.results.step.ranef"
+$Horse.Ketto3InfoHansyokuNum2
+         (Intercept)
+12255330      -1e-10
+12258268      -2e-09
+12255163      -2e-09
+12251691      -6e-09
+12251127      -1e-10
+12251870      -4e-10
+12256311       3e-09
+12257523      -1e-10
+12256411      -1e-10
+12258089      -2e-10
+12251954       2e-09
+12257163      -4e-09
+12252231       2e-09
+12251566      -4e-10
+12424523       5e-09
+12249691      -2e-09
+12257055      -3e-10
+12252352      -2e-09
+12255347       3e-09
+12253860      -1e-10
+12257430       3e-09
+12252135      -9e-10
+12254991      -2e-10
+12254376      -1e-09
+12253720      -2e-10
+12255767       4e-10
+12426533      -9e-11
+12250618       2e-09
+12253913      -9e-09
+12254812      -6e-10
+12254795       3e-09
+12242528      -2e-09
+12248972      -4e-09
+12256407      -5e-10
+12241310      -1e-11
+12257409      -4e-09
+12247711      -1e-10
+12255152       3e-09
+12427457      -1e-09
+12249613       9e-10
+12252214      -3e-10
+12258093       1e-09
+12257565      -7e-10
+12253990      -2e-09
+12255132       2e-09
+12250442       5e-09
+12242555      -7e-09
+12250066      -9e-09
+12257166      -5e-10
+12245060      -6e-10
+12251904       3e-09
+12254579       2e-09
+12255291      -3e-10
+12257390       7e-10
+12246674       2e-10
+12255065      -1e-09
+12243558       3e-09
+12248245       2e-09
+12244759       3e-09
+12248362      -4e-11
+12257453      -1e-09
+12256026       3e-09
+12241379       2e-09
+12255979      -2e-10
+12255148      -4e-10
+12251979      -2e-09
+12251809      -3e-11
+12255497       3e-09
+12251483      -8e-10
+12254943      -4e-11
+12254013       3e-09
+12257048      -3e-10
+12255018      -3e-10
+12240290      -5e-09
+12255342       4e-09
+12248351      -2e-09
+12242897      -1e-09
+12254141       1e-09
+12250986      -3e-10
+12428430      -1e-09
+12428107       9e-10
+12255524      -1e-11
+12254927       2e-09
+12247701      -7e-10
+12253876       9e-10
+12254423       1e-10
+12252263      -1e-10
+12246643      -7e-11
+12255128      -1e-10
+12251479      -1e-08
+12251684      -2e-09
+12251216      -1e-09
+12250371       9e-10
+12247644      -1e-10
+12257298      -2e-09
+12255207       2e-09
+12256278      -2e-09
+12245204      -1e-10
+12255341      -4e-09
+12252781      -3e-09
+12256195       2e-09
+12255277      -2e-09
+12250364      -2e-09
+12256498      -3e-11
+12252960      -7e-10
+12245491      -1e-10
+12252372      -4e-10
+12254711       1e-10
+12250067      -1e-09
+12247716       1e-09
+12255894       4e-09
+12255124      -7e-10
+12254167      -9e-09
+12252846      -4e-09
+12256088      -2e-09
+12244347       1e-09
+12254330      -1e-10
+12254517      -3e-10
+12253911      -4e-09
+12250255      -4e-10
+12253365      -9e-10
+12249791      -7e-10
+12257421      -8e-09
+12253179       3e-09
+12252750       2e-09
+12252953      -6e-09
+12254469      -8e-10
+12246483      -1e-10
+12258506      -2e-09
+12253904      -6e-09
+12247362      -3e-10
+12252917      -2e-09
+12257376       2e-09
+12255133      -4e-10
+12253983      -7e-09
+12251486      -2e-09
+12245702      -9e-10
+12427553      -3e-09
+12253046       2e-09
+12248082       1e-09
+12247677      -2e-09
+12255075      -1e-09
+12252369      -3e-09
+12255241      -1e-09
+12257392      -5e-10
+12256426      -2e-09
+12255263      -9e-10
+12257486      -4e-10
+12252402      -5e-10
+12253955      -2e-10
+12251494      -2e-09
+12258380      -2e-09
+12257195       3e-09
+12250443      -1e-09
+12250745      -3e-09
+12251634      -1e-09
+12250210       5e-09
+12254078       2e-09
+12252905      -1e-09
+12252948       5e-10
+12255070      -2e-09
+12252731      -1e-09
+12247155      -3e-09
+12256145      -4e-09
+12247132      -8e-10
+12246655      -2e-09
+12237650      -5e-11
+12251630      -3e-09
+12253940       1e-09
+12255607      -4e-10
+12251477       8e-10
+12254761       6e-09
+12250185      -2e-10
+12252822      -2e-10
+12256796      -2e-10
+12233066      -1e-10
+12250144      -2e-10
+12254419      -9e-10
+12240911      -6e-10
+12255515      -9e-10
+12252283      -4e-10
+12250101      -2e-09
+12256726       2e-09
+12249182       3e-09
+12252919      -4e-10
+12245272      -9e-10
+12250373      -2e-09
+12255865      -4e-09
+12257397       7e-10
+12428098      -3e-10
+12246336       3e-09
+12254609      -9e-11
+12249348       3e-09
+12247361      -4e-09
+12252287       2e-09
+12256926       2e-09
+12253669      -7e-12
+12427373      -3e-10
+12254595       2e-09
+12257311      -2e-10
+12254586       1e-09
+12244834       2e-09
+12253937      -2e-09
+12250143      -1e-10
+12250438      -1e-10
+12253527      -1e-10
+12251000       4e-10
+12254228      -3e-09
+12257454       6e-10
+12242531      -2e-09
+12237220      -4e-10
+12255835      -2e-09
+12256431      -6e-09
+12247909      -4e-11
+12255069      -1e-09
+12251726       1e-09
+12256782      -9e-10
+12254442       3e-09
+12252833       3e-09
+12255688      -3e-09
+12245562      -5e-11
+12253929       2e-09
+12256430      -2e-09
+12255087       3e-11
+12255176       2e-09
+12253316      -9e-10
+12253018      -7e-10
+12253568       4e-09
+12252733      -9e-09
+12258313       2e-09
+12254082       3e-09
+12255147       4e-09
+12427216      -5e-10
+12255505      -2e-09
+12252487      -3e-09
+12253584      -7e-10
+12255329       3e-09
+12253685      -1e-10
+12256321      -2e-10
+12255861      -2e-10
+12251622      -7e-12
+12251091      -6e-10
+12246562       2e-09
+12257741       1e-09
+12253338      -6e-10
+12253812      -2e-09
+12257401       1e-09
+12247540      -3e-10
+12254263      -2e-09
+12254944      -1e-10
+12253608      -6e-11
+12245907      -4e-11
+12242316      -1e-09
+12246259      -1e-11
+12255011       5e-09
+12255947      -7e-10
+12249940      -1e-10
+12253910      -1e-09
+12256624      -4e-09
+12252854      -1e-10
+12254477      -2e-11
+12252687      -1e-11
+12252764       2e-09
+12256186       3e-09
+12237360       2e-09
+12255973      -1e-09
+12251474      -5e-10
+12253926       4e-09
+12256467      -2e-10
+12253853       3e-09
+12252858       3e-09
+12254065       4e-10
+12252770       2e-09
+12254111      -3e-10
+12257619      -8e-09
+12256368      -1e-09
+12248943      -5e-09
+12257332      -1e-10
+12255046      -9e-10
+12253915      -3e-09
+12235432      -1e-09
+12251530      -5e-10
+12253409      -1e-11
+12252249       3e-09
+12256246      -6e-10
+12254773      -3e-11
+12247671      -4e-09
+12245220      -7e-10
+12255114       3e-09
+12248930      -1e-09
+12254570       7e-09
+12255144      -8e-10
+12247642      -6e-09
+12252246       2e-09
+12246606      -4e-10
+12245583      -4e-10
+12247709      -4e-09
+12242192      -5e-10
+12243420      -2e-11
+12258482       6e-10
+12243867       6e-10
+12251475       7e-10
+12250337      -1e-09
+12248091       3e-09
+12249515       9e-10
+12254869      -1e-10
+12256791      -5e-10
+12246861      -5e-11
+12246169      -5e-09
+12252778      -1e-09
+12256148      -2e-09
+12256369       2e-09
+12248363       2e-09
+12254079      -2e-11
+12243007      -2e-09
+12254121      -1e-09
+12255567       4e-09
+12255597      -1e-10
+12255303      -1e-09
+12258298      -5e-09
+12249061      -3e-11
+12255302       8e-10
+12254275      -1e-09
+12251791      -1e-09
+12256093       5e-09
+12248145      -9e-11
+12243280       3e-09
+12253897      -4e-11
+12248767       2e-09
+12251330       2e-09
+12427405      -2e-11
+12257204      -2e-09
+12244468      -7e-11
+12250232      -5e-10
+12246006      -2e-09
+12254080      -5e-10
+12252651      -1e-10
+12254875      -1e-11
+12250615       3e-09
+12252279       2e-09
+12248876      -1e-10
+12257017      -2e-09
+12255102       3e-09
+12256255       3e-10
+12254142      -2e-09
+12241887      -4e-12
+12256027      -1e-10
+12244458      -5e-10
+12251348      -1e-11
+12251914      -4e-10
+12242615      -6e-11
+12257589      -5e-10
+12245828      -4e-10
+12244760      -2e-10
+12254625       1e-09
+12246141      -2e-10
+12254041       9e-10
+12242414      -8e-12
+12251830      -6e-11
+12244532       1e-10
+12244620      -9e-12
+12253107      -8e-10
+12255385      -3e-10
+12248809      -5e-12
+12252702      -3e-11
+12242795      -4e-11
+12230030      -5e-12
+12251200      -5e-10
+12427425      -9e-10
+12246654      -1e-09
+12255299       2e-09
+12257385       1e-09
+12256138      -9e-10
+12255274      -7e-09
+12252123       9e-10
+12255182      -2e-11
+12255717      -2e-09
+12253980       4e-10
+12243300      -9e-12
+12257202      -5e-10
+12259106      -5e-10
+12250529      -2e-09
+12253367      -6e-10
+12255953      -1e-09
+12252879       4e-10
+12255088       1e-09
+12251356      -7e-10
+12258924       4e-09
+12253212       3e-09
+12250360      -2e-09
+12253944      -1e-10
+12252165      -3e-10
+12257203       2e-09
+12257438       2e-09
+12251910      -2e-11
+12246756       3e-09
+12250921      -1e-10
+12252048       2e-09
+12250097      -7e-11
+12251685      -7e-10
+12254254      -4e-10
+12251515      -2e-11
+12252473       3e-09
+12255242      -1e-08
+12245162      -1e-09
+12248460       5e-09
+12427507      -4e-09
+12255496      -1e-10
+12254198       2e-09
+12243338      -5e-11
+12238905      -4e-10
+12253922      -3e-10
+12414260       1e-09
+12253454       3e-09
+12255129      -2e-11
+12255946      -4e-11
+12252790       6e-09
+12255016      -7e-10
+12246931      -6e-12
+12252551      -4e-10
+12244710       3e-09
+12252838      -6e-10
+12245145      -5e-12
+12249526      -4e-10
+12242605      -4e-10
+12253620      -6e-10
+12250890      -6e-09
+12256859      -6e-11
+12254007       7e-09
+12255608      -2e-10
+12257522      -2e-09
+12427484      -3e-10
+12254791      -7e-10
+12254234      -6e-11
+12253372      -2e-09
+12257549      -2e-09
+12248353      -2e-10
+12253387      -8e-10
+12257379      -3e-09
+12248459       3e-09
+12243928      -3e-09
+12242547      -9e-11
+12252786       5e-10
+12246305       3e-09
+12253889      -3e-09
+12254492       5e-09
+12254921       3e-09
+12249517       2e-09
+12241561      -2e-11
+12243752      -4e-10
+12254644      -2e-10
+12248485      -1e-09
+12249541      -7e-10
+12251093      -4e-09
+12257936      -8e-09
+12257560       2e-09
+12241398      -9e-11
+12252950       6e-09
+12255086       5e-09
+12256449       2e-10
+12255382      -2e-09
+12255270       2e-09
+12237849      -2e-09
+12256335       2e-09
+12257482      -3e-09
+12250417      -2e-09
+12250627      -2e-09
+12256362       5e-09
+12255068      -1e-09
+12259649       8e-10
+12241352      -1e-09
+12256893       4e-09
+12256285      -2e-09
+12254126      -5e-10
+12258334      -2e-09
+12251973       3e-09
+12428439       2e-09
+12249058      -7e-09
+12245058      -3e-10
+12250469       2e-09
+12255602      -8e-10
+12248963       1e-09
+12255312       2e-09
+12252548       2e-09
+12254110       3e-09
+12252755       1e-09
+12250470      -2e-09
+12248916      -5e-11
+12250731      -1e-09
+12251439       3e-09
+12250852      -2e-11
+12257406      -7e-10
+12251238      -4e-09
+12251583      -1e-09
+12258126       2e-09
+12254324       2e-09
+12258007       3e-11
+12257544      -2e-09
+12254047      -2e-09
+12256300      -1e-09
+12253355      -1e-09
+12242862      -7e-10
+12251452      -3e-11
+12257934       2e-09
+12248674      -2e-09
+12255081      -5e-10
+12254632      -4e-10
+12247916       2e-09
+12247528      -2e-09
+12255340       8e-10
+12249877       2e-09
+12251688       8e-10
+12254547       2e-09
+12255818       3e-09
+12255461       1e-09
+12245782      -1e-11
+12258495       4e-09
+12255273      -2e-09
+12246139       3e-09
+12252849      -1e-09
+12245701      -9e-11
+12254114      -1e-10
+12245292       4e-10
+12243770      -2e-11
+12256253      -6e-10
+12250400      -1e-09
+12258493      -1e-09
+12258307      -2e-09
+12240651      -3e-11
+12253146       3e-09
+12249596      -4e-11
+12254303      -2e-09
+12253782       3e-10
+12257393       2e-09
+12255719       5e-09
+12254161       5e-09
+12252910      -3e-11
+12245489      -5e-11
+12252873      -3e-10
+12428955      -3e-10
+12249521       3e-09
+12256425       2e-09
+12249692      -7e-10
+12252964      -2e-11
+12254500      -8e-12
+12255732      -1e-10
+12249630      -8e-10
+12255462       3e-09
+12258372       4e-09
+12256585      -2e-10
+12251693       3e-09
+12256393      -1e-11
+12257568      -3e-09
+12243853      -4e-10
+12251619      -1e-09
+12256891       2e-09
+12248946       2e-09
+12427976       2e-09
+12254317      -1e-10
+12243282      -6e-10
+12253069      -2e-11
+12247921       3e-09
+12250014      -3e-10
+12247763      -4e-11
+12254168      -2e-09
+12247794      -2e-10
+12250580       3e-09
+12253664      -9e-11
+12247271      -2e-10
+12257361       2e-09
+12256354      -1e-09
+12243067      -2e-10
+12255004      -3e-10
+12257384      -2e-09
+12259599      -3e-09
+12242247       2e-09
+12257460       2e-09
+12241562      -5e-11
+12248706      -6e-10
+12242514      -1e-10
+12251192      -2e-09
+12258456       2e-09
+12253661      -6e-11
+12244863      -1e-11
+12428544       4e-09
+12256475       5e-10
+12250352      -7e-11
+12246652      -3e-10
+12251835      -4e-11
+12257769      -4e-11
+12247736      -1e-09
+12254876      -5e-11
+12250575      -3e-09
+12253419       2e-09
+12257897       2e-09
+12256500      -1e-09
+12254246      -7e-10
+12254552       2e-09
+12254098      -4e-09
+12252703      -2e-09
+12253989      -9e-10
+12252365      -5e-11
+12247707      -3e-09
+12257508       2e-09
+12247454      -1e-11
+12253924       3e-09
+12428969      -2e-10
+12251433       2e-09
+12247717       6e-10
+12255232       2e-09
+12239076      -1e-10
+12252794      -3e-10
+12252998      -1e-11
+12256002      -3e-09
+12258498      -3e-09
+12257849      -1e-10
+12257678       9e-10
+12257022       2e-09
+12252201      -1e-11
+12257362      -8e-10
+12256453      -2e-10
+12252959       2e-09
+12249438      -2e-11
+12258646       1e-09
+12253858      -1e-09
+12243495      -4e-10
+12255495       1e-09
+12250233       2e-10
+12246715      -1e-09
+12254063      -2e-11
+12258622       1e-09
+12256494      -2e-11
+12254465      -9e-12
+12258449       2e-09
+12246522      -4e-10
+12255936      -9e-11
+12257107      -2e-10
+12254192       3e-09
+12253933      -4e-09
+12259773       1e-09
+12246773      -6e-10
+12254626      -7e-10
+12254551       2e-09
+12259653      -6e-10
+12255031       2e-09
+12256509       3e-09
+12250338      -1e-09
+12252744       3e-09
+12253778       4e-09
+12257945      -9e-11
+12249349       3e-09
+12256777       6e-10
+12250194      -7e-10
+12256953      -5e-11
+12256514      -1e-10
+12249075      -5e-09
+12256557      -5e-09
+12259397      -5e-10
+12256249       1e-08
+12255278       3e-10
+12256009      -5e-11
+12251225       6e-10
+12258339      -2e-10
+12427411      -8e-10
+12249163      -1e-10
+12251487       3e-09
+12251501      -7e-12
+12246730      -3e-10
+12255213      -5e-11
+12256710      -4e-10
+12255613      -1e-10
+12243388       3e-09
+12257328      -1e-09
+12257359      -1e-10
+12255811      -4e-10
+12256364       3e-09
+12257325      -2e-09
+12251522       2e-09
+12257100      -5e-09
+12257827       2e-09
+12253828      -1e-11
+12257764      -1e-09
+12249516      -1e-09
+12255386      -7e-10
+12246330      -3e-09
+12255120      -4e-10
+12243799      -1e-09
+12256485       2e-09
+12257368       2e-09
+12257696       3e-09
+12256637      -8e-11
+12251088      -2e-10
+12256808      -2e-10
+12258310      -3e-09
+12250717      -9e-10
+12258563      -1e-09
+12259475      -8e-10
+12252735       2e-09
+12257520      -5e-10
+12259478      -5e-12
+12256533       2e-09
+12252340       5e-09
+12250886      -9e-12
+12256505       5e-10
+12250096      -8e-10
+12255149      -1e-09
+12247787       3e-09
+12255172       1e-09
+12254813      -1e-11
+12254010      -2e-10
+12257526      -5e-11
+12249339      -2e-10
+12254949       3e-09
+12247661      -3e-11
+12253994      -1e-09
+12258419       2e-09
+12250526      -6e-10
+12247526      -7e-10
+12257556       4e-09
+12251613      -2e-09
+12251584      -2e-09
+12251548       7e-10
+12259509      -1e-09
+12254483       2e-09
+12256424       3e-09
+12253984       3e-09
+12254227      -2e-09
+12258607      -4e-09
+12248446       3e-09
+12256381      -2e-10
+12251593       9e-09
+12255532      -1e-10
+12255012      -1e-10
+12254636      -2e-11
+12253154      -4e-10
+12258436      -5e-11
+12428334      -6e-11
+12256380       3e-09
+12242644      -1e-11
+12252327      -2e-11
+12427539      -2e-09
+12258172       3e-09
+12256245      -8e-10
+12243072      -2e-09
+12252140      -5e-12
+12255914      -1e-11
+12246373      -8e-11
+12245085      -6e-11
+12252477      -1e-11
+12257089      -5e-09
+12258508      -4e-10
+12246316      -2e-09
+12252312      -1e-10
+12429023      -1e-09
+12251760      -3e-11
+12248128       2e-10
+12255260      -1e-09
+12249626      -3e-09
+12246313      -3e-09
+12250837      -6e-11
+12428283      -2e-09
+12243433       3e-09
+12258293      -8e-11
+12255380       4e-09
+12254242       4e-09
+12250424       5e-09
+12253625      -2e-09
+12427859      -7e-12
+12258900      -5e-09
+12249695      -1e-10
+12253155      -1e-09
+12255145      -7e-09
+12252566      -2e-11
+12253511       6e-09
+12257970      -3e-09
+12257197      -1e-10
+12247718      -2e-09
+12250867      -5e-10
+12258151      -5e-09
+12256190       2e-09
+12257463      -9e-10
+12428952      -5e-11
+12257097       2e-09
+12247175      -2e-10
+12254425      -3e-11
+12244246       3e-09
+12258555       3e-09
+12256294       3e-09
+12246979      -6e-11
+12248434      -2e-09
+12249559      -4e-12
+12254205      -1e-10
+12256135      -8e-10
+12252688       3e-09
+12257575      -2e-10
+12252795      -2e-09
+12255977      -9e-11
+12256261      -7e-09
+12254671      -5e-09
+12257220      -3e-11
+12256389       1e-09
+12257160       1e-09
+12252738       7e-10
+12256516      -2e-11
+12258594      -3e-09
+12258579       9e-10
+12249587      -1e-09
+12252179      -4e-09
+12258609       3e-09
+12249158       2e-09
+12249254      -7e-10
+12238896      -2e-09
+12248141      -9e-10
+12252104       7e-10
+12258395      -2e-09
+12253404       1e-09
+12254787      -3e-09
+12253710       2e-10
+12251632      -2e-10
+12257314       2e-09
+12255142       9e-11
+12258207      -1e-09
+12256361       2e-09
+12249400      -6e-11
+12255113       2e-09
+12259198      -1e-09
+12251481       2e-09
+12248844      -3e-11
+12253785      -5e-11
+12252173      -1e-09
+12256152      -4e-11
+12257975      -1e-09
+12255972      -2e-09
+12242551      -5e-10
+12260638       3e-09
+12253588      -8e-10
+12255091      -7e-11
+12248557       2e-09
+12258450      -6e-10
+12254961      -4e-12
+12248914       3e-10
+12258571       1e-09
+12428455      -3e-11
+12259548      -7e-10
+12243789      -1e-08
+12244248      -7e-10
+12246306      -1e-09
+12255024      -3e-09
+12248960      -3e-11
+12256736      -4e-11
+12254292      -2e-11
+12258462      -7e-09
+12255135      -4e-10
+12428339      -1e-10
+12255819       3e-09
+12252181      -1e-09
+12252638       4e-09
+12427560       5e-09
+12245219       3e-09
+12255079       5e-09
+12252772       5e-10
+12258505       2e-09
+12252856      -4e-11
+12255111      -1e-10
+12253557      -5e-11
+12256744      -9e-12
+12252486      -5e-10
+12255038       3e-10
+12259570       3e-09
+12253717       1e-09
+12256390      -1e-10
+12254023       2e-09
+12257629      -3e-09
+12248694      -3e-10
+12254984       2e-10
+12251034      -2e-09
+12253388       2e-09
+12258507       1e-09
+12258260      -1e-10
+12428011       1e-09
+12256203      -8e-11
+12253470      -2e-11
+12254204      -5e-09
+12252739      -2e-09
+12245407      -1e-10
+12255492      -4e-11
+12257919      -1e-11
+12258483      -4e-10
+12260751      -4e-10
+12249127      -5e-11
+12254344      -2e-09
+12256755      -1e-10
+12254137      -6e-11
+12250321      -2e-11
+12259413       6e-09
+12242592       2e-09
+12249018      -4e-12
+12254733      -1e-09
+12428335      -6e-11
+12428943      -1e-09
+12250696       6e-09
+12257146      -2e-09
+12243278      -6e-11
+12254343      -8e-10
+12249838      -5e-10
+12249581       2e-09
+12252302      -3e-10
+12256858      -3e-09
+12253893       3e-09
+12257553      -5e-09
+12248381      -2e-10
+12259220      -5e-10
+12254064      -5e-10
+12257524      -1e-09
+12243720       3e-09
+12259778      -2e-09
+12252811      -2e-09
+12257821      -1e-09
+12245766      -5e-12
+12257659       2e-09
+12249696      -4e-10
+12255118       4e-09
+12247721      -3e-10
+12427800       3e-09
+12255140      -1e-10
+12254091      -7e-12
+12251359       2e-09
+12255336      -4e-10
+12251473       5e-10
+12428258      -1e-09
+12242834      -4e-11
+12246294      -8e-11
+12242131      -4e-09
+12243786      -4e-09
+12255309       2e-09
+12254619      -1e-09
+12257474       7e-09
+12255992       3e-09
+12251953      -3e-09
+12256350       9e-10
+12249618      -5e-10
+12248928       3e-09
+12255335       3e-10
+12251735      -5e-09
+12256170       3e-09
+12253891       3e-09
+12255837      -5e-11
+12247727       7e-10
+12250376      -4e-11
+12258835      -3e-10
+12253406      -2e-09
+12250782      -6e-10
+12247533      -3e-09
+12252132      -1e-09
+12254872      -3e-09
+12260026      -4e-10
+12257134       9e-10
+12256220      -3e-10
+12253580      -9e-10
+12258267      -5e-11
+12255615       4e-09
+12258509       2e-09
+12253113       3e-09
+12256769      -1e-09
+12249547      -8e-10
+12257926      -2e-10
+12250723       9e-10
+12251339       3e-09
+12259515       2e-09
+12257582       1e-09
+12256968       3e-09
+12245746      -8e-11
+12254279      -2e-10
+12255785      -7e-10
+12247792      -4e-10
+12256166       1e-10
+12253060      -2e-09
+12248177      -1e-11
+12247746      -2e-10
+12255337       3e-09
+12250243      -1e-09
+12258625      -8e-11
+12254948       1e-09
+12247576      -3e-10
+12238179       3e-09
+12253022      -3e-10
+12255245      -2e-10
+12255611      -2e-09
+12256437      -3e-09
+12250522      -2e-11
+12255346       8e-10
+12256077      -3e-10
+12249466      -1e-10
+12242969       3e-09
+12257240       2e-09
+12256749      -8e-11
+12254144       4e-09
+12257545      -5e-09
+12253508       5e-09
+12255218      -2e-10
+12254051      -8e-10
+12428471       3e-09
+12253962      -2e-10
+12257516      -1e-09
+12250681      -2e-10
+12256185      -3e-10
+12258455       7e-09
+12253921      -2e-09
+12258887      -5e-10
+12254203      -1e-10
+12257360       2e-09
+12255449      -1e-10
+12255383       5e-09
+12259055      -1e-11
+12257882      -7e-10
+12253331      -3e-11
+12257033      -4e-11
+12253182      -6e-11
+12253421      -3e-09
+12258593      -4e-09
+12258528      -2e-10
+12428013      -1e-10
+12426844      -1e-10
+12429060      -8e-10
+12251489      -2e-10
+12255285       9e-10
+12255214      -5e-10
+12252853       4e-09
+12250440       3e-09
+12257590       3e-09
+12246472      -2e-10
+12428106      -4e-11
+12256394      -2e-09
+12258215       3e-09
+12255315      -2e-10
+12247997       3e-09
+12256421       2e-09
+12258308      -2e-10
+12256856      -3e-12
+12245065      -2e-09
+12254665       6e-09
+12256811      -3e-10
+12256341      -2e-09
+12257636       5e-09
+12256554      -6e-10
+12260694       4e-09
+12255387      -7e-10
+12247021      -2e-11
+12252742       1e-09
+12249902      -5e-09
+12254163       3e-09
+12257147      -3e-09
+12243559      -6e-10
+12251761      -8e-10
+12255429      -1e-09
+12254417      -8e-11
+12250172       5e-09
+12251082      -5e-10
+12256163       6e-10
+12257960      -8e-10
+12257157      -1e-09
+12256438      -3e-10
+12251193      -5e-10
+12252720      -1e-11
+12253423       2e-09
+12252317      -2e-11
+12251453      -6e-10
+12250455      -1e-09
+12252541      -8e-10
+12240987      -4e-11
+12257602      -1e-09
+12429524      -3e-10
+12257583      -2e-09
+12260529       5e-09
+12258843      -3e-09
+12259700      -3e-10
+12256232      -1e-09
+12259648       3e-09
+12253767       3e-09
+12257518       3e-09
+12260521      -3e-09
+12258433      -4e-10
+12244648      -3e-10
+12257511       2e-09
+12259485      -2e-10
+12254195       5e-09
+12257843      -5e-09
+12259323      -8e-10
+12252328       5e-09
+12257532       2e-10
+12256375       3e-09
+12257510      -3e-09
+12257531      -2e-09
+12254634      -1e-11
+12245086      -6e-10
+12258470       7e-10
+12245078       2e-09
+12251094      -2e-09
+12259848      -1e-09
+12245797      -4e-09
+12251543       2e-09
+12255935      -3e-10
+12256320       6e-09
+12260179      -7e-10
+12252716      -3e-11
+12260600      -1e-09
+12255502       1e-09
+12428991      -3e-09
+12254072      -2e-10
+12245432       4e-10
+12260538       1e-09
+12250823      -3e-10
+12258976      -6e-12
+12255642       6e-09
+12252248      -8e-11
+12242728      -3e-09
+12254736      -1e-09
+12253615      -2e-09
+12255161      -3e-10
+12250246       3e-09
+12429127       2e-09
+12251485      -1e-09
+12250082       5e-10
+12258006      -2e-09
+12257574      -2e-11
+12251962      -1e-11
+12255162      -1e-09
+12256817      -1e-09
+12250332      -6e-11
+12256497      -1e-09
+12254146      -4e-09
+12247694      -1e-11
+12258497       2e-09
+12260142      -4e-10
+12251976      -2e-09
+12259127      -8e-10
+12241476      -5e-11
+12254459      -1e-10
+12259462      -5e-09
+12247083      -1e-09
+12259549       4e-09
+12251984       3e-09
+12241802      -5e-10
+12257237      -2e-10
+12256857      -3e-11
+12256240      -4e-11
+12256503      -7e-09
+12256015      -7e-11
+12241402       5e-09
+12245057      -2e-09
+12246140      -1e-11
+12257009      -4e-11
+12255180      -5e-10
+12259484       1e-09
+12257419      -4e-09
+12260569      -9e-10
+12255122      -6e-10
+12257395       2e-09
+12258570      -2e-10
+12259562       1e-09
+12260112      -4e-09
+12252034      -1e-09
+12260233       6e-09
+12257403       5e-10
+12428922      -6e-09
+12243555       5e-09
+12254593      -2e-11
+12256605       3e-09
+12245733      -8e-11
+12256422       3e-09
+12257700       2e-09
+12259102      -3e-09
+12426585      -2e-09
+12244793      -4e-10
+12258543       2e-09
+12258999      -3e-09
+12258065      -5e-10
+12255969      -6e-10
+12260835      -5e-10
+12429004      -5e-10
+12256097      -9e-10
+12257701       2e-09
+12257877      -4e-09
+12255643      -9e-10
+12253948       9e-11
+12257235      -4e-10
+12259086      -2e-10
+12248062      -6e-10
+12258516      -6e-09
+12251464      -1e-08
+12255136      -2e-10
+12254238      -6e-11
+12257073       2e-09
+12248971      -3e-10
+12259222      -4e-10
+12249938      -4e-12
+12258865      -1e-10
+12250123      -1e-11
+12248106      -3e-11
+12253865      -5e-10
+12259496      -3e-09
+12258578       9e-10
+12243564       4e-10
+12255127       2e-09
+12254745      -1e-10
+12256274      -2e-09
+12257557      -2e-09
+12257371      -1e-09
+12258169      -3e-09
+12254061      -2e-09
+12247041      -7e-11
+12257302      -4e-09
+12248032      -8e-12
+12249208       7e-10
+12246732      -1e-11
+12253556      -8e-12
+12249083       2e-09
+12250412      -1e-11
+12260643      -3e-09
+12259539       2e-09
+12258468       2e-09
+12258164      -2e-10
+12256432      -2e-10
+12255591       2e-09
+12259293      -1e-09
+12256165      -2e-10
+12427942      -5e-11
+12258905      -4e-11
+12256130      -1e-09
+12248864      -2e-09
+12243985      -4e-10
+12256269      -2e-09
+12252167      -2e-11
+12254390      -4e-12
+12254004      -2e-09
+12258984       3e-09
+12255965       2e-09
+12250687       8e-10
+12258134       4e-09
+12248760      -3e-10
+12252840       4e-09
+12257108       1e-09
+12259501      -9e-10
+12256266      -1e-09
+12253920       6e-09
+12428529       1e-09
+12256279      -1e-09
+12257941      -2e-11
+12256734      -1e-09
+12260690       6e-10
+12259714       1e-09
+12254588      -1e-09
+12257773       6e-09
+12260691      -2e-09
+12248762      -4e-10
+12257559       3e-09
+12244957       2e-09
+12256107      -3e-09
+12255550      -5e-09
+12254083       4e-10
+12256604      -9e-10
+12255628       3e-09
+12256771      -2e-09
+12252413      -8e-11
+12257489      -3e-10
+12248699      -5e-11
+12257313      -3e-09
+12246720      -5e-10
+12245993      -2e-10
+12257457      -9e-10
+12260666      -8e-11
+12255831      -2e-12
+12260330      -1e-10
+12256999      -1e-09
+12248848      -2e-09
+12257151       6e-10
+12254672      -2e-10
+12257155      -8e-10
+12251575       1e-09
+12257410      -3e-10
+12246273       6e-09
+12256980       8e-10
+12257459       4e-10
+12256722      -2e-11
+12260602      -5e-09
+12247743       5e-09
+12246500      -4e-09
+12256994       2e-09
+12259506      -1e-11
+12259603      -1e-09
+12254373       3e-10
+12246358       2e-09
+12258585       3e-09
+12247304      -1e-09
+12260299      -1e-09
+12250291       2e-09
+12260499      -1e-09
+12246258       3e-09
+12428854      -4e-10
+12259175      -2e-11
+12252022      -1e-08
+12257212      -9e-10
+12254270      -9e-11
+12429556       3e-09
+12255820      -7e-12
+12247733      -4e-09
+12260076      -2e-10
+12257255      -3e-09
+12252177      -2e-09
+12253535      -2e-09
+12256804      -3e-11
+12259596      -1e-10
+12257060       3e-09
+12258459      -1e-10
+12243181       3e-09
+12259052      -4e-09
+12258877       2e-09
+12257323      -1e-10
+12257315       3e-09
+12246272      -1e-10
+12258490       2e-09
+12249640      -5e-11
+12246291      -2e-09
+12257630      -3e-11
+12254566      -1e-11
+12257342       1e-09
+12259486      -9e-10
+12251588      -1e-10
+12429059       3e-09
+12257513      -3e-09
+12257154       5e-10
+12256359      -1e-09
+12259955       5e-09
+12259382      -6e-09
+12255575      -6e-10
+12246282      -1e-11
+12250327      -5e-09
+12257228       2e-10
+12258600      -2e-09
+12257584      -3e-09
+12258376      -1e-10
+12259824       2e-09
+12257159      -6e-11
+12259540       2e-09
+12252315      -4e-12
+12250915      -1e-09
+12259665       1e-09
+12256344      -5e-11
+12256098      -2e-11
+12252584       1e-09
+12250323       2e-09
+12255500      -2e-09
+12254233      -6e-10
+12254833      -5e-10
+12257394      -5e-09
+12252364      -5e-10
+12253103      -3e-11
+12253053       3e-10
+12255167      -4e-10
+12248309      -4e-11
+12256917      -3e-10
+12251944      -3e-11
+12242945       2e-09
+12251756      -6e-11
+12252595      -4e-10
+12258813      -3e-11
+12243757      -2e-11
+12257201      -6e-11
+12255019       2e-09
+12251589      -9e-10
+12256969      -4e-11
+12242542      -6e-10
+12429644       3e-09
+12245142      -1e-09
+12253820      -2e-09
+12257880      -1e-10
+12256332      -8e-10
+12259092       3e-09
+12253010      -1e-10
+12253987       2e-09
+12255778       3e-09
+12251617      -7e-12
+12247262      -5e-11
+12258162       2e-09
+12258377       5e-09
+12248820      -7e-12
+12258626      -3e-09
+12250416      -7e-10
+12256144       2e-09
+12253458       9e-09
+12260505       3e-09
+12255543      -4e-09
+12260597      -6e-09
+12253016       1e-09
+12253495       4e-09
+12256133      -3e-10
+12257854      -5e-09
+12258317       1e-09
+12258661      -9e-10
+12256427       1e-09
+12260508       3e-10
+12257497      -5e-10
+12256316       5e-09
+12255063      -1e-10
+12258921      -8e-10
+12255677       2e-09
+12258790       2e-09
+12260224      -2e-10
+12249890      -2e-11
+12258980      -3e-11
+12250351      -1e-11
+12247368       2e-09
+12259557       3e-09
+12428517      -7e-12
+12258216      -2e-09
+12260502      -3e-09
+12253189      -7e-12
+12257822      -2e-11
+12256239       4e-09
+12249006      -5e-12
+12254505      -1e-09
+12258439       2e-09
+12256168      -2e-10
+12259498      -1e-10
+12261870      -3e-09
+12257839      -4e-10
+12256357       7e-09
+12250916      -4e-11
+12243421      -5e-11
+12256970      -4e-09
+12429178      -3e-10
+12254629      -3e-10
+12249906      -7e-12
+12253413       3e-09
+12251607       3e-09
+12250475       3e-09
+12255326      -1e-09
+12254180      -5e-11
+12251212      -4e-11
+12249804      -8e-11
+12258174      -1e-09
+12259645       5e-10
+12261030      -1e-09
+12261546      -1e-10
+12248347      -6e-10
+12261886      -4e-09
+12249891      -1e-09
+12260381      -1e-09
+12258242      -1e-10
+12255261       2e-09
+12260635      -4e-09
+12258728       2e-09
+12261493       1e-09
+12253177      -2e-11
+12244477      -1e-10
+12258546      -5e-11
+12253986      -6e-12
+12256324       2e-09
+12256099       2e-09
+12260711      -6e-09
+12428297      -6e-11
+12253552      -1e-09
+12253332       4e-10
+12260746      -6e-10
+12257380       2e-09
+12255220       4e-10
+12258306      -2e-09
+12245092      -2e-11
+12247804      -2e-11
+12246686      -7e-10
+12255236       2e-09
+12259494      -4e-09
+12260533      -2e-09
+12258475       2e-09
+12259799      -1e-09
+12257504      -1e-11
+12259443       8e-10
+12258479       2e-09
+12238825      -2e-11
+12260030      -2e-09
+12260648      -6e-11
+12257940       2e-09
+12251985      -5e-09
+12259584      -5e-09
+12261055      -1e-10
+12257256      -1e-09
+12255271      -2e-09
+12259771       1e-09
+12429651      -2e-10
+12251469      -4e-10
+12260510      -2e-09
+12260504      -2e-09
+12251471      -6e-12
+12259605       2e-09
+12261644       1e-10
+12260758       4e-09
+12259281       7e-10
+12254149      -1e-10
+12258453       2e-09
+12259243       1e-09
+12260693      -6e-09
+12250426      -3e-10
+12259026       3e-09
+12261757      -2e-09
+12261095       5e-09
+12257844       2e-09
+12260253       2e-09
+12261536      -8e-12
+12249369      -5e-09
+12256270      -2e-09
+12261894       2e-09
+12254976      -8e-10
+12259601      -1e-09
+12257377      -1e-08
+12260231      -4e-10
+12257554      -9e-10
+12254224       2e-09
+12258515      -3e-09
+12258960      -2e-11
+12260990      -1e-09
+12254979       1e-09
+12258688      -4e-12
+12260914       2e-09
+12259115      -4e-11
+12259541      -3e-09
+12254863      -1e-11
+12251623      -6e-10
+12252453       3e-09
+12256481       2e-09
+12260172      -9e-10
+12248926      -9e-10
+12256979       1e-09
+12256429       4e-09
+12261759       2e-09
+12259761       3e-09
+12257555      -8e-09
+12258435      -3e-09
+12254683       2e-09
+12255137       7e-10
+12255700      -3e-10
+12257253       3e-09
+12260781       6e-10
+12257638      -2e-11
+12252118      -3e-10
+12259858      -3e-09
+12255005      -3e-10
+12254536      -2e-11
+12249082      -3e-10
+12259862      -2e-09
+12259676       4e-09
+12429670      -7e-10
+12261877      -5e-10
+12261769       9e-10
+12255064      -1e-10
+12259235      -3e-10
+12261539      -3e-10
+12257386      -5e-09
+12257295       3e-09
+12259670       2e-09
+12259730      -5e-09
+12258246      -5e-11
+12255085      -6e-10
+12258895      -3e-11
+12259380      -1e-09
+12255139       2e-09
+12259227       2e-09
+12261579      -3e-09
+12430044       4e-09
+12258302       6e-09
+12261408      -7e-10
+12255126      -4e-09
+12259745       2e-09
+12261261      -6e-10
+12253265      -5e-12
+12248932      -2e-10
+12254798      -1e-09
+12261139       3e-09
+12260787      -6e-11
+12258844       3e-09
+12258410      -1e-09
+12256271      -1e-11
+12254968      -3e-09
+12250718       1e-09
+12252785      -2e-09
+12256537       1e-09
+12252701      -1e-09
+12255753      -1e-09
+12258440       2e-09
+12258795      -4e-09
+12260715      -5e-09
+12250357      -8e-10
+12248120      -2e-10
+12260304       2e-09
+12259675      -4e-09
+12257383       4e-09
+12260089       2e-09
+12258539      -7e-09
+12258481      -3e-11
+12257292      -9e-10
+12257515      -2e-09
+12256003      -4e-10
+12252769      -2e-11
+12258412      -1e-09
+12259505      -1e-10
+12250621      -3e-11
+12258798      -8e-10
+12257979       1e-09
+12260501      -7e-10
+12261320       5e-09
+12258264       2e-09
+12247663      -3e-09
+12261672      -1e-10
+12258374      -9e-10
+12256143       2e-09
+12257213      -2e-10
+12252656      -4e-10
+12260168      -2e-10
+12259336      -4e-10
+12250645      -3e-11
+12430019      -4e-11
+12260863      -1e-10
+12255175      -4e-10
+12259329      -3e-10
+12260577      -6e-10
+12249927       3e-09
+12256189      -1e-11
+12258139       2e-09
+12252112       2e-09
+12252741       1e-09
+12258857      -2e-12
+12261215      -5e-09
+12257347      -2e-10
+12255049      -2e-09
+12258099      -2e-11
+12257446      -3e-09
+12250997      -1e-11
+12258969       2e-09
+12256448       1e-09
+12430001      -3e-09
+12261753       1e-09
+12253123       2e-09
+12261687       3e-09
+12258792      -3e-11
+12257765      -4e-09
+12253277      -6e-10
+12255821       3e-09
+12255074       2e-09
+12252745       4e-10
+12257548       3e-09
+12259642       1e-09
+12260786      -5e-09
+12261469       2e-09
+12254642      -8e-12
+12261735       2e-09
+12252877       3e-09
+12253456      -3e-10
+12260552      -1e-10
+12259703       5e-09
+12259020      -9e-12
+12252836       2e-09
+12251550       1e-09
+12255292      -4e-09
+12256173       2e-09
+12256192      -3e-09
+12257194      -1e-09
+12252611      -3e-11
+12245480      -1e-11
+12245920      -5e-11
+12260506       2e-09
+12260489      -4e-10
+12252951       2e-09
+12257799      -2e-11
+12253506      -4e-11
+12258981       3e-11
+12256677       1e-09
+12261650       2e-09
+12259587      -2e-10
+12260567       2e-10
+12258487       5e-09
+12253226      -2e-11
+12260406       3e-09
+12256581      -1e-09
+12258612       8e-10
+12254699      -3e-11
+12260838      -2e-10
+12253299      -4e-11
+12245580      -6e-11
+12428908      -6e-12
+12257061       7e-10
+12252589      -6e-11
+12255264      -2e-11
+12258637      -5e-10
+12429545      -4e-09
+12258047      -4e-09
+12260555       2e-09
+12256126       2e-09
+12250415      -1e-10
+12258492      -1e-09
+12254223      -5e-10
+12256244       2e-09
+12242639      -2e-11
+12259344       1e-09
+12259266      -2e-10
+12429719       2e-09
+12258323      -2e-10
+12253745      -4e-11
+12258457       1e-09
+12259553       3e-09
+12257874      -1e-11
+12257461      -1e-10
+12256295      -4e-10
+12258919      -2e-10
+12251817      -2e-09
+12429642       1e-09
+12244196      -6e-12
+12261916      -1e-09
+12251114      -2e-10
+12259268       2e-09
+12260883      -1e-10
+12252782      -9e-10
+12256888      -6e-10
+12255084       2e-09
+12259415      -2e-11
+12261184      -1e-09
+12260164       6e-09
+12251496      -3e-10
+12258729      -7e-10
+12259529       3e-09
+12261676      -9e-10
+12260530      -6e-10
+12255216      -6e-11
+12249896      -8e-10
+12260983      -5e-11
+12260550       5e-10
+12259393      -3e-09
+12251719      -5e-09
+12259627       3e-11
+12261761      -4e-10
+12255067      -5e-09
+12260408       3e-09
+12250290      -1e-10
+12251472       3e-09
+12254748       1e-10
+12260985      -9e-10
+12253923       2e-09
+12249311      -1e-09
+12254035      -2e-10
+12258894      -5e-10
+12251886      -4e-11
+12256221      -1e-11
+12259054       1e-09
+12243387      -1e-09
+12259657       2e-09
+12256388      -2e-09
+12261752       5e-09
+12257594       1e-09
+12257046       2e-09
+12258561      -4e-10
+12254349      -6e-09
+12249067      -1e-09
+12257512      -3e-09
+12259555      -5e-09
+12256562      -5e-12
+12259454      -2e-11
+12259279      -3e-09
+12257592      -7e-10
+12252655      -1e-09
+12258573      -5e-09
+12248845      -6e-10
+12260606       3e-09
+12260461      -5e-10
+12259468      -1e-09
+12259503      -8e-12
+12258142      -2e-10
+12260033      -1e-09
+12259365       3e-09
+12254416       3e-09
+12258496      -5e-10
+12252909      -3e-09
+12252630      -1e-09
+12258687      -2e-09
+12260113       6e-09
+12258990      -6e-10
+12429959       3e-09
+12261377      -4e-09
+12261173      -1e-09
+12255044      -5e-11
+12259215      -2e-11
+12245071      -7e-11
+12244808      -2e-11
+12253091      -9e-10
+12255244      -6e-10
+12250247      -2e-10
+12240877      -2e-10
+12258445      -2e-09
+12254554      -2e-11
+12260111      -9e-11
+12258296      -2e-10
+12250408      -2e-10
+12257654       8e-11
+12252678      -5e-10
+12256894       4e-09
+12257950      -2e-11
+12429497      -4e-10
+12256528       3e-09
+12257698      -6e-10
+12260557      -5e-09
+12257466      -2e-12
+12248406      -8e-10
+12429531      -2e-11
+12250463      -7e-09
+12257978       3e-09
+12254621      -1e-10
+12261149      -2e-11
+12250423      -1e-09
+12260264       2e-09
+12255308       2e-09
+12258610      -7e-10
+12259131       2e-09
+12260705       6e-09
+12256890      -4e-11
+12260692      -2e-10
+12258222      -1e-09
+12253017       2e-09
+12261704       2e-09
+12262911       3e-09
+12259208      -5e-11
+12260236      -2e-09
+12248386       3e-09
+12259580      -2e-09
+12260542      -2e-09
+12251227      -1e-10
+12262745      -6e-10
+12255521      -2e-10
+12256176       3e-09
+12245093       8e-10
+12259606       3e-09
+12254090       2e-09
+12260520       8e-10
+12257891      -1e-09
+12257500       1e-09
+12261754       2e-09
+12250944      -2e-10
+12430727       2e-09
+12261459       2e-09
+12259536      -8e-12
+12257826      -3e-11
+12259976       2e-09
+12252962       2e-09
+12255036       2e-09
+12258418       5e-09
+12247461      -7e-11
+12249818      -3e-11
+12261211       3e-09
+12260641       2e-09
+12260970      -6e-10
+12250670      -2e-10
+12255010       3e-09
+12258501       2e-09
+12260221      -2e-09
+12257456      -3e-10
+12255723       3e-09
+12260591      -2e-10
+12252533      -4e-10
+12259626      -3e-10
+12257301       1e-09
+12250809      -1e-09
+12256397      -1e-09
+12430192       2e-09
+12262897      -4e-09
+12249046       5e-10
+12261713      -1e-09
+12254553       3e-09
+12256281      -3e-10
+12257309       2e-09
+12245252      -6e-11
+12255288       1e-09
+12260090      -2e-10
+12262650      -6e-10
+12257447      -1e-10
+12262129      -4e-12
+12261830       1e-09
+12257604      -6e-09
+12261867       2e-09
+12258666      -8e-12
+12261308      -4e-09
+12253515      -6e-10
+12256346      -1e-10
+12259188      -3e-11
+12261427      -4e-10
+12254910      -3e-09
+12259674      -2e-09
+12248730       2e-09
+12262532      -7e-10
+12255169       2e-09
+12260625      -2e-09
+12251201      -2e-11
+12249079      -2e-09
+12260581       3e-10
+12259544      -5e-09
+12261274       3e-09
+12251406      -1e-09
+12256184      -2e-09
+12245681      -3e-11
+12261849       1e-09
+12257716      -8e-10
+12259488      -1e-09
+12430142       3e-09
+12261989      -4e-10
+12262969       4e-09
+12262620      -2e-11
+12260434      -1e-11
+12430295      -1e-09
+12260568      -1e-10
+12260619      -3e-09
+12247619      -7e-11
+12261291      -2e-09
+12262912       1e-09
+12261342       2e-09
+12259431       3e-09
+12256547      -2e-11
+12250761      -6e-11
+12253514       2e-09
+12253917      -5e-11
+12254147       2e-09
+12430171      -1e-09
+12255141      -2e-09
+12259977       5e-09
+12261718      -5e-10
+12239084      -3e-11
+12246845       2e-09
+12245222      -1e-10
+12430470       2e-09
+12257268      -3e-10
+12259493      -1e-11
+12258414       3e-09
+12257358       2e-09
+12258955      -2e-10
+12260136       4e-10
+12262750       2e-09
+12261530      -3e-11
+12256322      -5e-12
+12258975      -8e-11
+12253849      -2e-10
+12429506       2e-10
+12259250       2e-09
+12256580      -7e-11
+12258545      -2e-09
+12260514      -7e-11
+12256317      -3e-09
+12262469      -1e-09
+12247683       2e-09
+12259482      -4e-11
+12253810      -6e-11
+12259006       2e-09
+12258863      -3e-11
+12246744       3e-09
+12260214       3e-09
+12261842      -4e-09
+12255125      -4e-09
+12261405      -2e-09
+12254512       3e-09
+12257617      -2e-09
+12245925      -7e-10
+12255295      -1e-10
+12252608      -6e-11
+12255518      -4e-11
+12249330      -3e-10
+12254109      -4e-10
+12251446      -2e-11
+12252920      -1e-11
+12249434      -5e-10
+12257493      -9e-10
+12256376       2e-09
+12259879      -3e-09
+12257552      -4e-10
+12254601      -1e-11
+12257616      -4e-10
+12256183      -5e-10
+12262738      -2e-10
+12254405      -5e-09
+12260717      -4e-09
+12255689      -1e-10
+12257148      -2e-09
+12251466      -6e-10
+12258403      -2e-11
+12262749       5e-10
+12259457      -1e-09
+12261357      -3e-10
+12256900       3e-09
+12255660      -4e-12
+12430718       8e-10
+12258785       1e-09
+12254729       3e-09
+12261726      -2e-11
+12261297      -1e-09
+12428329      -6e-12
+12245805       3e-10
+12256435       3e-09
+12429627      -5e-11
+12261744      -4e-09
+12259635       3e-09
+12257412      -1e-10
+12255157      -6e-10
+12258373       3e-09
+12259318       3e-09
+12260173      -1e-10
+12261681       3e-09
+12248252      -1e-10
+12262762       3e-09
+12259815       3e-09
+12258639       3e-09
+12251217       3e-09
+12262531      -8e-09
+12250231       2e-09
+12243929       1e-09
+12255911      -3e-11
+12260960      -1e-10
+12430272      -5e-09
+12251585      -2e-10
+12261827       3e-09
+12255959      -2e-09
+12258846       3e-09
+12261734       2e-09
+12252694       1e-09
+12256398       2e-09
+12255805      -5e-10
+12258210      -3e-11
+12260857      -2e-09
+12261733       4e-10
+12259892       2e-09
+12256132      -7e-10
+12262387       2e-10
+12253476      -1e-10
+12253025       1e-09
+12258466       3e-09
+12262740       5e-10
+12252205       3e-09
+12259721      -1e-09
+12257180       3e-09
+12261720      -3e-09
+12261881       2e-09
+12260167       2e-09
+12260063      -5e-11
+12253467      -7e-10
+12261021      -6e-10
+12255508      -9e-10
+12250379      -2e-09
+12248672       3e-09
+12245161      -4e-11
+12262059       2e-09
+12255603      -2e-11
+12249069       3e-09
+12261126      -2e-10
+12258534      -1e-10
+12259463       5e-10
+12261613      -3e-10
+12259405      -3e-10
+12258299      -2e-11
+12250651      -5e-11
+12261004       5e-09
+12260524       6e-09
+12251510       2e-09
+12254174      -1e-11
+12430477       9e-12
+12259594      -3e-11
+12252867      -1e-10
+12259945      -3e-11
+12250814      -3e-09
+12262887       1e-09
+12262251      -2e-10
+12256196       3e-09
+12261585       1e-10
+12254503       1e-09
+12259975      -1e-09
+12252008      -5e-10
+12256812      -4e-09
+12257656      -7e-10
+12258502       1e-09
+12256283      -8e-09
+12256887      -3e-10
+12261600      -2e-09
+12245474      -1e-11
+12259630       2e-09
+12259041      -2e-09
+12243966      -4e-11
+12257788       3e-09
+12260775       1e-09
+12262147       1e-09
+12255966      -3e-10
+12252819      -1e-11
+12260733      -1e-09
+12257778      -6e-10
+12261836      -2e-09
+12250870       3e-09
+12430141      -2e-09
+12260493      -1e-11
+12257021      -2e-10
+12260622      -3e-09
+12253633      -2e-11
+12262019       1e-09
+12262274      -1e-09
+12258565       3e-09
+12258638      -3e-09
+12261422      -5e-10
+12255108      -3e-10
+12255659      -2e-10
+12260966       3e-09
+12259844       3e-09
+12430021      -1e-10
+12259200       3e-10
+12259559      -2e-10
+12259750      -3e-11
+12430733       2e-10
+12255892      -1e-11
+12261910       2e-09
+12430233      -7e-10
+12259911      -7e-10
+12259702      -1e-10
+12261840       3e-09
+12260000      -1e-09
+12259688      -6e-10
+12256236      -1e-09
+12250439      -7e-11
+12254693       1e-09
+12259600      -3e-09
+12429769      -1e-09
+12260462      -2e-10
+12253650      -3e-11
+12257223      -5e-10
+12258244      -7e-12
+12260500       3e-09
+12259928      -3e-09
+12263757      -2e-10
+12250238      -2e-09
+12259925      -7e-10
+12252130      -4e-12
+12256224      -6e-10
+12261130      -3e-11
+12263734      -3e-09
+12261617      -9e-10
+12261409      -2e-09
+12252228      -3e-11
+12261508      -9e-12
+12254454      -1e-11
+12258486       1e-09
+12252718      -1e-09
+12249487      -1e-10
+12256565       2e-09
+12244152      -2e-10
+12256814      -1e-10
+12252319      -2e-11
+12261606      -4e-10
+12429401      -7e-10
+12259920       3e-09
+12260532       4e-10
+12262204      -3e-10
+12260412      -2e-10
+12258223      -1e-10
+12427513       2e-09
+12255269      -1e-09
+12247567      -2e-10
+12255293      -4e-09
+12260165      -1e-11
+12261548      -1e-09
+12259941      -1e-09
+12260868       5e-11
+12260475       3e-09
+12258978       2e-09
+12252269       3e-09
+12259103      -1e-09
+12257448      -9e-10
+12255000      -3e-11
+12258409      -3e-09
+12257054       2e-10
+12260409       3e-09
+12252685      -5e-10
+12261920       2e-09
+12261729      -2e-09
+12254929      -4e-11
+12261618      -9e-10
+12257809       2e-09
+12260525      -3e-10
+12261468      -3e-09
+12257030       6e-09
+12259104      -3e-11
+12257300      -4e-10
+12260994      -7e-10
+12251544      -8e-10
+12257666      -2e-10
+12261177      -9e-10
+12262706      -2e-09
+12260923       6e-11
+12252388      -4e-10
+12254073      -8e-10
+12249161       2e-09
+12263293      -7e-10
+12262851      -8e-10
+12260096      -1e-11
+12259943       2e-09
+12262843       1e-09
+12262507      -3e-10
+12258982       3e-09
+12261244      -5e-11
+12259739      -3e-11
+12261658       7e-10
+12260540       2e-09
+12260590      -3e-09
+12262792      -2e-10
+12258977      -2e-11
+12262234       2e-09
+12261075       3e-09
+12261669       3e-09
+12253554      -4e-10
+12256895      -1e-09
+12429773       3e-09
+12263764      -2e-09
+12255928      -4e-09
+12259116      -2e-11
+12255112      -1e-09
+12259633      -2e-09
+12253950       3e-09
+12262748       1e-09
+12260794      -1e-09
+12258190      -3e-09
+12250226      -1e-10
+12254100      -5e-11
+12257527      -7e-09
+12260420      -1e-10
+12263290       3e-09
+12261643       2e-09
+12261728      -1e-10
+12431062      -3e-10
+12255490       2e-09
+12261865      -2e-09
+12255156      -5e-09
+12262690      -2e-09
+12258442      -2e-09
+12260814      -9e-10
+12261263      -5e-11
+12255517      -1e-09
+12256360      -2e-09
+12263730       1e-09
+12262588      -6e-11
+12252468      -1e-10
+12263767      -4e-09
+12262318      -2e-11
+12261873      -9e-10
+12263791       1e-09
+12262806      -1e-09
+12256544      -2e-11
+12252957       2e-09
+12256507       1e-10
+12261339      -3e-11
+12251896      -2e-09
+12259946      -2e-11
+12260898      -1e-11
+12260192      -2e-09
+12261379       2e-09
+12261767       2e-09
+12256207      -2e-11
+12256106       3e-09
+12262720       3e-09
+12263197       3e-09
+12259347      -7e-10
+12251197      -4e-11
+12260888      -1e-10
+12260848      -2e-09
+12262781       2e-09
+12256676      -8e-10
+12261837      -2e-10
+12261428      -2e-09
+12431363      -5e-10
+12257921       3e-09
+12257736      -4e-11
+12254912      -3e-10
+12256392       8e-10
+12263071      -2e-09
+12260446      -3e-09
+12257176       3e-09
+12260579      -9e-12
+12262037       3e-09
+12258094       2e-09
+12259446      -4e-10
+12254302      -3e-09
+12261532      -2e-09
+12261888       3e-09
+12261917       3e-09
+12262010      -3e-09
+12260925      -6e-10
+12259398       3e-09
+12258319      -1e-09
+12251978      -2e-09
+12258855       3e-09
+12260595      -3e-09
+12261381       3e-09
+12258902      -4e-09
+12258048      -1e-10
+12419165      -1e-10
+12261412       3e-09
+12262955      -7e-10
+12257382      -3e-10
+12256370      -5e-12
+12428526       1e-09
+12259621      -1e-09
+12262813       2e-09
+12431416      -5e-10
+12261667       2e-09
+12248239      -2e-09
+12253718       2e-09
+12260335      -8e-11
+12254934       6e-10
+12263458      -2e-11
+12260753       3e-09
+12251775      -3e-09
+12256770       9e-10
+12256484      -9e-10
+12246017      -5e-10
+12250663      -4e-09
+12259538      -4e-11
+12248906      -1e-10
+12262041      -3e-10
+12251679      -5e-11
+12259673       3e-09
+12262695      -1e-10
+12262823      -2e-09
+12261893      -4e-09
+12260707      -3e-09
+12263326      -6e-11
+12262791       3e-09
+12253523      -2e-11
+12250970      -1e-10
+12256906       1e-09
+12263872       1e-09
+12263652      -3e-09
+12260518       6e-10
+12257092       3e-09
+12258301      -2e-10
+12260646       2e-09
+12252843       2e-10
+12259830      -2e-10
+12262172      -7e-10
+12263088      -3e-10
+12250391      -3e-11
+12261778      -1e-09
+12246813      -8e-12
+12257909      -3e-10
+12262122       2e-09
+12261128      -7e-12
+12259186      -1e-10
+12262752       3e-09
+12255138      -1e-09
+12262271      -1e-09
+12259578       3e-09
+12259624       2e-09
+12259534       2e-09
+12262466       2e-09
+12262753       6e-10
+12256005       1e-09
+12249065      -4e-10
+12263464       2e-09
+12258717       2e-09
+12254166      -9e-10
+12262779      -2e-10
+12262682       2e-09
+12255040      -2e-09
+12260851      -3e-11
+12431301      -5e-09
+12260182       6e-10
+12252016      -3e-09
+12262874       2e-09
+12250848       3e-09
+12430175      -3e-11
+12262257       1e-09
+12250430       3e-09
+12259046      -2e-11
+12260651       2e-09
+12261872       9e-10
+12261756       2e-09
+12254136      -3e-10
+12261191      -4e-10
+12261331       3e-10
+12258338      -9e-12
+12255110      -3e-09
+12257964      -2e-11
+12262768      -7e-11
+12259754      -7e-10
+12260259      -2e-10
+12261125      -8e-10
+12263613      -3e-09
+12262765       2e-09
+12252967      -3e-11
+12430822       1e-09
+12258054      -6e-10
+12259096      -6e-11
+12260700      -2e-09
+12258188       2e-09
+12261714       3e-09
+12261755      -7e-11
+12256307      -2e-11
+12263839       1e-09
+12260519       3e-09
+12258911      -1e-10
+12261485      -2e-09
+12259914      -5e-11
+12253949      -8e-10
+12430266      -1e-09
+12260306      -4e-12
+12431381      -4e-10
+12257443      -1e-09
+12263793       5e-10
+12260782       1e-09
+12261717       2e-09
+12262326      -3e-11
+12262747      -3e-09
+12261032       1e-09
+12261127       3e-09
+12254102      -6e-11
+12263961      -7e-12
+12260405       3e-09
+12255988      -5e-10
+12253371      -5e-10
+12257319      -1e-11
+12429767       3e-09
+12263765       3e-09
+12431294      -4e-09
+12261040      -4e-09
+12260943      -8e-11
+12257381      -6e-10
+12257660       6e-10
+12257473       1e-09
+12257353      -2e-10
+12262905       3e-09
+12261750       1e-09
+12262696      -2e-09
+12263836      -3e-09
+12262359      -5e-10
+12253555      -6e-10
+12262938      -1e-09
+12258586      -1e-09
+12255153      -2e-09
+12263749       2e-09
+12261845      -9e-10
+12248011      -7e-11
+12256333      -1e-09
+12255868      -2e-09
+12259109      -1e-09
+12261048      -1e-10
+12260933      -6e-11
+12260296      -1e-10
+12261823      -1e-09
+12262884       2e-09
+12263992      -4e-11
+12256579      -1e-10
+12262665       2e-09
+12252258       3e-09
+12260713       3e-09
+12257496      -7e-10
+12429151      -8e-11
+12262386      -5e-11
+12249436      -8e-10
+12261892       2e-09
+12262785      -2e-09
+12261621       1e-09
+12262760       2e-09
+12259467      -6e-10
+12255983      -1e-10
+12259726      -4e-10
+12259005      -2e-11
+12258074      -7e-11
+12431459       2e-09
+12255307      -6e-10
+12246249      -3e-09
+12263123      -3e-09
+12253845      -2e-11
+12262726      -3e-11
+12263800       2e-09
+12264887      -4e-10
+12262636       1e-09
+12255381      -2e-09
+12251644      -2e-09
+12262423      -3e-09
+12256708      -6e-10
+12263720      -1e-09
+12257187       2e-09
+12257699      -2e-10
+12261699      -2e-09
+12263942      -5e-10
+12255097      -9e-11
+12262134       3e-09
+12256131      -1e-09
+12261794      -6e-10
+12257016      -1e-10
+12258668      -1e-09
+12256719       3e-09
+12430800      -2e-11
+12256681       2e-09
+12262867       2e-09
+12262254      -8e-10
+12431340      -5e-11
+12260847      -5e-11
+12262889      -1e-10
+12262465      -5e-10
+12262242       3e-09
+12260944      -5e-11
+12260059      -2e-10
+12261874      -3e-10
+12259546      -9e-12
+12258214       1e-09
+12262578       7e-10
+12260426      -2e-10
+12252890      -2e-11
+12262741      -2e-09
+12263560      -2e-10
+12258759      -2e-09
+12256685      -6e-09
+12263874       2e-09
+12252325      -1e-09
+12261808      -8e-10
+12264975      -3e-09
+12258595       1e-09
+12431358       2e-09
+12262128      -2e-09
+12256108      -8e-10
+12246412      -1e-10
+12258562      -2e-09
+12260699      -8e-10
+12431391       2e-09
+12261625       2e-09
+12261537      -2e-10
+12431463       1e-09
+12260186      -4e-11
+12262017      -5e-11
+12261841      -8e-10
+12258875      -3e-09
+12247888      -5e-10
+12262246      -8e-12
+12257357      -1e-10
+12257547       3e-09
+12262871      -2e-10
+12260698      -8e-10
+12259253      -2e-09
+12260416      -1e-09
+12259425      -8e-10
+12262866      -5e-11
+12261003      -2e-10
+12431424       3e-09
+12262012       3e-10
+12263717      -4e-10
+12253581       3e-09
+12260517      -5e-10
+12431972       2e-09
+12257635       2e-09
+12261907      -4e-10
+12262023      -4e-10
+12258532      -6e-11
+12430832      -2e-09
+12259060       2e-09
+12254618      -7e-10
+12430388       2e-09
+12253907       2e-09
+12250441       2e-09
+12259134      -2e-10
+12431315      -1e-09
+12257614      -8e-11
+12247726      -2e-10
+12429821      -1e-10
+12257728      -3e-11
+12259728       6e-09
+12254029      -1e-09
+12260935      -2e-10
+12253524      -1e-10
+12430839      -1e-10
+12254476      -1e-11
+12260131      -2e-11
+12253651      -7e-10
+12262687      -1e-09
+12429783      -1e-10
+12255942      -2e-11
+12262712       3e-09
+12261385      -4e-10
+12263722      -5e-10
+12252278       3e-09
+12263670       2e-09
+12264954       3e-09
+12260968      -2e-10
+12262000      -1e-10
+12262759      -3e-09
+12253817       2e-09
+12256377      -2e-10
+12263965       2e-09
+12258567      -1e-09
+12262770       2e-09
+12249099      -1e-10
+12264187       2e-09
+12254971      -5e-10
+12250206      -3e-10
+12250734       2e-09
+12259729      -1e-09
+12430638      -2e-10
+12259575      -6e-10
+12255609      -1e-09
+12260772      -1e-10
+12261623      -5e-11
+12264949      -2e-09
+12261556      -3e-11
+12262236      -4e-10
+12260677      -1e-09
+12261640      -3e-10
+12252009      -5e-10
+12264451      -6e-10
+12263202      -6e-11
+12262984      -2e-11
+12258878      -1e-09
+12262881       2e-09
+12265109      -4e-09
+12259122      -9e-12
+12259535       3e-09
+12251640      -3e-10
+12257657      -3e-10
+12262907      -4e-10
+12257834      -1e-09
+12255569       3e-09
+12257976      -2e-09
+12431478       2e-09
+12260766       2e-09
+12262701      -2e-10
+12261839      -2e-09
+12261790      -1e-09
+12256242      -2e-10
+12254456      -4e-10
+12432011       3e-09
+12252897      -1e-09
+12262613      -1e-09
+12263987      -1e-09
+12249077      -1e-09
+12262241       3e-09
+12259637      -3e-11
+12257994      -2e-11
+12262751       2e-09
+12260325      -2e-09
+12250677      -2e-09
+12255663      -3e-10
+12258708      -1e-10
+12263312      -6e-10
+12260831      -9e-11
+12250354       2e-09
+12261574       1e-09
+12263102      -4e-11
+12261486      -6e-10
+12264377      -6e-10
+12262669      -7e-10
+12262820      -7e-10
+12264904      -8e-10
+12252763       2e-09
+12262640       2e-09
+12255035       2e-09
+12262595       2e-09
+12263737      -2e-09
+12264951       2e-09
+12252740       2e-09
+12263752       2e-09
+12256247      -1e-09
+12261350      -1e-10
+12262812      -7e-10
+12253500      -1e-09
+12259582      -3e-11
+12259183      -2e-09
+12262704      -6e-11
+12260148      -1e-09
+12431389      -3e-10
+12257444      -1e-10
+12264111      -2e-09
+12262743       3e-09
+12259999      -2e-09
+12431605       2e-09
+12431996      -3e-10
+12256519      -9e-12
+12260011      -1e-10
+12255240      -1e-10
+12264621       2e-09
+12265081      -2e-10
+12262731       2e-09
+12263744       2e-09
+12264728      -3e-10
+12258992      -2e-11
+12262822      -5e-10
+12262253      -2e-10
+12263991      -8e-11
+12264298      -9e-11
+12261248      -1e-11
+12264675      -4e-10
+12263614      -3e-09
+12264026      -9e-12
+12263232       2e-09
+12261411       3e-09
+12253623      -8e-10
+12262870      -5e-10
+12263898       2e-09
+12254057      -1e-09
+12260628      -1e-10
+12258146       2e-09
+12263446      -2e-10
+12431441      -7e-10
+12261056       3e-09
+12263832       7e-10
+12262038       2e-09
+12260585       2e-09
+12265182      -8e-10
+12259480       2e-09
+12249817      -2e-10
+12261739       1e-09
+12262552      -9e-12
+12264003       3e-09
+12259455      -1e-09
+12431266      -6e-10
+12253256      -4e-11
+12263745       6e-10
+12258592       2e-09
+12258274      -2e-11
+12264591      -4e-10
+12256534      -8e-10
+12263758       3e-09
+12263798      -1e-09
+12431893      -3e-11
+12258441      -7e-10
+12262744      -8e-11
+12262699      -2e-10
+12263078      -4e-10
+12264453      -4e-10
+12265037      -1e-10
+12264337       3e-09
+12259980      -1e-10
+12260706      -3e-10
+12259725      -2e-10
+12259962      -1e-09
+12250341      -1e-10
+12261967      -6e-12
+12255954      -5e-10
+12251586      -7e-11
+12248949      -5e-11
+12253196      -2e-10
+12259288      -2e-10
+12261273      -3e-10
+12431982      -4e-11
+12263301      -1e-10
+12264135       2e-09
+12260547      -5e-10
+12262742      -5e-11
+12262215      -6e-10
+12260759      -9e-10
+12260516      -7e-11
+12258826      -2e-09
+12253566      -1e-10
+12264892      -2e-09
+12256847      -8e-10
+12253963      -2e-12
+12264704      -7e-11
+12430915      -5e-12
+12265009       2e-09
+12258576      -2e-10
+12263663       2e-09
+
+$RaceHorse.KisyuCode
+      (Intercept)
+01151       5e-03
+05386      -8e-02
+05471      -1e-02
+01077       5e-03
+01009       2e-02
+01032       4e-02
+00660       1e-02
+05339       4e-02
+00663       2e-02
+01092      -1e-02
+01088       1e-01
+01154      -3e-03
+01114      -3e-02
+00894       8e-03
+05203      -3e-03
+01152      -8e-03
+01037       8e-03
+01018      -6e-03
+00666       6e-03
+01125       7e-03
+01130       6e-03
+01015      -3e-02
+05497      -2e-03
+01034      -2e-02
+01115       1e-02
+01116      -1e-01
+05243      -2e-02
+00689       3e-03
+01096       1e-02
+01131      -2e-04
+01135       5e-03
+00733       6e-03
+05519       8e-03
+05212       3e-02
+00700       1e-03
+05532       1e-04
+01014       4e-02
+01126      -3e-02
+01124       2e-02
+01026      -9e-03
+01038       3e-02
+00641      -1e-02
+01051      -2e-03
+01091      -1e-02
+01157       1e-02
+01095       4e-02
+01134       5e-03
+01153       2e-02
+01156       6e-03
+01102      -9e-03
+01141      -3e-02
+01025       6e-04
+00629      -7e-04
+00684       2e-03
+05336      -8e-04
+01063      -3e-04
+01036       6e-03
+01144       9e-04
+00422      -6e-02
+01104      -2e-03
+00732       8e-03
+05531      -1e-02
+01146       2e-02
+01075      -2e-03
+05268       3e-03
+01093      -9e-03
+01062       3e-03
+01150      -3e-02
+01085       2e-02
+01161      -2e-02
+01019      -4e-02
+01122      -9e-02
+01164      -3e-02
+01128       1e-02
+01142      -3e-04
+01004       9e-03
+01043      -8e-03
+01127      -1e-02
+01109       1e-02
+00722       4e-03
+01162       3e-02
+01031       5e-03
+01118      -2e-02
+01140       4e-03
+05460      -2e-03
+05528       6e-04
+01030       5e-02
+05115       2e-02
+01029       2e-03
+01158      -6e-03
+00652      -2e-03
+01119      -7e-03
+01046       4e-03
+01149       1e-04
+01099       2e-02
+01155       6e-03
+01117       1e-02
+01159      -4e-03
+01108       4e-04
+01049       8e-03
+01138      -1e-02
+00726      -2e-03
+01163      -4e-03
+01112      -1e-02
+01147      -6e-03
+01010      -6e-04
+05533      -1e-02
+01143       2e-03
+01133       3e-03
+01160      -2e-03
+05429      -5e-03
+05306      -2e-05
+01165      -1e-02
+05374      -8e-04
+05416      -3e-04
+05535      -3e-03
+05536       8e-03
+05509       2e-02
+05473       8e-03
+05135      -8e-04
+05321      -1e-03
+05529       1e-02
+05538      -1e-02
+05527      -1e-02
+05504      -2e-03
+05366       6e-04
+05390      -2e-03
+05524      -4e-05
+05342      -9e-04
+05217      -6e-05
+01132      -5e-05
+01170       3e-02
+01129      -1e-03
+05451      -3e-05
+01066      -5e-04
+01167       1e-02
+01169      -1e-02
+01059      -5e-04
+01166       2e-02
+05411      -3e-03
+05299      -7e-04
+05091      -8e-04
+05492      -8e-04
+05542      -2e-05
+05546      -7e-04
+05487      -8e-04
+05516       8e-03
+05547      -1e-03
+05447      -1e-03
+05541      -2e-03
+05445      -4e-05
+05530      -1e-05
+05522      -9e-05
+01168       5e-02
+05517      -1e-02
+05229      -1e-03
+05557      -1e-05
+01173       3e-03
+01061      -4e-04
+01171      -3e-02
+05404      -3e-05
+01139      -2e-03
+05393      -4e-04
+05377      -8e-04
+05570      -2e-04
+05569      -3e-04
+05568       1e-02
+05470      -7e-03
+01097      -4e-05
+01172      -2e-04
+05495       1e-02
+05545      -1e-05
+05575      -3e-02
+05469      -3e-04
+05573      -3e-05
+01174      -2e-02
+05525       2e-03
+05585       2e-02
+01175      -2e-04
+01178      -3e-03
+01180      -4e-03
+01176       1e-02
+01179       6e-02
+05427      -2e-03
+00817      -2e-03
+05586      -5e-04
+05271       1e-03
+05286      -1e-04
+00875       3e-03
+05171      -1e-04
+05596      -8e-03
+01182      -2e-03
+01177      -2e-03
+01184       5e-03
+01181      -6e-03
+01087      -1e-05
+05598      -2e-05
+05578      -2e-04
+01183      -6e-03
+05370      -2e-05
+01190      -3e-03
+01191      -7e-03
+01185       4e-03
+01186      -3e-03
+01188       5e-03
+01187      -3e-04
+01192      -2e-03
+01189      -1e-04
+
+[1] "--------------------------------------------------------------------------------"
+[1] "2022-03-13 19:07:01 --- glmer Finish ---"
+[1] "2022-03-13 19:07:01 --- save.image Start ---"
+[1] "save.image"
+[1] "rdataFilename=RData_analyze_glmer_Basic_Type13.RData"
+[1] "2022-03-13 19:07:01 --- save.image Finish ---"
+[1] "2022-03-13 19:07:01 --- final Start ---"
+[1] "--------------------------------------------------------------------------------"
+[1] "nrow(data) final=17657"
+[1] "--------------------------------------------------------------------------------"
+[1] "2022-03-13 19:07:01 --- final Finish ---"
+[1] "2022-03-13 19:07:01 --- analyze_glmer.R Finished ---"
+[1] "2022-03-13 19:07:01 --- log Finish ---"

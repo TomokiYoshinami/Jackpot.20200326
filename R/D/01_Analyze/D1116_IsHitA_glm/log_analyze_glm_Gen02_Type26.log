@@ -1,6 +1,6 @@
-[1] "2022-03-09 08:57:26 --- D1116_analyze_glm_Gen02_IsHitA_Type26 Start ---"
-[1] "2022-03-09 08:57:26 --- Log Start ---"
-[1] "2022-03-09 08:57:26 --- analyze_glm.R Start ---"
+[1] "2022-03-10 16:39:37 --- D1116_analyze_glm_Gen02_IsHitA_Type26 Start ---"
+[1] "2022-03-10 16:39:37 --- Log Start ---"
+[1] "2022-03-10 16:39:37 --- analyze_glm.R Start ---"
 [1] "analyzeVersion=D1116"
 [1] "analyzeCategory=analyze"
 [1] "analyzeType=Gen02"
@@ -8,35 +8,35 @@
 [1] "analyzeFunc=glm"
 [1] "analyzeTrackTypeCd=2"
 [1] "analyzeJyokenCd=6"
-[1] "2022-03-09 08:57:26 --- source_function.R Start ---"
-[1] "2022-03-09 08:57:26 --- source_function.R Finished ---"
+[1] "2022-03-10 16:39:37 --- source_function.R Start ---"
+[1] "2022-03-10 16:39:37 --- source_function.R Finished ---"
 
 > print(paste0(Sys.time(), " --- source_library.R Start ---"))
-[1] "2022-03-09 08:57:26 --- source_library.R Start ---"
+[1] "2022-03-10 16:39:37 --- source_library.R Start ---"
 
 > require("RevoScaleR")
 
 > print(paste0(Sys.time(), " --- source_library.R Finished ---"))
-[1] "2022-03-09 08:57:27 --- source_library.R Finished ---"
-[1] "2022-03-09 08:57:27 --- RxSqlServerData Start ---"
-[1] "2022-03-09 08:57:27 --- RxInSqlServer Start ---"
-[1] "2022-03-09 08:57:27 --- RxInSqlServer Finish ---"
-[1] "2022-03-09 08:57:27 --- rxSetComputeContext Start ---"
-[1] "2022-03-09 08:57:27 --- rxSetComputeContext Finish ---"
-[1] "2022-03-09 08:57:27 --- RxSqlServerData Start ---"
+[1] "2022-03-10 16:39:38 --- source_library.R Finished ---"
+[1] "2022-03-10 16:39:38 --- RxSqlServerData Start ---"
+[1] "2022-03-10 16:39:38 --- RxInSqlServer Start ---"
+[1] "2022-03-10 16:39:38 --- RxInSqlServer Finish ---"
+[1] "2022-03-10 16:39:38 --- rxSetComputeContext Start ---"
+[1] "2022-03-10 16:39:38 --- rxSetComputeContext Finish ---"
+[1] "2022-03-10 16:39:38 --- RxSqlServerData Start ---"
 [1] "sqlQuery=SELECT * FROM ViewAnalyzeD1116analyze01Gen02Type26"
-[1] "2022-03-09 08:57:27 --- RxSqlServerData Finish ---"
-[1] "2022-03-09 08:57:27 --- rxGetVarInfo Start ---"
-[1] "2022-03-09 08:57:27 --- rxGetVarInfo Finish---"
-[1] "2022-03-09 08:57:27 --- rxImport Start ---"
-Rows Read: 2104, Total Rows Processed: 2104, Total Chunk Time: 2.951 seconds 
-[1] "2022-03-09 08:57:34 --- rxImport Finish ---"
-[1] "object.size(data) auto=998.2 Kb"
+[1] "2022-03-10 16:39:38 --- RxSqlServerData Finish ---"
+[1] "2022-03-10 16:39:38 --- rxGetVarInfo Start ---"
+[1] "2022-03-10 16:39:38 --- rxGetVarInfo Finish---"
+[1] "2022-03-10 16:39:38 --- rxImport Start ---"
+Rows Read: 2104, Total Rows Processed: 2104, Total Chunk Time: 47.331 seconds 
+[1] "2022-03-10 16:41:16 --- rxImport Finish ---"
+[1] "object.size(data) auto=1.1 Mb"
 [1] "--------------------------------------------------------------------------------"
 [1] "nrow(data) RxSqlServerData=2104"
 [1] "--------------------------------------------------------------------------------"
 [1] "str(data)="
-'data.frame':	2104 obs. of  45 variables:
+'data.frame':	2104 obs. of  46 variables:
  $ Race.RaceId                      : Factor w/ 459 levels "20160109-06-01-02-03",..: 1 2 2 2 2 3 4 4 4 4 ...
  $ Race.IsAnalyzeNormalPastAndFuture: logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
  $ Race.IsAnalyzeNormalPast         : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
@@ -67,6 +67,7 @@ Rows Read: 2104, Total Rows Processed: 2104, Total Chunk Time: 2.951 seconds
  $ RaceHorse.IsHitC                 : num  1 0 0 0 0 1 0 0 1 0 ...
  $ PrevRaceHorse.RaceId             : Factor w/ 689 levels "20110110-08-01-04-03",..: 1 2 3 4 5 6 7 8 5 9 ...
  $ PrevRaceHorse.KettoNum           : Factor w/ 1733 levels "2008102777","2012101075",..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ PrevHorse.Ketto3InfoHansyokuNum2 : Factor w/ 1297 levels "12254139","12255757",..: 1 2 3 4 5 6 7 8 9 10 ...
  $ PrevRaceHorse.FinishTimeSdvByRace: num  0.633 1.165 0.81 0.569 1.202 ...
  $ PrevRaceHorse.FirstTimeSdvByRace : num  0.841 0.235 0.844 0.47 0.879 ...
  $ PrevRaceHorse.LastTimeSdvByRace  : num  0.353 1.1 0.573 0.496 1.112 ...
@@ -82,22 +83,22 @@ Rows Read: 2104, Total Rows Processed: 2104, Total Chunk Time: 2.951 seconds
  $ PrevRaceHorse.RowNum             : num  1 1 1 1 1 1 1 1 1 1 ...
  $ PrevOdds.RealOddsLog1            : num  1.18 1.58 2.33 1.06 2.03 ...
  $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
-[1] "2022-03-09 08:57:35 --- RxSqlServerData Finish ---"
-[1] "2022-03-09 08:57:35 --- subset Start ---"
+[1] "2022-03-10 16:41:16 --- RxSqlServerData Finish ---"
+[1] "2022-03-10 16:41:16 --- subset Start ---"
 [1] "--------------------------------------------------------------------------------"
 [1] "nrow(data) subset before=2104"
 [1] "nrow(data) subset after =2104"
 [1] "nrow(data) subset diff =0"
 [1] "--------------------------------------------------------------------------------"
-[1] "2022-03-09 08:57:35 --- subset Finish---"
-[1] "2022-03-09 08:57:35 --- transform Start ---"
+[1] "2022-03-10 16:41:16 --- subset Finish---"
+[1] "2022-03-10 16:41:16 --- transform Start ---"
 [1] "--------------------------------------------------------------------------------"
 [1] "nrow(data) transform before=2104"
 [1] "nrow(data) transform after=2104"
 [1] "nrow(data) transform diff=0"
 [1] "--------------------------------------------------------------------------------"
 [1] "str(data)="
-'data.frame':	2104 obs. of  45 variables:
+'data.frame':	2104 obs. of  46 variables:
  $ Race.RaceId                      : Factor w/ 459 levels "20160109-06-01-02-03",..: 1 2 2 2 2 3 4 4 4 4 ...
  $ Race.IsAnalyzeNormalPastAndFuture: logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
  $ Race.IsAnalyzeNormalPast         : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
@@ -128,6 +129,7 @@ Rows Read: 2104, Total Rows Processed: 2104, Total Chunk Time: 2.951 seconds
  $ RaceHorse.IsHitC                 : num  1 0 0 0 0 1 0 0 1 0 ...
  $ PrevRaceHorse.RaceId             : Factor w/ 689 levels "20110110-08-01-04-03",..: 1 2 3 4 5 6 7 8 5 9 ...
  $ PrevRaceHorse.KettoNum           : Factor w/ 1733 levels "2008102777","2012101075",..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ PrevHorse.Ketto3InfoHansyokuNum2 : Factor w/ 1297 levels "12254139","12255757",..: 1 2 3 4 5 6 7 8 9 10 ...
  $ PrevRaceHorse.FinishTimeSdvByRace: num  0.633 1.165 0.81 0.569 1.202 ...
  $ PrevRaceHorse.FirstTimeSdvByRace : num  0.841 0.235 0.844 0.47 0.879 ...
  $ PrevRaceHorse.LastTimeSdvByRace  : num  0.353 1.1 0.573 0.496 1.112 ...
@@ -144,14 +146,14 @@ Rows Read: 2104, Total Rows Processed: 2104, Total Chunk Time: 2.951 seconds
  $ PrevOdds.RealOddsLog1            : num  1.18 1.58 2.33 1.06 2.03 ...
  $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
 NULL
-[1] "2022-03-09 08:57:35 --- transform Finish ---"
-[1] "2022-03-09 08:57:35 --- na.omit Start ---"
+[1] "2022-03-10 16:41:16 --- transform Finish ---"
+[1] "2022-03-10 16:41:16 --- na.omit Start ---"
 [1] "--------------------------------------------------------------------------------"
 [1] "nrow(data) na.omit before=2104"
 [1] "nrow(data) na.omit after =2078"
 [1] "nrow(data) na.omit diff =26"
 [1] "--------------------------------------------------------------------------------"
-'data.frame':	2078 obs. of  45 variables:
+'data.frame':	2078 obs. of  46 variables:
  $ Race.RaceId                      : Factor w/ 459 levels "20160109-06-01-02-03",..: 1 2 2 2 2 3 4 4 4 4 ...
  $ Race.IsAnalyzeNormalPastAndFuture: logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
  $ Race.IsAnalyzeNormalPast         : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
@@ -182,6 +184,7 @@ NULL
  $ RaceHorse.IsHitC                 : num  1 0 0 0 0 1 0 0 1 0 ...
  $ PrevRaceHorse.RaceId             : Factor w/ 689 levels "20110110-08-01-04-03",..: 1 2 3 4 5 6 7 8 5 9 ...
  $ PrevRaceHorse.KettoNum           : Factor w/ 1733 levels "2008102777","2012101075",..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ PrevHorse.Ketto3InfoHansyokuNum2 : Factor w/ 1297 levels "12254139","12255757",..: 1 2 3 4 5 6 7 8 9 10 ...
  $ PrevRaceHorse.FinishTimeSdvByRace: num  0.633 1.165 0.81 0.569 1.202 ...
  $ PrevRaceHorse.FirstTimeSdvByRace : num  0.841 0.235 0.844 0.47 0.879 ...
  $ PrevRaceHorse.LastTimeSdvByRace  : num  0.353 1.1 0.573 0.496 1.112 ...
@@ -199,104 +202,148 @@ NULL
  $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
  - attr(*, "na.action")= 'omit' Named int  153 160 161 187 252 445 451 452 1050 1110 ...
   ..- attr(*, "names")= chr  "153" "160" "161" "187" ...
-[1] "2022-03-09 08:57:35 --- na.omit Finish ---"
-[1] "2022-03-09 08:57:35 --- rxLogit with rxStepControl Start ---"
+[1] "2022-03-10 16:41:16 --- na.omit Finish ---"
+[1] "2022-03-10 16:41:16 --- rxLogit with rxStepControl Start ---"
 
 > print(paste0(Sys.time(), " --- source_logic_glm.R Start ---"))
-[1] "2022-03-09 08:57:35 --- source_logic_glm.R Start ---"
+[1] "2022-03-10 16:41:16 --- source_logic_glm.R Start ---"
 
-> formula <- formula(RaceHorse.IsHitA ~ +1 + PrevRaceHorse.FinishTimeSdvByRace)
+> formula <- formula(RaceHorse.IsHitA ~ +1 + PrevHorse.Ketto3InfoHansyokuNum2, 
++     +PrevRaceHorse.FinishTimeSdvByRace)
 
 > print(paste0(Sys.time(), " --- source_logic_glm.R Finished ---"))
-[1] "2022-03-09 08:57:35 --- source_logic_glm.R Finished ---"
+[1] "2022-03-10 16:41:16 --- source_logic_glm.R Finished ---"
 Rows Read: 2078, Total Rows Processed: 2078, Total Chunk Time: 0.001 seconds 
 
-Starting values (iteration 1) time: 0.007 secs.
+Starting values (iteration 1) time: 0.316 secs.
+Rows Read: 2078, Total Rows Processed: 2078, Total Chunk Time: 0.002 seconds 
+
+Iteration 2 time: 0.225 secs.
+Rows Read: 2078, Total Rows Processed: 2078
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+
+Iteration 3 time: 0.248 secs.
 Rows Read: 2078, Total Rows Processed: 2078, Total Chunk Time: 0.001 seconds 
 
-Iteration 2 time: 0.006 secs.
-Rows Read: 2078, Total Rows Processed: 2078, Total Chunk Time: Less than .001 seconds 
 
-Iteration 3 time: 0.004 secs.
-Rows Read: 2078, Total Rows Processed: 2078, Total Chunk Time: Less than .001 seconds 
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation. (similar message repeated 2 times)
 
-Iteration 4 time: 0.005 secs.
+Iteration 4 time: 0.234 secs.
+Rows Read: 2078, Total Rows Processed: 2078, Total Chunk Time: 0.002 seconds 
 
-Elapsed computation time: 0.041 secs.
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation. (similar message repeated 2 times)
+
+Iteration 5 time: 0.270 secs.
+Rows Read: 2078, Total Rows Processed: 2078
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+, Total Chunk Time: 0.001 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+
+Iteration 6 time: 0.277 secs.
+Rows Read: 2078, Total Rows Processed: 2078
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+
+Iteration 7 time: 0.258 secs.
+Rows Read: 2078, Total Rows Processed: 2078
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+
+Iteration 8 time: 0.242 secs.
+Rows Read: 2078, Total Rows Processed: 2078, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation. (similar message repeated 2 times)
+
+Iteration 9 time: 0.265 secs.
+Rows Read: 2078, Total Rows Processed: 2078
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+
+Iteration 10 time: 0.277 secs.
+Rows Read: 2078, Total Rows Processed: 2078
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+
+Iteration 11 time: 0.247 secs.
+Rows Read: 2078, Total Rows Processed: 2078, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation. (similar message repeated 2 times)
+
+Iteration 12 time: 0.250 secs.
+Rows Read: 2078, Total Rows Processed: 2078
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+, Total Chunk Time: Less than .001 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+
+Iteration 13 time: 0.271 secs.
+Rows Read: 2078, Total Rows Processed: 2078
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+, Total Chunk Time: 0.001 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+
+Iteration 14 time: 0.275 secs.
+Rows Read: 2078, Total Rows Processed: 2078
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+
+Iteration 15 time: 0.251 secs.
+Rows Read: 2078, Total Rows Processed: 2078, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation. (similar message repeated 2 times)
+
+Iteration 16 time: 0.241 secs.
 Rows Read: 2078, Total Rows Processed: 2078, Total Chunk Time: 0.001 seconds 
 
-Starting values (iteration 1) time: 0.005 secs.
-Rows Read: 2078, Total Rows Processed: 2078, Total Chunk Time: Less than .001 seconds 
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation. (similar message repeated 2 times)
+
+Iteration 17 time: 0.265 secs.
+Rows Read: 2078, Total Rows Processed: 2078
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+, Total Chunk Time: 0.002 seconds 
+
+
+ Warning: One or more fitted probabilities were numerically 0 or 1 during estimation.
+
+Iteration 18 time: 0.269 secs.
+
+Elapsed computation time: 4.684 secs.
+Rows Read: 2078, Total Rows Processed: 2078, Total Chunk Time: 0.001 seconds 
+
+Starting values (iteration 1) time: 0.006 secs.
+Rows Read: 2078, Total Rows Processed: 2078, Total Chunk Time: 0.001 seconds 
 
 Iteration 2 time: 0.005 secs.
 
-Elapsed computation time: 0.023 secs.
-Rows Read: 2078, Total Rows Processed: 2078, Total Chunk Time: 0.001 seconds 
+Elapsed computation time: 0.020 secs.
 
-Starting values (iteration 1) time: 0.004 secs.
-Rows Read: 2078, Total Rows Processed: 2078, Total Chunk Time: 0.001 seconds 
-
-Iteration 2 time: 0.006 secs.
-Rows Read: 2078, Total Rows Processed: 2078, Total Chunk Time: Less than .001 seconds 
-
-Iteration 3 time: 0.004 secs.
-Rows Read: 2078, Total Rows Processed: 2078, Total Chunk Time: 0.002 seconds 
-
-Iteration 4 time: 0.004 secs.
-
-Elapsed computation time: 0.037 secs.
-
-Elapsed computation time: 0.113 secs.
-[1] "--------------------------------------------------------------------------------"
-[1] "analyze.results.glm.step="
-Logistic Regression Results for: RaceHorse.IsHitA ~
-    PrevRaceHorse.FinishTimeSdvByRace
-Data: data
-Dependent variable(s): RaceHorse.IsHitA
-Total independent variables: 2 
-Number of valid observations: 2078
-Number of missing observations: 0 
- 
-Coefficients:
-                                  RaceHorse.IsHitA
-(Intercept)                                   -2.8
-PrevRaceHorse.FinishTimeSdvByRace              0.3
-[1] "analyze.results.glm.step.summary"
-Call:
-rxLogit(formula = formula, data = data, variableSelection = analyze.results.glm.step.varsel)
-
-Logistic Regression Results for: RaceHorse.IsHitA ~
-    PrevRaceHorse.FinishTimeSdvByRace
-Data: data
-Dependent variable(s): RaceHorse.IsHitA
-Total independent variables: 2 
-Number of valid observations: 2078
-Number of missing observations: 0 
--2*LogLikelihood: 998.617 (Residual deviance on 2076 degrees of freedom)
- 
-Coefficients:
-                                  Estimate Std. Error z value Pr(>|z|)    
-(Intercept)                         -2.807      0.114  -24.73  2.2e-16 ***
-PrevRaceHorse.FinishTimeSdvByRace    0.296      0.124    2.39    0.017 *  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Condition number of final variance-covariance matrix: 1 
-Number of iterations: 4
-[1] "--------------------------------------------------------------------------------"
-[1] "2022-03-09 08:57:35 --- rxLogit with rxStepControl Finish ---"
-[1] "2022-03-09 08:57:35 --- rxStepPlot Start ---"
-[1] "pdfFilename=pdf_analyze_glm_Gen02_Type26_rxStepPlot.pdf"
-[1] "rxStepPlot="
-[1] "2022-03-09 08:57:36 --- rxStepPlot Finish ---"
-[1] "2022-03-09 08:57:36 --- save.image Start ---"
-[1] "save.image"
-[1] "rdataFilename=RData_analyze_glm_Gen02_Type26.RData"
-[1] "2022-03-09 08:57:36 --- save.image Finish ---"
-[1] "2022-03-09 08:57:36 --- final Start ---"
-[1] "--------------------------------------------------------------------------------"
-[1] "nrow(data) final=2078"
-[1] "--------------------------------------------------------------------------------"
-[1] "2022-03-09 08:57:36 --- final Finish ---"
-[1] "2022-03-09 08:57:36 --- analyze_glm.R Finished ---"
-[1] "2022-03-09 08:57:36 --- log Finish ---"
+Negative sum of square(s):       -1762.756355367062496952712536 (       1004.508048357003758610517252 -        2767.264403724066141876392066) with dThreshold:           0.010000000000000000208167.

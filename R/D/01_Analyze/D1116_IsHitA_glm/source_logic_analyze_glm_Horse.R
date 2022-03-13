@@ -16,11 +16,7 @@ RaceHorse.IsHitA
 # + Race.IsAnalyzeFullFuture
 # + Race.JyokenCd
 # + Race.JyoType1Cd
-# + Race.RaceType0Cd
-# + Race.RaceType1Cd
-# + Race.RaceType2Cd
-# + Race.RaceType3Cd
-# + Race.RaceType4Cd
++ Race.RaceType1Cd
 
 # + RaceHorse.RaceId
 # + RaceHorse.KettoNum
@@ -37,6 +33,8 @@ RaceHorse.IsHitA
 # + RaceHorse.IsHitD
 # + RaceHorse.IsHitE
 
+# + PrevRaceHorse.RaceId
+# + PrevRaceHorse.KettoNum
 + PrevRaceHorse.FinishTimeSdvByRace
 # + exp(PrevRaceHorse.FinishTimeSdvByRace)
 # + PrevRaceHorse.FirstTimeSdvByRace

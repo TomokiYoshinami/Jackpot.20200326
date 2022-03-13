@@ -1,6 +1,6 @@
-[1] "2022-03-09 09:01:15 --- D1116_analyze_glm_Jockey_IsHitA_Type24 Start ---"
-[1] "2022-03-09 09:01:15 --- Log Start ---"
-[1] "2022-03-09 09:01:15 --- analyze_glm.R Start ---"
+[1] "2022-03-10 16:49:33 --- D1116_analyze_glm_Jockey_IsHitA_Type24 Start ---"
+[1] "2022-03-10 16:49:33 --- Log Start ---"
+[1] "2022-03-10 16:49:33 --- analyze_glm.R Start ---"
 [1] "analyzeVersion=D1116"
 [1] "analyzeCategory=analyze"
 [1] "analyzeType=Jockey"
@@ -8,35 +8,35 @@
 [1] "analyzeFunc=glm"
 [1] "analyzeTrackTypeCd=2"
 [1] "analyzeJyokenCd=4"
-[1] "2022-03-09 09:01:15 --- source_function.R Start ---"
-[1] "2022-03-09 09:01:15 --- source_function.R Finished ---"
+[1] "2022-03-10 16:49:33 --- source_function.R Start ---"
+[1] "2022-03-10 16:49:33 --- source_function.R Finished ---"
 
 > print(paste0(Sys.time(), " --- source_library.R Start ---"))
-[1] "2022-03-09 09:01:15 --- source_library.R Start ---"
+[1] "2022-03-10 16:49:33 --- source_library.R Start ---"
 
 > require("RevoScaleR")
 
 > print(paste0(Sys.time(), " --- source_library.R Finished ---"))
-[1] "2022-03-09 09:01:15 --- source_library.R Finished ---"
-[1] "2022-03-09 09:01:15 --- RxSqlServerData Start ---"
-[1] "2022-03-09 09:01:15 --- RxInSqlServer Start ---"
-[1] "2022-03-09 09:01:15 --- RxInSqlServer Finish ---"
-[1] "2022-03-09 09:01:15 --- rxSetComputeContext Start ---"
-[1] "2022-03-09 09:01:15 --- rxSetComputeContext Finish ---"
-[1] "2022-03-09 09:01:15 --- RxSqlServerData Start ---"
+[1] "2022-03-10 16:49:34 --- source_library.R Finished ---"
+[1] "2022-03-10 16:49:34 --- RxSqlServerData Start ---"
+[1] "2022-03-10 16:49:34 --- RxInSqlServer Start ---"
+[1] "2022-03-10 16:49:34 --- RxInSqlServer Finish ---"
+[1] "2022-03-10 16:49:34 --- rxSetComputeContext Start ---"
+[1] "2022-03-10 16:49:34 --- rxSetComputeContext Finish ---"
+[1] "2022-03-10 16:49:34 --- RxSqlServerData Start ---"
 [1] "sqlQuery=SELECT * FROM ViewAnalyzeD1116analyze01JockeyType24"
-[1] "2022-03-09 09:01:15 --- RxSqlServerData Finish ---"
-[1] "2022-03-09 09:01:15 --- rxGetVarInfo Start ---"
-[1] "2022-03-09 09:01:15 --- rxGetVarInfo Finish---"
-[1] "2022-03-09 09:01:15 --- rxImport Start ---"
-Rows Read: 9525810, Total Rows Processed: 9525810, Total Chunk Time: 283.375 seconds 
-[1] "2022-03-09 09:08:55 --- rxImport Finish ---"
-[1] "object.size(data) auto=2.6 Gb"
+[1] "2022-03-10 16:49:34 --- RxSqlServerData Finish ---"
+[1] "2022-03-10 16:49:34 --- rxGetVarInfo Start ---"
+[1] "2022-03-10 16:49:34 --- rxGetVarInfo Finish---"
+[1] "2022-03-10 16:49:34 --- rxImport Start ---"
+Rows Read: 9525810, Total Rows Processed: 9525810, Total Chunk Time: 489.415 seconds 
+[1] "2022-03-10 17:09:18 --- rxImport Finish ---"
+[1] "object.size(data) auto=2.7 Gb"
 [1] "--------------------------------------------------------------------------------"
 [1] "nrow(data) RxSqlServerData=9525810"
 [1] "--------------------------------------------------------------------------------"
 [1] "str(data)="
-'data.frame':	9525810 obs. of  45 variables:
+'data.frame':	9525810 obs. of  46 variables:
  $ Race.RaceId                      : Factor w/ 2833 levels "20160105-06-01-01-03",..: 1 1 1 1 1 1 1 1 1 1 ...
  $ Race.IsAnalyzeNormalPastAndFuture: logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
  $ Race.IsAnalyzeNormalPast         : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
@@ -48,7 +48,7 @@ Rows Read: 9525810, Total Rows Processed: 9525810, Total Chunk Time: 283.375 sec
  $ Race.JyoType1Cd                  : Factor w/ 131 levels "24-06-1200-1",..: 1 1 1 1 1 1 1 1 1 1 ...
  $ Race.RaceType1Cd                 : Factor w/ 4 levels "2-4-14","2-4-12",..: 1 1 1 1 1 1 1 1 1 1 ...
  $ RaceHorse.RaceId                 : Factor w/ 2833 levels "20160105-06-01-01-03",..: 1 1 1 1 1 1 1 1 1 1 ...
- $ RaceHorse.KettoNum               : Factor w/ 7978 levels "2011101394","2011101687",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ RaceHorse.KettoNum               : Factor w/ 7978 levels "2011104597","2011101394",..: 1 1 1 1 1 1 1 1 1 1 ...
  $ RaceHorse.IsHit1                 : num  0 0 0 0 0 0 0 0 0 0 ...
  $ RaceHorse.IsHit2                 : num  0 0 0 0 0 0 0 0 0 0 ...
  $ RaceHorse.IsHit3                 : num  0 0 0 0 0 0 0 0 0 0 ...
@@ -56,48 +56,49 @@ Rows Read: 9525810, Total Rows Processed: 9525810, Total Chunk Time: 283.375 sec
  $ RaceHorse.IsHit5                 : num  0 0 0 0 0 0 0 0 0 0 ...
  $ RaceHorse.IsHit6                 : num  1 1 1 1 1 1 1 1 1 1 ...
  $ RaceHorse.IsValidRaceHorse       : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
- $ RaceHorse.FinishTimeSdvByRace    : num  0.187 0.187 0.187 0.187 0.187 ...
- $ RaceHorse.FirstTimeSdvByRace     : num  -1.42 -1.42 -1.42 -1.42 -1.42 ...
+ $ RaceHorse.FinishTimeSdvByRace    : num  0.011 0.011 0.011 0.011 0.011 ...
+ $ RaceHorse.FirstTimeSdvByRace     : num  -1.62 -1.62 -1.62 -1.62 -1.62 ...
  $ RaceHorse.LastTimeSdvByRace      : num  1.15 1.15 1.15 1.15 1.15 ...
- $ RaceHorse.FinishTimeSdv          : num  0.835 0.835 0.835 0.835 0.835 ...
- $ RaceHorse.FirstTimeSdv           : num  -0.221 -0.221 -0.221 -0.221 -0.221 ...
+ $ RaceHorse.FinishTimeSdv          : num  0.777 0.777 0.777 0.777 0.777 ...
+ $ RaceHorse.FirstTimeSdv           : num  -0.319 -0.319 -0.319 -0.319 -0.319 ...
  $ RaceHorse.LastTimeSdv            : num  1.24 1.24 1.24 1.24 1.24 ...
  $ RaceHorse.IsHitA                 : num  0 0 0 0 0 0 0 0 0 0 ...
  $ RaceHorse.IsHitB                 : num  0 0 0 0 0 0 0 0 0 0 ...
  $ RaceHorse.IsHitC                 : num  0 0 0 0 0 0 0 0 0 0 ...
- $ PrevRaceHorse.RaceId             : Factor w/ 6490 levels "20150531-05-02-12-07",..: 1 2 3 4 5 6 7 8 9 10 ...
- $ PrevRaceHorse.KettoNum           : Factor w/ 15437 levels "2011102334","2010110050",..: 1 2 3 4 5 6 7 8 9 10 ...
- $ PrevRaceHorse.FinishTimeSdvByRace: num  -0.939 0.855 1.15 1.442 1.13 ...
- $ PrevRaceHorse.FirstTimeSdvByRace : num  -0.795 -1.485 -0.145 -1.408 0.625 ...
- $ PrevRaceHorse.LastTimeSdvByRace  : num  -0.732 1.535 1.142 2.035 0.785 ...
- $ PrevRaceHorse.FinishTimeSdv      : num  -0.426 1.125 0.567 0.526 1.307 ...
- $ PrevRaceHorse.FirstTimeSdv       : num  -1.138 0.328 0.928 -0.443 1.041 ...
- $ PrevRaceHorse.LastTimeSdv        : num  0.3075 1.1926 -0.0423 1.0416 0.9431 ...
+ $ PrevRaceHorse.RaceId             : Factor w/ 6490 levels "20150111-06-01-04-07",..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ PrevRaceHorse.KettoNum           : Factor w/ 15437 levels "2008106386","2011101843",..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ PrevRaceHorse.KisyuCode          : Factor w/ 196 levels "01085","00663",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ PrevRaceHorse.FinishTimeSdvByRace: num  -0.309 1.453 0.164 -1.369 0.304 ...
+ $ PrevRaceHorse.FirstTimeSdvByRace : num  1.095 1.544 -0.864 -0.57 -0.666 ...
+ $ PrevRaceHorse.LastTimeSdvByRace  : num  -0.659 -0.49 0.968 -1.244 0.49 ...
+ $ PrevRaceHorse.FinishTimeSdv      : num  0.0577 1.0096 -0.0861 -0.6256 0.4282 ...
+ $ PrevRaceHorse.FirstTimeSdv       : num  -0.0814 1.441 0.0991 -0.0814 0.5611 ...
+ $ PrevRaceHorse.LastTimeSdv        : num  0.149 0.197 -0.204 -0.811 0.122 ...
  $ PrevRaceHorse.IsRun              : num  1 1 1 1 1 1 1 1 1 1 ...
- $ PrevRaceHorse.IsHit1             : num  0 0 1 1 1 0 0 0 0 0 ...
- $ PrevRaceHorse.IsHit2             : num  0 0 0 0 0 0 0 0 0 0 ...
- $ PrevRaceHorse.IsHit3             : num  0 1 0 0 0 0 0 0 0 0 ...
- $ PrevRaceHorse.IsHit4             : num  0 0 0 0 0 0 0 0 1 0 ...
+ $ PrevRaceHorse.IsHit1             : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ PrevRaceHorse.IsHit2             : num  0 1 0 0 0 0 0 0 0 0 ...
+ $ PrevRaceHorse.IsHit3             : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ PrevRaceHorse.IsHit4             : num  0 0 0 0 0 0 0 0 0 0 ...
  $ PrevRaceHorse.IsHit5             : num  0 0 0 0 0 0 0 0 0 0 ...
- $ PrevRaceHorse.RowNum             : num  1 2 3 4 5 6 7 8 9 10 ...
- $ PrevOdds.RealOddsLog1            : num  3.22 2.73 1.48 3.46 1.61 ...
+ $ PrevRaceHorse.RowNum             : num  29 30 31 32 33 34 35 36 37 38 ...
+ $ PrevOdds.RealOddsLog1            : num  4.08 2.71 1.77 5.11 5.46 ...
  $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
-[1] "2022-03-09 09:08:55 --- RxSqlServerData Finish ---"
-[1] "2022-03-09 09:08:55 --- subset Start ---"
+[1] "2022-03-10 17:09:19 --- RxSqlServerData Finish ---"
+[1] "2022-03-10 17:09:19 --- subset Start ---"
 [1] "--------------------------------------------------------------------------------"
 [1] "nrow(data) subset before=9525810"
 [1] "nrow(data) subset after =9525810"
 [1] "nrow(data) subset diff =0"
 [1] "--------------------------------------------------------------------------------"
-[1] "2022-03-09 09:08:57 --- subset Finish---"
-[1] "2022-03-09 09:08:57 --- transform Start ---"
+[1] "2022-03-10 17:09:25 --- subset Finish---"
+[1] "2022-03-10 17:09:25 --- transform Start ---"
 [1] "--------------------------------------------------------------------------------"
 [1] "nrow(data) transform before=9525810"
 [1] "nrow(data) transform after=9525810"
 [1] "nrow(data) transform diff=0"
 [1] "--------------------------------------------------------------------------------"
 [1] "str(data)="
-'data.frame':	9525810 obs. of  45 variables:
+'data.frame':	9525810 obs. of  46 variables:
  $ Race.RaceId                      : Factor w/ 2833 levels "20160105-06-01-01-03",..: 1 1 1 1 1 1 1 1 1 1 ...
  $ Race.IsAnalyzeNormalPastAndFuture: logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
  $ Race.IsAnalyzeNormalPast         : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
@@ -109,7 +110,7 @@ Rows Read: 9525810, Total Rows Processed: 9525810, Total Chunk Time: 283.375 sec
  $ Race.JyoType1Cd                  : Factor w/ 131 levels "24-06-1200-1",..: 1 1 1 1 1 1 1 1 1 1 ...
  $ Race.RaceType1Cd                 : Factor w/ 4 levels "2-4-14","2-4-12",..: 1 1 1 1 1 1 1 1 1 1 ...
  $ RaceHorse.RaceId                 : Factor w/ 2833 levels "20160105-06-01-01-03",..: 1 1 1 1 1 1 1 1 1 1 ...
- $ RaceHorse.KettoNum               : Factor w/ 7978 levels "2011101394","2011101687",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ RaceHorse.KettoNum               : Factor w/ 7978 levels "2011104597","2011101394",..: 1 1 1 1 1 1 1 1 1 1 ...
  $ RaceHorse.IsHit1                 : num  0 0 0 0 0 0 0 0 0 0 ...
  $ RaceHorse.IsHit2                 : num  0 0 0 0 0 0 0 0 0 0 ...
  $ RaceHorse.IsHit3                 : num  0 0 0 0 0 0 0 0 0 0 ...
@@ -117,41 +118,42 @@ Rows Read: 9525810, Total Rows Processed: 9525810, Total Chunk Time: 283.375 sec
  $ RaceHorse.IsHit5                 : num  0 0 0 0 0 0 0 0 0 0 ...
  $ RaceHorse.IsHit6                 : num  1 1 1 1 1 1 1 1 1 1 ...
  $ RaceHorse.IsValidRaceHorse       : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
- $ RaceHorse.FinishTimeSdvByRace    : num  0.187 0.187 0.187 0.187 0.187 ...
- $ RaceHorse.FirstTimeSdvByRace     : num  -1.42 -1.42 -1.42 -1.42 -1.42 ...
+ $ RaceHorse.FinishTimeSdvByRace    : num  0.011 0.011 0.011 0.011 0.011 ...
+ $ RaceHorse.FirstTimeSdvByRace     : num  -1.62 -1.62 -1.62 -1.62 -1.62 ...
  $ RaceHorse.LastTimeSdvByRace      : num  1.15 1.15 1.15 1.15 1.15 ...
- $ RaceHorse.FinishTimeSdv          : num  0.835 0.835 0.835 0.835 0.835 ...
- $ RaceHorse.FirstTimeSdv           : num  -0.221 -0.221 -0.221 -0.221 -0.221 ...
+ $ RaceHorse.FinishTimeSdv          : num  0.777 0.777 0.777 0.777 0.777 ...
+ $ RaceHorse.FirstTimeSdv           : num  -0.319 -0.319 -0.319 -0.319 -0.319 ...
  $ RaceHorse.LastTimeSdv            : num  1.24 1.24 1.24 1.24 1.24 ...
  $ RaceHorse.IsHitA                 : num  0 0 0 0 0 0 0 0 0 0 ...
  $ RaceHorse.IsHitB                 : num  0 0 0 0 0 0 0 0 0 0 ...
  $ RaceHorse.IsHitC                 : num  0 0 0 0 0 0 0 0 0 0 ...
- $ PrevRaceHorse.RaceId             : Factor w/ 6490 levels "20150531-05-02-12-07",..: 1 2 3 4 5 6 7 8 9 10 ...
- $ PrevRaceHorse.KettoNum           : Factor w/ 15437 levels "2011102334","2010110050",..: 1 2 3 4 5 6 7 8 9 10 ...
- $ PrevRaceHorse.FinishTimeSdvByRace: num  -0.939 0.855 1.15 1.442 1.13 ...
- $ PrevRaceHorse.FirstTimeSdvByRace : num  -0.795 -1.485 -0.145 -1.408 0.625 ...
- $ PrevRaceHorse.LastTimeSdvByRace  : num  -0.732 1.535 1.142 2.035 0.785 ...
- $ PrevRaceHorse.FinishTimeSdv      : num  -0.426 1.125 0.567 0.526 1.307 ...
- $ PrevRaceHorse.FirstTimeSdv       : num  -1.138 0.328 0.928 -0.443 1.041 ...
- $ PrevRaceHorse.LastTimeSdv        : num  0.3075 1.1926 -0.0423 1.0416 0.9431 ...
+ $ PrevRaceHorse.RaceId             : Factor w/ 6490 levels "20150111-06-01-04-07",..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ PrevRaceHorse.KettoNum           : Factor w/ 15437 levels "2008106386","2011101843",..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ PrevRaceHorse.KisyuCode          : Factor w/ 196 levels "01085","00663",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ PrevRaceHorse.FinishTimeSdvByRace: num  -0.309 1.453 0.164 -1.369 0.304 ...
+ $ PrevRaceHorse.FirstTimeSdvByRace : num  1.095 1.544 -0.864 -0.57 -0.666 ...
+ $ PrevRaceHorse.LastTimeSdvByRace  : num  -0.659 -0.49 0.968 -1.244 0.49 ...
+ $ PrevRaceHorse.FinishTimeSdv      : num  0.0577 1.0096 -0.0861 -0.6256 0.4282 ...
+ $ PrevRaceHorse.FirstTimeSdv       : num  -0.0814 1.441 0.0991 -0.0814 0.5611 ...
+ $ PrevRaceHorse.LastTimeSdv        : num  0.149 0.197 -0.204 -0.811 0.122 ...
  $ PrevRaceHorse.IsRun              : num  1 1 1 1 1 1 1 1 1 1 ...
- $ PrevRaceHorse.IsHit1             : num  0 0 1 1 1 0 0 0 0 0 ...
- $ PrevRaceHorse.IsHit2             : num  0 0 0 0 0 0 0 0 0 0 ...
- $ PrevRaceHorse.IsHit3             : num  0 1 0 0 0 0 0 0 0 0 ...
- $ PrevRaceHorse.IsHit4             : num  0 0 0 0 0 0 0 0 1 0 ...
+ $ PrevRaceHorse.IsHit1             : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ PrevRaceHorse.IsHit2             : num  0 1 0 0 0 0 0 0 0 0 ...
+ $ PrevRaceHorse.IsHit3             : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ PrevRaceHorse.IsHit4             : num  0 0 0 0 0 0 0 0 0 0 ...
  $ PrevRaceHorse.IsHit5             : num  0 0 0 0 0 0 0 0 0 0 ...
- $ PrevRaceHorse.RowNum             : num  1 2 3 4 5 6 7 8 9 10 ...
- $ PrevOdds.RealOddsLog1            : num  3.22 2.73 1.48 3.46 1.61 ...
+ $ PrevRaceHorse.RowNum             : num  29 30 31 32 33 34 35 36 37 38 ...
+ $ PrevOdds.RealOddsLog1            : num  4.08 2.71 1.77 5.11 5.46 ...
  $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
 NULL
-[1] "2022-03-09 09:08:58 --- transform Finish ---"
-[1] "2022-03-09 09:08:58 --- na.omit Start ---"
+[1] "2022-03-10 17:09:25 --- transform Finish ---"
+[1] "2022-03-10 17:09:25 --- na.omit Start ---"
 [1] "--------------------------------------------------------------------------------"
 [1] "nrow(data) na.omit before=9525810"
 [1] "nrow(data) na.omit after =9461952"
 [1] "nrow(data) na.omit diff =63858"
 [1] "--------------------------------------------------------------------------------"
-'data.frame':	9461952 obs. of  45 variables:
+'data.frame':	9461952 obs. of  46 variables:
  $ Race.RaceId                      : Factor w/ 2833 levels "20160105-06-01-01-03",..: 1 1 1 1 1 1 1 1 1 1 ...
  $ Race.IsAnalyzeNormalPastAndFuture: logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
  $ Race.IsAnalyzeNormalPast         : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
@@ -163,7 +165,7 @@ NULL
  $ Race.JyoType1Cd                  : Factor w/ 131 levels "24-06-1200-1",..: 1 1 1 1 1 1 1 1 1 1 ...
  $ Race.RaceType1Cd                 : Factor w/ 4 levels "2-4-14","2-4-12",..: 1 1 1 1 1 1 1 1 1 1 ...
  $ RaceHorse.RaceId                 : Factor w/ 2833 levels "20160105-06-01-01-03",..: 1 1 1 1 1 1 1 1 1 1 ...
- $ RaceHorse.KettoNum               : Factor w/ 7978 levels "2011101394","2011101687",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ RaceHorse.KettoNum               : Factor w/ 7978 levels "2011104597","2011101394",..: 1 1 1 1 1 1 1 1 1 1 ...
  $ RaceHorse.IsHit1                 : num  0 0 0 0 0 0 0 0 0 0 ...
  $ RaceHorse.IsHit2                 : num  0 0 0 0 0 0 0 0 0 0 ...
  $ RaceHorse.IsHit3                 : num  0 0 0 0 0 0 0 0 0 0 ...
@@ -171,132 +173,672 @@ NULL
  $ RaceHorse.IsHit5                 : num  0 0 0 0 0 0 0 0 0 0 ...
  $ RaceHorse.IsHit6                 : num  1 1 1 1 1 1 1 1 1 1 ...
  $ RaceHorse.IsValidRaceHorse       : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
- $ RaceHorse.FinishTimeSdvByRace    : num  0.187 0.187 0.187 0.187 0.187 ...
- $ RaceHorse.FirstTimeSdvByRace     : num  -1.42 -1.42 -1.42 -1.42 -1.42 ...
+ $ RaceHorse.FinishTimeSdvByRace    : num  0.011 0.011 0.011 0.011 0.011 ...
+ $ RaceHorse.FirstTimeSdvByRace     : num  -1.62 -1.62 -1.62 -1.62 -1.62 ...
  $ RaceHorse.LastTimeSdvByRace      : num  1.15 1.15 1.15 1.15 1.15 ...
- $ RaceHorse.FinishTimeSdv          : num  0.835 0.835 0.835 0.835 0.835 ...
- $ RaceHorse.FirstTimeSdv           : num  -0.221 -0.221 -0.221 -0.221 -0.221 ...
+ $ RaceHorse.FinishTimeSdv          : num  0.777 0.777 0.777 0.777 0.777 ...
+ $ RaceHorse.FirstTimeSdv           : num  -0.319 -0.319 -0.319 -0.319 -0.319 ...
  $ RaceHorse.LastTimeSdv            : num  1.24 1.24 1.24 1.24 1.24 ...
  $ RaceHorse.IsHitA                 : num  0 0 0 0 0 0 0 0 0 0 ...
  $ RaceHorse.IsHitB                 : num  0 0 0 0 0 0 0 0 0 0 ...
  $ RaceHorse.IsHitC                 : num  0 0 0 0 0 0 0 0 0 0 ...
- $ PrevRaceHorse.RaceId             : Factor w/ 6490 levels "20150531-05-02-12-07",..: 1 2 3 4 5 6 7 8 9 10 ...
- $ PrevRaceHorse.KettoNum           : Factor w/ 15437 levels "2011102334","2010110050",..: 1 2 3 4 5 6 7 8 9 10 ...
- $ PrevRaceHorse.FinishTimeSdvByRace: num  -0.939 0.855 1.15 1.442 1.13 ...
- $ PrevRaceHorse.FirstTimeSdvByRace : num  -0.795 -1.485 -0.145 -1.408 0.625 ...
- $ PrevRaceHorse.LastTimeSdvByRace  : num  -0.732 1.535 1.142 2.035 0.785 ...
- $ PrevRaceHorse.FinishTimeSdv      : num  -0.426 1.125 0.567 0.526 1.307 ...
- $ PrevRaceHorse.FirstTimeSdv       : num  -1.138 0.328 0.928 -0.443 1.041 ...
- $ PrevRaceHorse.LastTimeSdv        : num  0.3075 1.1926 -0.0423 1.0416 0.9431 ...
+ $ PrevRaceHorse.RaceId             : Factor w/ 6490 levels "20150111-06-01-04-07",..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ PrevRaceHorse.KettoNum           : Factor w/ 15437 levels "2008106386","2011101843",..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ PrevRaceHorse.KisyuCode          : Factor w/ 196 levels "01085","00663",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ PrevRaceHorse.FinishTimeSdvByRace: num  -0.309 1.453 0.164 -1.369 0.304 ...
+ $ PrevRaceHorse.FirstTimeSdvByRace : num  1.095 1.544 -0.864 -0.57 -0.666 ...
+ $ PrevRaceHorse.LastTimeSdvByRace  : num  -0.659 -0.49 0.968 -1.244 0.49 ...
+ $ PrevRaceHorse.FinishTimeSdv      : num  0.0577 1.0096 -0.0861 -0.6256 0.4282 ...
+ $ PrevRaceHorse.FirstTimeSdv       : num  -0.0814 1.441 0.0991 -0.0814 0.5611 ...
+ $ PrevRaceHorse.LastTimeSdv        : num  0.149 0.197 -0.204 -0.811 0.122 ...
  $ PrevRaceHorse.IsRun              : num  1 1 1 1 1 1 1 1 1 1 ...
- $ PrevRaceHorse.IsHit1             : num  0 0 1 1 1 0 0 0 0 0 ...
- $ PrevRaceHorse.IsHit2             : num  0 0 0 0 0 0 0 0 0 0 ...
- $ PrevRaceHorse.IsHit3             : num  0 1 0 0 0 0 0 0 0 0 ...
- $ PrevRaceHorse.IsHit4             : num  0 0 0 0 0 0 0 0 1 0 ...
+ $ PrevRaceHorse.IsHit1             : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ PrevRaceHorse.IsHit2             : num  0 1 0 0 0 0 0 0 0 0 ...
+ $ PrevRaceHorse.IsHit3             : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ PrevRaceHorse.IsHit4             : num  0 0 0 0 0 0 0 0 0 0 ...
  $ PrevRaceHorse.IsHit5             : num  0 0 0 0 0 0 0 0 0 0 ...
- $ PrevRaceHorse.RowNum             : num  1 2 3 4 5 6 7 8 9 10 ...
- $ PrevOdds.RealOddsLog1            : num  3.22 2.73 1.48 3.46 1.61 ...
+ $ PrevRaceHorse.RowNum             : num  29 30 31 32 33 34 35 36 37 38 ...
+ $ PrevOdds.RealOddsLog1            : num  4.08 2.71 1.77 5.11 5.46 ...
  $ EOF                              : int  1 1 1 1 1 1 1 1 1 1 ...
- - attr(*, "na.action")= 'omit' Named int  70531 70532 70533 70534 70535 70536 70537 70538 70539 70540 ...
-  ..- attr(*, "names")= chr  "70531" "70532" "70533" "70534" ...
-[1] "2022-03-09 09:09:01 --- na.omit Finish ---"
-[1] "2022-03-09 09:09:01 --- rxLogit with rxStepControl Start ---"
+ - attr(*, "na.action")= 'omit' Named int  59904 59905 59906 59907 59908 59909 59910 59911 59912 59913 ...
+  ..- attr(*, "names")= chr  "59904" "59905" "59906" "59907" ...
+[1] "2022-03-10 17:09:32 --- na.omit Finish ---"
+[1] "2022-03-10 17:09:32 --- rxLogit with rxStepControl Start ---"
 
 > print(paste0(Sys.time(), " --- source_logic_glm.R Start ---"))
-[1] "2022-03-09 09:09:01 --- source_logic_glm.R Start ---"
+[1] "2022-03-10 17:09:32 --- source_logic_glm.R Start ---"
 
-> formula <- formula(RaceHorse.IsHitA ~ +1 + PrevRaceHorse.FinishTimeSdvByRace)
+> formula <- formula(RaceHorse.IsHitA ~ +1 + PrevRaceHorse.KisyuCode + 
++     PrevRaceHorse.FinishTimeSdvByRace)
 
 > print(paste0(Sys.time(), " --- source_logic_glm.R Finished ---"))
-[1] "2022-03-09 09:09:01 --- source_logic_glm.R Finished ---"
-Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.118 seconds 
+[1] "2022-03-10 17:09:32 --- source_logic_glm.R Finished ---"
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.258 seconds 
 
-Starting values (iteration 1) time: 0.140 secs.
-Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.294 seconds 
+Starting values (iteration 1) time: 0.292 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.745 seconds 
 
-Iteration 2 time: 0.316 secs.
-Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.385 seconds 
+Iteration 2 time: 0.796 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.775 seconds 
+
+Iteration 3 time: 0.814 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.792 seconds 
+
+Iteration 4 time: 0.819 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.709 seconds 
+
+Iteration 5 time: 0.743 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.744 seconds 
+
+Iteration 6 time: 0.774 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.716 seconds 
+
+Iteration 7 time: 0.860 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.722 seconds 
+
+Iteration 8 time: 0.899 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.744 seconds 
+
+Iteration 9 time: 0.928 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.740 seconds 
+
+Iteration 10 time: 0.937 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.735 seconds 
+
+Iteration 11 time: 0.770 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.768 seconds 
+
+Iteration 12 time: 0.804 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.804 seconds 
+
+Iteration 13 time: 0.869 secs.
+
+Elapsed computation time: 10.307 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.181 seconds 
+
+Starting values (iteration 1) time: 0.216 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.624 seconds 
+
+Iteration 2 time: 0.657 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.591 seconds 
+
+Iteration 3 time: 0.629 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.601 seconds 
+
+Iteration 4 time: 0.635 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.586 seconds 
+
+Iteration 5 time: 0.610 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.643 seconds 
+
+Iteration 6 time: 0.680 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.628 seconds 
+
+Iteration 7 time: 0.661 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.579 seconds 
+
+Iteration 8 time: 0.654 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.577 seconds 
+
+Iteration 9 time: 0.606 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.654 seconds 
+
+Iteration 10 time: 0.683 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.580 seconds 
+
+Iteration 11 time: 0.618 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.554 seconds 
+
+Iteration 12 time: 0.766 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.578 seconds 
+
+Iteration 13 time: 0.602 secs.
+
+Elapsed computation time: 8.021 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.181 seconds 
+
+Starting values (iteration 1) time: 0.203 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.396 seconds 
+
+Iteration 2 time: 0.419 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.384 seconds 
 
 Iteration 3 time: 0.400 secs.
-Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.297 seconds 
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.412 seconds 
 
-Iteration 4 time: 0.312 secs.
+Iteration 4 time: 0.429 secs.
 
-Elapsed computation time: 1.168 secs.
-Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.078 seconds 
+Elapsed computation time: 1.452 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.138 seconds 
 
-Starting values (iteration 1) time: 0.095 secs.
-Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.225 seconds 
+Starting values (iteration 1) time: 0.162 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.612 seconds 
 
-Iteration 2 time: 0.243 secs.
+Iteration 2 time: 0.644 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.560 seconds 
 
-Elapsed computation time: 0.338 secs.
-Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.141 seconds 
+Iteration 3 time: 0.593 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.573 seconds 
 
-Starting values (iteration 1) time: 0.164 secs.
-Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.292 seconds 
+Iteration 4 time: 0.599 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.615 seconds 
 
-Iteration 2 time: 0.313 secs.
-Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.295 seconds 
+Iteration 5 time: 0.638 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.567 seconds 
 
-Iteration 3 time: 0.310 secs.
-Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.324 seconds 
+Iteration 6 time: 0.612 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.574 seconds 
 
-Iteration 4 time: 0.339 secs.
+Iteration 7 time: 0.608 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.624 seconds 
 
-Elapsed computation time: 1.126 secs.
+Iteration 8 time: 0.647 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.558 seconds 
 
-Elapsed computation time: 2.650 secs.
+Iteration 9 time: 0.683 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.613 seconds 
+
+Iteration 10 time: 0.636 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.632 seconds 
+
+Iteration 11 time: 0.659 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.572 seconds 
+
+Iteration 12 time: 0.606 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.605 seconds 
+
+Iteration 13 time: 0.629 secs.
+
+Elapsed computation time: 7.718 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.109 seconds 
+
+Starting values (iteration 1) time: 0.129 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.316 seconds 
+
+Iteration 2 time: 0.337 secs.
+
+Elapsed computation time: 0.467 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.154 seconds 
+
+Starting values (iteration 1) time: 0.173 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.614 seconds 
+
+Iteration 2 time: 0.648 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.602 seconds 
+
+Iteration 3 time: 0.629 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.563 seconds 
+
+Iteration 4 time: 0.591 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.568 seconds 
+
+Iteration 5 time: 0.667 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.559 seconds 
+
+Iteration 6 time: 0.692 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.589 seconds 
+
+Iteration 7 time: 0.688 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.550 seconds 
+
+Iteration 8 time: 0.705 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.553 seconds 
+
+Iteration 9 time: 0.708 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.577 seconds 
+
+Iteration 10 time: 0.803 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.514 seconds 
+
+Iteration 11 time: 0.536 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.597 seconds 
+
+Iteration 12 time: 0.621 secs.
+Rows Read: 9461952, Total Rows Processed: 9461952, Total Chunk Time: 0.598 seconds 
+
+Iteration 13 time: 0.622 secs.
+
+Elapsed computation time: 8.086 secs.
+
+Elapsed computation time: 36.099 secs.
 [1] "--------------------------------------------------------------------------------"
 [1] "analyze.results.glm.step="
 Logistic Regression Results for: RaceHorse.IsHitA ~
-    PrevRaceHorse.FinishTimeSdvByRace
+    PrevRaceHorse.KisyuCode
 Data: data
 Dependent variable(s): RaceHorse.IsHitA
-Total independent variables: 2 
+Total independent variables: 197 (Including number dropped: 1)
 Number of valid observations: 9461952
 Number of missing observations: 0 
  
 Coefficients:
-                                  RaceHorse.IsHitA
-(Intercept)                                   -2.5
-PrevRaceHorse.FinishTimeSdvByRace              0.1
+                              RaceHorse.IsHitA
+(Intercept)                                -13
+PrevRaceHorse.KisyuCode=01085               10
+PrevRaceHorse.KisyuCode=00663               10
+PrevRaceHorse.KisyuCode=01127               10
+PrevRaceHorse.KisyuCode=01091                9
+PrevRaceHorse.KisyuCode=01025               10
+PrevRaceHorse.KisyuCode=05471               11
+PrevRaceHorse.KisyuCode=01151                9
+PrevRaceHorse.KisyuCode=01018               10
+PrevRaceHorse.KisyuCode=05203               11
+PrevRaceHorse.KisyuCode=00660               11
+PrevRaceHorse.KisyuCode=01146               10
+PrevRaceHorse.KisyuCode=01009                9
+PrevRaceHorse.KisyuCode=01088               11
+PrevRaceHorse.KisyuCode=00422               10
+PrevRaceHorse.KisyuCode=01092               10
+PrevRaceHorse.KisyuCode=01062               10
+PrevRaceHorse.KisyuCode=01124                9
+PrevRaceHorse.KisyuCode=01038               10
+PrevRaceHorse.KisyuCode=01114               10
+PrevRaceHorse.KisyuCode=00894               10
+PrevRaceHorse.KisyuCode=01152                9
+PrevRaceHorse.KisyuCode=05339               11
+PrevRaceHorse.KisyuCode=00689                9
+PrevRaceHorse.KisyuCode=01116               10
+PrevRaceHorse.KisyuCode=05386               11
+PrevRaceHorse.KisyuCode=01019               10
+PrevRaceHorse.KisyuCode=01122               11
+PrevRaceHorse.KisyuCode=00733               10
+PrevRaceHorse.KisyuCode=01095               10
+PrevRaceHorse.KisyuCode=01157               10
+PrevRaceHorse.KisyuCode=01156               10
+PrevRaceHorse.KisyuCode=00732               10
+PrevRaceHorse.KisyuCode=05243               10
+PrevRaceHorse.KisyuCode=01155                9
+PrevRaceHorse.KisyuCode=05212               11
+PrevRaceHorse.KisyuCode=01037               10
+PrevRaceHorse.KisyuCode=01128               10
+PrevRaceHorse.KisyuCode=01115               11
+PrevRaceHorse.KisyuCode=00641                9
+PrevRaceHorse.KisyuCode=00666               11
+PrevRaceHorse.KisyuCode=05497               -2
+PrevRaceHorse.KisyuCode=01026               10
+PrevRaceHorse.KisyuCode=01154               10
+PrevRaceHorse.KisyuCode=01096               10
+PrevRaceHorse.KisyuCode=01150                9
+PrevRaceHorse.KisyuCode=01032               10
+PrevRaceHorse.KisyuCode=01138               10
+PrevRaceHorse.KisyuCode=01131                8
+PrevRaceHorse.KisyuCode=01130                9
+PrevRaceHorse.KisyuCode=01034                9
+PrevRaceHorse.KisyuCode=01099               10
+PrevRaceHorse.KisyuCode=01126               10
+PrevRaceHorse.KisyuCode=01010                9
+PrevRaceHorse.KisyuCode=01077               10
+PrevRaceHorse.KisyuCode=01117               10
+PrevRaceHorse.KisyuCode=01109                9
+PrevRaceHorse.KisyuCode=01149                9
+PrevRaceHorse.KisyuCode=00684               10
+PrevRaceHorse.KisyuCode=01004                9
+PrevRaceHorse.KisyuCode=01140               10
+PrevRaceHorse.KisyuCode=01134                9
+PrevRaceHorse.KisyuCode=01132               -2
+PrevRaceHorse.KisyuCode=01144               10
+PrevRaceHorse.KisyuCode=01029                9
+PrevRaceHorse.KisyuCode=01031               10
+PrevRaceHorse.KisyuCode=01049                9
+PrevRaceHorse.KisyuCode=01051                9
+PrevRaceHorse.KisyuCode=01153                9
+PrevRaceHorse.KisyuCode=01030               10
+PrevRaceHorse.KisyuCode=05429               10
+PrevRaceHorse.KisyuCode=01125                9
+PrevRaceHorse.KisyuCode=01112                8
+PrevRaceHorse.KisyuCode=01036               10
+PrevRaceHorse.KisyuCode=01075               10
+PrevRaceHorse.KisyuCode=01133                9
+PrevRaceHorse.KisyuCode=01159                9
+PrevRaceHorse.KisyuCode=01158                8
+PrevRaceHorse.KisyuCode=01147                9
+PrevRaceHorse.KisyuCode=05532               11
+PrevRaceHorse.KisyuCode=01063                9
+PrevRaceHorse.KisyuCode=01141               10
+PrevRaceHorse.KisyuCode=01102               11
+PrevRaceHorse.KisyuCode=01015               10
+PrevRaceHorse.KisyuCode=01135                9
+PrevRaceHorse.KisyuCode=01142                9
+PrevRaceHorse.KisyuCode=05268               10
+PrevRaceHorse.KisyuCode=05531               10
+PrevRaceHorse.KisyuCode=01137               -2
+PrevRaceHorse.KisyuCode=00722                8
+PrevRaceHorse.KisyuCode=01119                9
+PrevRaceHorse.KisyuCode=05519               -2
+PrevRaceHorse.KisyuCode=00652               -2
+PrevRaceHorse.KisyuCode=01118               10
+PrevRaceHorse.KisyuCode=01080               -2
+PrevRaceHorse.KisyuCode=00629               10
+PrevRaceHorse.KisyuCode=01104               -2
+PrevRaceHorse.KisyuCode=00726                9
+PrevRaceHorse.KisyuCode=01059               -2
+PrevRaceHorse.KisyuCode=01097               -2
+PrevRaceHorse.KisyuCode=05336               11
+PrevRaceHorse.KisyuCode=05299               11
+PrevRaceHorse.KisyuCode=01046                9
+PrevRaceHorse.KisyuCode=01143                9
+PrevRaceHorse.KisyuCode=01123               -2
+PrevRaceHorse.KisyuCode=01139               10
+PrevRaceHorse.KisyuCode=01014               11
+PrevRaceHorse.KisyuCode=01057               10
+PrevRaceHorse.KisyuCode=01093               11
+PrevRaceHorse.KisyuCode=00700               10
+PrevRaceHorse.KisyuCode=05053               -2
+PrevRaceHorse.KisyuCode=01108               -2
+PrevRaceHorse.KisyuCode=05115               10
+PrevRaceHorse.KisyuCode=01163               10
+PrevRaceHorse.KisyuCode=01165               10
+PrevRaceHorse.KisyuCode=01161               10
+PrevRaceHorse.KisyuCode=01162               10
+PrevRaceHorse.KisyuCode=05328               -2
+PrevRaceHorse.KisyuCode=01129               10
+PrevRaceHorse.KisyuCode=01164               10
+PrevRaceHorse.KisyuCode=01160               10
+PrevRaceHorse.KisyuCode=05451               -2
+PrevRaceHorse.KisyuCode=01043               10
+PrevRaceHorse.KisyuCode=05528               11
+PrevRaceHorse.KisyuCode=05529               11
+PrevRaceHorse.KisyuCode=05460               -2
+PrevRaceHorse.KisyuCode=01061               -2
+PrevRaceHorse.KisyuCode=01101               -2
+PrevRaceHorse.KisyuCode=01105               -2
+PrevRaceHorse.KisyuCode=05135                9
+PrevRaceHorse.KisyuCode=05533               -2
+PrevRaceHorse.KisyuCode=05509               11
+PrevRaceHorse.KisyuCode=05091               -2
+PrevRaceHorse.KisyuCode=05473               11
+PrevRaceHorse.KisyuCode=01087               -2
+PrevRaceHorse.KisyuCode=05321               11
+PrevRaceHorse.KisyuCode=01072               -2
+PrevRaceHorse.KisyuCode=05366               11
+PrevRaceHorse.KisyuCode=05504               -2
+PrevRaceHorse.KisyuCode=05527               11
+PrevRaceHorse.KisyuCode=05538               10
+PrevRaceHorse.KisyuCode=01023               -2
+PrevRaceHorse.KisyuCode=01008               -2
+PrevRaceHorse.KisyuCode=01069               -2
+PrevRaceHorse.KisyuCode=05161               -2
+PrevRaceHorse.KisyuCode=05199               -2
+PrevRaceHorse.KisyuCode=01066               -2
+PrevRaceHorse.KisyuCode=05230               -2
+PrevRaceHorse.KisyuCode=01169               10
+PrevRaceHorse.KisyuCode=05217               -2
+PrevRaceHorse.KisyuCode=05229               -2
+PrevRaceHorse.KisyuCode=01168               10
+PrevRaceHorse.KisyuCode=01166               10
+PrevRaceHorse.KisyuCode=01167                9
+PrevRaceHorse.KisyuCode=01170               10
+PrevRaceHorse.KisyuCode=05171               -2
+PrevRaceHorse.KisyuCode=05411               -2
+PrevRaceHorse.KisyuCode=05547               -2
+PrevRaceHorse.KisyuCode=05286               -2
+PrevRaceHorse.KisyuCode=05404               -2
+PrevRaceHorse.KisyuCode=05342               10
+PrevRaceHorse.KisyuCode=05435               -2
+PrevRaceHorse.KisyuCode=05517               10
+PrevRaceHorse.KisyuCode=05364               34
+PrevRaceHorse.KisyuCode=01171               10
+PrevRaceHorse.KisyuCode=01173                9
+PrevRaceHorse.KisyuCode=01172                7
+PrevRaceHorse.KisyuCode=05420               -2
+PrevRaceHorse.KisyuCode=05534               -2
+PrevRaceHorse.KisyuCode=05568               11
+PrevRaceHorse.KisyuCode=05377               -2
+PrevRaceHorse.KisyuCode=05524               -2
+PrevRaceHorse.KisyuCode=05445               -2
+PrevRaceHorse.KisyuCode=05470               -2
+PrevRaceHorse.KisyuCode=05495               12
+PrevRaceHorse.KisyuCode=05574               -2
+PrevRaceHorse.KisyuCode=05575               12
+PrevRaceHorse.KisyuCode=05469               11
+PrevRaceHorse.KisyuCode=01178               10
+PrevRaceHorse.KisyuCode=01179               10
+PrevRaceHorse.KisyuCode=01177               10
+PrevRaceHorse.KisyuCode=01176               10
+PrevRaceHorse.KisyuCode=05525                9
+PrevRaceHorse.KisyuCode=01174               10
+PrevRaceHorse.KisyuCode=01175               10
+PrevRaceHorse.KisyuCode=01180               11
+PrevRaceHorse.KisyuCode=05585               10
+PrevRaceHorse.KisyuCode=05089               -2
+PrevRaceHorse.KisyuCode=05492               -2
+PrevRaceHorse.KisyuCode=01120               -2
+PrevRaceHorse.KisyuCode=05271               12
+PrevRaceHorse.KisyuCode=01182               10
+PrevRaceHorse.KisyuCode=01183                9
+PrevRaceHorse.KisyuCode=05596               10
+PrevRaceHorse.KisyuCode=01184               10
+PrevRaceHorse.KisyuCode=01181               10
+PrevRaceHorse.KisyuCode=05390          Dropped
 [1] "analyze.results.glm.step.summary"
 Call:
 rxLogit(formula = formula, data = data, variableSelection = analyze.results.glm.step.varsel)
 
 Logistic Regression Results for: RaceHorse.IsHitA ~
-    PrevRaceHorse.FinishTimeSdvByRace
+    PrevRaceHorse.KisyuCode
 Data: data
 Dependent variable(s): RaceHorse.IsHitA
-Total independent variables: 2 
+Total independent variables: 197 (Including number dropped: 1)
 Number of valid observations: 9461952
 Number of missing observations: 0 
--2*LogLikelihood: 5119189.397 (Residual deviance on 9461950 degrees of freedom)
+-2*LogLikelihood: 4928094.219 (Residual deviance on 9461756 degrees of freedom)
  
 Coefficients:
-                                  Estimate Std. Error z value Pr(>|z|)    
-(Intercept)                       -2.50949    0.00127 -1973.0  2.2e-16 ***
-PrevRaceHorse.FinishTimeSdvByRace  0.10645    0.00147    72.5  2.2e-16 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+                              Estimate Std. Error z value Pr(>|z|)
+(Intercept)                     -12.57     481.24   -0.03     0.98
+PrevRaceHorse.KisyuCode=01085     9.62     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=00663    10.15     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01127    10.11     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01091     9.27     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01025    10.00     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05471    10.58     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01151     9.48     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01018    10.21     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05203    10.53     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=00660    10.93     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01146     9.63     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01009     9.44     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01088    11.46     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=00422    10.01     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01092     9.69     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01062    10.03     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01124     9.40     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01038     9.96     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01114     9.56     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=00894    10.02     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01152     9.09     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05339    11.47     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=00689     9.44     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01116    10.16     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05386    11.07     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01019    10.24     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01122    10.54     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=00733     9.80     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01095    10.42     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01157     9.77     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01156     9.61     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=00732     9.97     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05243    10.08     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01155     9.49     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05212    11.05     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01037     9.93     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01128     9.81     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01115    10.55     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=00641     9.33     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=00666    10.84     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05497    -2.04     522.26    0.00     1.00
+PrevRaceHorse.KisyuCode=01026     9.53     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01154     9.62     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01096    10.17     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01150     9.44     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01032    10.35     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01138     9.64     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01131     7.91     481.24    0.02     0.99
+PrevRaceHorse.KisyuCode=01130     9.42     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01034     9.12     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01099     9.52     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01126    10.38     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01010     8.55     481.24    0.02     0.99
+PrevRaceHorse.KisyuCode=01077    10.29     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01117     9.61     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01109     9.08     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01149     9.29     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=00684    10.06     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01004     8.91     481.24    0.02     0.99
+PrevRaceHorse.KisyuCode=01140     9.53     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01134     8.77     481.24    0.02     0.99
+PrevRaceHorse.KisyuCode=01132    -2.04     482.29    0.00     1.00
+PrevRaceHorse.KisyuCode=01144    10.17     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01029     8.87     481.24    0.02     0.99
+PrevRaceHorse.KisyuCode=01031     9.99     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01049     8.91     481.24    0.02     0.99
+PrevRaceHorse.KisyuCode=01051     9.28     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01153     9.39     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01030    10.01     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05429     9.61     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01125     9.29     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01112     8.46     481.24    0.02     0.99
+PrevRaceHorse.KisyuCode=01036     9.54     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01075    10.30     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01133     9.01     481.24    0.02     0.99
+PrevRaceHorse.KisyuCode=01159     8.71     481.24    0.02     0.99
+PrevRaceHorse.KisyuCode=01158     8.21     481.24    0.02     0.99
+PrevRaceHorse.KisyuCode=01147     9.28     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05532    10.83     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01063     8.79     481.24    0.02     0.99
+PrevRaceHorse.KisyuCode=01141     9.64     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01102    10.62     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01015     9.90     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01135     9.10     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01142     9.48     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05268     9.65     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05531     9.60     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01137    -2.04     534.61    0.00     1.00
+PrevRaceHorse.KisyuCode=00722     7.55     481.24    0.02     0.99
+PrevRaceHorse.KisyuCode=01119     9.38     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05519    -2.04     775.93    0.00     1.00
+PrevRaceHorse.KisyuCode=00652    -2.04     481.74    0.00     1.00
+PrevRaceHorse.KisyuCode=01118     9.91     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01080    -2.04     520.85    0.00     1.00
+PrevRaceHorse.KisyuCode=00629    10.11     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01104    -2.04     483.24    0.00     1.00
+PrevRaceHorse.KisyuCode=00726     9.06     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01059    -2.04     523.00    0.00     1.00
+PrevRaceHorse.KisyuCode=01097    -2.04     482.52    0.00     1.00
+PrevRaceHorse.KisyuCode=05336    10.62     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05299    10.75     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01046     9.18     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01143     8.71     481.24    0.02     0.99
+PrevRaceHorse.KisyuCode=01123    -2.04     484.48    0.00     1.00
+PrevRaceHorse.KisyuCode=01139     9.72     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01014    10.51     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01057    10.16     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01093    10.58     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=00700     9.94     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05053    -2.04     691.79    0.00     1.00
+PrevRaceHorse.KisyuCode=01108    -2.04     481.41    0.00     1.00
+PrevRaceHorse.KisyuCode=05115     9.83     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01163     9.88     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01165     9.77     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01161     9.64     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01162     9.60     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05328    -2.04     741.04    0.00     1.00
+PrevRaceHorse.KisyuCode=01129    10.13     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01164     9.75     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01160     9.98     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05451    -2.04     550.72    0.00     1.00
+PrevRaceHorse.KisyuCode=01043    10.14     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05528    11.18     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05529    10.97     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05460    -2.04     535.87    0.00     1.00
+PrevRaceHorse.KisyuCode=01061    -2.04     481.86    0.00     1.00
+PrevRaceHorse.KisyuCode=01101    -2.04     510.35    0.00     1.00
+PrevRaceHorse.KisyuCode=01105    -2.04     560.28    0.00     1.00
+PrevRaceHorse.KisyuCode=05135     9.48     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05533    -2.04     616.26    0.00     1.00
+PrevRaceHorse.KisyuCode=05509    11.48     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05091    -2.04     497.35    0.00     1.00
+PrevRaceHorse.KisyuCode=05473    11.01     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01087    -2.04     490.57    0.00     1.00
+PrevRaceHorse.KisyuCode=05321    11.03     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01072    -2.04     552.89    0.00     1.00
+PrevRaceHorse.KisyuCode=05366    11.34     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05504    -2.04     494.11    0.00     1.00
+PrevRaceHorse.KisyuCode=05527    11.40     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05538     9.84     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01023    -2.04     673.70    0.00     1.00
+PrevRaceHorse.KisyuCode=01008    -2.04    1566.66    0.00     1.00
+PrevRaceHorse.KisyuCode=01069    -2.04    1566.66    0.00     1.00
+PrevRaceHorse.KisyuCode=05161    -2.04     713.75    0.00     1.00
+PrevRaceHorse.KisyuCode=05199    -2.04     658.53    0.00     1.00
+PrevRaceHorse.KisyuCode=01066    -2.04     498.69    0.00     1.00
+PrevRaceHorse.KisyuCode=05230    -2.04    1566.66    0.00     1.00
+PrevRaceHorse.KisyuCode=01169     9.95     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05217    -2.04     595.89    0.00     1.00
+PrevRaceHorse.KisyuCode=05229    -2.04     533.40    0.00     1.00
+PrevRaceHorse.KisyuCode=01168     9.64     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01166     9.82     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01167     8.87     481.24    0.02     0.99
+PrevRaceHorse.KisyuCode=01170     9.96     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05171    -2.04     500.11    0.00     1.00
+PrevRaceHorse.KisyuCode=05411    -2.04     504.03    0.00     1.00
+PrevRaceHorse.KisyuCode=05547    -2.04    1566.66    0.00     1.00
+PrevRaceHorse.KisyuCode=05286    -2.04     498.05    0.00     1.00
+PrevRaceHorse.KisyuCode=05404    -2.04     887.30    0.00     1.00
+PrevRaceHorse.KisyuCode=05342    10.23     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05435    -2.04    1158.88    0.00     1.00
+PrevRaceHorse.KisyuCode=05517     9.80     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05364    34.11   47567.84    0.00     1.00
+PrevRaceHorse.KisyuCode=01171    10.24     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01173     9.48     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01172     7.26     481.24    0.02     0.99
+PrevRaceHorse.KisyuCode=05420    -2.04    1566.66    0.00     1.00
+PrevRaceHorse.KisyuCode=05534    -2.04     673.70    0.00     1.00
+PrevRaceHorse.KisyuCode=05568    10.82     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05377    -2.04     634.49    0.00     1.00
+PrevRaceHorse.KisyuCode=05524    -2.04     775.93    0.00     1.00
+PrevRaceHorse.KisyuCode=05445    -2.04    1566.66    0.00     1.00
+PrevRaceHorse.KisyuCode=05470    -2.04     510.72    0.00     1.00
+PrevRaceHorse.KisyuCode=05495    11.88     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05574    -2.04    1566.66    0.00     1.00
+PrevRaceHorse.KisyuCode=05575    11.82     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05469    11.42     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01178    10.24     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01179     9.90     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01177    10.15     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01176    10.31     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05525     9.18     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01174    10.42     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01175     9.56     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01180    10.78     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05585    10.23     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05089    -2.04    1158.88    0.00     1.00
+PrevRaceHorse.KisyuCode=05492    -2.04    1566.66    0.00     1.00
+PrevRaceHorse.KisyuCode=01120    -2.04     713.75    0.00     1.00
+PrevRaceHorse.KisyuCode=05271    11.91     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01182     9.83     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01183     9.30     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05596     9.85     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01184     9.84     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=01181     9.99     481.24    0.02     0.98
+PrevRaceHorse.KisyuCode=05390  Dropped    Dropped Dropped  Dropped
 
-Condition number of final variance-covariance matrix: 1 
-Number of iterations: 4
+Condition number of final variance-covariance matrix: 8e+11 
+Number of iterations: 13
 [1] "--------------------------------------------------------------------------------"
-[1] "2022-03-09 09:09:06 --- rxLogit with rxStepControl Finish ---"
-[1] "2022-03-09 09:09:06 --- rxStepPlot Start ---"
+[1] "2022-03-10 17:10:13 --- rxLogit with rxStepControl Finish ---"
+[1] "2022-03-10 17:10:13 --- rxStepPlot Start ---"
 [1] "pdfFilename=pdf_analyze_glm_Jockey_Type24_rxStepPlot.pdf"
 [1] "rxStepPlot="
-[1] "2022-03-09 09:09:07 --- rxStepPlot Finish ---"
-[1] "2022-03-09 09:09:07 --- save.image Start ---"
+[1] "2022-03-10 17:10:13 --- rxStepPlot Finish ---"
+[1] "2022-03-10 17:10:13 --- save.image Start ---"
 [1] "save.image"
 [1] "rdataFilename=RData_analyze_glm_Jockey_Type24.RData"
-[1] "2022-03-09 09:09:41 --- save.image Finish ---"
-[1] "2022-03-09 09:09:41 --- final Start ---"
+[1] "2022-03-10 17:10:56 --- save.image Finish ---"
+[1] "2022-03-10 17:10:56 --- final Start ---"
 [1] "--------------------------------------------------------------------------------"
 [1] "nrow(data) final=9461952"
 [1] "--------------------------------------------------------------------------------"
-[1] "2022-03-09 09:09:41 --- final Finish ---"
-[1] "2022-03-09 09:09:41 --- analyze_glm.R Finished ---"
-[1] "2022-03-09 09:09:41 --- log Finish ---"
+[1] "2022-03-10 17:10:56 --- final Finish ---"
+[1] "2022-03-10 17:10:56 --- analyze_glm.R Finished ---"
+[1] "2022-03-10 17:10:56 --- log Finish ---"
